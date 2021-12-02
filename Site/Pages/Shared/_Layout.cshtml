@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru-RU"
+      prefix="og: http://ogp.me/ns#
+	          fb: http://ogp.me/ns/fb#
+	          book: http://ogp.me/ns/book#
+	          video: http://ogp.me/ns/video#
+	          ya: http://webmaster.yandex.ru/vocabularies/">
+
+@await Html.PartialAsync("_HeadPartial")
+
+<body itemscope itemtype="http://schema.org/WebPage">
+
+    <meta itemprop="image" content="@ViewData["PageImage"]">
+    <meta itemprop="lastReviewed" content="@ViewData["LastReviewed"]">
+
+    <div class="container-fluid container-fluid-1920">
+
+        @await Html.PartialAsync("_TeaserTopPartial")
+
+        <hr class="liniya" />
+
+        @await Html.PartialAsync("_NavPartial")
+
+        <div class="row text-center bg-light">
+
+            <div class="col d-none d-sm-inline-block bg-image @ViewData["BackgroundLeft"]"></div>
+
+            <main itemprop="mainContentOfPage" class="col-12 col-sm-9 pb-3 text-center shadw">
+
+                @RenderBody()
+
+            </main>
+
+            <div class="col d-none d-sm-flex bg-image @ViewData["BackgroundRight"]"></div>
+
+        </div>
+
+        <hr class="liniya" />
+
+        @await Html.PartialAsync("_FooterPartial")
+
+        @await Html.PartialAsync("_ScriptsPartial")
+
+        @await Html.PartialAsync("_TeaserBottomPartial")
+
+    </div>
+
+    @RenderSection("jscripts", false)
+
+</body>
+</html>
