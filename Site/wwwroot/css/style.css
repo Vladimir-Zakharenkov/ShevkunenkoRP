@@ -142,8 +142,11 @@ a .card-title2 {
 /* тег hr */
 .liniya {
     width: 96%;
-    height: 1px;
-    border: 1px solid red;
+    height: 1px !important;
+    color: hsla(330,60%,45%,.9);
+    border-color: hsla(0,90%,40%,.9);
+    box-shadow: .1em .1em .1em hsla(0,0%,0%,.6);
+    opacity: .9 !important;
     margin: 1rem auto;
 }
 

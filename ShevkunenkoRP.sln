@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site", "Site\Site.csproj", "{EC3DB04B-7E86-406A-8A90-EDC9A8065587}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesMovie", "RazorPagesMovie\RazorPagesMovie.csproj", "{973D82F8-14DD-4F86-8AB5-161F87ABB453}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EC3DB04B-7E86-406A-8A90-EDC9A8065587}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC3DB04B-7E86-406A-8A90-EDC9A8065587}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC3DB04B-7E86-406A-8A90-EDC9A8065587}.Release|Any CPU.Build.0 = Release|Any CPU
+		{973D82F8-14DD-4F86-8AB5-161F87ABB453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{973D82F8-14DD-4F86-8AB5-161F87ABB453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{973D82F8-14DD-4F86-8AB5-161F87ABB453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{973D82F8-14DD-4F86-8AB5-161F87ABB453}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
