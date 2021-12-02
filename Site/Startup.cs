@@ -39,6 +39,7 @@ namespace Site
                 app.UseHsts();
             }
 
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
