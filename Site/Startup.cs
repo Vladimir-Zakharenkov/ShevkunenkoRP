@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.WebEncoders;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 namespace Site
 {
@@ -18,6 +21,10 @@ namespace Site
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.Configure<WebEncoderOptions>(options =>
+                options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
