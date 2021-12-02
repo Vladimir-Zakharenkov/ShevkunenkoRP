@@ -1,0 +1,174 @@
+﻿:root {
+    /* цвета тени */
+    --shadow-background: hsla(350,54%,98%,1.00);
+    --shadow-box: hsla(350,54%,98%,1.00);
+    --shadow-bottom-right: hsla(0,0%,40%,1);
+    --shadow-top-left: hsla(0,70%,100%,1);
+    --border-red: hsla(350,90%,40%,.9);
+}
+
+/* Кнопки меню*/
+
+.ya-share2__title, .nav-link, .dropdown-item {
+    color: red !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    font-size: 1.25rem !important;
+}
+
+    .ya-share2__title:hover, .nav-link:hover, .dropdown-item:hover {
+        text-decoration: underline;
+        color: black !important;
+    }
+
+.ya-share2__item_more.ya-share2__item_has-pretty-view .ya-share2__link_more {
+    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 0 !important;
+}
+
+.donate {
+    display: inline-block;
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid rgba(0,0,0,0.15) !important;
+    background: rgba(0,0,0,0.03) !important;
+    border-radius: 0 !important;
+}
+
+    .donate:hover {
+        text-decoration-line: underline;
+        color: black;
+    }
+
+.tochka {
+    width: 0;
+    height: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    a:active {
+        position: relative;
+        top: 4px;
+    }
+
+.card {
+    display: inline-flex;
+}
+
+    .card a {
+        border: .3rem ridge transparent;
+        transition: all .4s ease-in-out;
+        color: black;
+    }
+
+        .card a:hover {
+            border: .3rem var(--border-red) ridge;
+            opacity: .9;
+            color: var(--border-red);
+        }
+
+a .card-title {
+    line-height: 50%;
+    font-size: 90%;
+}
+
+a .card-title2 {
+    line-height: 100%;
+    font-size: 100%;
+}
+
+
+.mxwidth30 {
+    max-width: 31%;
+}
+
+.container-fluid-1920 {
+    max-width: 1920px;
+}
+
+#tsnt, #teasernet {
+    color: hsla(0,0%,100%,1);
+    max-width: 98%;
+}
+
+.footer-image img {
+    border-width: 0 !important;
+}
+
+.footer-image a:hover {
+    text-decoration: none;
+}
+
+
+/* Тень блока */
+.shadw, .ya-share2__link {
+    background: var(--shadow-background);
+    box-shadow: 0 15px 10px -10px hsla(350,60%,0%,.5), 0 1px 4px hsla(350,60%,0%,.3), 0 0 40px hsla(350,60%,0%,.1) inset;
+    border-right: 1px ridge var(--shadow-bottom-right);
+    border-bottom: 1px ridge var(--shadow-bottom-right);
+    border-top: 1px ridge var(--shadow-top-left);
+    border-left: 1px ridge var(--shadow-top-left);
+}
+
+    .shadw:after, .shadw:before, .ya-share2__link:after, .ya-share2__link:before {
+        content: "";
+        position: absolute;
+        z-index: -2;
+    }
+
+.text_shadow {
+    text-shadow: hsla(350,90%,40%,.6) 1px 2px 2px;
+}
+
+/* Поиск от Google */
+#___gcse_0 {
+    width: 90% !important;
+}
+
+.gsc-control-cse {
+    padding: 2px !important;
+}
+
+.gsc-search-button-v2 {
+    padding: 6px 8px !important;
+}
+
+/* тег hr */
+.liniya {
+    width: 96%;
+    height: 1px;
+    border: 1px solid red;
+    margin: 1rem auto;
+}
+
+/* Фон по краям*/
+
+.bg-image {
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-position: center;
+}
+
+.bg-kortik-1 {
+    background-image: url(/images/backgrounds/fon-kortik-1.png);
+}
+
+.bg-kortik-2 {
+    background-image: url(/images/backgrounds/fon-kortik-2.png);
+}
+
+
+.adp_img {
+    max-width: 96%;
+    border-radius: 1rem;
+}
+
+.ten {
+    box-shadow: .5rem .4rem .4rem hsla(0,0%,0%,.6);
+}
