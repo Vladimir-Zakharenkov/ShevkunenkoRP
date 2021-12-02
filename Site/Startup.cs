@@ -17,6 +17,7 @@ namespace Site
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -28,13 +29,15 @@ namespace Site
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
+            app.UseEndpoints(endpoints => endpoints.MapRazorPages());
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapGet("/", async context =>
+            //    {
+            //        await context.Response.WriteAsync("Hello World!");
+            //    });
+            //});
         }
     }
 }
