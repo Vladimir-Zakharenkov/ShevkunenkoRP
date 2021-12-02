@@ -39,8 +39,11 @@ namespace Site
                 app.UseHsts();
             }
 
+            app.UseStatusCodePagesWithReExecute("/{0}");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseWelcomePage("/Welcome");
 
             app.UseRouting();
 
