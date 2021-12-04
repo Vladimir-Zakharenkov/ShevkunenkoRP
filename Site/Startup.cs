@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.WebEncoders;
+using Site.Services;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 
@@ -19,6 +20,7 @@ namespace Site
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ICardRepository, MoqCardModelRepository>();
             services.AddRazorPages();
 
             services.Configure<WebEncoderOptions>(options =>

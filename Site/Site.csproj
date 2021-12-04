@@ -20,4 +20,9 @@
 	  <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.12" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Site.Models\Site.Models.csproj" />
+	  <ProjectReference Include="..\Site.Services\Site.Services.csproj" />
+	</ItemGroup>
+
 </Project>
