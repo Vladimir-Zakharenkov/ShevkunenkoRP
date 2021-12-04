@@ -1,5 +1,5 @@
 ﻿@page
-@model Site.Pages.IndexModel
+@model IndexModel
 @{
     ViewData["Title"] = "Сайт, посвященный Сергею Шевкуненко";
     ViewData["PageId"] = 1;
@@ -12,11 +12,9 @@
     ViewData["Canonical"] = "https://shevkunenko.site/Index";
     ViewData["BackgroundLeft"] = "bg-kortik-1";
     ViewData["BackgroundRight"] = "bg-kortik-2";
-
-    CardModel cardModel = new();
 }
 
-<h1 class="text_shadow">САЙТ ПАМЯТИ СЕРГЕЯ ШЕВКУНЕНКО</h1>
+<h1 class="text_shadow">@Model.PageTitle</h1>
 
 <hr class="liniya" />
 
@@ -36,7 +34,7 @@
 @await Html.PartialAsync("_CardPartial")
 
 <div class="card ms-sm-0 mx-md-1 my-2 rounded-3 p-2 ten mxwidth30">
-    <a class="rounded-3" href="@cardModel.CardLink " itemscope itemtype="http://schema.org/ImageObject">
+    <a class="rounded-3" href="@Model.CardLink" itemscope itemtype="http://schema.org/ImageObject">
         <meta itemprop="caption" content="Биография Сергея Юрьевича Шевкуненко" />
         <link itemprop="contentUrl thumbnailUrl image" href="https://shevkunenko.site/images/cards/biografy-page.png" />
         <meta itemprop="width" content="720" />
@@ -47,7 +45,7 @@
              title="Биография Сергея Юрьевича Шевкуненко" />
 
         <div class="card-body d-none d-sm-block p-0 shadw">
-            <p class="card-title pt-2 h6 fw-normal">БИОГРАФИЯ</p>
+            <p class="card-title pt-2">БИОГРАФИЯ</p>
         </div>
     </a>
 </div>

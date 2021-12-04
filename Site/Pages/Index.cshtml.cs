@@ -1,12 +1,16 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Site.Pages
 {
     public class IndexModel : PageModel
     {
+        public string PageTitle { get; set; }
+
+        public string CardLink { get; set; }
         public void OnGet()
         {
+            PageTitle = "—¿…“ œ¿Ãﬂ“» —≈–√≈ﬂ ÿ≈¬ ”Õ≈Õ Œ";
+            CardLink = "https://shevkunenko.ru/biografy.htm";
         }
     }
 }
