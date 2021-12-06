@@ -31,91 +31,18 @@
 
 <hr class="liniya" />
 
-@await Html.PartialAsync("_CardPartial")
+<vc:card card-name="main" />
 
-<div class="card ms-sm-0 mx-md-1 my-2 rounded-3 p-2 ten mxwidth30">
-    <a class="rounded-3" href="@Model.CardLink" itemscope itemtype="http://schema.org/ImageObject">
-        <meta itemprop="caption" content="Биография Сергея Юрьевича Шевкуненко" />
-        <link itemprop="contentUrl thumbnailUrl image" href="https://shevkunenko.site/images/cards/biografy-page.png" />
-        <meta itemprop="width" content="720" />
-        <meta itemprop="height" content="540" />
-        <img class="card-img-top shadw mb-2 rounded-3"
-             src="/images/cards/biografy-page.png"
-             alt="Биография Сергея Юрьевича Шевкуненко"
-             title="Биография Сергея Юрьевича Шевкуненко" />
+<vc:card card-name="biografy" />
 
-        <div class="card-body d-none d-sm-block p-0 shadw">
-            <p class="card-title pt-2">БИОГРАФИЯ</p>
-        </div>
-    </a>
-</div>
+<vc:card card-name="characters" />
 
-<div class="card ms-sm-0 mx-md-1 my-2 rounded-3 p-2 ten mxwidth30">
-    <a class="rounded-3" href="https://shevkunenko.ru/online/index.htm" itemscope itemtype="http://schema.org/ImageObject">
-        <meta itemprop="caption" content="Фильмы с участием Сергея Шевкуненко" />
-        <link itemprop="contentUrl thumbnailUrl image" href="https://shevkunenko.site/images/cards/films-page.png" />
-        <meta itemprop="width" content="720" />
-        <meta itemprop="height" content="540" />
-        <img class="card-img-top shadw mb-2 rounded-3"
-             src="/images/cards/films-page.png"
-             alt="Фильмы с участием Сергея Шевкуненко"
-             title="Фильмы с участием Сергея Шевкуненко" />
+<vc:card card-name="pressa" />
 
-        <div class="card-body d-none d-sm-block p-0 shadw">
-            <p class="card-title pt-2">РОЛИ</p>
-        </div>
-    </a>
-</div>
+<vc:card card-name="photo" />
 
-<div class="card m-0 mx-md-1 my-2 rounded-3 p-2 ten mxwidth30">
-    <a class="rounded-3" href="https://shevkunenko.ru/pressa/index.htm" itemscope itemtype="http://schema.org/ImageObject">
-        <meta itemprop="caption" content="Книги и статьи о Сергее Шевкуненко" />
-        <link itemprop="contentUrl thumbnailUrl image" href="https://shevkunenko.site/images/cards/pressa-page.png" />
-        <meta itemprop="width" content="720" />
-        <meta itemprop="height" content="540" />
-        <img class="card-img-top shadw mb-2 rounded-3"
-             src="/images/cards/pressa-page.png"
-             alt="Книги и статьи о Сергее Шевкуненко"
-             title="Книги и статьи о Сергее Шевкуненко" />
+<vc:card card-name="photo" />
 
-        <div class="card-body d-none d-sm-block p-0 shadw">
-            <p class="card-title pt-2">ПРЕССА</p>
-        </div>
-    </a>
-</div>
-
-<div class="card mx-sm-0 mx-md-1 my-2 rounded-3 p-2 ten mxwidth30">
-    <a class="rounded-3" href="https://shevkunenko.ru/csfilm/album1.htm" itemscope itemtype="http://schema.org/ImageObject">
-        <meta itemprop="caption" content="Фотографии Сергея Шевкуненко" />
-        <link itemprop="contentUrl thumbnailUrl image" href="https://shevkunenko.site/images/cards/foto-page.png" />
-        <meta itemprop="width" content="720" />
-        <meta itemprop="height" content="540" />
-        <img class="card-img-top shadw mb-2 rounded-3"
-             src="/images/cards/foto-page.png"
-             alt="Фотографии Сергея Шевкуненко"
-             title="Фотографии Сергея Шевкуненко" />
-
-        <div class="card-body d-none d-sm-block p-0 shadw">
-            <p class="card-title pt-2">ФОТО</p>
-        </div>
-    </a>
-</div>
-
-<div class="card mx-sm-0 mx-md-1 my-2 rounded-3 p-2 ten mxwidth30">
-    <a class="rounded-3" href="http://xbase.ru/?vladimirz" itemscope itemtype="http://schema.org/ImageObject">
-        <meta itemprop="caption" content="Гостевая книга сайта" />
-        <link itemprop="contentUrl thumbnailUrl image" href="https://shevkunenko.site/images/cards/gostevaya-page.png" />
-        <meta itemprop="width" content="720" />
-        <meta itemprop="height" content="540" />
-        <img class="card-img-top shadw mb-2 rounded-3"
-             src="/images/cards/gostevaya-page.png"
-             alt="Гостевая книга сайта"
-             title="Гостевая книга сайта" />
-
-        <div class="card-body d-none d-sm-block p-0 shadw">
-            <p class="card-title pt-2">ГОСТЕВАЯ</p>
-        </div>
-    </a>
-</div>
+<vc:card card-name="guestbook" />
 
 <partial name="_SoundPartial" />

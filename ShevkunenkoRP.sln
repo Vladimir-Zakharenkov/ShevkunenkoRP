@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRp.Models", "Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRP.Services", "MassterProgerRP.Services\MasterProgerRP.Services.csproj", "{AB0BDBC6-6513-404E-9E8D-0F7495160803}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site.Models", "Site.Models\Site.Models.csproj", "{C4C4608F-22FF-45A8-B371-A387F4CD296B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site.Models", "Site.Models\Site.Models.csproj", "{C4C4608F-22FF-45A8-B371-A387F4CD296B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site.Services", "Site.Services\Site.Services.csproj", "{55C0D852-1E92-4C0B-84C5-7215BB7B9BF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site.Services", "Site.Services\Site.Services.csproj", "{55C0D852-1E92-4C0B-84C5-7215BB7B9BF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetanitViewComponent", "MetanitViewComponent\MetanitViewComponent.csproj", "{38F5D5A7-9068-4C97-96E4-5542253ABB9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{55C0D852-1E92-4C0B-84C5-7215BB7B9BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55C0D852-1E92-4C0B-84C5-7215BB7B9BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55C0D852-1E92-4C0B-84C5-7215BB7B9BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38F5D5A7-9068-4C97-96E4-5542253ABB9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F5D5A7-9068-4C97-96E4-5542253ABB9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F5D5A7-9068-4C97-96E4-5542253ABB9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F5D5A7-9068-4C97-96E4-5542253ABB9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

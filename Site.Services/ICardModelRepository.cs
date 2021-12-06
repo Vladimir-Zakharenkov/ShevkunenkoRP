@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Site.Services
 {
-    public interface ICardRepository
+    public interface ICardModelRepository
     {
         IEnumerable<CardModel> GetAllCards();
     }

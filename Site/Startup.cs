@@ -20,7 +20,8 @@ namespace Site
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ICardRepository, MoqCardModelRepository>();
+            services.AddSingleton<ICardModelRepository, MoqCardModelRepository>();
+
             services.AddRazorPages();
 
             services.Configure<WebEncoderOptions>(options =>
