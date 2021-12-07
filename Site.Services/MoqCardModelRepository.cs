@@ -14,7 +14,7 @@ namespace Site.Services
             {
                 new CardModel()
                 {
-                    CardId = System.Guid.NewGuid(),
+                    CardId = Guid.NewGuid(),
                     CardName = "main",
                     CardLink = "https://shevkunenko.site/Main2",
                     ImageCaption = "Сайт, посвященный Сергею Шевкуненко",
@@ -32,7 +32,7 @@ namespace Site.Services
                 },
                 new CardModel()
                 {
-                    CardId = System.Guid.NewGuid(),
+                    CardId = Guid.NewGuid(),
                     CardName = "biografy",
                     CardLink = "https://shevkunenko.ru/biografy.htm",
                     ImageCaption = "Биография Сергея Юрьевича Шевкуненко",
@@ -49,7 +49,7 @@ namespace Site.Services
                 },
                 new CardModel()
                 {
-                    CardId = System.Guid.NewGuid(),
+                    CardId = Guid.NewGuid(),
                     CardName = "characters",
                     CardLink = "https://shevkunenko.ru/online/index.htm",
                     ImageCaption = "Фильмы с участием Сергея Шевкуненко",
@@ -66,7 +66,7 @@ namespace Site.Services
                 },
                 new CardModel()
                 {
-                    CardId = System.Guid.NewGuid(),
+                    CardId =Guid.NewGuid(),
                     CardName = "pressa",
                     CardLink = "https://shevkunenko.ru/pressa/index.htm",
                     ImageCaption = "Книги и статьи о Сергее Шевкуненко",
@@ -83,7 +83,7 @@ namespace Site.Services
                 },
                 new CardModel()
                 {
-                    CardId = System.Guid.NewGuid(),
+                    CardId = Guid.NewGuid(),
                     CardName = "photo",
                     CardLink = "http://shevkunenko.ru/csfilm/album1.htm",
                     ImageCaption = "Фотографии Сергея Шевкуненко",
@@ -100,7 +100,7 @@ namespace Site.Services
                 },
                 new CardModel()
                 {
-                    CardId = System.Guid.NewGuid(),
+                    CardId = Guid.NewGuid(),
                     CardName = "guestbook",
                     CardLink = "http://xbase.ru/?vladimirz",
                     ImageCaption = "Гостевая книга сайта",

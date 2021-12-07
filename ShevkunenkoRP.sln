@@ -17,7 +17,28 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site.Models", "Site.Models\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site.Services", "Site.Services\Site.Services.csproj", "{55C0D852-1E92-4C0B-84C5-7215BB7B9BF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetanitViewComponent", "MetanitViewComponent\MetanitViewComponent.csproj", "{38F5D5A7-9068-4C97-96E4-5542253ABB9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetanitViewComponent", "MetanitViewComponent\MetanitViewComponent.csproj", "{38F5D5A7-9068-4C97-96E4-5542253ABB9B}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "shevkunenko.ru", "..\shevkunenko.ru\", "{610E8A56-5298-427E-86CB-F1BE66E2B7AF}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52614"
+		Debug.AspNetCompiler.PhysicalPath = "..\shevkunenko.ru\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52614\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52614"
+		Release.AspNetCompiler.PhysicalPath = "..\shevkunenko.ru\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52614\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52614"
+		SlnRelativePath = "..\shevkunenko.ru\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +78,10 @@ Global
 		{38F5D5A7-9068-4C97-96E4-5542253ABB9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38F5D5A7-9068-4C97-96E4-5542253ABB9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38F5D5A7-9068-4C97-96E4-5542253ABB9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610E8A56-5298-427E-86CB-F1BE66E2B7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610E8A56-5298-427E-86CB-F1BE66E2B7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610E8A56-5298-427E-86CB-F1BE66E2B7AF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{610E8A56-5298-427E-86CB-F1BE66E2B7AF}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
