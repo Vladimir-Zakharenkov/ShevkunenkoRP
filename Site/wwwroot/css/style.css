@@ -15,7 +15,7 @@
     font-size: 1.25rem !important;
 }
 
-    .ya-share2__title:hover, .nav-link:hover, .dropdown-item:hover {
+    .ya-share2__title:hover {
         text-decoration: underline;
         color: black !important;
     }
@@ -28,14 +28,14 @@
 
 .donate {
     display: inline-block;
+    width: contain;
     font-family: 'Times New Roman', Times, serif;
     border: 1px solid rgba(0,0,0,0.15) !important;
     background: rgba(0,0,0,0.03) !important;
     border-radius: 0 !important;
 }
 
-    .donate:hover {
-        text-decoration-line: underline;
+    .donate:hover, .dropdown-item span:hover {
         color: black;
     }
 
@@ -47,10 +47,6 @@
 a {
     text-decoration: none;
 }
-
-    a:hover {
-        text-decoration: underline;
-    }
 
     a:active {
         position: relative;
