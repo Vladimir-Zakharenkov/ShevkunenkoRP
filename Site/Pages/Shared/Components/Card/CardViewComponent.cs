@@ -2,7 +2,6 @@
 using Site.Models;
 using Site.Services;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Site.Pages.Shared.Components.Card
 {

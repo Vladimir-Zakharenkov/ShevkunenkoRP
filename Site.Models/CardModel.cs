@@ -16,6 +16,9 @@ namespace Site.Models
         public string CardLink { get; set; }
 
         [Required]
+        public bool CardLinkHttp { get; set; }
+
+        [Required]
         public string ImageCaption { get; set; }
 
         [Required]

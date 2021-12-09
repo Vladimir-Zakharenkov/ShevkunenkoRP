@@ -7,8 +7,20 @@
     --border-red: hsla(350,90%,40%,.9);
 }
 
-/* Кнопки меню*/
+/* Donate */
 
+.wbform {
+    width: 240px;
+    height: 240px;
+}
+
+#mainW {
+}
+
+.crowd-widget-240x240 {
+}
+
+/* Кнопки меню*/
 .ya-share2__title, .nav-link, .dropdown-item {
     color: red !important;
     font-family: 'Times New Roman', Times, serif !important;
@@ -38,6 +50,10 @@
     .donate:hover, .dropdown-item span:hover {
         color: black;
     }
+
+.navbar-toggler {
+    padding: .1rem .2rem
+}
 
 .tochka {
     width: 0;
@@ -81,7 +97,7 @@ a .card-title2 {
 
 
 .mxwidth30 {
-    max-width: 31%;
+    width: 31%;
 }
 
 .container-fluid-1920 {
