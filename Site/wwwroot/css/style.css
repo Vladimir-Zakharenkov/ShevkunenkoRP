@@ -1,4 +1,10 @@
-﻿:root {
+﻿@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
+body {
+    font-family: 'Philosopher', sans-serif;
+}
+
+:root {
     /* цвета тени */
     --shadow-background: hsla(350,54%,98%,1.00);
     --shadow-box: hsla(350,54%,98%,1.00);
@@ -69,35 +75,21 @@ a {
         top: 4px;
     }
 
-.card {
-    display: inline-flex;
+
+.card a {
+    border: .3rem ridge transparent;
+    transition: all .3s ease-in-out;
+    color: black;
 }
 
-    .card a {
-        border: .3rem ridge transparent;
-        transition: all .4s ease-in-out;
-        color: black;
+    .card a:hover {
+        border: .3rem var(--border-red) ridge;
+        opacity: .9;
+        color: var(--border-red);
     }
 
-        .card a:hover {
-            border: .3rem var(--border-red) ridge;
-            opacity: .9;
-            color: var(--border-red);
-        }
-
-a .card-title {
-    line-height: 50%;
-    font-size: 90%;
-}
-
-a .card-title2 {
-    line-height: 100%;
-    font-size: 100%;
-}
-
-
-.mxwidth30 {
-    width: 31%;
+.cardBodyBg {
+    background-color: hsl(0 15% 84%) !important
 }
 
 .container-fluid-1920 {
@@ -163,7 +155,6 @@ a .card-title2 {
 }
 
 /* Фон по краям*/
-
 .bg-image {
     background-size: 100% auto;
     background-repeat: repeat-y;

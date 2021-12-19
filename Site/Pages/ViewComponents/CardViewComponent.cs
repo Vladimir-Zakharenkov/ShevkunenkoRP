@@ -3,7 +3,7 @@ using Site.Models;
 using Site.Services;
 using System.Linq;
 
-namespace Site.Pages.Shared.Components.Card
+namespace Site.Pages.ViewComponents
 {
     public class Card : ViewComponent
     {

@@ -14,35 +14,54 @@
     ViewData["BackgroundRight"] = "bg-kortik-2";
 }
 
-<h1 class="text_shadow">@Model.PageTitle</h1>
+<div class="row">
+    <div class="col-12">
 
-<hr class="liniya" />
+        <h1 class="text_shadow">САЙТ ПАМЯТИ СЕРГЕЯ&nbsp;ШЕВКУНЕНКО</h1>
 
-<a href="/images/index1.gif" onClick="this.target='_blank'" itemscope itemtype="http://schema.org/ImageObject">
-    <meta itemprop="caption" content="сайт памяти Сергея Шевкуненко" />
-    <link itemprop="contentUrl thumbnailUrl image" href="https://shevkunenko.site/images/index1.gif" />
-    <meta itemprop="width" content="1122" />
-    <meta itemprop="height" content="480" />
-    <img class="adp_img ten"
-         src="/images/index1.gif"
-         alt="сайт памяти Сергея Шевкуненко"
-         title="сайт памяти Сергея Шевкуненко" />
-</a>
+        <hr class="liniya" />
 
-<hr class="liniya" />
+        <a href="/images/index1.gif" onClick="this.target='_blank'">
 
-<vc:card card-name="main" />
+            <span itemscope itemtype="http://schema.org/ImageObject">
 
-<vc:card card-name="biografy" />
+                <meta itemprop="caption" content="сайт памяти Сергея Шевкуненко" />
+                <link itemprop="contentUrl" href="https://shevkunenko.site/images/index1.gif" />
+                <link itemprop="thumbnailUrl" href="https://shevkunenko.site/images/index1.gif" />
+                <link itemprop="image" href="https://shevkunenko.site/images/index1.gif" />
+                <meta itemprop="width" content="1122" />
+                <meta itemprop="height" content="480" />
+                <img class="adp_img ten" asp-append-version="true"
+                     src="/images/index1.gif"
+                     alt="сайт памяти Сергея Шевкуненко"
+                     title="сайт памяти Сергея Шевкуненко" />
+            </span>
 
-<vc:card card-name="characters" />
+        </a>
 
-<vc:card card-name="pressa" />
+        <hr class="liniya" />
 
-<vc:card card-name="photo" />
+    </div>
+</div>
 
-<vc:card card-name="photo" />
+<div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 g-2 justify-content-center">
 
-<vc:card card-name="guestbook" />
+    <vc:card card-name="main" />
+
+    <vc:card card-name="biografy" />
+
+    <vc:card card-name="characters" />
+
+    <vc:card card-name="pressa" />
+
+    <vc:card card-name="photo" />
+
+    <vc:card card-name="guestbook" />
+
+</div>
 
 <partial name="_SoundPartial" />
+
+
+
+

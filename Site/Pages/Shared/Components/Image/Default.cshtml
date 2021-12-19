@@ -1,0 +1,16 @@
+﻿@model Site.Models.ImageModel
+
+<span itemscope itemtype="http://schema.org/ImageObject">
+
+    <meta itemprop="caption" content="@Model.ImageCaption" />
+    <link itemprop="contentUrl" href="@Model.ImageContentUrl" />
+    <link itemprop="thumbnailUrl" href="@Model.ImageThumbnailUrl" />
+    <link itemprop="image" href="@Model.ImagelUrl" />
+    <meta itemprop="width" content="@Model.ImageWidth" />
+    <meta itemprop="height" content="@Model.ImageHeight" />
+    <img class="card-img-top shadw mb-2 rounded-3" asp-append-version="true"
+         src="@Model.ImageSrc"
+         alt="@Model.ImageAlt"
+         title="@Model.ImageTitle" />
+
+</span>

@@ -1,52 +1,43 @@
 ﻿@model Site.Models.CardModel
 
-<div class="card ms-sm-0 mx-md-1 my-2 rounded-3 p-2 ten mxwidth30">
+<div class="col">
 
-    @{
-        bool cnt = Model.CardLink.Contains("http");
-    }
+    <div class="card shadw rounded-3">
 
-    @if (cnt)
-    {
-        <a class="rounded-3" href="@Model.CardLink" itemscope itemtype="http://schema.org/ImageObject">
+        @{
+            bool cnt = Model.CardLink.Contains("http");
+        }
 
-            <meta itemprop="caption" content="@Model.ImageCaption" />
-            <link itemprop="contentUrl" href="@Model.ImageContentUrl" />
-            <link itemprop="thumbnailUrl" href="@Model.ImageThumbnailUrl" />
-            <link itemprop="image" href="@Model.ImagelUrl" />
-            <meta itemprop="width" content="@Model.ImageWidth" />
-            <meta itemprop="height" content="@Model.ImageHeight" />
-            <img class="card-img-top shadw mb-2 rounded-3"
-                 src="@Model.ImageSrc"
-                 alt="@Model.ImageAlt"
-                 title="@Model.ImageTitle" />
+        @if (cnt)
+        {
+            <a href="@Model.CardLink">
 
-            <div class="card-body d-none d-sm-block p-0 shadw">
-                <p class="card-title pt-2">@Model.CardText</p>
-            </div>
+                <vc:image image-name="@Model.ImageName"></vc:image>
 
-        </a>
-    }
-    else
-    {
-        <a class="rounded-3" asp-page="@Model.CardLink" itemscope itemtype="http://schema.org/ImageObject">
+                <div class="card-body p-0 shadw cardBodyBg">
 
-            <meta itemprop="caption" content="@Model.ImageCaption" />
-            <link itemprop="contentUrl" href="@Model.ImageContentUrl" />
-            <link itemprop="thumbnailUrl" href="@Model.ImageThumbnailUrl" />
-            <link itemprop="image" href="@Model.ImagelUrl" />
-            <meta itemprop="width" content="@Model.ImageWidth" />
-            <meta itemprop="height" content="@Model.ImageHeight" />
-            <img class="card-img-top shadw mb-2 rounded-3"
-                 src="@Model.ImageSrc"
-                 alt="@Model.ImageAlt"
-                 title="@Model.ImageTitle" />
+                    <p class="card-title fs-4 lh-1 mt-2">@Model.CardText</p>
 
-            <div class="card-body d-none d-sm-block p-0 shadw">
-                <p class="card-title pt-2">@Model.CardText</p>
-            </div>
+                </div>
 
-        </a>
-    }
+            </a>
+        }
+        else
+        {
+            <a asp-page="@Model.CardLink">
+
+                <vc:image image-name="@Model.ImageName"></vc:image>
+
+                <div class="card-body p-0 shadw cardBodyBg">
+
+                    <p class="card-title fs-4 lh-1 mt-2">@Model.CardText</p>
+
+                </div>
+
+            </a>
+        }
+
+    </div>
 
 </div>
+

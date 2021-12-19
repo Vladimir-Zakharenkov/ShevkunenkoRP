@@ -12,41 +12,14 @@ namespace Site.Models
         public string CardName { get; set; }
 
         [Required]
+        public string ImageName { get; set; } = String.Empty;
+
+        [Required]
         [DataType(DataType.Url)]
         public string CardLink { get; set; }
 
         [Required]
         public bool CardLinkHttp { get; set; }
-
-        [Required]
-        public string ImageCaption { get; set; }
-
-        [Required]
-        [DataType(DataType.ImageUrl)]
-        public string ImageContentUrl { get; set; }
-        [Required]
-        [DataType(DataType.ImageUrl)]
-        public string ImageThumbnailUrl { get; set; }
-
-        [Required]
-        [DataType(DataType.ImageUrl)]
-        public string ImagelUrl { get; set; }
-
-        [Required]
-        public int ImageWidth { get; set; }
-
-        [Required]
-        public int ImageHeight { get; set; }
-
-        [Required]
-        [DataType(DataType.ImageUrl)]
-        public string ImageSrc { get; set; }
-
-        [Required]
-        public string ImageAlt { get; set; }
-
-        [Required]
-        public string ImageTitle { get; set; }
 
         [Required]
         public bool CardBody { get; set; }

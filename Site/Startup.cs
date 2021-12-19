@@ -21,6 +21,8 @@ namespace Site
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IImageModelRepository, MoqImageModelRepository>();
+
             services.AddSingleton<ICardModelRepository, MoqCardModelRepository>();
 
             services.AddRouting(options => options.LowercaseUrls = true);
