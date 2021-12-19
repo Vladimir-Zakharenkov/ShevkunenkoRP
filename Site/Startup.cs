@@ -25,6 +25,8 @@ namespace Site
 
             services.AddSingleton<ICardModelRepository, MoqCardModelRepository>();
 
+            services.AddSingleton<IMovieModelRepository, MoqMovieModelRepository>();
+
             services.AddRouting(options => options.LowercaseUrls = true);
 
             services.AddRazorPages();

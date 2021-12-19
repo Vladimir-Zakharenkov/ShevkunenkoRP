@@ -12,13 +12,24 @@
         {
             <a href="@Model.CardLink">
 
-                <vc:image image-name="@Model.ImageName"></vc:image>
+                @if (!(Model.MovieName == string.Empty))
+                {
+                    <vc:movie movie-name="@Model.MovieName" />
+                }
+                else
+                {
+                    <vc:image image-name="@Model.ImageName" />
+                }
 
-                <div class="card-body p-0 shadw cardBodyBg">
 
-                    <p class="card-title fs-4 lh-1 mt-2">@Model.CardText</p>
+                @if (Model.CardBody)
+                {
+                    <div class="card-body p-0 mt-2 shadw cardBodyBg">
 
-                </div>
+                        <p class="card-title fs-4 lh-1 mt-2">@Model.CardText</p>
+
+                    </div>
+                }
 
             </a>
         }
@@ -26,13 +37,23 @@
         {
             <a asp-page="@Model.CardLink">
 
-                <vc:image image-name="@Model.ImageName"></vc:image>
+                @if (!(Model.MovieName == string.Empty))
+                {
+                    <vc:movie movie-name="@Model.MovieName" />
+                }
+                else
+                {
+                    <vc:image image-name="@Model.ImageName" />
+                }
 
-                <div class="card-body p-0 shadw cardBodyBg">
+                @if (Model.CardBody)
+                {
+                    <div class="card-body p-0 mt-2 shadw cardBodyBg">
 
-                    <p class="card-title fs-4 lh-1 mt-2">@Model.CardText</p>
+                        <p class="card-title fs-4 lh-1 mt-2">@Model.CardText</p>
 
-                </div>
+                    </div>
+                }
 
             </a>
         }
