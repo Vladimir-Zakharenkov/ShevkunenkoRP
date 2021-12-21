@@ -40,11 +40,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "shevkunenko.ru", "..\shevku
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRP.Services", "MasterProgerRP.Services\MasterProgerRP.Services.csproj", "{08479BF7-158D-4AC1-AC5A-79661D186941}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterProgerRazorPages", "MasterProgerRazorPages\MasterProgerRazorPages.csproj", "{376D7870-0168-4205-807C-B9EF75ED5DD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRazorPages", "MasterProgerRazorPages\MasterProgerRazorPages.csproj", "{376D7870-0168-4205-807C-B9EF75ED5DD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterProgerRazorPages.Models", "MasterProgerRazorPages.Models\MasterProgerRazorPages.Models.csproj", "{A07B1711-CC66-4AFA-8CB0-258D1DAB40BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRazorPages.Models", "MasterProgerRazorPages.Models\MasterProgerRazorPages.Models.csproj", "{A07B1711-CC66-4AFA-8CB0-258D1DAB40BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterProgerRazorPages.Services", "MasterProgerRazorPages.Services\MasterProgerRazorPages.Services.csproj", "{38C8C557-4A5C-450E-B1DC-AB601193F1C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRazorPages.Services", "MasterProgerRazorPages.Services\MasterProgerRazorPages.Services.csproj", "{38C8C557-4A5C-450E-B1DC-AB601193F1C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

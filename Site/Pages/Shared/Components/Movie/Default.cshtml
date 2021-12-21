@@ -26,7 +26,8 @@
     <meta itemprop="description" content="@Model.Description" />
     <link itemprop="contentUrl" href="@Model.ContentUrl" />
 
-    <vc:image image-name="@Model.ImageName"></vc:image>
+    @*<vc:image image-name="@Model.ImageName"></vc:image>*@
+    @await Component.InvokeAsync("Image", new { ImageName = Model.ImageName })
 
 </span>
 
