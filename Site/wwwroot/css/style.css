@@ -196,6 +196,9 @@ a {
     padding: 6px 8px !important;
 }
 
+table.gsc-search-box, form.gsc-search-box {
+    margin-bottom: 0px !important;
+}
 /* тег hr */
 .liniya {
     width: 96%;
