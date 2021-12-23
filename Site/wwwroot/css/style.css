@@ -27,21 +27,55 @@ body {
 }
 
 /* Кнопки меню*/
+
+
 .ya-share2__title, .nav-link, .dropdown-item {
-    color: red !important;
+    color: black !important;
     font-family: 'Times New Roman', Times, serif !important;
     font-size: 1.25rem !important;
 }
 
-    .ya-share2__title:hover {
-        text-decoration: underline;
-        color: black !important;
+
+
+    .ya-share2__title :hover {
+        text-decoration: none;
+        color: darkred !important;
     }
+
+.nav-item {
+    width: 81%;
+}
+
+.dropdown-menu {
+    background: rgba(0,0,0,0.03) !important;
+    transition: all .3s ease-in-out;
+}
+
+.dropdown-item {
+    border: .2rem solid transparent;
+    transition: all .3s ease-in-out;
+}
+
+    .dropdown-item:hover {
+        border-color: darkred;
+    }
+
+
+/* Убираем пункт скопировать ссылку*/
+.ya-share2__link_copy {
+    display: none !important;
+}
+
+.ya-share2__title {
+    margin-right: 15px !important;
+}
 
 .ya-share2__item_more.ya-share2__item_has-pretty-view .ya-share2__link_more {
     background: rgba(0,0,0,0.03);
     border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 0 !important;
+    border-radius: 5px !important;
+    padding-right: 4px !important;
+    transition: all .3s ease-in-out;
 }
 
 .donate {
@@ -50,12 +84,27 @@ body {
     font-family: 'Times New Roman', Times, serif;
     border: 1px solid rgba(0,0,0,0.15) !important;
     background: rgba(0,0,0,0.03) !important;
-    border-radius: 0 !important;
+    transition: all .3s ease-in-out;
 }
 
-    .donate:hover, .dropdown-item span:hover {
-        color: black;
+    .donate:hover, .donate span:hover, .ya-share2__link_more:hover, .ya-share2__link:hover {
+        color: darkred;
+        border-color: darkred !important;
     }
+
+.ya-share2__link {
+    border-radius: 5px;
+}
+
+.ya-share2__title:hover {
+    color: darkred !important;
+}
+
+@media (max-width: 767px) {
+    .custom {
+        margin-top: 1rem;
+    }
+}
 
 .navbar-toggler {
     padding: .1rem .2rem
@@ -70,11 +119,14 @@ a {
     text-decoration: none;
 }
 
-    a:active {
+    a:active, .dropdown:active {
         position: relative;
         top: 4px;
     }
 
+.dropdown a:active {
+    top: 0;
+}
 
 .card a {
     border: .3rem ridge transparent;
@@ -132,7 +184,8 @@ a {
 
 /* Поиск от Google */
 #___gcse_0 {
-    width: 90% !important;
+    width: 100% !important;
+    float: right;
 }
 
 .gsc-control-cse {

@@ -46,6 +46,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRazorPages.Mode
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRazorPages.Services", "MasterProgerRazorPages.Services\MasterProgerRazorPages.Services.csproj", "{38C8C557-4A5C-450E-B1DC-AB601193F1C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity", "ContosoUniversity\ContosoUniversity.csproj", "{49F55E75-E0F0-4EAA-A4B6-2FB40885A6AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +102,10 @@ Global
 		{38C8C557-4A5C-450E-B1DC-AB601193F1C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38C8C557-4A5C-450E-B1DC-AB601193F1C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38C8C557-4A5C-450E-B1DC-AB601193F1C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49F55E75-E0F0-4EAA-A4B6-2FB40885A6AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F55E75-E0F0-4EAA-A4B6-2FB40885A6AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F55E75-E0F0-4EAA-A4B6-2FB40885A6AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49F55E75-E0F0-4EAA-A4B6-2FB40885A6AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
