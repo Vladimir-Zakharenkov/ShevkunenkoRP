@@ -7,10 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site", "Site\Site.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesMovie", "RazorPagesMovie\RazorPagesMovie.csproj", "{973D82F8-14DD-4F86-8AB5-161F87ABB453}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRP", "MasterProgerRP\MasterProgerRP.csproj", "{45D80501-4BC4-4225-9086-C2E5D7B5006B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRP.Models", "MasterProgerRp.Models\MasterProgerRP.Models.csproj", "{DDBCDD2D-CDEC-4EDB-80F6-88F849BDB1B4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site.Models", "Site.Models\Site.Models.csproj", "{C4C4608F-22FF-45A8-B371-A387F4CD296B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site.Services", "Site.Services\Site.Services.csproj", "{55C0D852-1E92-4C0B-84C5-7215BB7B9BF0}"
@@ -38,15 +34,13 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "shevkunenko.ru", "..\shevku
 		SlnRelativePath = "..\shevkunenko.ru\"
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRP.Services", "MasterProgerRP.Services\MasterProgerRP.Services.csproj", "{08479BF7-158D-4AC1-AC5A-79661D186941}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRazorPages", "MasterProgerRazorPages\MasterProgerRazorPages.csproj", "{376D7870-0168-4205-807C-B9EF75ED5DD3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRazorPages.Models", "MasterProgerRazorPages.Models\MasterProgerRazorPages.Models.csproj", "{A07B1711-CC66-4AFA-8CB0-258D1DAB40BA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterProgerRazorPages.Services", "MasterProgerRazorPages.Services\MasterProgerRazorPages.Services.csproj", "{38C8C557-4A5C-450E-B1DC-AB601193F1C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity", "ContosoUniversity\ContosoUniversity.csproj", "{49F55E75-E0F0-4EAA-A4B6-2FB40885A6AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity", "ContosoUniversity\ContosoUniversity.csproj", "{49F55E75-E0F0-4EAA-A4B6-2FB40885A6AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,14 +56,6 @@ Global
 		{973D82F8-14DD-4F86-8AB5-161F87ABB453}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{973D82F8-14DD-4F86-8AB5-161F87ABB453}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{973D82F8-14DD-4F86-8AB5-161F87ABB453}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45D80501-4BC4-4225-9086-C2E5D7B5006B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45D80501-4BC4-4225-9086-C2E5D7B5006B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45D80501-4BC4-4225-9086-C2E5D7B5006B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45D80501-4BC4-4225-9086-C2E5D7B5006B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDBCDD2D-CDEC-4EDB-80F6-88F849BDB1B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDBCDD2D-CDEC-4EDB-80F6-88F849BDB1B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDBCDD2D-CDEC-4EDB-80F6-88F849BDB1B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDBCDD2D-CDEC-4EDB-80F6-88F849BDB1B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4C4608F-22FF-45A8-B371-A387F4CD296B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C4C4608F-22FF-45A8-B371-A387F4CD296B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4C4608F-22FF-45A8-B371-A387F4CD296B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -86,10 +72,6 @@ Global
 		{610E8A56-5298-427E-86CB-F1BE66E2B7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{610E8A56-5298-427E-86CB-F1BE66E2B7AF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{610E8A56-5298-427E-86CB-F1BE66E2B7AF}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{08479BF7-158D-4AC1-AC5A-79661D186941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08479BF7-158D-4AC1-AC5A-79661D186941}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08479BF7-158D-4AC1-AC5A-79661D186941}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08479BF7-158D-4AC1-AC5A-79661D186941}.Release|Any CPU.Build.0 = Release|Any CPU
 		{376D7870-0168-4205-807C-B9EF75ED5DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{376D7870-0168-4205-807C-B9EF75ED5DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{376D7870-0168-4205-807C-B9EF75ED5DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU

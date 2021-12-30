@@ -357,3 +357,7 @@ MigrationBackup/
 /MasterProgerRazorPages
 /MasterProgerRazorPages.Models
 /MasterProgerRazorPages.Services
+/ContosoUniversity/Data
+/ContosoUniversity/Models
+/ContosoUniversity/Properties
+/ContosoUniversity/wwwroot/lib/bootstrap5
