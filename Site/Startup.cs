@@ -13,6 +13,8 @@ namespace Site
 {
     public class Startup
     {
+        public uint? PageNumber { get; set; } = 4;
+
         public IConfiguration Configuration { get; set; }
 
         public Startup(IConfiguration configuration)
@@ -27,7 +29,7 @@ namespace Site
 
             services.AddSingleton<IMovieModelRepository, MoqMovieModelRepository>();
 
-            services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddSingleton<IHeadModelRepository, MoqHeadModelRepository>();
 
             services.AddRazorPages();
 
@@ -55,7 +57,9 @@ namespace Site
                 app.UseHsts();
             }
 
-            app.UseStatusCodePagesWithReExecute("/{0}");
+            //app.UseStatusCodePagesWithReExecute("~/Error{0}");
+            //app.UseStatusCodePages();
+            app.UseStatusCodePagesWithRedirects("~/Error{0}");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

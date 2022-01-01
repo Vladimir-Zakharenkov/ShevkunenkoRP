@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Site.Models
 {
-    class HeadModel
+    public class HeadModel
     {
         [Key]
         public Guid HeadId { get; set; }

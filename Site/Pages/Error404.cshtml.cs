@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Site.Pages
 {
-    public class Main2Model : PageModel
+    public class Error404Model : PageModel
     {
         [BindProperty]
-        public uint PageNumber { get; set; } = 2;
+        public uint PageNumber { get; set; } = 4;
 
         public void OnGet()
         {
