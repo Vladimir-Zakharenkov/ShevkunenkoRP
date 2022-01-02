@@ -7,12 +7,9 @@ namespace Site.Pages.ViewComponents
 {
     public class Head : ViewComponent
     {
-        private readonly IHeadModelRepository _context;
+        public IHeadModelRepository Context { get; }
 
-        public Head(IHeadModelRepository headModelRepository)
-        {
-            _context = headModelRepository;
-        }
+        public Head(IHeadModelRepository context) => Context = context;
 
         public IViewComponentResult Invoke(uint? pageId)
         {
@@ -21,7 +18,7 @@ namespace Site.Pages.ViewComponents
                 pageId = 1;
             }
 
-            HeadModel head = _context.HeadModels.FirstOrDefault(x => x.PageId == pageId);
+            HeadModel head = Context.HeadModels.FirstOrDefault(x => x.PageId == pageId);
 
             return View(head);
         }

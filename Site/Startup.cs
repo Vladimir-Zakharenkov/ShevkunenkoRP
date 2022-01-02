@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,13 +24,19 @@ namespace Site
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContextPool<SiteContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("SiteDB"));
+            });
+
             services.AddSingleton<IImageModelRepository, MoqImageModelRepository>();
 
             services.AddSingleton<ICardModelRepository, MoqCardModelRepository>();
 
             services.AddSingleton<IMovieModelRepository, MoqMovieModelRepository>();
 
-            services.AddSingleton<IHeadModelRepository, MoqHeadModelRepository>();
+            //services.AddSingleton<IHeadModelRepository, MoqHeadModelRepository>();
+            services.AddScoped<IHeadModelRepository, SQLHeadModelRepository>();
 
             services.AddRazorPages();
 
@@ -57,9 +64,7 @@ namespace Site
                 app.UseHsts();
             }
 
-            //app.UseStatusCodePagesWithReExecute("~/Error{0}");
-            //app.UseStatusCodePages();
-            app.UseStatusCodePagesWithRedirects("~/Error{0}");
+            app.UseStatusCodePagesWithReExecute("/Error{0}");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
