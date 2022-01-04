@@ -1,3 +1,89 @@
-﻿<title>@Model.Title</title>
+﻿@{
+    var lastReviewed = Model.LastReviewed.ToString("yyyy-MM-dd");
+}
+<head>
+    <title>@Model.Title</title>
     <meta name="pageId" content="@Model.PageId" />
     <meta name="description" content="@Model.Description" />
+    <meta name="keywords" content="@Model.KeyWords" />
+    <meta itemprop="lastReviewed" content="@lastReviewed" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="cleartype" content="on" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="robots" content="ALL" />
+    <meta name="revisit-after" content="14 days" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+    <meta name="HandheldFriendly" content="True" />
+    <link rel="canonical" href="@Model.Canonical" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/icons/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="48x48" href="~/images/icons/icon-48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="~/images/icons/icon-96.png" />
+    <link rel="icon" type="image/png" sizes="144x144" href="~/images/icons/icon-144.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="~/images/icons/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="256x256" href="~/images/icons/icon-256.png" />
+    <link rel="icon" type="image/png" sizes="384x384" href="~/images/icons/icon-384.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="~/images/icons/icon-512.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="~/images/icons/apple-touch-icon-57x57-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="~/images/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="~/images/icons/apple-touch-icon-60x60-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="~/images/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="~/images/icons/apple-touch-icon-72x72-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="~/images/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="~/images/icons/apple-touch-icon-76x76-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="~/images/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="~/images/icons/apple-touch-icon-114x114-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="~/images/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="~/images/icons/apple-touch-icon-120x120-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="~/images/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="~/images/icons/apple-touch-icon-144x144-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="~/images/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="~/images/icons/apple-touch-icon-152x152-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="~/images/icons/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="~/images/icons/apple-touch-icon-167x167-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="~/images/icons/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="~/images/icons/apple-touch-icon-180x180-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="~/images/icons/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="~/images/icons/safari-pinned-tab.svg" color="#fffff" />
+
+    <meta name="msapplication-config" content="/browserconfigs/browserconfig.xml" />
+    <meta name="application-name" lang="ru" content="Сайт памяти Сергея Шевкуненко" />
+    <meta name="msapplication-tooltip" content="Сайт памяти Сергея Шевкуненко" />
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#fffffff" />
+
+    <link rel="manifest" href="~/manifests/manifest.json" />
+
+    <meta property="fb:admins" content="100000630675210" />
+
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@Model.Title" />
+    <meta property="og:description" content="@Model.Description" />
+    <meta property="og:url" content="@Model.Canonical" />
+    <meta property="og:site_name" content="Сайт посвященный Сергею Шевкуненко" />
+    <meta property="og:image" content="@ViewData["PageImage"]" />
+    <meta property="og:image:width" content="@ViewData["PageImageWidth"]" />
+    <meta property="og:image:height" content="@ViewData["PageImageHeight"]" />
+    <meta property="og:image:type" content="image/gif" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="@Model.Title" />
+    <meta name="twitter:description" content="@Model.Description" />
+    <meta name="twitter:image" content="@ViewData["PageImage"]" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WELF8XC9E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3WELF8XC9E');
+    </script>
+</head>

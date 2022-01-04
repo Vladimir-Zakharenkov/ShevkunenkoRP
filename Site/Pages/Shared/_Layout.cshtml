@@ -1,18 +1,17 @@
 ﻿<!DOCTYPE html>
 
-<html lang="ru-RU"
+<html lang="ru-RU" itemscope itemtype="http://schema.org/WebPage"
       prefix="og: http://ogp.me/ns#
 	          fb: http://ogp.me/ns/fb#
 	          book: http://ogp.me/ns/book#
 	          video: http://ogp.me/ns/video#
 	          ya: http://webmaster.yandex.ru/vocabularies/">
 
-@await Html.PartialAsync("_HeadPartial")
+<vc:head page-id="@Model.PageNumber"></vc:head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
+<body>
 
     <meta itemprop="image" content="@ViewData["PageImage"]">
-    <meta itemprop="lastReviewed" content="@ViewData["LastReviewed"]">
 
     <div class="container-fluid container-fluid-1920">
 
