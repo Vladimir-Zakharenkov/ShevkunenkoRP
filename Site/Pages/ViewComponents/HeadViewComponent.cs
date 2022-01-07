@@ -7,18 +7,35 @@ namespace Site.Pages.ViewComponents
 {
     public class Head : ViewComponent
     {
-        public IHeadModelRepository Context { get; }
+        private readonly IImageModelRepository _imageContext;
 
-        public Head(IHeadModelRepository context) => Context = context;
+        private readonly IHeadModelRepository _headContext;
 
-        public IViewComponentResult Invoke(uint? pageId)
+        public Head(IHeadModelRepository headContext, IImageModelRepository imageContext)
+        {
+            _headContext = headContext;
+            _imageContext = imageContext;
+        }
+
+        public IViewComponentResult Invoke(uint? pageId, string imageName)
         {
             if (pageId == null)
             {
                 pageId = 1;
             }
 
-            HeadModel head = Context.HeadModels.FirstOrDefault(x => x.PageId == pageId);
+            if (imageName == null)
+            {
+                imageName = "main-index";
+            }
+
+            HeadModel head = _headContext.HeadModels.FirstOrDefault(x => x.PageId == pageId);
+
+            ImageModel imageHead = _imageContext.Images.FirstOrDefault(y => y.ImageName == imageName);
+
+            ViewData["PageImage"] = imageHead.ImageContentUrl;
+            ViewData["PageImageWidth"] = imageHead.ImageWidth;
+            ViewData["PageImageHeight"] = imageHead.ImageHeight;
 
             return View(head);
         }

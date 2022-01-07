@@ -17,8 +17,8 @@ namespace Site.Services
                     CardId = Guid.NewGuid(),
                     CardName = "main",
                     ImageName = "main-page",
+                    MovieName = string.Empty,
                     CardLink = "/Main2",
-                    CardLinkHttp = false,
                     CardBody = true,
                     CardText = "САЙТ"
 
@@ -28,8 +28,8 @@ namespace Site.Services
                     CardId = Guid.NewGuid(),
                     CardName = "biografy",
                     ImageName = "biografy-page",
+                    MovieName = string.Empty,
                     CardLink = "https://shevkunenko.ru/biografy.htm",
-                    CardLinkHttp = true,
                     CardBody = true,
                     CardText = "БИОГРАФИЯ"
                 },
@@ -38,18 +38,18 @@ namespace Site.Services
                     CardId = Guid.NewGuid(),
                     CardName = "characters",
                     ImageName = "films-page",
+                    MovieName = string.Empty,
                     CardLink = "https://shevkunenko.ru/online/index.htm",
-                    CardLinkHttp = true,
                     CardBody = true,
-                    CardText = "РОЛИ"
+                    CardText = "РОЛИ В КИНО"
                 },
                 new CardModel()
                 {
                     CardId =Guid.NewGuid(),
                     CardName = "pressa",
                     ImageName = "pressa-page",
+                    MovieName = string.Empty,
                     CardLink = "https://shevkunenko.ru/pressa/index.htm",
-                    CardLinkHttp = true,
                     CardBody = true,
                     CardText = "ПРЕССА"
                 },
@@ -58,8 +58,8 @@ namespace Site.Services
                     CardId = Guid.NewGuid(),
                     CardName = "photo",
                     ImageName = "foto-page",
+                    MovieName = string.Empty,
                     CardLink = "http://shevkunenko.ru/csfilm/album1.htm",
-                    CardLinkHttp = true,
                     CardBody = true,
                     CardText = "ФОТО"
                 },
@@ -68,8 +68,8 @@ namespace Site.Services
                     CardId = Guid.NewGuid(),
                     CardName = "guestbook",
                     ImageName = "gostevaya-page",
+                    MovieName = string.Empty,
                     CardLink = "http://xbase.ru/?vladimirz",
-                    CardLinkHttp = true,
                     CardBody = true,
                     CardText = "ГОСТЕВАЯ"
                 },
@@ -80,7 +80,6 @@ namespace Site.Services
                     ImageName = "kortik",
                     MovieName = "kortik",
                     CardLink = "https://shevkunenko.ru/krfilm/index.htm",
-                    CardLinkHttp = true,
                     CardBody = false,
                     CardText = "КОРТИК"
                 },
@@ -91,7 +90,6 @@ namespace Site.Services
                     ImageName = "br-ptica",
                     MovieName = "br-ptica",
                     CardLink = "https://shevkunenko.ru/bpfilm/index.htm",
-                    CardLinkHttp = true,
                     CardBody = false,
                     CardText = "БРОНЗОВАЯ ПТИЦА"
                 },
@@ -102,7 +100,6 @@ namespace Site.Services
                     ImageName = "pr-expediciya",
                     MovieName = "pr-expediciya",
                     CardLink = "https://shevkunenko.ru/pefilm.htm",
-                    CardLinkHttp = true,
                     CardBody = false,
                     CardText = "ПРОПАВШАЯ ЭКСПЕДИЦИЯ"
                 },
@@ -113,7 +110,6 @@ namespace Site.Services
                     ImageName = "kr-zvezda",
                     MovieName = "kr-zvezda",
                     CardLink = "https://shevkunenko.ru/csfilm/cs_online.htm",
-                    CardLinkHttp = true,
                     CardBody = false,
                     CardText = "КРИМИНАЛЬНАЯ ЗВЕЗДА"
                 },
@@ -122,8 +118,8 @@ namespace Site.Services
                     CardId = Guid.NewGuid(),
                     CardName = "programs",
                     ImageName = "programs",
+                    MovieName = string.Empty,
                     CardLink = "https://shevkunenko.ru/csfilm/online.htm",
-                    CardLinkHttp = true,
                     CardBody = true,
                     CardText = "ПРОГРАММЫ"
                 },
@@ -132,8 +128,8 @@ namespace Site.Services
                     CardId = Guid.NewGuid(),
                     CardName = "znakomye",
                     ImageName = "znakomye",
+                    MovieName = string.Empty,
                     CardLink = "https://shevkunenko.ru/csfilm/people.htm",
-                    CardLinkHttp = true,
                     CardBody = true,
                     CardText = "ЗНАКОМЫЕ"
                 },
@@ -142,8 +138,8 @@ namespace Site.Services
                     CardId = Guid.NewGuid(),
                     CardName = "raznoe",
                     ImageName = "raznoe",
+                    MovieName = string.Empty,
                     CardLink = "https://shevkunenko.ru/raznoe.htm",
-                    CardLinkHttp = true,
                     CardBody = true,
                     CardText = "РАЗНОЕ..."
                 },
@@ -152,8 +148,8 @@ namespace Site.Services
                     CardId = Guid.NewGuid(),
                     CardName = "kalinin",
                     ImageName = "kalinin",
+                    MovieName = string.Empty,
                     CardLink = "https://shevkunenko.ru/krfilm/persons/kalinin/index.htm",
-                    CardLinkHttp = true,
                     CardBody = true,
                     CardText = "НИКОЛАЙ КАЛИНИН"
                 },
@@ -162,8 +158,8 @@ namespace Site.Services
                     CardId = Guid.NewGuid(),
                     CardName = "rybakov",
                     ImageName = "rybakov",
+                    MovieName = string.Empty,
                     CardLink = "https://shevkunenko.ru/rybakov/index.htm",
-                    CardLinkHttp = true,
                     CardBody = true,
                     CardText = "АНАТОЛИЙ РЫБАКОВ"
                 }

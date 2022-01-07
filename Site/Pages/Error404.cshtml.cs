@@ -8,6 +8,9 @@ namespace Site.Pages
         [BindProperty]
         public uint PageNumber { get; set; } = 4;
 
+        [BindProperty]
+        public string PageImage { get; set; } = "main-index";
+
         public void OnGet()
         {
         }

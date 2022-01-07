@@ -3,14 +3,20 @@
 <span itemscope itemtype="http://schema.org/ImageObject">
 
     <meta itemprop="caption" content="@Model.ImageCaption" />
+
     <link itemprop="contentUrl" href="@Model.ImageContentUrl" />
+
     <link itemprop="thumbnailUrl" href="@Model.ImageThumbnailUrl" />
-    <link itemprop="image" href="@Model.ImagelUrl" />
-    <meta itemprop="width" content="@Model.ImageWidth" />
-    <meta itemprop="height" content="@Model.ImageHeight" />
-    <img class="card-img-top shadw rounded-3" asp-append-version="true"
-         src="@Model.ImageSrc"
-         alt="@Model.ImageAlt"
-         title="@Model.ImageTitle" />
+
+    <link itemprop="image" href="@Model.ImageContentUrl" />
+
+    <meta itemprop="width" content="@Model.ImageWidth px" />
+
+    <meta itemprop="height" content="@Model.ImageHeight px" />
+
+    <img class="@ViewData["CssClass"]" asp-append-version="true"
+            src="@Model.ImageSrc"
+            alt="@Model.ImageAlt"
+            title="@Model.ImageTitle" />
 
 </span>

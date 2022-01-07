@@ -14,7 +14,6 @@ body {
 }
 
 /* Donate */
-
 .wbform {
     width: 240px;
     height: 240px;
@@ -27,15 +26,11 @@ body {
 }
 
 /* Кнопки меню*/
-
-
 .ya-share2__title, .nav-link, .dropdown-item {
     color: black !important;
     font-family: 'Times New Roman', Times, serif !important;
     font-size: 1.25rem !important;
 }
-
-
 
     .ya-share2__title :hover {
         text-decoration: none;
@@ -59,7 +54,6 @@ body {
     .dropdown-item:hover {
         border-color: darkred;
     }
-
 
 /* Убираем пункт скопировать ссылку*/
 .ya-share2__link_copy {
@@ -161,7 +155,6 @@ a {
     text-decoration: none;
 }
 
-
 /* Тень блока */
 .shadw, .ya-share2__link {
     background: var(--shadow-background);
@@ -199,6 +192,7 @@ a {
 table.gsc-search-box, form.gsc-search-box {
     margin-bottom: 0px !important;
 }
+
 /* тег hr */
 .liniya {
     width: 96%;
@@ -224,7 +218,6 @@ table.gsc-search-box, form.gsc-search-box {
 .bg-kortik-2 {
     background-image: url(/images/backgrounds/fon-kortik-2.png);
 }
-
 
 .adp_img {
     max-width: 96%;

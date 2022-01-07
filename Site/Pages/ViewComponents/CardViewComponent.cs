@@ -7,15 +7,15 @@ namespace Site.Pages.ViewComponents
 {
     public class Card : ViewComponent
     {
-        private readonly ICardModelRepository _context;
+        private readonly ICardModelRepository _cardContext;
         public Card(ICardModelRepository context)
         {
-            _context = context;
+            _cardContext = context;
         }
 
         public IViewComponentResult Invoke(string cardName)
         {
-            CardModel card = _context.GetAllCards().FirstOrDefault(x => x.CardName == cardName);
+            CardModel card = _cardContext.GetAllCards().FirstOrDefault(x => x.CardName == cardName);
 
             return View(card);
         }

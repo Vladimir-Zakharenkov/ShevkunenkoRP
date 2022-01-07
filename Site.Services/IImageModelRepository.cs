@@ -5,6 +5,8 @@ namespace Site.Services
 {
     public interface IImageModelRepository
     {
-        IEnumerable<ImageModel> GetAllImages();
+        public IEnumerable<ImageModel> Images { get; }
+
+        void AddImage(ImageModel image);
     }
 }

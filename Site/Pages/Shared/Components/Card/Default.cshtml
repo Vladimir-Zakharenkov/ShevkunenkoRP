@@ -1,16 +1,14 @@
 ﻿@model Site.Models.CardModel
+@{
+}
 
 <div class="col">
 
     <div class="card shadw rounded-3">
 
-        @{
-            bool cnt = Model.CardLink.Contains("http");
-        }
-
-        @if (cnt)
+        @if (Model.CardLink.Contains("http"))
         {
-            <a href="@Model.CardLink">
+            <a href="@Model.CardLink" itemprop="url">
 
                 @if (!(Model.MovieName == string.Empty))
                 {
@@ -18,9 +16,8 @@
                 }
                 else
                 {
-                    <vc:image image-name="@Model.ImageName" />
+                    <vc:image image-name="@Model.ImageName" css-class="card-img-top shadw rounded-3" />
                 }
-
 
                 @if (Model.CardBody)
                 {
@@ -35,7 +32,7 @@
         }
         else
         {
-            <a asp-page="@Model.CardLink">
+            <a asp-page="@Model.CardLink" itemprop="url">
 
                 @if (!(Model.MovieName == string.Empty))
                 {
@@ -43,7 +40,7 @@
                 }
                 else
                 {
-                    <vc:image image-name="@Model.ImageName" />
+                    <vc:image image-name="@Model.ImageName" css-class="card-img-top shadw rounded-3" />
                 }
 
                 @if (Model.CardBody)
@@ -61,4 +58,3 @@
     </div>
 
 </div>
-

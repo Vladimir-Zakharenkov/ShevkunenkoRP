@@ -16,11 +16,7 @@ namespace Site.Models
         public string MovieName { get; set; } = String.Empty;
 
         [Required]
-        [DataType(DataType.Url)]
         public string CardLink { get; set; }
-
-        [Required]
-        public bool CardLinkHttp { get; set; }
 
         [Required]
         public bool CardBody { get; set; }

@@ -1,54 +1,39 @@
 ﻿@page
 @model Main2Model
 @{
-    ViewData["PageImage"] = "https://shevkunenko.site/images/glavpic1.png";
-    ViewData["PageImageWidth"] = 700;
-    ViewData["PageImageHeight"] = 408;
     ViewData["BackgroundLeft"] = "bg-kortik-1";
     ViewData["BackgroundRight"] = "bg-kortik-2";
 }
 
 <div class="row">
-    <div class="col-12">
+
+    <div class="col">
 
         <h1 class="text_shadow">БИОГРАФИЯ, РОЛИ В КИНО, ПРЕССА</h1>
 
         <hr class="liniya" />
 
-        <a href="/images/glavpic1.png" onClick="this.target='_blank'">
-
-            <span itemscope itemtype="http://schema.org/ImageObject">
-
-                <meta itemprop="caption" content="сайт памяти Сергея Шевкуненко">
-                <link itemprop="contentUrl" href="https://shevkunenko.site/images/glavpic1.png" />
-                <link itemprop="thumbnailUrl" href="https://shevkunenko.site/images/glavpic1.png" />
-                <link itemprop="image" href="https://shevkunenko.site/images/glavpic1.png" />
-                <meta itemprop="width" content="700" />
-                <meta itemprop="height" content="408" />
-                <img class="adp_img ten" asp-append-version="true"
-                     src="/images/glavpic1.png"
-                     alt="сайт памяти Сергея Шевкуненко"
-                     title="сайт памяти Сергея Шевкуненко" />
-
-            </span>
-
-        </a>
+        <vc:image image-name="main-main2" css-class="adp_img ten" />
 
         <hr class="liniya" />
 
     </div>
+
 </div>
 
 <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 g-2 justify-content-center">
-    <vc:card card-name="kortik"></vc:card>
+
+    <vc:card card-name="kortik" />
     <vc:card card-name="br-ptica"></vc:card>
     <vc:card card-name="pr-expediciya"></vc:card>
     <vc:card card-name="kr-zvezda"></vc:card>
 
     <hr class="liniya" />
+
 </div>
 
 <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 g-2 justify-content-center">
+
     <vc:card card-name="biografy" />
     <vc:card card-name="photo" />
     <vc:card card-name="pressa" />
@@ -59,9 +44,12 @@
     <vc:card card-name="guestbook" />
 
     <hr class="liniya" />
+
 </div>
 
 <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 g-2 justify-content-center">
+
     <vc:card card-name="kalinin" />
     <vc:card card-name="rybakov" />
+
 </div>

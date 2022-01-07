@@ -7,11 +7,9 @@
 	          video: http://ogp.me/ns/video#
 	          ya: http://webmaster.yandex.ru/vocabularies/">
 
-<vc:head page-id="@Model.PageNumber"></vc:head>
+<vc:head page-id="@Model.PageNumber" image-name="@Model.PageImage"></vc:head>
 
 <body>
-
-    <meta itemprop="image" content="@ViewData["PageImage"]">
 
     <div class="container-fluid container-fluid-1920">
 
@@ -52,4 +50,5 @@
     @await RenderSectionAsync("JScripts", required: false)
 
 </body>
+
 </html>

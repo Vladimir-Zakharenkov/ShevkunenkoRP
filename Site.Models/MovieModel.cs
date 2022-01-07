@@ -50,25 +50,25 @@ namespace Site.Models
         [Required]
         public string Description { get; set; }
 
-        public string? Actor01 { get; set; }
+        public string Actor01 { get; set; }
 
-        public string? Actor02 { get; set; }
+        public string Actor02 { get; set; }
 
-        public string? Actor03 { get; set; }
+        public string Actor03 { get; set; }
 
-        public string? Actor04 { get; set; }
+        public string Actor04 { get; set; }
 
-        public string? Actor05 { get; set; }
+        public string Actor05 { get; set; }
 
-        public string? Actor06 { get; set; }
+        public string Actor06 { get; set; }
 
-        public string? Actor07 { get; set; }
+        public string Actor07 { get; set; }
 
-        public string? Actor08 { get; set; }
+        public string Actor08 { get; set; }
 
-        public string? Actor09 { get; set; }
+        public string Actor09 { get; set; }
 
-        public string? Actor10 { get; set; }
+        public string Actor10 { get; set; }
 
         public string ContentUrl { get; set; }
     }

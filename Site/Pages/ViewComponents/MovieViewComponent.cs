@@ -7,16 +7,16 @@ namespace Site.Pages.ViewComponents
 {
     public class Movie : ViewComponent
     {
-        private readonly IMovieModelRepository _context;
+        private readonly IMovieModelRepository _movieContext;
 
         public Movie(IMovieModelRepository context)
         {
-            _context = context;
+            _movieContext = context;
         }
 
         public IViewComponentResult Invoke(string movieName)
         {
-            MovieModel movie = _context.GettAllMovies().FirstOrDefault(x => x.MovieName == movieName);
+            MovieModel movie = _movieContext.GettAllMovies().FirstOrDefault(x => x.MovieName == movieName);
 
             return View(movie);
         }

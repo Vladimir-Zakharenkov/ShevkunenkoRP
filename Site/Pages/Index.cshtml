@@ -1,41 +1,24 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["PageImage"] = "https://shevkunenko.site/images/index1.gif";
-    ViewData["PageImageWidth"] = 1122;
-    ViewData["PageImageHeight"] = 480;
     ViewData["BackgroundLeft"] = "bg-kortik-1";
     ViewData["BackgroundRight"] = "bg-kortik-2";
 }
 
 <div class="row">
-    <div class="col-12">
+
+    <div class="col">
 
         <h1 class="text_shadow">САЙТ ПАМЯТИ СЕРГЕЯ&nbsp;ШЕВКУНЕНКО</h1>
 
         <hr class="liniya" />
 
-        <a href="/images/index1.gif" onClick="this.target='_blank'">
-
-            <span itemscope itemtype="http://schema.org/ImageObject">
-
-                <meta itemprop="caption" content="сайт памяти Сергея Шевкуненко" />
-                <link itemprop="contentUrl" href="https://shevkunenko.site/images/index1.gif" />
-                <link itemprop="thumbnailUrl" href="https://shevkunenko.site/images/index1.gif" />
-                <link itemprop="image" href="https://shevkunenko.site/images/index1.gif" />
-                <meta itemprop="width" content="1122" />
-                <meta itemprop="height" content="480" />
-                <img class="adp_img ten" asp-append-version="true"
-                     src="/images/index1.gif"
-                     alt="сайт памяти Сергея Шевкуненко"
-                     title="сайт памяти Сергея Шевкуненко" />
-            </span>
-
-        </a>
+        <vc:image image-name="main-index" css-class="adp_img ten" />
 
         <hr class="liniya" />
 
     </div>
+
 </div>
 
 <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 g-2 justify-content-center">
@@ -55,7 +38,3 @@
 </div>
 
 <partial name="_SoundPartial" />
-
-
-
-

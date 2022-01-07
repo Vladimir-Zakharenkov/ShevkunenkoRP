@@ -9,34 +9,35 @@ using Microsoft.Extensions.WebEncoders;
 using Site.Services;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using WebMarkupMin.AspNetCore5;
 
 namespace Site
 {
     public class Startup
     {
-        public uint? PageNumber { get; set; } = 4;
-
-        public IConfiguration Configuration { get; set; }
-
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<SiteContext>(options =>
+            services.AddDbContext<SiteContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("SiteDB"));
             });
 
-            services.AddSingleton<IImageModelRepository, MoqImageModelRepository>();
+            //services.AddSingleton<IImageModelRepository, MoqImageModelRepository>();
+            services.AddTransient<IImageModelRepository, SQLImageModelRepository>();
 
             services.AddSingleton<ICardModelRepository, MoqCardModelRepository>();
 
             services.AddSingleton<IMovieModelRepository, MoqMovieModelRepository>();
 
             //services.AddSingleton<IHeadModelRepository, MoqHeadModelRepository>();
-            services.AddScoped<IHeadModelRepository, SQLHeadModelRepository>();
+            services.AddTransient<IHeadModelRepository, SQLHeadModelRepository>();
+
 
             services.AddRazorPages();
 
@@ -49,6 +50,21 @@ namespace Site
 
             services.Configure<WebEncoderOptions>(options =>
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
+
+            services.AddWebMarkupMin(
+            options =>
+            {
+                options.AllowMinificationInDevelopmentEnvironment = true;
+                options.AllowCompressionInDevelopmentEnvironment = true;
+            })
+            .AddHtmlMinification(
+                options =>
+                {
+                    options.MinificationSettings.RemoveRedundantAttributes = true;
+                    options.MinificationSettings.RemoveHttpProtocolFromAttributes = true;
+                    options.MinificationSettings.RemoveHttpsProtocolFromAttributes = true;
+                })
+            .AddHttpCompression();
 
         }
 
@@ -68,6 +84,7 @@ namespace Site
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseWebMarkupMin();
             app.UseWelcomePage("/Welcome");
 
             app.UseRouting();

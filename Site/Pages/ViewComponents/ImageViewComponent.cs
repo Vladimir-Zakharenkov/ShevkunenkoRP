@@ -7,16 +7,19 @@ namespace Site.Pages.ViewComponents
 {
     public class Image : ViewComponent
     {
-        private readonly IImageModelRepository _context;
+        private readonly IImageModelRepository _imageContext;
 
-        public Image(IImageModelRepository context)
+        public Image(IImageModelRepository imageContext)
         {
-            _context = context;
+
+            _imageContext = imageContext;
         }
 
-        public IViewComponentResult Invoke(string imageName)
+        public IViewComponentResult Invoke(string imageName, string cssClass)
         {
-            ImageModel image = _context.GetAllImages().FirstOrDefault(x => x.ImageName == imageName);
+            ImageModel image = _imageContext.Images.FirstOrDefault(x => x.ImageName == imageName);
+
+            ViewData["CssClass"] = cssClass;
 
             return View(image);
         }

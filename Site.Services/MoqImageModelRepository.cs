@@ -1,9 +1,6 @@
 ﻿using Site.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Site.Services
 {
@@ -22,7 +19,6 @@ namespace Site.Services
                     ImageCaption = "Сайт, посвященный Сергею Шевкуненко",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/main-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/main-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/main-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/main-page.png",
@@ -36,7 +32,6 @@ namespace Site.Services
                     ImageCaption = "Биография Сергея Юрьевича Шевкуненко",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/biografy-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/biografy-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/biografy-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/biografy-page.png",
@@ -50,7 +45,6 @@ namespace Site.Services
                     ImageCaption = "Фильмы с участием Сергея Шевкуненко",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/films-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/films-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/films-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/films-page.png",
@@ -64,7 +58,6 @@ namespace Site.Services
                     ImageCaption = "Книги и статьи о Сергее Шевкуненко",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/pressa-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/pressa-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/pressa-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/pressa-page.png",
@@ -78,7 +71,6 @@ namespace Site.Services
                     ImageCaption = "Фотографии Сергея Шевкуненко",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/foto-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/foto-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/foto-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/foto-page.png",
@@ -92,7 +84,6 @@ namespace Site.Services
                     ImageCaption = "Гостевая книга сайта",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/gostevaya-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/gostevaya-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/gostevaya-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/gostevaya-page.png",
@@ -103,15 +94,14 @@ namespace Site.Services
                 {
                     ImageId = Guid.NewGuid(),
                     ImageName = "kortik",
-                    ImageCaption = "Фильм Кортик",
+                    ImageCaption = "Фильм «Кортик»",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/kortik-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/kortik-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/kortik-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/kortik-page.png",
-                    ImageAlt = "Фильм Кортик",
-                    ImageTitle = "Фильм Кортик"
+                    ImageAlt = "Фильм «Кортик»",
+                    ImageTitle = "Фильм «Кортик»"
                 },
                 new ImageModel()
                 {
@@ -120,7 +110,6 @@ namespace Site.Services
                     ImageCaption = "Фильм Бронзовая птица",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/bronzptica-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/bronzptica-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/bronzptica-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/bronzptica-page.png",
@@ -134,7 +123,6 @@ namespace Site.Services
                     ImageCaption = "Фильм Пропавшая экспедиция",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/propexpediciya-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/propexpediciya-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/propexpediciya-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/propexpediciya-page.png",
@@ -148,7 +136,6 @@ namespace Site.Services
                     ImageCaption = "Фильм Криминальная звезда",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/krimzvezda-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/krimzvezda-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/krimzvezda-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/krimzvezda-page.png",
@@ -162,7 +149,6 @@ namespace Site.Services
                     ImageCaption = "Фильмы и программы о Сергее Шевкуненко",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/programs-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/programs-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/programs-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/programs-page.png",
@@ -176,7 +162,6 @@ namespace Site.Services
                     ImageCaption = "Интервью из фильмов о Сергее Шевкуненко",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/people-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/people-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/people-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/people-page.png",
@@ -190,7 +175,6 @@ namespace Site.Services
                     ImageCaption = "Разное...",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/raznoe-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/raznoe-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/raznoe-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/raznoe-page.png",
@@ -204,7 +188,6 @@ namespace Site.Services
                     ImageCaption = "Калинин Николай Артемьевич",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/kalinin-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/kalinin-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/kalinin-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/kalinin-page.png",
@@ -218,7 +201,6 @@ namespace Site.Services
                     ImageCaption = "Рыбаков Анатолий Наумович",
                     ImageContentUrl = "https://shevkunenko.site/images/cards/pybakov-page.png",
                     ImageThumbnailUrl = "https://shevkunenko.site/images/cards/pybakov-page.png",
-                    ImagelUrl = "https://shevkunenko.site/images/cards/pybakov-page.png",
                     ImageWidth = 720,
                     ImageHeight = 540,
                     ImageSrc = "/images/cards/pybakov-page.png",
@@ -228,9 +210,11 @@ namespace Site.Services
             };
         }
 
-        public IEnumerable<ImageModel> GetAllImages()
+        public IEnumerable<ImageModel> Images => _imageList;
+
+        public void AddImage(ImageModel image)
         {
-            return _imageList;
+            throw new NotImplementedException();
         }
     }
 }
