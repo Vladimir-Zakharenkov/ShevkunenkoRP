@@ -14,7 +14,7 @@ namespace Site.Services
 
         public IEnumerable<ImageModel> Images => _siteContext.ImageModels;
 
-        public void AddImage(ImageModel image)
+        public async void AddImage(ImageModel image)
         {
             _siteContext.ImageModels.Add(image);
             _siteContext.SaveChanges();

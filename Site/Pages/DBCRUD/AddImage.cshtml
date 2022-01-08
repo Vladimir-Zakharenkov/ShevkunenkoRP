@@ -7,84 +7,83 @@
 
 <h1 class="fs-3">Добавить картинку в базу данных</h1>
 
-<form method="post" asp-page-handler="OnPost">
+<hr class="liniya" />
 
-    <input type="hidden" asp-for="Image.ImageId" />
+<form method="post" asp-page-handler="OnPost">
 
     <div class="row text-start mb-2">
         <label for="imageNameInput" asp-for="Image.ImageName" class="col">ImageName</label>
         <input id="imageNameInput" asp-for="Image.ImageName" class="col" type="text" />
+        <span asp-validation-for="Image.ImageName" class="text-danger"></span>
     </div>
 
     <div class="row text-start mb-2">
         <label for="imageName2Input" asp-for="Image.ImageName2" class="col">ImageName2</label>
         <input id="imageName2Input" asp-for="Image.ImageName2" class="col" type="text" />
+        <span asp-validation-for="Image.ImageName2" class="text-danger"></span>
     </div>
 
     <div class="row text-start mb-2">
         <label for="ImageCaptionInput" asp-for="Image.ImageCaption" class="col">ImageCaption</label>
         <input id="ImageCaptionInput" asp-for="Image.ImageCaption" class="col" type="text" />
+        <span asp-validation-for="Image.ImageCaption" class="text-danger"></span>
     </div>
 
     <div class="row text-start mb-2">
         <label for="ImageDescriptionInput" asp-for="Image.ImageDescription" class="col">ImageDescription</label>
         <input id="ImageDescriptionInput" asp-for="Image.ImageDescription" class="col" type="text" />
+        <span asp-validation-for="Image.ImageDescription" class="text-danger"></span>
     </div>
 
     <div class="row text-start mb-2">
         <label for="ImageContentUrlInput" asp-for="Image.ImageContentUrl" class="col">ImageContentUrl</label>
         <input id="ImageContentUrlnInput" asp-for="Image.ImageContentUrl" class="col" type="url" />
+        <span asp-validation-for="Image.ImageContentUrl" class="text-danger"></span>
     </div>
 
     <div class="row text-start mb-2">
         <label for="ImageThumbnailUrlInput" asp-for="Image.ImageThumbnailUrl" class="col">ImageThumbnailUrl</label>
         <input id="ImageThumbnailUrlInput" asp-for="Image.ImageThumbnailUrl" class="col" type="url" />
+        <span asp-validation-for="Image.ImageThumbnailUrl" class="text-danger"></span>
     </div>
 
     <div class="row text-start mb-2">
         <label for="ImageWidthInput" asp-for="Image.ImageWidth" class="col">ImageWidth</label>
         <input id="ImageWidthInput" asp-for="Image.ImageWidth" class="col" type="number" />
+        <span asp-validation-for="Image.ImageWidth" class="text-danger"></span>
     </div>
 
     <div class="row text-start mb-2">
         <label for="ImageHeightInput" asp-for="Image.ImageHeight" class="col">ImageHeight</label>
         <input id="ImageHeightInput" asp-for="Image.ImageHeight" class="col" type="number" />
+        <span asp-validation-for="Image.ImageHeight" class="text-danger"></span>
     </div>
 
     <div class="row text-start mb-2">
         <label for="ImageSrcInput" asp-for="Image.ImageSrc" class="col">ImageSrc</label>
         <input id="ImageSrcInput" asp-for="Image.ImageSrc" class="col" type="text" />
+        <span asp-validation-for="Image.ImageSrc" class="text-danger"></span>
     </div>
 
     <div class="row text-start mb-2">
         <label for="ImageAltInput" asp-for="Image.ImageAlt" class="col">ImageAlt</label>
         <input id="ImageAltInput" asp-for="Image.ImageAlt" class="col" type="text" />
+        <span asp-validation-for="Image.ImageAlt" class="text-danger"></span>
     </div>
 
     <div class="row text-start mb-2">
         <label for="ImageTitleInput" asp-for="Image.ImageTitle" class="col">ImageTitle</label>
         <input id="ImageTitleInput" asp-for="Image.ImageTitle" class="col" type="text" />
+        <span asp-validation-for="Image.ImageTitle" class="text-danger"></span>
     </div>
 
+    <hr class="liniya" />
+
     <div class="row text-center mt-2">
-        <button type="submit" class="btn btn-success">Добавить</button>
+        <button type="submit" class="col btn btn-success shadow">ADD NEW IMAGE</button>
+        <a href="/DBCRUD/ViewImages" class="col btn btn-danger shadow ms-3">CANCEL</a>
     </div>
 
 </form>
 
-@if (Model.Images.Count() == 0)
-{
-    <div class="row">
-        <div class="col text-center p-2">
-            <p class="fs-4 text-danger">Нет данных</p>
-        </div>
-    </div>
-}
-else
-{
-    <div class="row">
-        <div class="col text-center p-2">
-            <p class="fs-4 text-danger">Количество изображений в базе:&nbsp;@Model.Images.Count()</p>
-        </div>
-    </div>
-}
+<hr class="liniya" />

@@ -34,8 +34,16 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnPost()
         {
-            _imageContext.AddImage(Image);
-            return RedirectToPage("/DBCRUD/AddImage");
+            if (ModelState.IsValid)
+            {
+                _imageContext.AddImage(Image);
+
+                return RedirectToPage("/DBCRUD/ViewImages");
+            }
+            else
+            {
+                return Page();
+            }
         }
     }
 }

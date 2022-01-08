@@ -23,13 +23,13 @@ namespace Site
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SiteContext>(options =>
+            services.AddDbContextPool<SiteContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("SiteDB"));
             });
 
             //services.AddSingleton<IImageModelRepository, MoqImageModelRepository>();
-            services.AddTransient<IImageModelRepository, SQLImageModelRepository>();
+            services.AddScoped<IImageModelRepository, SQLImageModelRepository>();
 
             services.AddSingleton<ICardModelRepository, MoqCardModelRepository>();
 
@@ -84,7 +84,7 @@ namespace Site
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseWebMarkupMin();
+            //app.UseWebMarkupMin();
             app.UseWelcomePage("/Welcome");
 
             app.UseRouting();

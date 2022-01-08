@@ -1,0 +1,56 @@
+﻿@page
+@model Site.Pages.DBCRUD.ViewImagesModel
+@{
+    ViewData["BackgroundLeft"] = "bg-kortik-1";
+    ViewData["BackgroundRight"] = "bg-kortik-2";
+}
+
+<div class="row">
+    <div class="col">
+        <a href="/DBCRUD/AddImage" class="btn btn-success mt-3 shadow">ADD NEW IMAGE</a>
+    </div>
+</div>
+
+<hr class="liniya" />
+
+@if (Model.AllImages.Count() == 0)
+{
+    <div class="row">
+        <div class="col text-center p-2">
+            <p class="fs-4 text-danger">Нет данных</p>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col text-center p-2">
+            <p class="fs-4 text-danger">Количество изображений:&nbsp;@Model.AllImages.Count()</p>
+        </div>
+    </div>
+}
+
+<div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 g-2 justify-content-center">
+
+    @foreach (var item in Model.AllImages)
+    {
+        <div class="col">
+
+            <div class="card me-1 mb-1 shadw">
+
+                <vc:image image-name="@item.ImageName" css-class="card-img-top" />
+
+                <div class="card-body">
+
+                    <p class="shadw">Image - @item.ImageName</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+    <hr class="liniya" />
+
+</div>
