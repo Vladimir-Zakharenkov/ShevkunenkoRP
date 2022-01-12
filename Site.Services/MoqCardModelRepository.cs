@@ -162,6 +162,16 @@ namespace Site.Services
                     CardLink = "https://shevkunenko.ru/rybakov/index.htm",
                     CardBody = true,
                     CardText = "АНАТОЛИЙ РЫБАКОВ"
+                },
+                new CardModel()
+                {
+                    CardId = Guid.NewGuid(),
+                    CardName = "no-card",
+                    ImageName = "no-image",
+                    MovieName = string.Empty,
+                    CardLink = "/Error404",
+                    CardBody = true,
+                    CardText = "ОШИБКА"
                 }
             };
         }

@@ -65,7 +65,6 @@ namespace Site
                     options.MinificationSettings.RemoveHttpsProtocolFromAttributes = true;
                 })
             .AddHttpCompression();
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

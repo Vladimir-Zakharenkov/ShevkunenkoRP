@@ -122,13 +122,13 @@ a {
     top: 0;
 }
 
-.card a {
+.cardborder a {
     border: .3rem ridge transparent;
     transition: all .3s ease-in-out;
     color: black;
 }
 
-    .card a:hover {
+    .cardborder a:hover {
         border: .3rem var(--border-red) ridge;
         opacity: .9;
         color: var(--border-red);

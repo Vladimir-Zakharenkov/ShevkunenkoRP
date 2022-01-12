@@ -18,6 +18,11 @@ namespace Site.Pages.ViewComponents
         {
             MovieModel movie = _movieContext.GettAllMovies().FirstOrDefault(x => x.MovieName == movieName);
 
+            if (movie == null)
+            {
+                movie = _movieContext.GettAllMovies().FirstOrDefault(x => x.MovieName == "no-movie");
+            }
+
             return View(movie);
         }
     }

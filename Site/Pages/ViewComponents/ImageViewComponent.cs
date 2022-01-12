@@ -11,13 +11,17 @@ namespace Site.Pages.ViewComponents
 
         public Image(IImageModelRepository imageContext)
         {
-
             _imageContext = imageContext;
         }
 
         public IViewComponentResult Invoke(string imageName, string cssClass)
         {
             ImageModel image = _imageContext.Images.FirstOrDefault(x => x.ImageName == imageName);
+
+            if (image == null)
+            {
+                image = _imageContext.Images.FirstOrDefault(x => x.ImageName == "no-image");
+            }
 
             ViewData["CssClass"] = cssClass;
 

@@ -6,12 +6,16 @@
 }
 
 <div class="row">
-    <div class="col">
-        <a href="/DBCRUD/AddImage" class="btn btn-success mt-3 shadow">ADD NEW IMAGE</a>
-    </div>
-</div>
 
-<hr class="liniya" />
+    <hr class="liniya" />
+
+    <div class="col">
+        <a asp-page="AddImage" class="btn btn-success shadow">ADD NEW IMAGE</a>
+    </div>
+
+    <hr class="liniya" />
+
+</div>
 
 @if (Model.AllImages.Count() == 0)
 {
@@ -30,20 +34,24 @@ else
     </div>
 }
 
-<div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 g-2 justify-content-center">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-2 justify-content-center">
 
     @foreach (var item in Model.AllImages)
     {
         <div class="col">
 
-            <div class="card me-1 mb-1 shadw">
+            <div class="card h-100 me-1 mb-1 p-1 shadw">
 
-                <vc:image image-name="@item.ImageName" css-class="card-img-top" />
+                <vc:image image-name="@item.ImageName" css-class="card-img-top shadw" />
 
                 <div class="card-body">
 
-                    <p class="shadw">Image - @item.ImageName</p>
+                </div>
 
+                <div class="card-footer px-0">
+                    <a asp-page="DetailsImage" asp-route-imageid="@item.ImageId" class="btn btn-outline-primary mt-1">View</a>
+                    <a asp-page="UpdateImage" asp-route-imageid="@item.ImageId" class="btn btn-outline-success mt-1">Edit</a>
+                    <a href="#" class="btn btn-outline-danger mt-1">Delete</a>
                 </div>
 
             </div>

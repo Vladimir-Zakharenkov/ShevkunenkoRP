@@ -17,6 +17,11 @@ namespace Site.Pages.ViewComponents
         {
             CardModel card = _cardContext.GetAllCards().FirstOrDefault(x => x.CardName == cardName);
 
+            if (card == null)
+            {
+                card = _cardContext.GetAllCards().FirstOrDefault(x => x.CardName == "no-card");
+            }
+
             return View(card);
         }
     }

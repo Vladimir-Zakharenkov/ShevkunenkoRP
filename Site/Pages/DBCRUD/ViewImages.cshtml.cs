@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
 using Site.Services;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Site.Pages.DBCRUD
 {
@@ -21,11 +22,12 @@ namespace Site.Pages.DBCRUD
         [BindProperty]
         public string PageImage { get; set; } = "main-index";
 
+
         public IEnumerable<ImageModel> AllImages { get; set; }
 
         public void OnGet()
         {
-            AllImages = _imageContext.Images;
+            AllImages = _imageContext.Images.ToArray();
         }
     }
 }

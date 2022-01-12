@@ -1,24 +1,21 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Site.Models;
-using Site.Services;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Site.Pages
 {
     public class TestModel : PageModel
     {
-        private readonly ICardModelRepository _context;
-        public TestModel(ICardModelRepository context)
-        {
-            _context = context;
-        }
-        public string TestText { get; set; }
+        [BindProperty]
+        public uint PageNumber { get; set; } = 1;
 
-        public IEnumerable<CardModel> CardModel { get; set; }
-
+        [BindProperty]
+        public string PageImage { get; set; } = "main-index";
         public void OnGet()
         {
-            TestText = "ТестТекст";
         }
     }
 }

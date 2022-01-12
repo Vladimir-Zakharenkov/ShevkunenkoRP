@@ -1,4 +1,5 @@
 ﻿using Site.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Site.Services
@@ -14,9 +15,20 @@ namespace Site.Services
 
         public IEnumerable<ImageModel> Images => _siteContext.ImageModels;
 
-        public async void AddImage(ImageModel image)
+        public void AddImage(ImageModel image)
         {
             _siteContext.ImageModels.Add(image);
+            _siteContext.SaveChanges();
+        }
+
+        public ImageModel GetImage(Guid imageId)
+        {
+            return _siteContext.ImageModels.Find(imageId);
+        }
+
+        public void UpdateImage(ImageModel image)
+        {
+            _siteContext.ImageModels.Update(image);
             _siteContext.SaveChanges();
         }
     }

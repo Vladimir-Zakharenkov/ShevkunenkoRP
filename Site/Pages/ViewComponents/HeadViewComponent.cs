@@ -33,9 +33,20 @@ namespace Site.Pages.ViewComponents
 
             ImageModel imageHead = _imageContext.Images.FirstOrDefault(y => y.ImageName == imageName);
 
+            if (head == null)
+            {
+                head = _headContext.HeadModels.FirstOrDefault(x => x.PageId == 0);
+            }
+
+            if (imageHead == null)
+            {
+                imageHead = _imageContext.Images.FirstOrDefault(y => y.ImageName == "no-image");
+            }
+
             ViewData["PageImage"] = imageHead.ImageContentUrl;
             ViewData["PageImageWidth"] = imageHead.ImageWidth;
             ViewData["PageImageHeight"] = imageHead.ImageHeight;
+
 
             return View(head);
         }

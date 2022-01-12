@@ -216,5 +216,15 @@ namespace Site.Services
         {
             throw new NotImplementedException();
         }
+
+        public ImageModel GetImage(Guid imageId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateImage(ImageModel image)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

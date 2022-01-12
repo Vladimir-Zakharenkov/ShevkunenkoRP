@@ -109,6 +109,26 @@ namespace Site.Services
                     Description = "Имя Сергея Шевкуненко ничего не скажет современному подростку. А ведь он сыграл главные роли в культовых фильмах своего времени «Кортик» и «Бронзовая птица». Фильм «Криминальная звезда» - о юном артисте, когда-то подававшем большие надежды, расскажет также о нескольких других трагических судьбах актеров советского кино.",
                     Actor01 = "Сергей Шевкуненко",
                     ContentUrl = "http://vladimirz.asuscomm.com/Video/kr-zvezda.mp4"
+                },
+                new MovieModel()
+                {
+                    MovieId = Guid.NewGuid(),
+                    MovieName = "no-movie",
+                    ImageName = "no-image",
+                    MovieCaption = "Фильм не найден",
+                    Duration = "T00H00M00S",
+                    DatePublished = "2022-01-01",
+                    DateCreated = "2022-01-01",
+                    UploadDate = "2022-01-01",
+                    IsFamilyFriendly = "true",
+                    InLanguage = String.Empty,
+                    РroductionCompany = String.Empty,
+                    Director = String.Empty,
+                    MusicBy = String.Empty,
+                    Genre = String.Empty,
+                    Description = String.Empty,
+                    Actor01 = String.Empty,
+                    ContentUrl = "http://vladimirz.asuscomm.com/Video/kr-zvezda.mp4"
                 }
             };
         }
