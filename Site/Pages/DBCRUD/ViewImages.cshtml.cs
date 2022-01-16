@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Site.Pages.DBCRUD
 {
-    public class ViewImagesModel : PageModel
+    public class ViewImagesModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly IImageModelRepository _imageContext;
 

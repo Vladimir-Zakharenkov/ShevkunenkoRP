@@ -3,28 +3,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Site.Services.Migrations
 {
-    public partial class HeadModelInitial : Migration
+    public partial class PageModelInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "HeadModels",
+                name: "PageModels",
                 columns: table => new
                 {
-                    HeadId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PageId = table.Column<long>(type: "bigint", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PageModelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PageNumber = table.Column<long>(type: "bigint", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HeadModels", x => x.HeadId);
+                    table.PrimaryKey("PK_PageModels", x => x.PageModelId);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "HeadModels");
+                name: "PageModels");
         }
     }
 }

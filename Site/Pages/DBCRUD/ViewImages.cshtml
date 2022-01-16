@@ -51,7 +51,7 @@ else
                 <div class="card-footer px-0">
                     <a asp-page="DetailsImage" asp-route-imageid="@item.ImageId" class="btn btn-outline-primary mt-1">View</a>
                     <a asp-page="UpdateImage" asp-route-imageid="@item.ImageId" class="btn btn-outline-success mt-1">Edit</a>
-                    <a href="#" class="btn btn-outline-danger mt-1">Delete</a>
+                    <a asp-page="DeleteImage" asp-route-imageid="@item.ImageId" class="btn btn-outline-danger mt-1">Delete</a>
                 </div>
 
             </div>

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Site.Models
 {
+    [Index(nameof(ImageName), IsUnique = true)]
     public class ImageModel
     {
         [Key]

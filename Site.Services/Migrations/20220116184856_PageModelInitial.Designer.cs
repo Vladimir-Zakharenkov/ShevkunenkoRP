@@ -10,8 +10,8 @@ using Site.Services;
 namespace Site.Services.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20220105161311_UpdateImageModelImageUrl")]
-    partial class UpdateImageModelImageUrl
+    [Migration("20220116184856_PageModelInitial")]
+    partial class PageModelInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,7 +80,8 @@ namespace Site.Services.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImageName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ImageName2")
                         .IsRequired()
@@ -103,7 +104,27 @@ namespace Site.Services.Migrations
 
                     b.HasKey("ImageId");
 
+                    b.HasIndex("ImageName")
+                        .IsUnique();
+
                     b.ToTable("ImageModels");
+                });
+
+            modelBuilder.Entity("Site.Models.PageModel", b =>
+                {
+                    b.Property<Guid>("PageModelId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("PageNumber")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("PageModelId");
+
+                    b.ToTable("PageModels");
                 });
 #pragma warning restore 612, 618
         }

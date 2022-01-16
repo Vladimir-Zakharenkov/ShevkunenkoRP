@@ -1,5 +1,5 @@
 ﻿@page
-@model Site.Pages.DBCRUD.DetailsImageModel
+@model Site.Pages.DBCRUD.DeleteImageModel
 @{
     ViewData["BackgroundLeft"] = "bg-kortik-1";
     ViewData["BackgroundRight"] = "bg-kortik-2";
@@ -11,17 +11,11 @@
 
         <hr class="liniya" />
 
-        <h1 class="fs-3 text_shadow">Параметры картинки</h1>
+        <h1 class="fs-3 text_shadow">Удалить картинку</h1>
 
         <hr class="liniya" />
 
         <div class="card p-2">
-
-            <div class="card-footer px-0">
-                <a asp-page="UpdateImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-success mt-1">Edit</a>
-                <a asp-page="DeleteImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-danger mt-1">Delete</a>
-                <a asp-page="ViewImages" class="btn btn-outline-primary mt-1">Images</a>
-            </div>
 
             <vc:image image-name="@Model.Image.ImageName" css-class="card-img-top shadw" />
 
@@ -92,13 +86,14 @@
                 </ul>
             </div>
 
-            <div class="card-footer px-0">
-                <a asp-page="UpdateImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-success mt-1">Edit</a>
-                <a asp-page="DeleteImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-danger mt-1">Delete</a>
-                <a asp-page="ViewImages" class="btn btn-outline-primary mt-1">Images</a>
-            </div>
-
         </div>
+
+        <form method="post" asp-page-handler="OnPost" asp-route-imageid="@Model.Image.ImageId" class="mt-2">
+
+            <button type="submit"  class="btn btn-outline-danger me-2">Delete</button>
+            <a asp-page="ViewImages" class="btn btn-outline-success">Cancel</a>
+
+        </form>
 
     </div>
 

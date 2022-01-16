@@ -47,7 +47,6 @@ namespace Site.Pages.ViewComponents
             ViewData["PageImageWidth"] = imageHead.ImageWidth;
             ViewData["PageImageHeight"] = imageHead.ImageHeight;
 
-
             return View(head);
         }
     }

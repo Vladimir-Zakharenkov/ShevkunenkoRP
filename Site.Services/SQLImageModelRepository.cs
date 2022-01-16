@@ -21,6 +21,14 @@ namespace Site.Services
             _siteContext.SaveChanges();
         }
 
+        public void DeleteImage(Guid imageId)
+        {
+            var imageToDelete = _siteContext.ImageModels.Find(imageId);
+
+            _siteContext.ImageModels.Remove(imageToDelete);
+            _siteContext.SaveChanges();
+        }
+
         public ImageModel GetImage(Guid imageId)
         {
             return _siteContext.ImageModels.Find(imageId);

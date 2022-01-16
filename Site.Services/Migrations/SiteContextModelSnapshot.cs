@@ -79,7 +79,7 @@ namespace Site.Services.Migrations
 
                     b.Property<string>("ImageName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ImageName2")
                         .IsRequired()
@@ -102,7 +102,27 @@ namespace Site.Services.Migrations
 
                     b.HasKey("ImageId");
 
+                    b.HasIndex("ImageName")
+                        .IsUnique();
+
                     b.ToTable("ImageModels");
+                });
+
+            modelBuilder.Entity("Site.Models.PageModel", b =>
+                {
+                    b.Property<Guid>("PageModelId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("PageNumber")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("PageModelId");
+
+                    b.ToTable("PageModels");
                 });
 #pragma warning restore 612, 618
         }

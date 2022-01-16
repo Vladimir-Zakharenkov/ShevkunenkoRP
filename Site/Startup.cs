@@ -28,15 +28,14 @@ namespace Site
                 options.UseSqlServer(Configuration.GetConnectionString("SiteDB"));
             });
 
-            //services.AddSingleton<IImageModelRepository, MoqImageModelRepository>();
             services.AddScoped<IImageModelRepository, SQLImageModelRepository>();
 
             services.AddSingleton<ICardModelRepository, MoqCardModelRepository>();
 
             services.AddSingleton<IMovieModelRepository, MoqMovieModelRepository>();
 
-            //services.AddSingleton<IHeadModelRepository, MoqHeadModelRepository>();
-            services.AddTransient<IHeadModelRepository, SQLHeadModelRepository>();
+            services.AddScoped<IHeadModelRepository, SQLHeadModelRepository>();
+            services.AddScoped<IPageModelRepository, SQLPageModelRepository>();
 
 
             services.AddRazorPages();

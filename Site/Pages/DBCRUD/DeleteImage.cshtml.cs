@@ -6,11 +6,11 @@ using System;
 
 namespace Site.Pages.DBCRUD
 {
-    public class DetailsImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+    public class DeleteImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly IImageModelRepository _imageContext;
 
-        public DetailsImageModel(IImageModelRepository imageContext)
+        public DeleteImageModel(IImageModelRepository imageContext)
         {
             _imageContext = imageContext;
         }
@@ -27,6 +27,13 @@ namespace Site.Pages.DBCRUD
         public void OnGet(Guid imageID)
         {
             Image = _imageContext.GetImage(imageID);
+        }
+
+        public IActionResult OnPost()
+        {
+            _imageContext.DeleteImage(Image.ImageId);
+
+            return RedirectToPage("ViewImages");
         }
     }
 }

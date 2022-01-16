@@ -5,7 +5,7 @@ using Site.Services;
 
 namespace Site.Pages.DBCRUD
 {
-    public class AddImageModel : PageModel
+    public class AddImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly IImageModelRepository _imageContext;
 
@@ -39,7 +39,7 @@ namespace Site.Pages.DBCRUD
             }
             else
             {
-                return Page();
+                return base.Page();
             }
         }
     }

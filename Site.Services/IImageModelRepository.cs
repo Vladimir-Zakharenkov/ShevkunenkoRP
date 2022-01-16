@@ -13,5 +13,7 @@ namespace Site.Services
         ImageModel GetImage(Guid imageId);
 
         void UpdateImage(ImageModel image);
+
+        void DeleteImage(Guid imageId);
     }
 }
