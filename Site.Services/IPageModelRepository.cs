@@ -7,6 +7,6 @@ namespace Site.Services
     {
         public IEnumerable<PageModel> Pages { get; }
 
-        PageModel GetPage(uint pageNumber);
+        PageModel GetPage(uint? pageNumber);
     }
 }

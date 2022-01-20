@@ -1,4 +1,5 @@
-﻿using Site.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Site.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,11 +14,11 @@ namespace Site.Services
             _siteContext = siteContext;
         }
 
-        public IEnumerable<PageModel> Pages => _siteContext.PageModels;
+        public IEnumerable<PageModel> Pages => _siteContext.PageModels.Include(p => p.ImageModel);
 
-        public PageModel GetPage(uint pageNumber)
+        public PageModel GetPage(uint? pageNumber)
         {
-            return _siteContext.PageModels.FirstOrDefault(x => x.PageNumber == pageNumber);
+            return _siteContext.PageModels.Include(p => p.ImageModel).FirstOrDefault(x => x.PageNumber == pageNumber);
         }
     }
 }

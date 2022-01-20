@@ -13,15 +13,21 @@ namespace Site.Pages
             _pageContext = pageContext;
         }
 
-        [BindProperty]
         public uint PageNumber { get; set; }
 
-        [BindProperty]
-        public string PageImage { get; set; } = "main-index";
+        public string PageImage { get; set; }
 
-        public void OnGet()
+        public IActionResult OnGet(uint? id)
         {
-            PageNumber = _pageContext.GetPage(1).PageNumber;
+            if (id != 1)
+            {
+                return RedirectToPage("Index", new { id = 1 });
+            }
+
+            PageNumber = _pageContext.GetPage(id).PageNumber;
+            PageImage = _pageContext.GetPage(id).ImageModel.ImageName;
+
+            return Page();
         }
     }
 }

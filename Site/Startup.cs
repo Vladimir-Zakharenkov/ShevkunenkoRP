@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -64,6 +65,8 @@ namespace Site
                     options.MinificationSettings.RemoveHttpsProtocolFromAttributes = true;
                 })
             .AddHttpCompression();
+
+            services.AddHealthChecks();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -82,22 +85,24 @@ namespace Site
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseWebMarkupMin();
+            app.UseWebMarkupMin();
             app.UseWelcomePage("/Welcome");
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => endpoints.MapRazorPages());
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapGet("/", async context =>
-            //    {
-            //        await context.Response.WriteAsync("Hello World!");
-            //    });
-            //});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+                endpoints.MapHealthChecks("/healthz");
+                endpoints.MapGet("/test", async context =>
+                {
+                    await context.Response.WriteAsync("Hello World!");
+                });
+            });
         }
     }
 }

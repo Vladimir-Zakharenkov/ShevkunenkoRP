@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Site.Models
 {
@@ -15,5 +11,8 @@ namespace Site.Models
         public uint PageNumber { get; set; }
 
         public string Description { get; set; }
+
+        public Guid ImageModelImageId { get; set; }
+        public ImageModel ImageModel { get; set; }
     }
 }
