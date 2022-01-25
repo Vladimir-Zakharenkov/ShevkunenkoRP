@@ -54,9 +54,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicrosoftTutorial", "Micros
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Metanit", "Metanit", "{7B37DA9E-45E9-45B2-BB6B-B2EB881B9D3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesApp", "Metanit\RazorPagesApp\RazorPagesApp.csproj", "{A9998F8E-DC3A-4C32-B83F-E401A6D7436B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesApp", "Metanit\RazorPagesApp\RazorPagesApp.csproj", "{A9998F8E-DC3A-4C32-B83F-E401A6D7436B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyRazorPagesApp", "Metanit\EmptyRazorPagesApp\EmptyRazorPagesApp.csproj", "{529F38A6-DA70-44B5-B28F-17A47BA32185}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmptyRazorPagesApp", "Metanit\EmptyRazorPagesApp\EmptyRazorPagesApp.csproj", "{529F38A6-DA70-44B5-B28F-17A47BA32185}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

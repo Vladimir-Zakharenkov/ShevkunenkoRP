@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
 using Site.Services;
 
@@ -8,25 +7,36 @@ namespace Site.Pages.DBCRUD
     public class AddImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly IImageModelRepository _imageContext;
+        private readonly IPageModelRepository _pageContext;
 
-        public AddImageModel(IImageModelRepository imageContext)
+        public AddImageModel(IPageModelRepository pageContext, IImageModelRepository imageContext)
         {
+            _pageContext = pageContext;
             _imageContext = imageContext;
         }
 
-        [BindProperty]
-        public uint PageNumber { get; set; } = 1;
-
-        [BindProperty]
-        public string PageImage { get; set; } = "main-index";
-
+        public uint PageNumber { get; set; }
+        public string LeftBackground { get; set; }
+        public string RightBackground { get; set; }
 
         [BindProperty]
         public ImageModel Image { get; set; }
 
 
-        public void OnGet()
+        public IActionResult OnGet(uint? pageNumber)
         {
+            if (pageNumber != 1)
+            {
+                return RedirectToPage("/DBCRUD/AddImage", new { pageNumber = 1 });
+            }
+
+            PageNumber = _pageContext.GetPage(pageNumber).PageNumber;
+
+            LeftBackground = _pageContext.GetPage(pageNumber).LeftBackground;
+
+            RightBackground = _pageContext.GetPage(pageNumber).RightBackground;
+
+            return Page();
         }
 
         public IActionResult OnPost()
@@ -39,7 +49,7 @@ namespace Site.Pages.DBCRUD
             }
             else
             {
-                return base.Page();
+                return Page();
             }
         }
     }

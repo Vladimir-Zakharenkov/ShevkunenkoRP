@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Site.Services;
 
 namespace Site.Services.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    partial class SiteContextModelSnapshot : ModelSnapshot
+    [Migration("20220122150501_PageNumberInHeadModel")]
+    partial class PageNumberInHeadModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,106 +110,6 @@ namespace Site.Services.Migrations
                     b.ToTable("ImageModels");
                 });
 
-            modelBuilder.Entity("Site.Models.MovieModel", b =>
-                {
-                    b.Property<Guid>("MovieId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Actor01")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Actor02")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Actor03")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Actor04")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Actor05")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Actor06")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Actor07")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Actor08")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Actor09")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Actor10")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContentUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DateCreated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DatePublished")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Director")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Duration")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Genre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("ImageModelImageId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("InLanguage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsFamilyFriendly")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MovieCaption")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MovieName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MusicBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UploadDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("РroductionCompany")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("MovieId");
-
-                    b.HasIndex("ImageModelImageId");
-
-                    b.ToTable("MovieModels");
-                });
-
             modelBuilder.Entity("Site.Models.PageModel", b =>
                 {
                     b.Property<Guid>("PageModelId")
@@ -217,56 +119,26 @@ namespace Site.Services.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("HeadModelHeadId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("ImageModelImageId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("LeftBackground")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("PageNumber")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("RightBackground")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("PageModelId");
-
-                    b.HasIndex("HeadModelHeadId");
 
                     b.HasIndex("ImageModelImageId");
 
                     b.ToTable("PageModels");
                 });
 
-            modelBuilder.Entity("Site.Models.MovieModel", b =>
-                {
-                    b.HasOne("Site.Models.ImageModel", "ImageModel")
-                        .WithMany()
-                        .HasForeignKey("ImageModelImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ImageModel");
-                });
-
             modelBuilder.Entity("Site.Models.PageModel", b =>
                 {
-                    b.HasOne("Site.Models.HeadModel", "HeadModel")
-                        .WithMany()
-                        .HasForeignKey("HeadModelHeadId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Site.Models.ImageModel", "ImageModel")
                         .WithMany()
                         .HasForeignKey("ImageModelImageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("HeadModel");
 
                     b.Navigation("ImageModel");
                 });

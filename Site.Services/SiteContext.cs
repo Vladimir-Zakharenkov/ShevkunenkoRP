@@ -12,5 +12,6 @@ namespace Site.Services
         public DbSet<HeadModel> HeadModels { get; set; }
         public DbSet<ImageModel> ImageModels { get; set; }
         public DbSet<PageModel> PageModels { get; set; }
+        public DbSet<MovieModel> MovieModels { get; set; }
     }
 }

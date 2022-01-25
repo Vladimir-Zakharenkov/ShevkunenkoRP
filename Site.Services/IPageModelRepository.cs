@@ -1,4 +1,5 @@
 ﻿using Site.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Site.Services
@@ -8,5 +9,6 @@ namespace Site.Services
         public IEnumerable<PageModel> Pages { get; }
 
         PageModel GetPage(uint? pageNumber);
+
     }
 }

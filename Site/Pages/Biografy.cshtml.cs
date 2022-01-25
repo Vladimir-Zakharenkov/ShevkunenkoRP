@@ -4,26 +4,25 @@ using Site.Services;
 
 namespace Site.Pages
 {
-    public class Error404Model : PageModel
+    public class BiografyModel : PageModel
     {
         private readonly IPageModelRepository _pageContext;
 
-        public Error404Model(IPageModelRepository pageContext)
+        public BiografyModel(IPageModelRepository pageContext)
         {
             _pageContext = pageContext;
         }
 
         public uint PageNumber { get; set; }
-
         public string LeftBackground { get; set; }
         public string RightBackground { get; set; }
 
 
         public IActionResult OnGet(uint? pageNumber)
         {
-            if (pageNumber != 4)
+            if (pageNumber != 5)
             {
-                return RedirectToPage("Index", new { pageNumber = 4 });
+                return RedirectToPage("Biografy", new { pageNumber = 5 });
             }
 
             PageNumber = _pageContext.GetPage(pageNumber).PageNumber;

@@ -1,8 +1,7 @@
-﻿@page "/navigation/{id=2}/{**others}"
+﻿@page "/navigation/{pageNumber=2}/{**others}"
 @model Main2Model
+
 @{
-    ViewData["BackgroundLeft"] = "bg-kortik-1";
-    ViewData["BackgroundRight"] = "bg-kortik-2";
 }
 
 <div class="row">
@@ -24,9 +23,9 @@
 <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 g-2 justify-content-center">
 
     <vc:card card-name="kortik" />
-    <vc:card card-name="br-ptica"></vc:card>
-    <vc:card card-name="pr-expediciya"></vc:card>
-    <vc:card card-name="kr-zvezda"></vc:card>
+    <vc:card card-name="br-ptica" />
+    <vc:card card-name="pr-expediciya" />
+    <vc:card card-name="kr-zvezda" />
 
     <hr class="liniya" />
 

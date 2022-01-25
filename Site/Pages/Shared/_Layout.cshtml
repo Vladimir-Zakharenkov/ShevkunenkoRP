@@ -2,7 +2,7 @@
 
 <html lang="ru-RU" itemscope itemtype="http://schema.org/WebPage" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# book: http://ogp.me/ns/book# video: http://ogp.me/ns/video# ya: http://webmaster.yandex.ru/vocabularies/">
       
-<vc:head page-id="@Model.PageNumber" image-name="@Model.PageImage"></vc:head>
+<vc:head page-number="@Model.PageNumber"></vc:head>
 
 <body>
 
@@ -16,7 +16,7 @@
 
         <div class="row text-center bg-light">
 
-            <div class="col d-none d-sm-inline-block bg-image @ViewData["BackgroundLeft"]"></div>
+            <div class="col d-none d-sm-inline-block bg-image @Model.LeftBackground"></div>
 
             <main role="main" itemprop="mainContentOfPage" class="col-12 col-sm-9 pb-3 text-center shadw">
 
@@ -28,7 +28,7 @@
 
             </main>
 
-            <div class="col d-none d-sm-flex bg-image @ViewData["BackgroundRight"]"></div>
+            <div class="col d-none d-sm-flex bg-image @Model.RightBackground"></div>
 
         </div>
 

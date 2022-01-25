@@ -14,11 +14,11 @@ namespace Site.Services
             _siteContext = siteContext;
         }
 
-        public IEnumerable<PageModel> Pages => _siteContext.PageModels.Include(p => p.ImageModel);
+        public IEnumerable<PageModel> Pages => _siteContext.PageModels.Include(p => p.ImageModel).Include(r => r.HeadModel);
 
         public PageModel GetPage(uint? pageNumber)
         {
-            return _siteContext.PageModels.Include(p => p.ImageModel).FirstOrDefault(x => x.PageNumber == pageNumber);
+            return _siteContext.PageModels.Include(p => p.ImageModel).Include(r => r.HeadModel).FirstOrDefault(x => x.PageNumber == pageNumber);
         }
     }
 }

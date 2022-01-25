@@ -1,53 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Site.Models;
 using Site.Services;
-using System.Linq;
 
 namespace Site.Pages.ViewComponents
 {
     public class Head : ViewComponent
     {
-        private readonly IImageModelRepository _imageContext;
+        private readonly IPageModelRepository _pageContext;
 
-        private readonly IHeadModelRepository _headContext;
-
-        public Head(IHeadModelRepository headContext, IImageModelRepository imageContext)
+        public Head(IPageModelRepository pageContext)
         {
-            _headContext = headContext;
-            _imageContext = imageContext;
+            _pageContext = pageContext;
         }
 
-        public IViewComponentResult Invoke(uint? pageId, string imageName)
+        public IViewComponentResult Invoke(uint? pageNumber)
         {
-            if (pageId == null)
+
+            if (pageNumber == null)
             {
-                pageId = 1;
+                pageNumber = 1;
             }
 
-            if (imageName == null)
-            {
-                imageName = "main-index";
-            }
+            PageModel PageModel = _pageContext.GetPage(pageNumber);
 
-            HeadModel head = _headContext.HeadModels.FirstOrDefault(x => x.PageId == pageId);
-
-            ImageModel imageHead = _imageContext.Images.FirstOrDefault(y => y.ImageName == imageName);
-
-            if (head == null)
-            {
-                head = _headContext.HeadModels.FirstOrDefault(x => x.PageId == 0);
-            }
-
-            if (imageHead == null)
-            {
-                imageHead = _imageContext.Images.FirstOrDefault(y => y.ImageName == "no-image");
-            }
-
-            ViewData["PageImage"] = imageHead.ImageContentUrl;
-            ViewData["PageImageWidth"] = imageHead.ImageWidth;
-            ViewData["PageImageHeight"] = imageHead.ImageHeight;
-
-            return View(head);
+            return View(PageModel);
         }
     }
 }

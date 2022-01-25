@@ -33,11 +33,9 @@ namespace Site
 
             services.AddSingleton<ICardModelRepository, MoqCardModelRepository>();
 
-            services.AddSingleton<IMovieModelRepository, MoqMovieModelRepository>();
-
-            services.AddScoped<IHeadModelRepository, SQLHeadModelRepository>();
             services.AddScoped<IPageModelRepository, SQLPageModelRepository>();
 
+            services.AddScoped<IMovieModelRepository, SQLMovieModelRepository>();
 
             services.AddRazorPages();
 
@@ -85,7 +83,7 @@ namespace Site
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseWebMarkupMin();
+            //app.UseWebMarkupMin();
             app.UseWelcomePage("/Welcome");
 
             app.UseRouting();

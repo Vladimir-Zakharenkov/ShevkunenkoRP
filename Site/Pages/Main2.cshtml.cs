@@ -15,17 +15,22 @@ namespace Site.Pages
 
         public uint PageNumber { get; set; }
 
-        public string PageImage { get; set; }
+        public string LeftBackground { get; set; }
+        public string RightBackground { get; set; }
 
-        public IActionResult OnGet(uint? id)
+
+        public IActionResult OnGet(uint? pageNumber)
         {
-            if (id != 2)
+            if (pageNumber != 2)
             {
-                return RedirectToPage("Main2", new { id = 2 });
+                return RedirectToPage("Index", new { pageNumber = 2 });
             }
 
-            PageNumber = _pageContext.GetPage(id).PageNumber;
-            PageImage = _pageContext.GetPage(id).ImageModel.ImageName;
+            PageNumber = _pageContext.GetPage(pageNumber).PageNumber;
+
+            LeftBackground = _pageContext.GetPage(pageNumber).LeftBackground;
+
+            RightBackground = _pageContext.GetPage(pageNumber).RightBackground;
 
             return Page();
         }

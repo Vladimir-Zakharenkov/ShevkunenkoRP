@@ -10,7 +10,7 @@ namespace Site.Models
         public Guid HeadId { get; set; }
 
         [Required]
-        public uint PageId { get; set; }
+        public uint PageNumber { get; set; }
 
         [Required]
         [DataType(DataType.Text)]

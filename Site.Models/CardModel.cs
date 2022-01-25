@@ -11,9 +11,9 @@ namespace Site.Models
         [Required]
         public string CardName { get; set; }
 
-        public string ImageName { get; set; } = String.Empty;
+        public string? ImageName { get; set; } = String.Empty;
 
-        public string MovieName { get; set; } = String.Empty;
+        public string? MovieName { get; set; } = String.Empty;
 
         [Required]
         public string CardLink { get; set; }

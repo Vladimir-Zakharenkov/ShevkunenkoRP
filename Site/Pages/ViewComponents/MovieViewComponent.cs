@@ -9,6 +9,13 @@ namespace Site.Pages.ViewComponents
     {
         private readonly IMovieModelRepository _movieContext;
 
+        //private readonly IMovieModelRepository _movieContext;
+
+        //public Movie(IMovieModelRepository context)
+        //{
+        //    _movieContext = context;
+        //}
+
         public Movie(IMovieModelRepository context)
         {
             _movieContext = context;
@@ -16,12 +23,14 @@ namespace Site.Pages.ViewComponents
 
         public IViewComponentResult Invoke(string movieName)
         {
-            MovieModel movie = _movieContext.GettAllMovies().FirstOrDefault(x => x.MovieName == movieName);
+            //MovieModel movie = _movieContext.GettAllMovies().FirstOrDefault(x => x.MovieName == movieName);
 
-            if (movie == null)
-            {
-                movie = _movieContext.GettAllMovies().FirstOrDefault(x => x.MovieName == "no-movie");
-            }
+            //if (movie == null)
+            //{
+            //    movie = _movieContext.GettAllMovies().FirstOrDefault(x => x.MovieName == "no-movie");
+            //}
+
+            MovieModel movie = _movieContext.GetMovie(movieName);
 
             return View(movie);
         }

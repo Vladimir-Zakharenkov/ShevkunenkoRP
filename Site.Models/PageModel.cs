@@ -12,7 +12,16 @@ namespace Site.Models
 
         public string Description { get; set; }
 
+        public string? LeftBackground { get; set; }
+
+        public string? RightBackground { get; set; }
+
         public Guid ImageModelImageId { get; set; }
+
         public ImageModel ImageModel { get; set; }
+
+        public Guid HeadModelHeadId { get; set; }
+
+        public HeadModel HeadModel { get; set; }
     }
 }

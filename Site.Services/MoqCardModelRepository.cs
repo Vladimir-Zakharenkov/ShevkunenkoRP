@@ -29,7 +29,7 @@ namespace Site.Services
                     CardName = "biografy",
                     ImageName = "biografy-page",
                     MovieName = string.Empty,
-                    CardLink = "https://shevkunenko.ru/biografy.htm",
+                    CardLink = "/Biografy",
                     CardBody = true,
                     CardText = "БИОГРАФИЯ"
                 },

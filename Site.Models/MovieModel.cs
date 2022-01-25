@@ -11,8 +11,8 @@ namespace Site.Models
         [Required]
         public string MovieName { get; set; }
 
-        [Required]
-        public string ImageName { get; set; }
+        //[Required]
+        //public string ImageName { get; set; }
 
         [Required]
         public string MovieCaption { get; set; }
@@ -30,7 +30,7 @@ namespace Site.Models
         public string UploadDate { get; set; }
 
         [Required]
-        public string IsFamilyFriendly { get; set; }
+        public bool IsFamilyFriendly { get; set; }
 
         [Required]
         public string InLanguage { get; set; }
@@ -50,26 +50,30 @@ namespace Site.Models
         [Required]
         public string Description { get; set; }
 
-        public string Actor01 { get; set; }
+        public string? Actor01 { get; set; }
 
-        public string Actor02 { get; set; }
+        public string? Actor02 { get; set; }
 
-        public string Actor03 { get; set; }
+        public string? Actor03 { get; set; }
 
-        public string Actor04 { get; set; }
+        public string? Actor04 { get; set; }
 
-        public string Actor05 { get; set; }
+        public string? Actor05 { get; set; }
 
-        public string Actor06 { get; set; }
+        public string? Actor06 { get; set; }
 
-        public string Actor07 { get; set; }
+        public string? Actor07 { get; set; }
 
-        public string Actor08 { get; set; }
+        public string? Actor08 { get; set; }
 
-        public string Actor09 { get; set; }
+        public string? Actor09 { get; set; }
 
-        public string Actor10 { get; set; }
+        public string? Actor10 { get; set; }
 
-        public string ContentUrl { get; set; }
+        public string? ContentUrl { get; set; }
+
+        public Guid ImageModelImageId { get; set; }
+
+        public ImageModel ImageModel { get; set; }
     }
 }

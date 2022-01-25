@@ -14,9 +14,11 @@
 
     <meta itemprop="height" content="@Model.ImageHeight px" />
 
+    <meta itemprop="height" content="@Model.ImageDescription" />
+
     <img class="@ViewData["CssClass"]" asp-append-version="true"
-            src="@Model.ImageSrc"
-            alt="@Model.ImageAlt"
-            title="@Model.ImageTitle" />
+         src="@Model.ImageSrc"
+         alt="@Model.ImageAlt"
+         title="@Model.ImageTitle" />
 
 </span>

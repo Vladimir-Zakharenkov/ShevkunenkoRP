@@ -10,7 +10,7 @@
         {
             <a href="@Model.CardLink" itemprop="url">
 
-                @if (!(Model.MovieName == string.Empty))
+                @if (!String.IsNullOrEmpty(Model.MovieName))
                 {
                     <vc:movie movie-name="@Model.MovieName" />
                 }
