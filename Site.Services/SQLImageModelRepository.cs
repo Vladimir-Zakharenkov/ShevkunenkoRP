@@ -7,7 +7,6 @@ namespace Site.Services
     public class SQLImageModelRepository : IImageModelRepository
     {
         private readonly SiteContext _siteContext;
-
         public SQLImageModelRepository(SiteContext siteContext)
         {
             _siteContext = siteContext;

@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
 using Site.Services;
 using System;
@@ -9,51 +8,46 @@ namespace Site.Pages.DBCRUD
     public class UpdateImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly IImageModelRepository _imageContext;
+        private readonly ISitemapModelRepository _sitemapContext;
+        public UpdateImageModel(IImageModelRepository imageContext, ISitemapModelRepository sitemapContext)
 
-        public UpdateImageModel(IImageModelRepository imageRepository)
         {
-            _imageContext = imageRepository;
+            _imageContext = imageContext;
+            _sitemapContext = sitemapContext;
         }
 
-        [BindProperty]
-        public uint PageNumber { get; set; } = 1;
+        public uint PageNumber { get; set; }
 
         [BindProperty]
-        public string PageImage { get; set; } = "main-index";
+        public ImageModel ImageToUpdate { get; set; }
 
-        [BindProperty]
-        public ImageModel Image { get; set; }
-
-
-        public void OnGet(Guid imageId)
+        public IActionResult OnGet(Guid imageID, uint? pageNumber = 8)
         {
-            Image = _imageContext.GetImage(imageId);
+            if (_imageContext.GetImage(imageID) == null)
+            {
+                return RedirectToPage("/DBCRUD/ViewImages");
+            }
+
+            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+
+            ImageToUpdate = _imageContext.GetImage(imageID);
+
+            return Page();
         }
 
-        public IActionResult OnPost(ImageModel image)
+        public IActionResult OnPost(ImageModel ImageToUpdate, uint? pageNumber = 8)
         {
+            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+
             if (ModelState.IsValid)
             {
-                //ImageModel compareImage = _imageContext.GetImage(image.ImageId);
-                //compareImage.ImageName = image.ImageName;
-                //compareImage.ImageName2 = image.ImageName2;
-                //compareImage.ImageDescription = image.ImageDescription;
-                //compareImage.ImageCaption = image.ImageCaption;
-                //compareImage.ImageContentUrl = image.ImageContentUrl;
-                //compareImage.ImageThumbnailUrl = image.ImageThumbnailUrl;
-                //compareImage.ImageWidth = image.ImageWidth;
-                //compareImage.ImageHeight = image.ImageHeight;
-                //compareImage.ImageSrc = image.ImageSrc;
-                //compareImage.ImageAlt = image.ImageAlt;
-                //compareImage.ImageTitle = image.ImageTitle;
+                _imageContext.UpdateImage(ImageToUpdate);
 
-                _imageContext.UpdateImage(image);
-
-                return RedirectToPage("ViewImages");
+                return RedirectToPage("/DBCRUD/ViewImages");
             }
             else
             {
-                return base.Page();
+                return Page();
             }
         }
     }

@@ -11,9 +11,6 @@ namespace Site.Models
         [Required]
         public string MovieName { get; set; }
 
-        //[Required]
-        //public string ImageName { get; set; }
-
         [Required]
         public string MovieCaption { get; set; }
 
@@ -73,7 +70,6 @@ namespace Site.Models
         public string? ContentUrl { get; set; }
 
         public Guid ImageModelImageId { get; set; }
-
         public ImageModel ImageModel { get; set; }
     }
 }

@@ -11,17 +11,19 @@ namespace Site.Models
         [Required]
         public string CardName { get; set; }
 
-        public string? ImageName { get; set; } = String.Empty;
-
-        public string? MovieName { get; set; } = String.Empty;
-
-        [Required]
-        public string CardLink { get; set; }
+        public string? CardLink { get; set; }
 
         [Required]
         public bool CardBody { get; set; }
 
-        [Required]
-        public string CardText { get; set; }
+        public string? CardText { get; set; }
+
+        public bool CardMovie { get; set; }
+
+        public string? MovieName { get; set; }
+
+        public Guid ImageModelImageId { get; set; }
+        public ImageModel ImageModel { get; set; }
+
     }
 }

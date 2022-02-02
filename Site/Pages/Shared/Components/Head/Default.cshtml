@@ -1,12 +1,12 @@
 ﻿@{
-    var lastReviewed = Model.HeadModel.LastReviewed.ToString("yyyy-MM-dd");
+    var lastMod = Model.Lastmod.ToString("yyyy-MM-dd");
 }
 <head>
-    <title>@Model.HeadModel.Title</title>
+    <title>@Model.Title</title>
     <meta name="pageId" content="@Model.PageNumber" />
-    <meta name="description" content="@Model.HeadModel.Description" />
-    <meta name="keywords" content="@Model.HeadModel.KeyWords" />
-    <meta itemprop="lastReviewed" content="@lastReviewed" />
+    <meta name="description" content="@Model.Description" />
+    <meta name="keywords" content="@Model.KeyWords" />
+    <meta itemprop="lastReviewed" content="@lastMod" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="cleartype" content="on" />
@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
     <meta name="HandheldFriendly" content="True" />
     <meta itemprop="image" content="@Model.ImageModel.ImageContentUrl">
-    <link rel="canonical" href="@Model.HeadModel.Canonical" />
+    <link rel="canonical" href="@Model.Loc" />
 
     <link rel="shortcut icon" type="image/x-icon" href="/images/icons/favicon.ico" />
     <link rel="icon" type="image/png" sizes="48x48" href="/images/icons/icon-48.png" />
@@ -61,18 +61,18 @@
 
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="@Model.HeadModel.Title" />
-    <meta property="og:description" content="@Model.HeadModel.Description" />
-    <meta property="og:url" content="@Model.HeadModel.Canonical" />
+    <meta property="og:title" content="@Model.Title" />
+    <meta property="og:description" content="@Model.Description" />
+    <meta property="og:url" content="@Model.Loc" />
     <meta property="og:site_name" content="Сайт посвященный Сергею Шевкуненко" />
     <meta property="og:image" content="@Model.ImageModel.ImageContentUrl" />
     <meta property="og:image:width" content="@Model.ImageModel.ImageWidth" />
     <meta property="og:image:height" content="@Model.ImageModel.ImageHeight" />
-    <meta property="og:image:type" content="image/gif" />
+    <meta property="og:image:type" content="image/@Model.ImageModel.ImageType" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="@Model.HeadModel.Title" />
-    <meta name="twitter:description" content="@Model.HeadModel.Description" />
+    <meta name="twitter:title" content="@Model.Title" />
+    <meta name="twitter:description" content="@Model.Description" />
     <meta name="twitter:image" content="@Model.ImageModel.ImageContentUrl" />
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />

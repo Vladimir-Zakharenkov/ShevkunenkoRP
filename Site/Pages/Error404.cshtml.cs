@@ -6,31 +6,18 @@ namespace Site.Pages
 {
     public class Error404Model : PageModel
     {
-        private readonly IPageModelRepository _pageContext;
+        private readonly ISitemapModelRepository _sitemapContext;
 
-        public Error404Model(IPageModelRepository pageContext)
+        public Error404Model(ISitemapModelRepository sitemapContext)
         {
-            _pageContext = pageContext;
+            _sitemapContext = sitemapContext;
         }
 
         public uint PageNumber { get; set; }
 
-        public string LeftBackground { get; set; }
-        public string RightBackground { get; set; }
-
-
-        public IActionResult OnGet(uint? pageNumber)
+        public IActionResult OnGet(uint? pageNumber = 4)
         {
-            if (pageNumber != 4)
-            {
-                return RedirectToPage("Index", new { pageNumber = 4 });
-            }
-
-            PageNumber = _pageContext.GetPage(pageNumber).PageNumber;
-
-            LeftBackground = _pageContext.GetPage(pageNumber).LeftBackground;
-
-            RightBackground = _pageContext.GetPage(pageNumber).RightBackground;
+            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
 
             return Page();
         }

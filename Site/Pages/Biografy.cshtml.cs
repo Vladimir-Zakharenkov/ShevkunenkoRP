@@ -6,30 +6,18 @@ namespace Site.Pages
 {
     public class BiografyModel : PageModel
     {
-        private readonly IPageModelRepository _pageContext;
+        private readonly ISitemapModelRepository _sitemapContext;
 
-        public BiografyModel(IPageModelRepository pageContext)
+        public BiografyModel(ISitemapModelRepository sitemapContext)
         {
-            _pageContext = pageContext;
+            _sitemapContext = sitemapContext;
         }
 
         public uint PageNumber { get; set; }
-        public string LeftBackground { get; set; }
-        public string RightBackground { get; set; }
 
-
-        public IActionResult OnGet(uint? pageNumber)
+        public IActionResult OnGet(uint? pageNumber = 5)
         {
-            if (pageNumber != 5)
-            {
-                return RedirectToPage("Biografy", new { pageNumber = 5 });
-            }
-
-            PageNumber = _pageContext.GetPage(pageNumber).PageNumber;
-
-            LeftBackground = _pageContext.GetPage(pageNumber).LeftBackground;
-
-            RightBackground = _pageContext.GetPage(pageNumber).RightBackground;
+            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
 
             return Page();
         }

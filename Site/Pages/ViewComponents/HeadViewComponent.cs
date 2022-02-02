@@ -6,24 +6,23 @@ namespace Site.Pages.ViewComponents
 {
     public class Head : ViewComponent
     {
-        private readonly IPageModelRepository _pageContext;
+        private readonly ISitemapModelRepository _sitemapContext;
 
-        public Head(IPageModelRepository pageContext)
+        public Head(ISitemapModelRepository pageContext)
         {
-            _pageContext = pageContext;
+            _sitemapContext = pageContext;
         }
 
         public IViewComponentResult Invoke(uint? pageNumber)
         {
-
-            if (pageNumber == null)
+            if (_sitemapContext.GetPage(pageNumber) == null)
             {
-                pageNumber = 1;
+                pageNumber = 0;
             }
 
-            PageModel PageModel = _pageContext.GetPage(pageNumber);
+            SitemapModel sitemapModel = _sitemapContext.GetPage(pageNumber);
 
-            return View(PageModel);
+            return View(sitemapModel);
         }
     }
 }

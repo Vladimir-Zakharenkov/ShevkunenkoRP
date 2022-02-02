@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Site.Models;
 using Site.Services;
-using System.Linq;
 
 namespace Site.Pages.ViewComponents
 {
@@ -15,11 +14,11 @@ namespace Site.Pages.ViewComponents
 
         public IViewComponentResult Invoke(string cardName)
         {
-            CardModel card = _cardContext.GetAllCards().FirstOrDefault(x => x.CardName == cardName);
+            CardModel card = _cardContext.GetCard(cardName);
 
             if (card == null)
             {
-                card = _cardContext.GetAllCards().FirstOrDefault(x => x.CardName == "no-card");
+                card = _cardContext.GetCard("no-card");
             }
 
             return View(card);

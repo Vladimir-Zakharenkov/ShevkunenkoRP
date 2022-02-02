@@ -29,11 +29,11 @@ namespace Site
                 options.UseSqlServer(Configuration.GetConnectionString("SiteDB"));
             });
 
+            services.AddScoped<ISitemapModelRepository, SQLSitemapModelRepository>();
+
             services.AddScoped<IImageModelRepository, SQLImageModelRepository>();
 
-            services.AddSingleton<ICardModelRepository, MoqCardModelRepository>();
-
-            services.AddScoped<IPageModelRepository, SQLPageModelRepository>();
+            services.AddScoped<ICardModelRepository, SQLCardModelRepository>();
 
             services.AddScoped<IMovieModelRepository, SQLMovieModelRepository>();
 
@@ -83,7 +83,7 @@ namespace Site
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseWebMarkupMin();
+            app.UseWebMarkupMin();
             app.UseWelcomePage("/Welcome");
 
             app.UseRouting();

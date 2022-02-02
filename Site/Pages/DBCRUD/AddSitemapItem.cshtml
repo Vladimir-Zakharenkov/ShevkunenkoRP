@@ -1,0 +1,107 @@
+﻿@page
+@model Site.Pages.DBCRUD.AddSitemapItemModel
+@{
+}
+
+<div class="row">
+
+    <div class="col col-lg-9 col-xl-7 col-xxl-6 d-block mx-auto px-2">
+
+        <hr class="liniya" />
+
+        <h1 class="fs-3 text_shadow">Добавить страницу в&nbsp;файл sitemap.xml</h1>
+
+        <hr class="liniya" />
+
+        <form method="post" asp-page-handler="OnPost">
+
+            <label for="locInput" asp-for="SitemapItem.Loc" class="form-label text-primary fs-5"></label>
+            <input id="locInput" asp-for="SitemapItem.Loc" class="form-control" />
+            <span asp-validation-for="SitemapItem.Loc" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="lastmodInput" asp-for="SitemapItem.Lastmod" class="form-label text-primary fs-5"></label>
+            <input id="lastmodInput" asp-for="SitemapItem.Lastmod" class="form-control" />
+            <span asp-validation-for="SitemapItem.Lastmod" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="changefreqInput" asp-for="SitemapItem.Changefreq" class="form-label text-primary fs-5"></label>
+            <select id="changefreqInput" asp-for="SitemapItem.Changefreq" class="form-select">
+                <option value="always">always</option>
+                <option value="hourly">hourly</option>
+                <option value="daily">daily</option>
+                <option value="weekly">weekly</option>
+                <option value="monthly" selected>monthly</option>
+                <option value="yearly">yearly</option>
+                <option value="never">never</option>
+            </select>
+
+            <hr class="liniya" />
+
+            <label for="priorityInput" asp-for="SitemapItem.Priority" class="form-label text-primary fs-5"></label>
+            <select id="priorityInput" asp-for="SitemapItem.Priority" class="form-select">
+                <option value="0.0">0.0</option>
+                <option value="0.1">0.1</option>
+                <option value="0.2">0.2</option>
+                <option value="0.3">0.3</option>
+                <option value="0.4">0.4</option>
+                <option value="0.5" selected>0.5</option>
+                <option value="0.6">0.6</option>
+                <option value="0.7">0.7</option>
+                <option value="0.8">0.8</option>
+                <option value="0.9">0.9</option>
+                <option value="1.0">1.0</option>
+            </select>
+
+            <hr class="liniya" />
+
+            <label for="locInput" asp-for="SitemapItem.LeftBackground" class="form-label text-primary fs-5"></label>
+            <input id="locInput" asp-for="SitemapItem.LeftBackground" class="form-control" />
+            <span asp-validation-for="SitemapItem.LeftBackground" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="locInput" asp-for="SitemapItem.RightBackground" class="form-label text-primary fs-5"></label>
+            <input id="locInput" asp-for="SitemapItem.RightBackground" class="form-control" />
+            <span asp-validation-for="SitemapItem.RightBackground" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="locInput" asp-for="SitemapItem.Title" class="form-label text-primary fs-5"></label>
+            <input id="locInput" asp-for="SitemapItem.Title" class="form-control" />
+            <span asp-validation-for="SitemapItem.Title" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="locInput" asp-for="SitemapItem.Description" class="form-label text-primary fs-5"></label>
+            <input id="locInput" asp-for="SitemapItem.Description" class="form-control" />
+            <span asp-validation-for="SitemapItem.Description" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="locInput" asp-for="SitemapItem.KeyWords" class="form-label text-primary fs-5"></label>
+            <input id="locInput" asp-for="SitemapItem.KeyWords" class="form-control" />
+            <span asp-validation-for="SitemapItem.KeyWords" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="locInput" asp-for="SitemapItem.ImageModelImageId" class="form-label text-primary fs-5"></label>
+            <input id="locInput" asp-for="SitemapItem.ImageModelImageId" class="form-control" />
+            <span asp-validation-for="SitemapItem.ImageModelImageId" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="text-center">
+
+                <button type="submit" class="col btn btn-success shadow">ADD</button>
+                <a asp-page="/Index" class="col btn btn-danger shadow ms-3">CANCEL</a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

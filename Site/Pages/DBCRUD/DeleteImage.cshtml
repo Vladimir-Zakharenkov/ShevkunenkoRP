@@ -1,9 +1,5 @@
-﻿@page
+﻿@page "{pageNumber=10}/{**data}"
 @model Site.Pages.DBCRUD.DeleteImageModel
-@{
-    ViewData["BackgroundLeft"] = "bg-kortik-1";
-    ViewData["BackgroundRight"] = "bg-kortik-2";
-}
 
 <div class="row">
 
@@ -83,6 +79,11 @@
                         <span class="fs-6 text-muted">(Параметр «title» для тега «img»)</span><br />
                         <span class="fs-5">@Model.Image.ImageTitle</span>
                     </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">ImageType:</span><br />
+                        <span class="fs-6 text-muted">(Тип изображения (расширение файла))</span><br />
+                        <span class="fs-5">@Model.Image.ImageTitle</span>
+                    </li>
                 </ul>
             </div>
 
@@ -90,7 +91,7 @@
 
         <form method="post" asp-page-handler="OnPost" asp-route-imageid="@Model.Image.ImageId" class="mt-2">
 
-            <button type="submit"  class="btn btn-outline-danger me-2">Delete</button>
+            <button type="submit" class="btn btn-outline-danger me-2">Delete</button>
             <a asp-page="ViewImages" class="btn btn-outline-success">Cancel</a>
 
         </form>

@@ -7,7 +7,6 @@ namespace Site.Services
     public class SQLMovieModelRepository : IMovieModelRepository
     {
         private readonly SiteContext _siteContext;
-
         public SQLMovieModelRepository(SiteContext siteContext)
         {
             _siteContext = siteContext;

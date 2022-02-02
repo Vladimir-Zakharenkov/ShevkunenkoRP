@@ -10,13 +10,13 @@
         {
             <a href="@Model.CardLink" itemprop="url">
 
-                @if (!String.IsNullOrEmpty(Model.MovieName))
+                @if (Model.CardMovie)
                 {
                     <vc:movie movie-name="@Model.MovieName" />
                 }
                 else
                 {
-                    <vc:image image-name="@Model.ImageName" css-class="card-img-top shadw rounded-3" />
+                    <vc:image image-name="@Model.ImageModel.ImageName" css-class="card-img-top shadw rounded-3" />
                 }
 
                 @if (Model.CardBody)
@@ -34,13 +34,13 @@
         {
             <a asp-page="@Model.CardLink" itemprop="url">
 
-                @if (!(Model.MovieName == string.Empty))
+                @if (Model.CardMovie)
                 {
                     <vc:movie movie-name="@Model.MovieName" />
                 }
                 else
                 {
-                    <vc:image image-name="@Model.ImageName" css-class="card-img-top shadw rounded-3" />
+                    <vc:image image-name="@Model.ImageModel.ImageName" css-class="card-img-top shadw rounded-3" />
                 }
 
                 @if (Model.CardBody)

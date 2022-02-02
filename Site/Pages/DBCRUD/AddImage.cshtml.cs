@@ -6,41 +6,32 @@ namespace Site.Pages.DBCRUD
 {
     public class AddImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
+        private readonly ISitemapModelRepository _sitemapContext;
         private readonly IImageModelRepository _imageContext;
-        private readonly IPageModelRepository _pageContext;
 
-        public AddImageModel(IPageModelRepository pageContext, IImageModelRepository imageContext)
+        public AddImageModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext)
         {
-            _pageContext = pageContext;
+            _sitemapContext = sitemapContext;
             _imageContext = imageContext;
         }
 
         public uint PageNumber { get; set; }
-        public string LeftBackground { get; set; }
-        public string RightBackground { get; set; }
 
         [BindProperty]
         public ImageModel Image { get; set; }
 
 
-        public IActionResult OnGet(uint? pageNumber)
+        public IActionResult OnGet(uint? pageNumber = 9)
         {
-            if (pageNumber != 1)
-            {
-                return RedirectToPage("/DBCRUD/AddImage", new { pageNumber = 1 });
-            }
-
-            PageNumber = _pageContext.GetPage(pageNumber).PageNumber;
-
-            LeftBackground = _pageContext.GetPage(pageNumber).LeftBackground;
-
-            RightBackground = _pageContext.GetPage(pageNumber).RightBackground;
+            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
 
             return Page();
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(uint? pageNumber = 9)
         {
+            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+
             if (ModelState.IsValid)
             {
                 _imageContext.AddImage(Image);

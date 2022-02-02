@@ -256,6 +256,12 @@ table.gsc-search-box, form.gsc-search-box {
     border-radius: 1rem;
 }
 
+.maxwidth320px {
+    width: 30%;
+    max-width: 320px;
+    min-width: 180px;
+}
+
 .ten {
     box-shadow: .5rem .4rem .4rem hsla(0,0%,0%,.6);
 }

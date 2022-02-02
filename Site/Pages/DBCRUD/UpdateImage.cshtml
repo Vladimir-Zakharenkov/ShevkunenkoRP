@@ -1,9 +1,6 @@
 ﻿@page
 @model Site.Pages.DBCRUD.UpdateImageModel
-@{
-    ViewData["BackgroundLeft"] = "bg-kortik-1";
-    ViewData["BackgroundRight"] = "bg-kortik-2";
-}
+
 <div class="row">
 
     <div class="col col-lg-9 col-xl-7 col-xxl-6 d-block mx-auto px-2">
@@ -14,110 +11,119 @@
 
         <hr class="liniya" />
 
-        <vc:image image-name="@Model.Image.ImageName" css-class="adp_img ten" />
+        <vc:image image-name="@Model.ImageToUpdate.ImageName" css-class="adp_img ten" />
 
         <hr class="liniya" />
 
         <form method="post" asp-page-handler="OnPost">
 
-            <input asp-for="Image.ImageId" type="hidden" />
+            <input asp-for="ImageToUpdate.ImageId" type="hidden" />
 
-            <label for="imageNameInput" asp-for="Image.ImageName" class="form-label text-primary fs-5">ImageName</label>
-            <input id="imageNameInput" asp-for="Image.ImageName" class="form-control" type="text" aria-describedby="imageNameHelpBlock" />
+            <label for="imageNameInput" asp-for="ImageToUpdate.ImageName" class="form-label text-primary fs-5"></label>
+            <input id="imageNameInput" asp-for="ImageToUpdate.ImageName" class="form-control" type="text" aria-describedby="imageNameHelpBlock" />
             <div id="imageNameHelpBlock" class="form-text">
                 Параметр «image-name» для ViewComponent
             </div>
-            <span asp-validation-for="Image.ImageName" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageName" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageName2Input" asp-for="Image.ImageName2" class="form-label text-primary fs-5">ImageName2</label>
-            <input id="imageName2Input" asp-for="Image.ImageName2" class="form-control" type="text" aria-describedby="imageName2HelpBlock" />
+            <label for="imageName2Input" asp-for="ImageToUpdate.ImageName2" class="form-label text-primary fs-5"></label>
+            <input id="imageName2Input" asp-for="ImageToUpdate.ImageName2" class="form-control" type="text" aria-describedby="imageName2HelpBlock" />
             <div id="imageName2HelpBlock" class="form-text">
                 Параметр «Name» для Microdata
             </div>
-            <span asp-validation-for="Image.ImageName2" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageName2" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageCaptionInput" asp-for="Image.ImageCaption" class="form-label text-primary fs-5">ImageCaption</label>
-            <input id="imageCaptionInput" asp-for="Image.ImageCaption" class="form-control" type="text" aria-describedby="imageCaptionInputHelpBlock" />
+            <label for="imageCaptionInput" asp-for="ImageToUpdate.ImageCaption" class="form-label text-primary fs-5"></label>
+            <input id="imageCaptionInput" asp-for="ImageToUpdate.ImageCaption" class="form-control" type="text" aria-describedby="imageCaptionInputHelpBlock" />
             <div id="imageCaptionInputHelpBlock" class="form-text">
                 Параметр «Caption» для Microdata
             </div>
-            <span asp-validation-for="Image.ImageCaption" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageCaption" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageDescriptionInput" asp-for="Image.ImageDescription" class="form-label text-primary fs-5">ImageDescription</label>
-            <input id="imageDescriptionInput" asp-for="Image.ImageDescription" class="form-control" type="text" aria-describedby="imageDescriptionInputHelpBlock" />
+            <label for="imageDescriptionInput" asp-for="ImageToUpdate.ImageDescription" class="form-label text-primary fs-5"></label>
+            <input id="imageDescriptionInput" asp-for="ImageToUpdate.ImageDescription" class="form-control" type="text" aria-describedby="imageDescriptionInputHelpBlock" />
             <div id="imageDescriptionInputHelpBlock" class="form-text">
                 Параметр «Description» для Microdata
             </div>
-            <span asp-validation-for="Image.ImageDescription" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageDescription" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageContentUrlInput" asp-for="Image.ImageContentUrl" class="form-label text-primary fs-5">ImageContentUrl</label>
-            <input id="imageContentUrlInput" asp-for="Image.ImageContentUrl" class="form-control" type="text" aria-describedby="imageContentUrlInputHelpBlock" />
+            <label for="imageContentUrlInput" asp-for="ImageToUpdate.ImageContentUrl" class="form-label text-primary fs-5"></label>
+            <input id="imageContentUrlInput" asp-for="ImageToUpdate.ImageContentUrl" class="form-control" type="url" aria-describedby="imageContentUrlInputHelpBlock" />
             <div id="imageContentUrlInputHelpBlock" class="form-text">
                 Параметр «ContentUrl» для Microdata
             </div>
-            <span asp-validation-for="Image.ImageContentUrl" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageContentUrl" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageThumbnailUrlInput" asp-for="Image.ImageThumbnailUrl" class="form-label text-primary fs-5">ImageThumbnailUrl</label>
-            <input id="imageThumbnailUrlInput" asp-for="Image.ImageThumbnailUrl" class="form-control" type="text" aria-describedby="imageThumbnailUrlInputHelpBlock" />
+            <label for="imageThumbnailUrlInput" asp-for="ImageToUpdate.ImageThumbnailUrl" class="form-label text-primary fs-5"></label>
+            <input id="imageThumbnailUrlInput" asp-for="ImageToUpdate.ImageThumbnailUrl" class="form-control" type="url" aria-describedby="imageThumbnailUrlInputHelpBlock" />
             <div id="imageThumbnailUrlInputHelpBlock" class="form-text">
                 Параметр «ThumbnailUrl» для Microdata
             </div>
-            <span asp-validation-for="Image.ImageThumbnailUrl" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageThumbnailUrl" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageWidthInput" asp-for="Image.ImageWidth" class="form-label text-primary fs-5">ImageWidth</label>
-            <input id="imageWidthInput" asp-for="Image.ImageWidth" class="form-control" type="text" aria-describedby="imageWidthInputHelpBlock" />
+            <label for="imageWidthInput" asp-for="ImageToUpdate.ImageWidth" class="form-label text-primary fs-5"></label>
+            <input id="imageWidthInput" asp-for="ImageToUpdate.ImageWidth" class="form-control" type="number" aria-describedby="imageWidthInputHelpBlock" />
             <div id="imageWidthInputHelpBlock" class="form-text">
                 Ширина картинки в px
             </div>
-            <span asp-validation-for="Image.ImageWidth" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageWidth" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageHeightInput" asp-for="Image.ImageHeight" class="form-label text-primary fs-5">ImageHeight</label>
-            <input id="imageHeightInput" asp-for="Image.ImageHeight" class="form-control" type="text" aria-describedby="imageHeightInputHelpBlock" />
+            <label for="imageHeightInput" asp-for="ImageToUpdate.ImageHeight" class="form-label text-primary fs-5"></label>
+            <input id="imageHeightInput" asp-for="ImageToUpdate.ImageHeight" class="form-control" type="number" aria-describedby="imageHeightInputHelpBlock" />
             <div id="imageHeightInputHelpBlock" class="form-text">
                 Высота картинки в px
             </div>
-            <span asp-validation-for="Image.ImageHeight" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageHeight" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageSrcInput" asp-for="Image.ImageSrc" class="form-label text-primary fs-5">ImageSrc</label>
-            <input id="imageSrcInput" asp-for="Image.ImageSrc" class="form-control" type="text" aria-describedby="imageSrcInputHelpBlock" />
+            <label for="imageSrcInput" asp-for="ImageToUpdate.ImageSrc" class="form-label text-primary fs-5"></label>
+            <input id="imageSrcInput" asp-for="ImageToUpdate.ImageSrc" class="form-control" type="text" aria-describedby="imageSrcInputHelpBlock" />
             <div id="imageSrcInputHelpBlock" class="form-text">
                 Путь к картинке на сайте
             </div>
-            <span asp-validation-for="Image.ImageSrc" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageSrc" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageAltInput" asp-for="Image.ImageAlt" class="form-label text-primary fs-5">ImageAlt</label>
-            <input id="imageAltInput" asp-for="Image.ImageAlt" class="form-control" type="text" aria-describedby="imageAltInputHelpBlock" />
+            <label for="imageAltInput" asp-for="ImageToUpdate.ImageAlt" class="form-label text-primary fs-5"></label>
+            <input id="imageAltInput" asp-for="ImageToUpdate.ImageAlt" class="form-control" type="text" aria-describedby="imageAltInputHelpBlock" />
             <div id="imageAltInputHelpBlock" class="form-text">
                 Параметр «alt» для тега «img»
             </div>
-            <span asp-validation-for="Image.ImageAlt" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageAlt" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageTitleInput" asp-for="Image.ImageTitle" class="form-label text-primary fs-5">ImageTitle</label>
-            <input id="imageTitleInput" asp-for="Image.ImageTitle" class="form-control" type="text" aria-describedby="imageTitleInputHelpBlock" />
+            <label for="imageTitleInput" asp-for="ImageToUpdate.ImageTitle" class="form-label text-primary fs-5"></label>
+            <input id="imageTitleInput" asp-for="ImageToUpdate.ImageTitle" class="form-control" type="text" aria-describedby="imageTitleInputHelpBlock" />
             <div id="imageTitleInputHelpBlock" class="form-text">
                 Параметр «title» для тега «img»
             </div>
-            <span asp-validation-for="Image.ImageTitle" class="text-danger"></span>
+            <span asp-validation-for="ImageToUpdate.ImageTitle" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="ImageTypeInput" asp-for="ImageToUpdate.ImageType" class="form-label text-primary fs-5"></label>
+            <input id="ImageTypeInput" asp-for="ImageToUpdate.ImageType" class="form-control" type="text" aria-describedby="imageTitleInputHelpBlock" />
+            <div id="imageTypeInputHelpBlock" class="form-text">
+                Тип изображения (расширение файла)
+            </div>
+            <span asp-validation-for="ImageToUpdate.ImageType" class="text-danger"></span>
 
             <hr class="liniya" />
 

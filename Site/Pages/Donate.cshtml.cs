@@ -6,31 +6,18 @@ namespace Site.Pages
 {
     public class DonateModel : PageModel
     {
-        private readonly IPageModelRepository _pageContext;
+        private readonly ISitemapModelRepository _sitemapContext;
 
-        public DonateModel(IPageModelRepository pageContext)
+        public DonateModel(ISitemapModelRepository sitemapContext)
         {
-            _pageContext = pageContext;
+            _sitemapContext = sitemapContext;
         }
 
         public uint PageNumber { get; set; }
 
-        public string LeftBackground { get; set; }
-        public string RightBackground { get; set; }
-
-
-        public IActionResult OnGet(uint? pageNumber)
+        public IActionResult OnGet(uint? pageNumber = 3)
         {
-            if (pageNumber != 3)
-            {
-                return RedirectToPage("Index", new { pageNumber = 3 });
-            }
-
-            PageNumber = _pageContext.GetPage(pageNumber).PageNumber;
-
-            LeftBackground = _pageContext.GetPage(pageNumber).LeftBackground;
-
-            RightBackground = _pageContext.GetPage(pageNumber).RightBackground;
+            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
 
             return Page();
         }

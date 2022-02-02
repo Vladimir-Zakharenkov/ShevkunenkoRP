@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
 using Site.Services;
 using System.Collections.Generic;
@@ -10,24 +9,25 @@ namespace Site.Pages.DBCRUD
     public class ViewImagesModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly IImageModelRepository _imageContext;
+        private readonly ISitemapModelRepository _sitemapContext;
 
-        public ViewImagesModel(IImageModelRepository imageContext)
+        public ViewImagesModel(IImageModelRepository imageContext, ISitemapModelRepository sitemapContext)
         {
             _imageContext = imageContext;
+            _sitemapContext = sitemapContext;
         }
 
-        [BindProperty]
-        public uint PageNumber { get; set; } = 1;
-
-        [BindProperty]
-        public string PageImage { get; set; } = "main-index";
-
+        public uint PageNumber { get; set; }
 
         public IEnumerable<ImageModel> AllImages { get; set; }
 
-        public void OnGet()
+        public IActionResult OnGet(uint? pageNumber = 6)
         {
+            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+
             AllImages = _imageContext.Images.ToArray();
+
+            return Page();
         }
     }
 }

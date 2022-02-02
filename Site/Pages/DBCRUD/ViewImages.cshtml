@@ -1,9 +1,5 @@
-﻿@page
+﻿@page "{pageNumber=6}/{**data}"
 @model Site.Pages.DBCRUD.ViewImagesModel
-@{
-    ViewData["BackgroundLeft"] = "bg-kortik-1";
-    ViewData["BackgroundRight"] = "bg-kortik-2";
-}
 
 <div class="row">
 
@@ -44,9 +40,7 @@ else
 
                 <vc:image image-name="@item.ImageName" css-class="card-img-top shadw" />
 
-                <div class="card-body">
-
-                </div>
+                <div class="card-body py-0"></div>
 
                 <div class="card-footer px-0">
                     <a asp-page="DetailsImage" asp-route-imageid="@item.ImageId" class="btn btn-outline-primary mt-1">View</a>

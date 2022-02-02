@@ -9,9 +9,16 @@ namespace Site.Services
         {
         }
 
-        public DbSet<HeadModel> HeadModels { get; set; }
         public DbSet<ImageModel> ImageModels { get; set; }
-        public DbSet<PageModel> PageModels { get; set; }
         public DbSet<MovieModel> MovieModels { get; set; }
+        public DbSet<CardModel> CardModels { get; set; }
+
+        public DbSet<SitemapModel> SitemapModels { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SitemapModel>()
+                .Property(b => b.Lastmod)
+                .HasDefaultValueSql("getdate()");
+        }
     }
 }

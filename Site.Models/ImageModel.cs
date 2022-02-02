@@ -12,13 +12,11 @@ namespace Site.Models
         [ValidateNever]
         public Guid ImageId { get; set; }
 
-        //For viewcomponent
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
         [Display(Name = "Имя для View Component")]
         public string ImageName { get; set; }
 
-        //For microdata
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
         [Display(Name = "Имя для microdata")]
@@ -45,17 +43,20 @@ namespace Site.Models
         public string ImageThumbnailUrl { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Duration, ErrorMessage = "Поле не может быть пустым")]
         [Range(0, 8000, ErrorMessage = "Ширина картинки от 0 до 8000 px")]
         [Display(Name = "Ширина картинки в px")]
         public int ImageWidth { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Duration, ErrorMessage = "Поле не может быть пустым")]
         [Range(0, 8000, ErrorMessage = "Высота картинки от 0 до 8000 px")]
         [Display(Name = "Высота картинки в px")]
         public int ImageHeight { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
+        [Display(Name = "Адрес картинки для вьюшек")]
         public string ImageSrc { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
@@ -67,5 +68,10 @@ namespace Site.Models
         [DataType(DataType.Text)]
         [Display(Name = "Текст для атрибута title")]
         public string ImageTitle { get; set; }
+
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Тип файла картинки")]
+        public string ImageType { get; set; }
     }
 }
