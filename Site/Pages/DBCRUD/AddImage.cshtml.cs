@@ -4,6 +4,7 @@ using Site.Services;
 
 namespace Site.Pages.DBCRUD
 {
+    [BindProperties(SupportsGet = true)]
     public class AddImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
@@ -17,20 +18,19 @@ namespace Site.Pages.DBCRUD
 
         public uint PageNumber { get; set; }
 
-        [BindProperty]
         public ImageModel Image { get; set; }
 
 
-        public IActionResult OnGet(uint? pageNumber = 9)
+        public IActionResult OnGet()
         {
-            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
         }
 
-        public IActionResult OnPost(uint? pageNumber = 9)
+        public IActionResult OnPost()
         {
-            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             if (ModelState.IsValid)
             {
@@ -38,10 +38,8 @@ namespace Site.Pages.DBCRUD
 
                 return RedirectToPage("ViewImages");
             }
-            else
-            {
-                return Page();
-            }
+
+            return Page();
         }
     }
 }

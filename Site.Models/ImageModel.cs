@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,7 +8,6 @@ namespace Site.Models
     public class ImageModel
     {
         [Key]
-        [ValidateNever]
         public Guid ImageId { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]

@@ -1,6 +1,8 @@
-﻿@page
-@model Site.Pages.DBCRUD.AddSitemapItemModel
+﻿@page "{pageNumber=13}/{**data}"
+@model Site.Pages.DBCRUD.AddPageModel
+
 @{
+    Layout = "_CrudLayout";
 }
 
 <div class="row">
@@ -95,8 +97,8 @@
 
             <div class="text-center">
 
-                <button type="submit" class="col btn btn-success shadow">ADD</button>
-                <a asp-page="/Index" class="col btn btn-danger shadow ms-3">CANCEL</a>
+                <button type="submit" class="col btn btn-outline-success shadw">ADD</button>
+                <a asp-page="/DBCRUD/Index" class="col btn btn-outline-danger ms-3 shadw">CANCEL</a>
 
             </div>
 

@@ -6,9 +6,10 @@
 
     <div class="card shadw rounded-3 cardborder">
 
-        @if (Model.CardLink.Contains("http"))
+        @if (Model.CardLink.ToString().Contains("shevkunenko.site"))
         {
-            <a href="@Model.CardLink" itemprop="url">
+            <a asp-page="@Model.CardLink.ToString().Trim().Substring(24)" itemprop="url">
+
 
                 @if (Model.CardMovie)
                 {
@@ -32,7 +33,7 @@
         }
         else
         {
-            <a asp-page="@Model.CardLink" itemprop="url">
+            <a href="@Model.CardLink" itemprop="url">
 
                 @if (Model.CardMovie)
                 {

@@ -4,20 +4,21 @@ using Site.Services;
 
 namespace Site.Pages
 {
-    public class Main2Model : PageModel
+    public class Navigation : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
 
-        public Main2Model(ISitemapModelRepository sitemapContext)
+        public Navigation(ISitemapModelRepository sitemapContext)
         {
             _sitemapContext = sitemapContext;
         }
 
+        [BindProperty(SupportsGet = true)]
         public uint PageNumber { get; set; }
 
-        public IActionResult OnGet(uint? pageNumber = 2)
+        public IActionResult OnGet()
         {
-            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
         }

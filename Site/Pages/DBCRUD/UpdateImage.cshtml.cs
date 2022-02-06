@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Site.Models;
 using Site.Services;
 using System;
+using System.Linq;
 
 namespace Site.Pages.DBCRUD
 {
+    [BindProperties(SupportsGet = true)]
     public class UpdateImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly IImageModelRepository _imageContext;
@@ -18,37 +20,34 @@ namespace Site.Pages.DBCRUD
 
         public uint PageNumber { get; set; }
 
-        [BindProperty]
         public ImageModel ImageToUpdate { get; set; }
 
-        public IActionResult OnGet(Guid imageID, uint? pageNumber = 8)
+        public IActionResult OnGet(Guid? imageId)
         {
-            if (_imageContext.GetImage(imageID) == null)
+            if (imageId == null || _imageContext.Images.FirstOrDefault(x => x.ImageId == imageId) == null)
             {
-                return RedirectToPage("/DBCRUD/ViewImages");
+                return RedirectToPage("ViewImages");
             }
 
-            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
-            ImageToUpdate = _imageContext.GetImage(imageID);
+            ImageToUpdate = _imageContext.GetImage(imageId);
 
             return Page();
         }
 
-        public IActionResult OnPost(ImageModel ImageToUpdate, uint? pageNumber = 8)
+        public IActionResult OnPost()
         {
-            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             if (ModelState.IsValid)
             {
                 _imageContext.UpdateImage(ImageToUpdate);
 
-                return RedirectToPage("/DBCRUD/ViewImages");
+                return RedirectToPage("ViewImages");
             }
-            else
-            {
-                return Page();
-            }
+
+            return Page();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Site.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,14 +23,37 @@ namespace Site.Services
             _siteContext.SaveChanges();
         }
 
+        public void DeletePageById(Guid sitemapModelId)
+        {
+            var sitemapPageToDelete = _siteContext.SitemapModels.Find(sitemapModelId);
+
+            _siteContext.SitemapModels.Remove(sitemapPageToDelete);
+            _siteContext.SaveChanges();
+        }
+
         public SitemapModel GetPage(uint? pageNumber)
         {
-            if (_siteContext.SitemapModels.FirstOrDefault(x => x.PageNumber == pageNumber) == null)
+            if (pageNumber == null || _siteContext.SitemapModels.FirstOrDefault(x => x.PageNumber == pageNumber) == null)
             {
                 pageNumber = 0;
             }
 
             return _siteContext.SitemapModels.Include(p => p.ImageModel).FirstOrDefault(x => x.PageNumber == pageNumber);
+        }
+
+        public SitemapModel GetPageById(Guid sitemapModelId)
+        {
+            return _siteContext.SitemapModels.Include(i => i.ImageModel).FirstOrDefault(x => x.SitemapModelId == sitemapModelId);
+        }
+
+        public uint GetPageNumber(uint? pageNumber)
+        {
+            if (pageNumber == null || _siteContext.SitemapModels.FirstOrDefault(x => x.PageNumber == pageNumber) == null)
+            {
+                pageNumber = 0;
+            }
+
+            return _siteContext.SitemapModels.FirstOrDefault(x => x.PageNumber == pageNumber).PageNumber;
         }
     }
 }

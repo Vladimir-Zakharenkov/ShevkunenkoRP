@@ -1,0 +1,89 @@
+﻿@page "{pageNumber=12}/{**data}"
+@model DBCRUD.ViewPagesModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <div class="col">
+
+        <h1 class="text_shadow">Страницы сайта shevkunenko.site</h1>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <hr class="liniya" />
+
+    <div class="col">
+        <a asp-page="AddPage" class="btn btn btn-outline-danger shadw">ADD NEW PAGE</a>
+    </div>
+
+    <hr class="liniya" />
+
+</div>
+
+<div class="row">
+
+    <div class="col">
+
+        <div class="table-responsive">
+
+            <table class="table table-sm table-hover caption-top align-middle">
+
+                <caption class="text-center">
+
+                    @if (Model.AllPages.Count() == 0)
+                    {
+                        <p class="fs-4 text-danger">Нет данных</p>
+                    }
+                    else
+                    {
+                        <p class="fs-4 text-danger">Количество страниц:&nbsp;@Model.AllPages.Count()</p>
+                    }
+
+                </caption>
+
+                <thead>
+
+                    <tr>
+                        <th scope="col">Номер</th>
+                        <th scope="col" class="text-start">Адрес</th>
+                        <th scope="col" class="text-start">Заголовок</th>
+                        <th scope="col"></th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var sitemapItem in Model.AllPages)
+                    {
+                        <tr>
+                            <td>@sitemapItem.PageNumber</td>
+                            <td class="text-start">@sitemapItem.Loc.ToString().Substring(24)</td>
+                            <td class="text-start">@sitemapItem.Title</td>
+                            <td>
+                                <a asp-page="DetailsPage" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-primary mt-1 me-1 py-1 px-2 shadw">View</a>
+                                <a asp-page="EditPage" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-success mt-1 me-1 py-1 px-2 shadw">Edit</a>
+                                <a asp-page="DeletePage" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-danger mt-1 me-1 py-1 px-2 shadw">Delete</a>
+                                <a asp-page="@sitemapItem.Loc.ToString().Substring(24)"class="btn btn-outline-primary mt-1 py-1 px-2 shadw">Run</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+    </div>
+
+</div>

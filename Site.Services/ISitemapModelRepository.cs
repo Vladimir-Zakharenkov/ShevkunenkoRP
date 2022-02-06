@@ -1,4 +1,5 @@
 ﻿using Site.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Site.Services
@@ -7,8 +8,14 @@ namespace Site.Services
     {
         public IEnumerable<SitemapModel> Sitemaps { get; }
 
+        SitemapModel GetPage(uint? pageNumber);
+
+        SitemapModel GetPageById(Guid sitemapModelId);
+
+        uint GetPageNumber(uint? pageNumber);
+
         void AddSitemapItem(SitemapModel sitemapItem);
 
-        SitemapModel GetPage(uint? pageNumber);
+        void DeletePageById(Guid sitemapModelId);
     }
 }

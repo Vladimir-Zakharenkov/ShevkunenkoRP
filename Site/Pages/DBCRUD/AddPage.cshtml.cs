@@ -1,41 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
 using Site.Services;
 using System.Linq;
 
 namespace Site.Pages.DBCRUD
 {
-    public class AddSitemapItemModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+    [BindProperties(SupportsGet = true)]
+    public class AddPageModel : PageModel
     {
-        private readonly ISitemapModelRepository _pageContext;
         private readonly ISitemapModelRepository _sitemapContext;
+        private readonly IImageModelRepository _imageContext;
 
-        public AddSitemapItemModel(ISitemapModelRepository pageContext, ISitemapModelRepository sitemapContext)
+        public AddPageModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext)
         {
-            _pageContext = pageContext;
             _sitemapContext = sitemapContext;
+            _imageContext = imageContext;
         }
 
         public uint PageNumber { get; set; }
-        public string LeftBackground { get; set; }
-        public string RightBackground { get; set; }
 
-        [BindProperty]
         public SitemapModel SitemapItem { get; set; }
 
-        public IActionResult OnGet(uint? pageNumber)
+        public IActionResult OnGet()
         {
-            PageNumber = _pageContext.GetPage(pageNumber).PageNumber;
-
-            LeftBackground = _pageContext.GetPage(pageNumber).LeftBackground;
-
-            RightBackground = _pageContext.GetPage(pageNumber).RightBackground;
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
         }
 
         public IActionResult OnPost()
         {
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+
             if (_sitemapContext.Sitemaps.FirstOrDefault(x => x.PageNumber == 0) == null)
             {
                 SitemapItem.PageNumber = 0;
@@ -52,11 +49,18 @@ namespace Site.Pages.DBCRUD
                 return Page();
             }
 
+            if (_imageContext.Images.FirstOrDefault(x => x.ImageId == SitemapItem.ImageModelImageId) == null)
+            {
+                ModelState.AddModelError("SitemapItem.ImageModelImageId", "Картинки с таким идентификатором не существует");
+
+                return Page();
+            }
+
             if (ModelState.IsValid)
             {
                 _sitemapContext.AddSitemapItem(SitemapItem);
 
-                return RedirectToPage("/Index");
+                return RedirectToPage("/DBCRUD/ViewPages");
             }
             else
             {

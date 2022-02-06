@@ -6,28 +6,26 @@ using Site.Services;
 namespace Site.Pages.DBCRUD
 {
     [BindProperties(SupportsGet = true)]
-    public class DeleteImageModel : PageModel
+    public class DeletePageModel : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
-        private readonly IImageModelRepository _imageContext;
 
-        public DeleteImageModel(IImageModelRepository imageContext, ISitemapModelRepository sitemapContext)
+        public DeletePageModel(ISitemapModelRepository sitemapContext)
         {
-            _imageContext = imageContext;
             _sitemapContext = sitemapContext;
         }
 
         public uint PageNumber { get; set; }
 
-        public ImageModel Image { get; set; }
+        public SitemapModel SitemapItem { get; set; }
 
         public IActionResult OnGet()
         {
-            Image = _imageContext.GetImage(Image.ImageId);
+            SitemapItem = _sitemapContext.GetPageById(SitemapItem.SitemapModelId);
 
-            if (Image == null)
+            if (SitemapItem == null)
             {
-                return RedirectToPage("ViewImages");
+                return RedirectToPage("ViewPages");
             }
 
             PageNumber = _sitemapContext.GetPageNumber(PageNumber);
@@ -37,9 +35,9 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnPost()
         {
-            _imageContext.DeleteImage(Image.ImageId);
+            _sitemapContext.DeletePageById(SitemapItem.SitemapModelId);
 
-            return RedirectToPage("ViewImages");
+            return RedirectToPage("ViewPages");
         }
     }
 }

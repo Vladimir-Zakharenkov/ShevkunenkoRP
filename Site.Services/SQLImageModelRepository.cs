@@ -1,6 +1,7 @@
 ﻿using Site.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Site.Services
 {
@@ -28,14 +29,15 @@ namespace Site.Services
             _siteContext.SaveChanges();
         }
 
-        public ImageModel GetImage(Guid imageId)
+        public ImageModel GetImage(Guid? imageId)
         {
             return _siteContext.ImageModels.Find(imageId);
         }
 
-        public void UpdateImage(ImageModel image)
+        public void UpdateImage(ImageModel imageToUpdate)
         {
-            _siteContext.ImageModels.Update(image);
+            var entry = _siteContext.ImageModels.First(e => e.ImageId == imageToUpdate.ImageId);
+            _siteContext.Entry(entry).CurrentValues.SetValues(imageToUpdate);
             _siteContext.SaveChanges();
         }
     }

@@ -1,5 +1,9 @@
-﻿@page "{imageId=7f919234-f469-4c90-2b71-08d9cfc07d7c}/{**data}"
+﻿@page "{pageNumber=7}/{**data}"
 @model Site.Pages.DBCRUD.DetailsImageModel
+
+@{
+    Layout = "_CrudLayout";
+}
 
 <div class="row">
 
@@ -14,9 +18,9 @@
         <div class="card p-2">
 
             <div class="card-footer px-0">
-                <a asp-page="UpdateImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-success mt-1">Edit</a>
-                <a asp-page="DeleteImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-danger mt-1">Delete</a>
-                <a asp-page="ViewImages" class="btn btn-outline-primary mt-1">Images</a>
+                <a asp-page="UpdateImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-success mt-1 shadw">Edit</a>
+                <a asp-page="DeleteImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-danger mt-1 shadw">Delete</a>
+                <a asp-page="ViewImages" class="btn btn-outline-primary mt-1 shadw">Images</a>
             </div>
 
             <vc:image image-name="@Model.Image.ImageName" css-class="card-img-top shadw" />
@@ -24,74 +28,109 @@
             <hr class="liniya" />
 
             <div class="card-body mx-0 px-0">
+
                 <ul class="list-group list-group-flush text-center">
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageId:</span><br />
-                        <span class="fs-6 text-muted">(Id в базе данных)</span><br />
-                        <span class="fs-5">@Model.Image.ImageId</span>
+                        <span class="fw-bold fs-5 text-primary">ImageID</span><br />
+                        <span id="ImageID" class="fs-5">@Model.Image.ImageId</span><br />
+                        <span id="ImageIDHelpBlock" class="form-text">
+                            идентификатор в базе данных
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageName:</span><br />
-                        <span class="fs-6 text-muted">(Параметр «image-name» для ViewComponent)</span><br />
-                        <span class="fs-5">@Model.Image.ImageName</span>
+                        <span class="fw-bold fs-5 text-primary">ImageName</span><br />
+                        <span id="imageName" class="fs-5">@Model.Image.ImageName</span><br />
+                        <span id="imageNameHelpBlock" class="form-text">
+                            параметр «image-name» для ViewComponent
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageName2:</span><br />
-                        <span class="fs-6 text-muted">(Параметр «Name» для Microdata)</span><br />
-                        <span class="fs-5">@Model.Image.ImageName2</span>
+                        <span class="fw-bold fs-5 text-primary">ImageName2</span><br />
+                        <span id="imageName2" class="fs-5">@Model.Image.ImageName</span><br />
+                        <span id="imageName2HelpBlock" class="form-text">
+                            параметр «Name» для Microdata
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageCaption:</span><br />
-                        <span class="fs-6 text-muted">(Параметр «Caption» для Microdata)</span><br />
-                        <span class="fs-5">@Model.Image.ImageCaption</span>
+                        <span class="fw-bold fs-5 text-primary">ImageCaption</span><br />
+                        <span id="ImageCaption" class="fs-5">@Model.Image.ImageCaption</span><br />
+                        <span id="ImageCaptionHelpBlock" class="form-text">
+                            параметр «Caption» для Microdata
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageDescription:</span><br />
-                        <span class="fs-6 text-muted">(Параметр «Description» для Microdata)</span><br />
-                        <span class="fs-5">@Model.Image.ImageDescription</span>
+                        <span class="fw-bold fs-5 text-primary">ImageDescription</span><br />
+                        <span id="ImageDescription" class="fs-5">@Model.Image.ImageDescription</span><br />
+                        <span id="ImageDescriptionHelpBlock" class="form-text">
+                            параметр «Description» для Microdata
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageContentUrl:</span><br />
-                        <span class="fs-6 text-muted">(Параметр «ContentUrl» для Microdata)</span><br />
-                        <span class="fs-5">@Model.Image.ImageContentUrl</span>
+                        <span class="fw-bold fs-5 text-primary">ImageContentUrl</span><br />
+                        <span id="ImageContentUrl" class="fs-5">@Model.Image.ImageContentUrl</span><br />
+                        <span id="ImageContentUrlHelpBlock" class="form-text">
+                            параметр «ContentUrl» для Microdata
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageThumbnailUrl:</span><br />
-                        <span class="fs-6 text-muted">(Параметр «ThumbnailUrl» для Microdata)</span><br />
-                        <span class="fs-5">@Model.Image.ImageThumbnailUrl</span>
+                        <span class="fw-bold fs-5 text-primary">ImageThumbnailUrl</span><br />
+                        <span id="ImageThumbnailUrl" class="fs-5">@Model.Image.ImageThumbnailUrl</span><br />
+                        <span id="ImageThumbnailUrlHelpBlock" class="form-text">
+                            параметр «ThumbnailUrl» для Microdata
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageWidth:</span><br />
-                        <span class="fs-6 text-muted">(Ширина картинки в px)</span><br />
-                        <span class="fs-5">@Model.Image.ImageWidth</span>
+                        <span class="fw-bold fs-5 text-primary">ImageWidth</span><br />
+                        <span id="ImageWidth" class="fs-5">@Model.Image.ImageWidth</span><br />
+                        <span id="ImageWidthHelpBlock" class="form-text">
+                            ширина картинки в px
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageHeight:</span><br />
-                        <span class="fs-6 text-muted">(Высота картинки в px)</span><br />
-                        <span class="fs-5">@Model.Image.ImageHeight</span>
+                        <span class="fw-bold fs-5 text-primary">ImageHeight</span><br />
+                        <span id="ImageHeight" class="fs-5">@Model.Image.ImageHeight</span><br />
+                        <span id="ImageHeightHelpBlock" class="form-text">
+                            высота картинки в px
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageSrc:</span><br />
-                        <span class="fs-6 text-muted">(Путь к картинке на сайте)</span><br />
-                        <span class="fs-5">@Model.Image.ImageSrc</span>
+                        <span class="fw-bold fs-5 text-primary">ImageSrc</span><br />
+                        <span id="ImageSrc" class="fs-5">@Model.Image.ImageSrc</span><br />
+                        <span id="ImageSrcHelpBlock" class="form-text">
+                            путь к картинке на сайте
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageAlt:</span><br />
-                        <span class="fs-6 text-muted">(Параметр «alt» для тега «img»)</span><br />
-                        <span class="fs-5">@Model.Image.ImageAlt</span>
+                        <span class="fw-bold fs-5 text-primary">ImageAlt</span><br />
+                        <span id="ImageAlt" class="fs-5">@Model.Image.ImageAlt</span><br />
+                        <span id="ImageAltHelpBlock" class="form-text">
+                            параметр «alt» для тега «img»
+                        </span>
                     </li>
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageTitle:</span><br />
-                        <span class="fs-6 text-muted">(Параметр «title» для тега «img»)</span><br />
-                        <span class="fs-5">@Model.Image.ImageTitle</span>
+                        <span class="fw-bold fs-5 text-primary">ImageTitle</span><br />
+                        <span id="ImageTitle" class="fs-5">@Model.Image.ImageTitle</span><br />
+                        <span id="ImageTitleHelpBlock" class="form-text">
+                            параметр «title» для тега «img»
+                        </span>
                     </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">ImageType</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Image.ImageType</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            тип изображения (расширение файла)
+                        </span>
+                    </li>
+
                 </ul>
+
             </div>
 
             <div class="card-footer px-0">
-                <a asp-page="UpdateImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-success mt-1">Edit</a>
-                <a asp-page="DeleteImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-danger mt-1">Delete</a>
-                <a asp-page="ViewImages" class="btn btn-outline-primary mt-1">Images</a>
+                <a asp-page="UpdateImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-success mt-1 shadw">Edit</a>
+                <a asp-page="DeleteImage" asp-route-imageid="@Model.Image.ImageId" class="btn btn-outline-danger mt-1 shadw">Delete</a>
+                <a asp-page="ViewImages" class="btn btn-outline-primary mt-1 shadw">Images</a>
             </div>
 
         </div>

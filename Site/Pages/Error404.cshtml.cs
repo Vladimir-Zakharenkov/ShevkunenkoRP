@@ -13,11 +13,12 @@ namespace Site.Pages
             _sitemapContext = sitemapContext;
         }
 
+        [BindProperty(SupportsGet = true)]
         public uint PageNumber { get; set; }
 
-        public IActionResult OnGet(uint? pageNumber = 4)
+        public IActionResult OnGet()
         {
-            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
         }

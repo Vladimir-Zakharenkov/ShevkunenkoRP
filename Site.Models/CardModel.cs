@@ -8,10 +8,15 @@ namespace Site.Models
         [Key]
         public Guid CardId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Имя карточки")]
         public string CardName { get; set; }
 
-        public string? CardLink { get; set; }
+        [Required(ErrorMessage = "Необходимо ввести адрес страницы")]
+        [DataType(DataType.Url)]
+        [Display(Name = "Адрес страницы")]
+        public Uri CardLink { get; set; }
 
         [Required]
         public bool CardBody { get; set; }

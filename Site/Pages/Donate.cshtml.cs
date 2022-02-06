@@ -4,6 +4,7 @@ using Site.Services;
 
 namespace Site.Pages
 {
+    [BindProperties(SupportsGet = true)]
     public class DonateModel : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
@@ -15,9 +16,9 @@ namespace Site.Pages
 
         public uint PageNumber { get; set; }
 
-        public IActionResult OnGet(uint? pageNumber = 3)
+        public IActionResult OnGet()
         {
-            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
         }

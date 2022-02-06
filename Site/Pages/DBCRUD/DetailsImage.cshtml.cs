@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Site.Models;
 using Site.Services;
-using System;
 
 namespace Site.Pages.DBCRUD
 {
+    [BindProperties(SupportsGet = true)]
     public class DetailsImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly IImageModelRepository _imageContext;
@@ -20,16 +20,16 @@ namespace Site.Pages.DBCRUD
 
         public ImageModel Image { get; set; }
 
-        public IActionResult OnGet(Guid imageID, uint? pageNumber = 7)
+        public IActionResult OnGet()
         {
-            if (_imageContext.GetImage(imageID) == null)
+            Image = _imageContext.GetImage(Image.ImageId);
+
+            if (Image == null)
             {
-                imageID = new Guid("7f919234-f469-4c90-2b71-08d9cfc07d7c"); ;
+                return RedirectToPage("ViewImages");
             }
 
-            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
-
-            Image = _imageContext.GetImage(imageID);
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
         }

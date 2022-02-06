@@ -9,7 +9,6 @@ namespace Site.Models
     public class SitemapModel
     {
         [Key]
-        [ValidateNever]
         public Guid SitemapModelId { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
@@ -25,7 +24,7 @@ namespace Site.Models
         [Required(ErrorMessage = "Необходимо указать дату")]
         [DataType(DataType.Date)]
         [Display(Name = "Дата изменения")]
-        public DateTime? Lastmod { get; set; }
+        public DateTime Lastmod { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]

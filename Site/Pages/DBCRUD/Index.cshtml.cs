@@ -1,31 +1,26 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Services;
 
 namespace Site.Pages.DBCRUD
 {
+    [BindProperties(SupportsGet = true)]
     public class IndexModel : PageModel
     {
 
-        private readonly IImageModelRepository _imageContext;
         private readonly ISitemapModelRepository _sitemapContext;
 
-        public IndexModel(IImageModelRepository imageContext, ISitemapModelRepository sitemapContext)
+        public IndexModel(ISitemapModelRepository sitemapContext)
         {
-            _imageContext = imageContext;
             _sitemapContext = sitemapContext;
         }
 
         public uint PageNumber { get; set; }
 
 
-        public IActionResult OnGet(uint? pageNumber = 11)
+        public IActionResult OnGet()
         {
-            PageNumber = _sitemapContext.GetPage(pageNumber).PageNumber;
+            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
         }
