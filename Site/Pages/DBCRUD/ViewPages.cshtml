@@ -69,7 +69,7 @@
                             <td class="text-start">@sitemapItem.Title</td>
                             <td>
                                 <a asp-page="DetailsPage" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-primary mt-1 me-1 py-1 px-2 shadw">View</a>
-                                <a asp-page="EditPage" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-success mt-1 me-1 py-1 px-2 shadw">Edit</a>
+                                <a asp-page="UpdatePage" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-success mt-1 me-1 py-1 px-2 shadw">Edit</a>
                                 <a asp-page="DeletePage" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-danger mt-1 me-1 py-1 px-2 shadw">Delete</a>
                                 <a asp-page="@sitemapItem.Loc.ToString().Substring(24)"class="btn btn-outline-primary mt-1 py-1 px-2 shadw">Run</a>
                             </td>

@@ -64,7 +64,7 @@ namespace Site.Models
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
-        [Display(Name = "Картинка для страницы GUID")]
+        [Display(Name = "Картинка для страницы")]
         public Guid ImageModelImageId { get; set; }
         public ImageModel ImageModel { get; set; }
     }

@@ -10,11 +10,13 @@ namespace Site.Services
 
         SitemapModel GetPage(uint? pageNumber);
 
-        SitemapModel GetPageById(Guid sitemapModelId);
+        SitemapModel GetPageById(Guid? sitemapModelId);
 
         uint GetPageNumber(uint? pageNumber);
 
         void AddSitemapItem(SitemapModel sitemapItem);
+
+        void UpdatePage(SitemapModel sitemapItem);
 
         void DeletePageById(Guid sitemapModelId);
     }

@@ -23,6 +23,13 @@ namespace Site.Services
             _siteContext.SaveChanges();
         }
 
+        public void UpdatePage(SitemapModel pageToUpdate)
+        {
+            var entry = _siteContext.SitemapModels.First(e => e.SitemapModelId == pageToUpdate.SitemapModelId);
+            _siteContext.Entry(entry).CurrentValues.SetValues(pageToUpdate);
+            _siteContext.SaveChanges();
+        }
+
         public void DeletePageById(Guid sitemapModelId)
         {
             var sitemapPageToDelete = _siteContext.SitemapModels.Find(sitemapModelId);
@@ -41,7 +48,7 @@ namespace Site.Services
             return _siteContext.SitemapModels.Include(p => p.ImageModel).FirstOrDefault(x => x.PageNumber == pageNumber);
         }
 
-        public SitemapModel GetPageById(Guid sitemapModelId)
+        public SitemapModel GetPageById(Guid? sitemapModelId)
         {
             return _siteContext.SitemapModels.Include(i => i.ImageModel).FirstOrDefault(x => x.SitemapModelId == sitemapModelId);
         }

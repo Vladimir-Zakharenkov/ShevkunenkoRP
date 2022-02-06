@@ -19,7 +19,7 @@
 
             <div class="card-footer px-0">
                 <a asp-page="@Model.SitemapItem.Loc.ToString().Trim().Substring(24)" class="btn btn-outline-primary  mt-1 shadw">Run</a>
-                <a asp-page="EditPage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success mt-1 shadw">Edit</a>
+                <a asp-page="UpdatePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success mt-1 shadw">Edit</a>
                 <a asp-page="DeletePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-danger mt-1 shadw">Delete</a>
                 <a asp-page="ViewPages" class="btn btn-outline-primary mt-1 shadw">Pages</a>
             </div>
@@ -101,7 +101,7 @@
                         <span class="fw-bold fs-5 text-primary">Description</span><br />
                         <span id="Description" class="fs-5">@Model.SitemapItem.Description</span><br />
                         <span id="DescriptionHelpBlock" class="form-text">
-                            заголовок страницы
+                            описание страницы
                         </span>
                     </li>
                     <li class="list-group-item">
@@ -127,7 +127,7 @@
 
             <div class="card-footer px-0">
                 <a asp-page="@Model.SitemapItem.Loc.ToString().Trim().Substring(24)" class="btn btn-outline-primary  mt-1 shadw">Run</a>
-                <a asp-page="EditPage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success mt-1 shadw">Edit</a>
+                <a asp-page="UpdatePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success mt-1 shadw">Edit</a>
                 <a asp-page="DeletePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-danger mt-1 shadw">Delete</a>
                 <a asp-page="ViewPages" class="btn btn-outline-primary mt-1 shadw">Pages</a>
             </div>
