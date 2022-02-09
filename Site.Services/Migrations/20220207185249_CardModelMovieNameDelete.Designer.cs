@@ -10,8 +10,8 @@ using Site.Services;
 namespace Site.Services.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20220130101958_SitemapModel-1")]
-    partial class SitemapModel1
+    [Migration("20220207185249_CardModelMovieNameDelete")]
+    partial class CardModelMovieNameDelete
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,14 +31,11 @@ namespace Site.Services.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("CardLink")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("CardMovie")
                         .HasColumnType("bit");
-
-                    b.Property<string>("CardName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CardText")
                         .HasColumnType("nvarchar(max)");
@@ -46,47 +43,20 @@ namespace Site.Services.Migrations
                     b.Property<Guid>("ImageModelImageId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("MovieName")
+                    b.Property<string>("ImageName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("MovieModelMovieId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("CardId");
 
                     b.HasIndex("ImageModelImageId");
 
+                    b.HasIndex("MovieModelMovieId");
+
                     b.ToTable("CardModels");
-                });
-
-            modelBuilder.Entity("Site.Models.HeadModel", b =>
-                {
-                    b.Property<Guid>("HeadId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Canonical")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KeyWords")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("LastReviewed")
-                        .HasColumnType("date");
-
-                    b.Property<long>("PageNumber")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("HeadId");
-
-                    b.ToTable("HeadModels");
                 });
 
             modelBuilder.Entity("Site.Models.ImageModel", b =>
@@ -186,6 +156,7 @@ namespace Site.Services.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContentUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DateCreated")
@@ -212,8 +183,9 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ImageModelImageId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ImageName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("InLanguage")
                         .IsRequired()
@@ -223,10 +195,6 @@ namespace Site.Services.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("MovieCaption")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MovieName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -244,45 +212,7 @@ namespace Site.Services.Migrations
 
                     b.HasKey("MovieId");
 
-                    b.HasIndex("ImageModelImageId");
-
                     b.ToTable("MovieModels");
-                });
-
-            modelBuilder.Entity("Site.Models.PageModel", b =>
-                {
-                    b.Property<Guid>("PageModelId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("HeadModelHeadId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ImageModelImageId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("LeftBackground")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("PageNumber")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("RightBackground")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PageModelId");
-
-                    b.HasIndex("HeadModelHeadId");
-
-                    b.HasIndex("ImageModelImageId");
-
-                    b.HasIndex("PageNumber")
-                        .IsUnique();
-
-                    b.ToTable("PageModels");
                 });
 
             modelBuilder.Entity("Site.Models.SitemapModel", b =>
@@ -296,10 +226,24 @@ namespace Site.Services.Migrations
                         .HasMaxLength(7)
                         .HasColumnType("nvarchar(7)");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ImageModelImageId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("KeyWords")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Lastmod")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("LeftBackground")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Loc")
                         .IsRequired()
@@ -313,7 +257,16 @@ namespace Site.Services.Migrations
                         .HasMaxLength(3)
                         .HasColumnType("nvarchar(3)");
 
+                    b.Property<string>("RightBackground")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("SitemapModelId");
+
+                    b.HasIndex("ImageModelImageId");
 
                     b.HasIndex("PageNumber")
                         .IsUnique();
@@ -329,35 +282,24 @@ namespace Site.Services.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Site.Models.MovieModel", "MovieModel")
+                        .WithMany()
+                        .HasForeignKey("MovieModelMovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("ImageModel");
+
+                    b.Navigation("MovieModel");
                 });
 
-            modelBuilder.Entity("Site.Models.MovieModel", b =>
+            modelBuilder.Entity("Site.Models.SitemapModel", b =>
                 {
                     b.HasOne("Site.Models.ImageModel", "ImageModel")
                         .WithMany()
                         .HasForeignKey("ImageModelImageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("ImageModel");
-                });
-
-            modelBuilder.Entity("Site.Models.PageModel", b =>
-                {
-                    b.HasOne("Site.Models.HeadModel", "HeadModel")
-                        .WithMany()
-                        .HasForeignKey("HeadModelHeadId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Site.Models.ImageModel", "ImageModel")
-                        .WithMany()
-                        .HasForeignKey("ImageModelImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("HeadModel");
 
                     b.Navigation("ImageModel");
                 });

@@ -1,60 +1,43 @@
 ﻿@model Site.Models.CardModel
+
 @{
+    string ssylka;
+
+    if (Model.CardLink.ToString().Contains("shevkunenko.site"))
+    {
+        ssylka = "asp-page=" + Model.CardLink.ToString().Trim().Substring(24);
+    }
+    else
+    {
+        ssylka = "href=" + Model.CardLink.ToString().Trim();
+    }
 }
 
 <div class="col">
 
     <div class="card shadw rounded-3 cardborder">
 
-        @if (Model.CardLink.ToString().Contains("shevkunenko.site"))
-        {
-            <a asp-page="@Model.CardLink.ToString().Trim().Substring(24)" itemprop="url">
+        <a @ssylka itemprop="url">
 
+            @if (Model.CardMovie)
+            {
+                <vc:movie image-name="@Model.ImageName" />
+            }
+            else
+            {
+                <vc:image image-name="@Model.ImageName" css-class="card-img-top shadw rounded-3" />
+            }
 
-                @if (Model.CardMovie)
-                {
-                    <vc:movie movie-name="@Model.MovieName" />
-                }
-                else
-                {
-                    <vc:image image-name="@Model.ImageModel.ImageName" css-class="card-img-top shadw rounded-3" />
-                }
+            @if (Model.CardBody)
+            {
+                <div class="card-body p-0 mt-2 shadw cardBodyBg">
 
-                @if (Model.CardBody)
-                {
-                    <div class="card-body p-0 mt-2 shadw cardBodyBg">
+                    <p class="card-title fs-6 lh-1 my-1 mt-2">@Model.CardText</p>
 
-                        <p class="card-title fs-6 lh-1 my-1 mt-2">@Model.CardText</p>
+                </div>
+            }
 
-                    </div>
-                }
-
-            </a>
-        }
-        else
-        {
-            <a href="@Model.CardLink" itemprop="url">
-
-                @if (Model.CardMovie)
-                {
-                    <vc:movie movie-name="@Model.MovieName" />
-                }
-                else
-                {
-                    <vc:image image-name="@Model.ImageModel.ImageName" css-class="card-img-top shadw rounded-3" />
-                }
-
-                @if (Model.CardBody)
-                {
-                    <div class="card-body p-0 mt-2 shadw cardBodyBg">
-
-                        <p class="card-title fs-6 lh-1 my-1 mt-2">@Model.CardText</p>
-
-                    </div>
-                }
-
-            </a>
-        }
+        </a>
 
     </div>
 

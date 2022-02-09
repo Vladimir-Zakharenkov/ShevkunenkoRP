@@ -1,12 +1,9 @@
-﻿@{
-    var lastMod = Model.Lastmod.ToString("yyyy-MM-dd");
-}
-<head>
+﻿<head>
     <title>@Model.Title</title>
     <meta name="pageId" content="@Model.PageNumber" />
     <meta name="description" content="@Model.Description" />
     <meta name="keywords" content="@Model.KeyWords" />
-    <meta itemprop="lastReviewed" content="@lastMod" />
+    <meta itemprop="lastReviewed" content="@Model.Lastmod.ToString("yyyy-MM-dd")" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="cleartype" content="on" />

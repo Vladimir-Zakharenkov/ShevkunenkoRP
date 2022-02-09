@@ -10,25 +10,23 @@ namespace Site.Models
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
-        [Display(Name = "Имя карточки")]
-        public string CardName { get; set; }
+        [Display(Name = "параметр «image-name» для ViewComponent")]
+        public string ImageName { get; set; }
 
-        [Required(ErrorMessage = "Необходимо ввести адрес страницы")]
+        [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Url)]
         [Display(Name = "Адрес страницы")]
         public Uri CardLink { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [Display(Name = "Наличие текста под картинкой")]
         public bool CardBody { get; set; }
 
-        public string? CardText { get; set; }
+        [DataType(DataType.Text)]
+        [Display(Name = "Текст под картинкой")]
+        public string CardText { get; set; }
 
+        [Display(Name = "Карточка для фильма")]
         public bool CardMovie { get; set; }
-
-        public string? MovieName { get; set; }
-
-        public Guid ImageModelImageId { get; set; }
-        public ImageModel ImageModel { get; set; }
-
     }
 }

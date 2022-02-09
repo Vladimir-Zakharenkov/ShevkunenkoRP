@@ -9,10 +9,7 @@ namespace Site.Pages.ViewComponents
     {
         private readonly IImageModelRepository _imageContext;
 
-        public Image(IImageModelRepository imageContext)
-        {
-            _imageContext = imageContext;
-        }
+        public Image(IImageModelRepository imageContext) => _imageContext = imageContext;
 
         public IViewComponentResult Invoke(string imageName, string cssClass)
         {

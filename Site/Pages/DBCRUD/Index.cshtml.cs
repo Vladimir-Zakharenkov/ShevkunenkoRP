@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Services;
 
 namespace Site.Pages.DBCRUD
 {
+    [Authorize]
     [BindProperties(SupportsGet = true)]
     public class IndexModel : PageModel
     {
@@ -16,7 +18,6 @@ namespace Site.Pages.DBCRUD
         }
 
         public uint PageNumber { get; set; }
-
 
         public IActionResult OnGet()
         {

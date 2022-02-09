@@ -1,0 +1,66 @@
+﻿@page "{PageNumber=16}/{**data}"
+@model Site.Pages.DBCRUD.ViewMoviesModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <hr class="liniya" />
+
+    <div class="col">
+        <a asp-page="AddMovie" class="btn btn btn-outline-danger shadw">ADD NEW MOVIE</a>
+    </div>
+
+    <hr class="liniya" />
+
+</div>
+
+@if (Model.AllMovies.Count() == 0)
+{
+    <div class="row">
+
+        <div class="col text-center p-2">
+            <p class="fs-4 text-danger">Нет данных</p>
+        </div>
+
+    </div>
+}
+else
+{
+    <div class="row">
+
+        <div class="col text-center p-2">
+            <p class="fs-4 text-danger">Количество фильмов:&nbsp;@Model.AllMovies.Count()</p>
+        </div>
+
+    </div>
+}
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-2 justify-content-center">
+
+    @foreach (var movie in Model.AllMovies)
+    {
+        <div class="col">
+
+            <div class="card h-100 me-1 mb-1 p-1 shadw">
+
+                <vc:card image-name="@movie.ImageName" />
+
+                <div class="card-body py-0"></div>
+
+                <div class="card-footer px-0">
+                    <a asp-page="DetailsMovie" asp-route-movieid="@movie.MovieId" class="btn btn-outline-primary mt-1 me-1 py-1 px-2 shadw">View</a>
+                    <a asp-page="UpdateMovie" asp-route-movieid="@movie.MovieId" class="btn btn-outline-success mt-1 me-1 py-1 px-2 shadw">Edit</a>
+                    <a asp-page="DeleteMovie" asp-route-movieid="@movie.MovieId" class="btn btn-outline-danger mt-1 py-1 px-2 shadw">Delete</a>
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+    <hr class="liniya" />
+
+</div>

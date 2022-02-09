@@ -19,6 +19,25 @@ namespace Site.Services.Migrations
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Site.Models.AdminAccess", b =>
+                {
+                    b.Property<Guid>("AdminAccesssId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AdminAccesssId");
+
+                    b.ToTable("AdminAccess");
+                });
+
             modelBuilder.Entity("Site.Models.CardModel", b =>
                 {
                     b.Property<Guid>("CardId")
@@ -35,22 +54,14 @@ namespace Site.Services.Migrations
                     b.Property<bool>("CardMovie")
                         .HasColumnType("bit");
 
-                    b.Property<string>("CardName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("CardText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ImageModelImageId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("MovieName")
+                    b.Property<string>("ImageName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CardId");
-
-                    b.HasIndex("ImageModelImageId");
 
                     b.ToTable("CardModels");
                 });
@@ -152,6 +163,7 @@ namespace Site.Services.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContentUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DateCreated")
@@ -178,8 +190,9 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ImageModelImageId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ImageName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("InLanguage")
                         .IsRequired()
@@ -189,10 +202,6 @@ namespace Site.Services.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("MovieCaption")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MovieName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -209,8 +218,6 @@ namespace Site.Services.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MovieId");
-
-                    b.HasIndex("ImageModelImageId");
 
                     b.ToTable("MovieModels");
                 });
@@ -237,8 +244,7 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Lastmod")
-                        .IsRequired()
+                    b.Property<DateTime>("Lastmod")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getdate()");
@@ -273,28 +279,6 @@ namespace Site.Services.Migrations
                         .IsUnique();
 
                     b.ToTable("SitemapModels");
-                });
-
-            modelBuilder.Entity("Site.Models.CardModel", b =>
-                {
-                    b.HasOne("Site.Models.ImageModel", "ImageModel")
-                        .WithMany()
-                        .HasForeignKey("ImageModelImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ImageModel");
-                });
-
-            modelBuilder.Entity("Site.Models.MovieModel", b =>
-                {
-                    b.HasOne("Site.Models.ImageModel", "ImageModel")
-                        .WithMany()
-                        .HasForeignKey("ImageModelImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ImageModel");
                 });
 
             modelBuilder.Entity("Site.Models.SitemapModel", b =>

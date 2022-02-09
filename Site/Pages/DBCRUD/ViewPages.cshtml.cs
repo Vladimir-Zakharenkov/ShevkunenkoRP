@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
@@ -7,11 +8,11 @@ using System.Linq;
 
 namespace Site.Pages.DBCRUD
 {
+    [Authorize]
     [BindProperties(SupportsGet = true)]
     public class ViewPagesModel : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
-
         public ViewPagesModel(ISitemapModelRepository sitemapContext)
         {
             _sitemapContext = sitemapContext;

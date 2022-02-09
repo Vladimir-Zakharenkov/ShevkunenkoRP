@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Site.Models;
 using Site.Services;
@@ -6,6 +7,7 @@ using System.Linq;
 
 namespace Site.Pages.DBCRUD
 {
+    [Authorize]
     [BindProperties(SupportsGet = true)]
     public class UpdateImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {

@@ -8,40 +8,32 @@ namespace Site.Pages.DBCRUD
 {
     [Authorize]
     [BindProperties(SupportsGet = true)]
-    public class DeleteImageModel : PageModel
+    public class DetailsMovieModel : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
-        private readonly IImageModelRepository _imageContext;
-
-        public DeleteImageModel(IImageModelRepository imageContext, ISitemapModelRepository sitemapContext)
+        private readonly IMovieModelRepository _movieContext;
+        public DetailsMovieModel(ISitemapModelRepository sitemapContext, IMovieModelRepository movieContext)
         {
-            _imageContext = imageContext;
             _sitemapContext = sitemapContext;
+            _movieContext = movieContext;
         }
 
         public uint PageNumber { get; set; }
 
-        public ImageModel Image { get; set; }
+        public MovieModel Movie { get; set; }
 
         public IActionResult OnGet()
         {
-            Image = _imageContext.GetImage(Image.ImageId);
+            Movie = _movieContext.GetMovieById(Movie.MovieId);
 
-            if (Image == null)
+            if (Movie == null)
             {
-                return RedirectToPage("ViewImages");
+                RedirectToPage("ViewMovies");
             }
 
             PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
-        }
-
-        public IActionResult OnPost()
-        {
-            _imageContext.DeleteImage(Image.ImageId);
-
-            return RedirectToPage("ViewImages");
         }
     }
 }

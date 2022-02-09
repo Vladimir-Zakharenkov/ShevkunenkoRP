@@ -2,23 +2,21 @@
 
 <span itemscope itemtype="http://schema.org/ImageObject">
 
+    <meta itemprop="name" content="@Model.ImageName2" />
+
     <meta itemprop="caption" content="@Model.ImageCaption" />
+
+    <meta itemprop="description" content="@Model.ImageDescription" />
 
     <link itemprop="contentUrl" href="@Model.ImageContentUrl" />
 
     <link itemprop="thumbnailUrl" href="@Model.ImageThumbnailUrl" />
 
-    <link itemprop="image" href="@Model.ImageContentUrl" />
-
     <meta itemprop="width" content="@Model.ImageWidth px" />
 
     <meta itemprop="height" content="@Model.ImageHeight px" />
 
-    <meta itemprop="height" content="@Model.ImageDescription" />
-
-    <img class="@ViewData["CssClass"]" asp-append-version="true"
-         src="@Model.ImageSrc"
-         alt="@Model.ImageAlt"
-         title="@Model.ImageTitle" />
+    <img itemprop="image" class="@ViewData["CssClass"]" asp-append-version="true"
+         src="@Model.ImageSrc" alt="@Model.ImageAlt" title="@Model.ImageTitle" />
 
 </span>

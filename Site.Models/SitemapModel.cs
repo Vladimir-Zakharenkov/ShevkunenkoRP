@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -40,11 +39,11 @@ namespace Site.Models
 
         [DataType(DataType.Text)]
         [Display(Name = "Фон страницы слева")]
-        public string? LeftBackground { get; set; }
+        public string LeftBackground { get; set; }
 
         [DataType(DataType.Text)]
         [Display(Name = "Фон страницы справа")]
-        public string? RightBackground { get; set; }
+        public string RightBackground { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
@@ -60,7 +59,6 @@ namespace Site.Models
         [DataType(DataType.Text)]
         [Display(Name = "Ключевые слова")]
         public string KeyWords { get; set; }
-
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]

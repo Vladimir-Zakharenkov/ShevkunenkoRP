@@ -3,23 +3,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Site.Pages
 {
-    public class Login
+    public class Test2Model : PageModel
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
+        public int Square { get; set; }
 
-    public class TestModel : PageModel
-    {
-        [BindProperty]
-        public int[] CategoryId { get; set; } = new int[0];
+        [BindProperty(SupportsGet = true)]
+        public int Number { get; set; }
+
         public void OnGet()
         {
+            Square = Number * Number;
         }
-        public void OnPost()
-        {
-            ViewData["categoryId"] = CategoryId;
-        }
-
     }
 }

@@ -1,9 +1,15 @@
 ﻿using Site.Models;
+using System;
+using System.Collections.Generic;
 
 namespace Site.Services
 {
     public interface IMovieModelRepository
     {
-        MovieModel GetMovie(string movieName);
+        public IEnumerable<MovieModel> Movies { get; }
+
+        MovieModel GetMovieByImageName(string imageName);
+
+        MovieModel GetMovieById(Guid imageId);
     }
 }

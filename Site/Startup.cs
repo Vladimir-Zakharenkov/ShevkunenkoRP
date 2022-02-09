@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +30,12 @@ namespace Site
                 options.UseSqlServer(Configuration.GetConnectionString("SiteDB"));
             });
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new PathString("/DBCRUD/Login");
+                });
+
             services.AddScoped<ISitemapModelRepository, SQLSitemapModelRepository>();
 
             services.AddScoped<IImageModelRepository, SQLImageModelRepository>();
@@ -36,6 +43,8 @@ namespace Site
             services.AddScoped<ICardModelRepository, SQLCardModelRepository>();
 
             services.AddScoped<IMovieModelRepository, SQLMovieModelRepository>();
+
+            services.AddScoped<IAdminAccessRepository, SQLAdminAccessRepository>();
 
             services.AddRazorPages();
 

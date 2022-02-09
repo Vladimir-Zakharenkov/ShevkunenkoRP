@@ -20,5 +20,7 @@ namespace Site.Services
                 .Property(b => b.Lastmod)
                 .HasDefaultValueSql("getdate()");
         }
+
+        public DbSet<AdminAccess> AdminAccess { get; set; }
     }
 }

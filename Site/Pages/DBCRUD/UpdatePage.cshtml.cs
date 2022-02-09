@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
@@ -7,12 +8,12 @@ using System.Linq;
 
 namespace Site.Pages.DBCRUD
 {
+    [Authorize]
     [BindProperties(SupportsGet = true)]
     public class UpdatePageModel : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
         private readonly IImageModelRepository _imageContext;
-
         public UpdatePageModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext)
         {
             _sitemapContext = sitemapContext;

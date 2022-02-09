@@ -1,0 +1,223 @@
+﻿@page "{PageNumber=17}/{**data}"
+@model Site.Pages.DBCRUD.DetailsMovieModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <div class="col col-lg-9 col-xl-7 col-xxl-6 d-block mx-auto px-2">
+
+        <hr class="liniya" />
+
+        <h1 class="fs-3 text_shadow">Информация о фильме<br />@Model.Movie.MovieCaption</h1>
+
+        <hr class="liniya" />
+
+        <div class="card p-2">
+
+            <div class="card-footer px-0">
+                <a asp-page="UpdateMovie" asp-route-movieid="@Model.Movie.MovieId" class="btn btn-outline-success mt-1 shadw">Edit</a>
+                <a asp-page="DeleteMovie" asp-route-movieid="@Model.Movie.MovieId" class="btn btn-outline-danger mt-1 shadw">Delete</a>
+                <a asp-page="ViewMovies" class="btn btn-outline-primary mt-1 shadw">Movies</a>
+            </div>
+
+            <vc:image image-name="@Model.Movie.ImageName" css-class="card-img-top shadw" />
+
+            <hr class="liniya" />
+
+            <div class="card-body mx-0 px-0">
+
+                <ul class="list-group list-group-flush text-center">
+
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">ImageID</span><br />
+                        <span id="ImageID" class="fs-5">@Model.Movie.MovieId</span><br />
+                        <span id="ImageIDHelpBlock" class="form-text">
+                            идентификатор в базе данных
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">ImageName</span><br />
+                        <span id="imageName" class="fs-5">@Model.Movie.ImageName</span><br />
+                        <span id="imageNameHelpBlock" class="form-text">
+                            параметр «image-name» для ViewComponent
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">MovieCaption</span><br />
+                        <span id="ImageCaption" class="fs-5">@Model.Movie.MovieCaption</span><br />
+                        <span id="ImageCaptionHelpBlock" class="form-text">
+                            название фильма
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Description</span><br />
+                        <span id="ImageDescription" class="fs-5">@Model.Movie.Description</span><br />
+                        <span id="ImageDescriptionHelpBlock" class="form-text">
+                            краткое содержание
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Duration</span><br />
+                        <span id="ImageContentUrl" class="fs-5">@Model.Movie.Duration</span><br />
+                        <span id="ImageContentUrlHelpBlock" class="form-text">
+                            продолжительность фильма
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">DatePublished</span><br />
+                        <span id="ImageThumbnailUrl" class="fs-5">@Model.Movie.DatePublished</span><br />
+                        <span id="ImageThumbnailUrlHelpBlock" class="form-text">
+                            дата премьеры
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">DateCreated</span><br />
+                        <span id="ImageWidth" class="fs-5">@Model.Movie.DateCreated</span><br />
+                        <span id="ImageWidthHelpBlock" class="form-text">
+                            дата производства
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">UploadDate</span><br />
+                        <span id="ImageHeight" class="fs-5">@Model.Movie.UploadDate</span><br />
+                        <span id="ImageHeightHelpBlock" class="form-text">
+                            дата публикации на сайте
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">IsFamilyFriendly</span><br />
+                        <span id="ImageSrc" class="fs-5">@Model.Movie.IsFamilyFriendly</span><br />
+                        <span id="ImageSrcHelpBlock" class="form-text">
+                            ограничения для просмотра
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">InLanguage</span><br />
+                        <span id="ImageAlt" class="fs-5">@Model.Movie.InLanguage</span><br />
+                        <span id="ImageAltHelpBlock" class="form-text">
+                            язык звуковой дорожки
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">РroductionCompany</span><br />
+                        <span id="ImageTitle" class="fs-5">@Model.Movie.РroductionCompany</span><br />
+                        <span id="ImageTitleHelpBlock" class="form-text">
+                            название киностудии
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Director</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Director</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            режиссер
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">MusicBy</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.MusicBy</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            композитор
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Genre</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Genre</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            жанр
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">ContentUrl</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.ContentUrl</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            адрес файла фильма в интернете
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Actor01</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Actor01</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            актер (актриса)
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Actor02</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Actor02</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            актер (актриса)
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Actor03</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Actor03</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            актер (актриса)
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Actor04</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Actor04</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            актер (актриса)
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Actor05</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Actor05</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            актер (актриса)
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Actor06</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Actor06</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            актер (актриса)
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Actor07</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Actor07</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            актер (актриса)
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Actor08</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Actor08</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            актер (актриса)
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Actor09</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Actor09</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            актер (актриса)
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Actor10</span><br />
+                        <span id="ImageType" class="fs-5">@Model.Movie.Actor10</span><br />
+                        <span id="ImageTypeHelpBlock" class="form-text">
+                            актер (актриса)
+                        </span>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="card-footer px-0">
+                <a asp-page="UpdateMovie" asp-route-movieid="@Model.Movie.MovieId" class="btn btn-outline-success mt-1 shadw">Edit</a>
+                <a asp-page="DeleteMovie" asp-route-movieid="@Model.Movie.MovieId" class="btn btn-outline-danger mt-1 shadw">Delete</a>
+                <a asp-page="ViewMovies" class="btn btn-outline-primary mt-1 shadw">Movies</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Site.Models;
 using Site.Services;
 
 namespace Site.Pages.DBCRUD
 {
+    [Authorize]
     [BindProperties(SupportsGet = true)]
     public class AddImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
