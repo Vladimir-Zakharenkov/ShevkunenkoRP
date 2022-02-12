@@ -1,0 +1,37 @@
+﻿@page "{pageNumber=20}/{**data}"
+@model Site.Pages.DBCRUD.DeleteMovieModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <div class="col col-lg-9 col-xl-7 col-xxl-6 d-block mx-auto px-2">
+
+        <hr class="liniya" />
+
+        <h1 class="fs-3 text_shadow">Удалить фильм</h1>
+
+        <hr class="liniya" />
+
+        <div class="card p-2">
+
+            <vc:image image-name="@Model.Movie.ImageName" css-class="card-img-top shadw" />
+
+            <hr class="liniya" />
+
+            <p>Удалить данные о фильме из базы данных<br />файл фильма не удаляется</p>
+
+        </div>
+
+        <form method="post" asp-page-handler="OnPost" asp-route-movieid="@Model.Movie.MovieId" class="mt-2">
+
+            <button type="submit" class="btn btn-outline-danger me-2 shadw">Delete</button>
+            <a asp-page="ViewMovies" class="btn btn-outline-success shadw">Cancel</a>
+
+        </form>
+
+    </div>
+
+</div>

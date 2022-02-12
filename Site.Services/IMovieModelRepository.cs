@@ -10,6 +10,12 @@ namespace Site.Services
 
         MovieModel GetMovieByImageName(string imageName);
 
-        MovieModel GetMovieById(Guid imageId);
+        MovieModel GetMovie(Guid? movieId);
+
+        void AddMovie(MovieModel movie);
+
+        void UpdateMovie(MovieModel image);
+
+        void DeleteMovie(Guid movieId);
     }
 }

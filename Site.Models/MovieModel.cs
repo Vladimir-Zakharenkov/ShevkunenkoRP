@@ -21,25 +21,25 @@ namespace Site.Models
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Time)]
         [Display(Name = "Продолжительность фильма")]
-        public string Duration { get; set; }
+        public DateTime Duration { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Date)]
         [Display(Name = "Дата примьеры")]
-        public string DatePublished { get; set; }
+        public DateTime DatePublished { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Date)]
         [Display(Name = "Дата производства")]
-        public string DateCreated { get; set; }
+        public DateTime DateCreated { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Date)]
         [Display(Name = "Дата публикации на сайте")]
-        public string UploadDate { get; set; }
+        public DateTime UploadDate { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
-        [Display(Name = "Ограничения для просмотра")]
+        [Display(Name = "Нет ограничений для просмотра")]
         public bool IsFamilyFriendly { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]

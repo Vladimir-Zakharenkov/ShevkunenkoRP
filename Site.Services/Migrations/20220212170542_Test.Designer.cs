@@ -10,8 +10,8 @@ using Site.Services;
 namespace Site.Services.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20220207205838_CardDeleteImageModel")]
-    partial class CardDeleteImageModel
+    [Migration("20220212170542_Test")]
+    partial class Test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,25 @@ namespace Site.Services.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Site.Models.AdminAccess", b =>
+                {
+                    b.Property<Guid>("AdminAccesssId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AdminAccesssId");
+
+                    b.ToTable("AdminAccess");
+                });
 
             modelBuilder.Entity("Site.Models.CardModel", b =>
                 {
@@ -149,13 +168,11 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DateCreated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("DatePublished")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DatePublished")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -165,9 +182,8 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Duration")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Duration")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Genre")
                         .IsRequired()
@@ -192,9 +208,8 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UploadDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("UploadDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("РroductionCompany")
                         .IsRequired()

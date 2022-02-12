@@ -12,14 +12,35 @@ namespace Site.Services
 
         public IEnumerable<MovieModel> Movies => _siteContext.MovieModels;
 
-        public MovieModel GetMovieById(Guid movieId)
+        public void AddMovie(MovieModel movie)
         {
-            return _siteContext.MovieModels.FirstOrDefault(x => x.MovieId == movieId);
+            _siteContext.MovieModels.Add(movie);
+            _siteContext.SaveChanges();
+        }
+
+        public void DeleteMovie(Guid movieId)
+        {
+            var movieToDelete = _siteContext.MovieModels.Find(movieId);
+
+            _siteContext.MovieModels.Remove(movieToDelete);
+            _siteContext.SaveChanges();
+        }
+
+        public MovieModel GetMovie(Guid? movieId)
+        {
+            return _siteContext.MovieModels.Find(movieId);
         }
 
         public MovieModel GetMovieByImageName(string imageName)
         {
             return _siteContext.MovieModels.FirstOrDefault(x => x.ImageName == imageName);
+        }
+
+        public void UpdateMovie(MovieModel movieToUpdate)
+        {
+            var entry = _siteContext.MovieModels.First(e => e.MovieId == movieToUpdate.MovieId);
+            _siteContext.Entry(entry).CurrentValues.SetValues(movieToUpdate);
+            _siteContext.SaveChanges();
         }
     }
 }

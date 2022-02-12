@@ -15,6 +15,11 @@ namespace Site.Services
 
         public IEnumerable<ImageModel> Images => _siteContext.ImageModels;
 
+        public ImageModel GetImage(Guid? imageId)
+        {
+            return _siteContext.ImageModels.Find(imageId);
+        }
+
         public void AddImage(ImageModel image)
         {
             _siteContext.ImageModels.Add(image);
@@ -27,11 +32,6 @@ namespace Site.Services
 
             _siteContext.ImageModels.Remove(imageToDelete);
             _siteContext.SaveChanges();
-        }
-
-        public ImageModel GetImage(Guid? imageId)
-        {
-            return _siteContext.ImageModels.Find(imageId);
         }
 
         public void UpdateImage(ImageModel imageToUpdate)

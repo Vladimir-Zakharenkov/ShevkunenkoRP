@@ -11,7 +11,6 @@ namespace Site.Pages.DBCRUD
     {
 
         private readonly ISitemapModelRepository _sitemapContext;
-
         public IndexModel(ISitemapModelRepository sitemapContext)
         {
             _sitemapContext = sitemapContext;

@@ -33,8 +33,8 @@
 
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">ImageID</span><br />
-                        <span id="ImageID" class="fs-5">@Model.Movie.MovieId</span><br />
-                        <span id="ImageIDHelpBlock" class="form-text">
+                        <span id="MovieID" class="fs-5">@Model.Movie.MovieId</span><br />
+                        <span id="MovieIDHelpBlock" class="form-text">
                             идентификатор в базе данных
                         </span>
                     </li>
@@ -47,162 +47,162 @@
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">MovieCaption</span><br />
-                        <span id="ImageCaption" class="fs-5">@Model.Movie.MovieCaption</span><br />
-                        <span id="ImageCaptionHelpBlock" class="form-text">
+                        <span id="MovieCaption" class="fs-5">@Model.Movie.MovieCaption</span><br />
+                        <span id="MovieCaptionHelpBlock" class="form-text">
                             название фильма
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Description</span><br />
-                        <span id="ImageDescription" class="fs-5">@Model.Movie.Description</span><br />
-                        <span id="ImageDescriptionHelpBlock" class="form-text">
+                        <span id="MovieDescription" class="fs-5">@Model.Movie.Description</span><br />
+                        <span id="MovieDescriptionHelpBlock" class="form-text">
                             краткое содержание
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Duration</span><br />
-                        <span id="ImageContentUrl" class="fs-5">@Model.Movie.Duration</span><br />
-                        <span id="ImageContentUrlHelpBlock" class="form-text">
+                        <span id="MovieDuration" class="fs-5">@Model.Movie.Duration.ToString("'T'HH'H'mm'M'ss'S'")</span><br />
+                        <span id="MovieDurationHelpBlock" class="form-text">
                             продолжительность фильма
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">DatePublished</span><br />
-                        <span id="ImageThumbnailUrl" class="fs-5">@Model.Movie.DatePublished</span><br />
-                        <span id="ImageThumbnailUrlHelpBlock" class="form-text">
+                        <span id="MovieDatePublished" class="fs-5">@Model.Movie.DatePublished.ToString("yyyy-MM-dd")</span><br />
+                        <span id="MovieDatePublishedHelpBlock" class="form-text">
                             дата премьеры
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">DateCreated</span><br />
-                        <span id="ImageWidth" class="fs-5">@Model.Movie.DateCreated</span><br />
-                        <span id="ImageWidthHelpBlock" class="form-text">
+                        <span id="MovieDateCreated" class="fs-5">@Model.Movie.DateCreated.ToString("yyyy-MM-dd")</span><br />
+                        <span id="MovieDateCreatedHelpBlock" class="form-text">
                             дата производства
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">UploadDate</span><br />
-                        <span id="ImageHeight" class="fs-5">@Model.Movie.UploadDate</span><br />
-                        <span id="ImageHeightHelpBlock" class="form-text">
+                        <span id="MovieUploadDate" class="fs-5">@Model.Movie.UploadDate.ToString("yyyy-MM-dd")</span><br />
+                        <span id="" MovieUploadDateHelpBlock" class="form-text">
                             дата публикации на сайте
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">IsFamilyFriendly</span><br />
-                        <span id="ImageSrc" class="fs-5">@Model.Movie.IsFamilyFriendly</span><br />
-                        <span id="ImageSrcHelpBlock" class="form-text">
-                            ограничения для просмотра
+                        <span id="MovieIsFamilyFriendly" class="fs-5">@Model.Movie.IsFamilyFriendly</span><br />
+                        <span id="MovieIsFamilyFriendlyHelpBlock" class="form-text">
+                            нет ограничений для просмотра
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">InLanguage</span><br />
-                        <span id="ImageAlt" class="fs-5">@Model.Movie.InLanguage</span><br />
-                        <span id="ImageAltHelpBlock" class="form-text">
+                        <span id="MovieInLanguage" class="fs-5">@Model.Movie.InLanguage</span><br />
+                        <span id="MovieInLanguageHelpBlock" class="form-text">
                             язык звуковой дорожки
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">РroductionCompany</span><br />
-                        <span id="ImageTitle" class="fs-5">@Model.Movie.РroductionCompany</span><br />
-                        <span id="ImageTitleHelpBlock" class="form-text">
+                        <span id="MovieРroductionCompany" class="fs-5">@Model.Movie.РroductionCompany</span><br />
+                        <span id="MovieРroductionCompanyHelpBlock" class="form-text">
                             название киностудии
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Director</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Director</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieDirector" class="fs-5">@Model.Movie.Director</span><br />
+                        <span id="MovieDirectorHelpBlock" class="form-text">
                             режиссер
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">MusicBy</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.MusicBy</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieMusicBy" class="fs-5">@Model.Movie.MusicBy</span><br />
+                        <span id="MovieMusicByHelpBlock" class="form-text">
                             композитор
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Genre</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Genre</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieGenre" class="fs-5">@Model.Movie.Genre</span><br />
+                        <span id="MovieGenreHelpBlock" class="form-text">
                             жанр
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">ContentUrl</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.ContentUrl</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieContentUrl" class="fs-5">@Model.Movie.ContentUrl</span><br />
+                        <span id="MovieContentUrlBlock" class="form-text">
                             адрес файла фильма в интернете
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Actor01</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Actor01</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieActor01" class="fs-5">@Model.Movie.Actor01</span><br />
+                        <span id="MovieActor01HelpBlock" class="form-text">
                             актер (актриса)
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Actor02</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Actor02</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieActor02" class="fs-5">@Model.Movie.Actor02</span><br />
+                        <span id="MovieActor02HelpBlock" class="form-text">
                             актер (актриса)
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Actor03</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Actor03</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieActor03" class="fs-5">@Model.Movie.Actor03</span><br />
+                        <span id="MovieActor03HelpBlock" class="form-text">
                             актер (актриса)
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Actor04</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Actor04</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieActor04" class="fs-5">@Model.Movie.Actor04</span><br />
+                        <span id="MovieActor04HelpBlock" class="form-text">
                             актер (актриса)
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Actor05</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Actor05</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieActor05" class="fs-5">@Model.Movie.Actor05</span><br />
+                        <span id="MovieActor05HelpBlock" class="form-text">
                             актер (актриса)
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Actor06</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Actor06</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieActor06" class="fs-5">@Model.Movie.Actor06</span><br />
+                        <span id="MovieActor06HelpBlock" class="form-text">
                             актер (актриса)
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Actor07</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Actor07</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieActor07" class="fs-5">@Model.Movie.Actor07</span><br />
+                        <span id="MovieActor07HelpBlock" class="form-text">
                             актер (актриса)
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Actor08</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Actor08</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieActor08" class="fs-5">@Model.Movie.Actor08</span><br />
+                        <span id="MovieActor08HelpBlock" class="form-text">
                             актер (актриса)
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Actor09</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Actor09</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieActor09" class="fs-5">@Model.Movie.Actor09</span><br />
+                        <span id="MovieActor09HelpBlock" class="form-text">
                             актер (актриса)
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Actor10</span><br />
-                        <span id="ImageType" class="fs-5">@Model.Movie.Actor10</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
+                        <span id="MovieActor10" class="fs-5">@Model.Movie.Actor10</span><br />
+                        <span id="MovieActor10HelpBlock" class="form-text">
                             актер (актриса)
                         </span>
                     </li>
