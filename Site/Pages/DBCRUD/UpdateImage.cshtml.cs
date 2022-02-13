@@ -11,13 +11,13 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class UpdateImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
-        private readonly IImageModelRepository _imageContext;
         private readonly ISitemapModelRepository _sitemapContext;
-        public UpdateImageModel(IImageModelRepository imageContext, ISitemapModelRepository sitemapContext)
+        private readonly IImageModelRepository _imageContext;
+        public UpdateImageModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext)
 
         {
-            _imageContext = imageContext;
             _sitemapContext = sitemapContext;
+            _imageContext = imageContext;
         }
 
         public uint PageNumber { get; set; }

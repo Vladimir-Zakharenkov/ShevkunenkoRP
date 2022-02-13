@@ -8,24 +8,30 @@ namespace Site.Pages.DBCRUD
 {
     [Authorize]
     [BindProperties(SupportsGet = true)]
-    public class AddImageModel : PageModel
+    public class DeleteCardModel : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
-        private readonly IImageModelRepository _imageContext;
+        private readonly ICardModelRepository _cardContext;
 
-        public AddImageModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext)
+        public DeleteCardModel(ISitemapModelRepository sitemapContext, ICardModelRepository cardContext)
         {
             _sitemapContext = sitemapContext;
-            _imageContext = imageContext;
+            _cardContext = cardContext;
         }
 
         public uint PageNumber { get; set; }
 
-        public ImageModel Image { get; set; }
-
+        public CardModel Card { get; set; }
 
         public IActionResult OnGet()
         {
+            Card = _cardContext.GetCardById(Card.CardId);
+
+            if (Card == null)
+            {
+                return RedirectToPage("ViewCards");
+            }
+
             PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
@@ -33,16 +39,9 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnPost()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            _cardContext.DeleteCard(Card.CardId);
 
-            if (ModelState.IsValid)
-            {
-                _imageContext.AddImage(Image);
-
-                return RedirectToPage("ViewImages");
-            }
-
-            return Page();
+            return RedirectToPage("ViewImages");
         }
     }
 }

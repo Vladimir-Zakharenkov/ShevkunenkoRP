@@ -1,0 +1,98 @@
+﻿@page "{PageNumber=24}/{**data}"
+@model DBCRUD.UpdateCardModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <div class="col col-lg-9 col-xl-7 col-xxl-6 d-block mx-auto px-2">
+
+        <hr class="liniya" />
+
+        <h1 class="fs-3 text_shadow">Изменить данные карточки</h1>
+
+        <hr class="liniya" />
+
+        <vc:image image-name="@Model.CardToUpdate.ImageName" css-class="adp_img ten" />
+
+        <hr class="liniya" />
+
+        <form asp-page-handler="OnPost" method="post">
+
+            <input asp-for="CardToUpdate.CardId" type="hidden" />
+
+            <label for="ImageNameInput" asp-for="CardToUpdate.ImageName" class="form-label text-primary fs-5"></label>
+            <input id="ImageNameInput" asp-for="CardToUpdate.ImageName" class="form-control" aria-describedby="ImageNameHelpBlock" />
+            <div id="ImageNameInputHelpBlock" class="form-text">
+                параметр «image-name» для ViewComponent
+            </div>
+            <span asp-validation-for="CardToUpdate.ImageName" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="CardLinkInput" asp-for="CardToUpdate.CardLink" class="form-label text-primary fs-5"></label>
+            <input id="CardLinkInput" asp-for="CardToUpdate.CardLink" class="form-control" aria-describedby="CardLinkHelpBlock" />
+            <div id="CardLinkInputBlock" class="form-text">
+                адрес страницы
+            </div>
+            <span asp-validation-for="CardToUpdate.CardLink" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" asp-for="CardToUpdate.CardBody" type="radio" id="CardBodyTrue" value="True">
+                <label class="form-check-label" for="CardBodyTrue">
+                    текст под картинкой
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" asp-for="CardToUpdate.CardBody" type="radio" id="CardBodyFalse" value="False">
+                <label class="form-check-label" for="CardBodyFalse">
+                    без текста под картинкой
+                </label>
+            </div>
+            <span asp-validation-for="CardToUpdate.CardBody" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="CardTextInput" asp-for="CardToUpdate.CardText" class="form-label text-primary fs-5"></label>
+            <input id="CardTextInput" asp-for="CardToUpdate.CardText" class="form-control" aria-describedby="CardTextInputHelpBlock" />
+            <div id="CardTextInputHelpBlock" class="form-text">
+                текст под картинкой
+            </div>
+            <span asp-validation-for="CardToUpdate.CardText" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" asp-for="CardToUpdate.CardMovie" type="radio" id="CardMovieTrue" value="True">
+                <label class="form-check-label" for="CardMovieTrue">
+                    карточка для фильма
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" asp-for="CardToUpdate.CardMovie" type="radio" id="CardMovieFalse" value="False">
+                <label class="form-check-label" for="CardMovieFalse">
+                    карточка не для фильма
+                </label>
+            </div><br />
+            <span asp-validation-for="CardToUpdate.CardMovie" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="text-center">
+
+                <button type="submit" class="btn btn-outline-success text-center shadw">UPDATE</button>
+                <a asp-page="ViewCards" class="btn btn-outline-danger ms-3 shadw">CANCEL</a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <hr class="liniya" />
+
+</div>
