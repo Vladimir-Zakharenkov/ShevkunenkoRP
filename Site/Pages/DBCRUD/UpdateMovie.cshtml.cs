@@ -12,14 +12,12 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class UpdateMovieModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
         private readonly IMovieModelRepository _movieContext;
         private readonly ICardModelRepository _cardContext;
 
-        public UpdateMovieModel(ISitemapModelRepository sitemapContext, IMovieModelRepository movieContext, ICardModelRepository cardContext)
+        public UpdateMovieModel(IMovieModelRepository movieContext, ICardModelRepository cardContext)
 
         {
-            _sitemapContext = sitemapContext;
             _movieContext = movieContext;
             _cardContext = cardContext;
         }
@@ -30,12 +28,12 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet(Guid? movieId)
         {
+            PageNumber = 19;
+
             if (movieId == null || _movieContext.Movies.FirstOrDefault(x => x.MovieId == movieId) == null)
             {
                 return RedirectToPage("ViewMovies");
             }
-
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             MovieToUpdate = _movieContext.GetMovie(movieId);
 
@@ -44,7 +42,7 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnPost()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 19;
 
             if (_cardContext.Cards.FirstOrDefault(x => x.ImageName == MovieToUpdate.ImageName) == null)
             {

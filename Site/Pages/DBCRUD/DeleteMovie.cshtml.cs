@@ -24,6 +24,8 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet()
         {
+            PageNumber = 20;
+
             Movie = _movieContext.GetMovie(Movie.MovieId);
 
             if (Movie == null)
@@ -31,13 +33,13 @@ namespace Site.Pages.DBCRUD
                 return RedirectToPage("ViewMovies");
             }
 
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
-
             return Page();
         }
 
         public IActionResult OnPost()
         {
+            PageNumber = 20;
+
             _movieContext.DeleteMovie(Movie.MovieId);
 
             return RedirectToPage("ViewMovies");

@@ -21,7 +21,13 @@
 
             @if (Model.CardMovie)
             {
-                <vc:movie image-name="@Model.ImageName" />
+                <span itemscope itemtype="http://schema.org/VideoObject">
+
+                    <vc:movie movie-caption="@Model.MovieCaption" />
+
+                    <vc:image image-name="@Model.ImageName" css-class="card-img-top shadw rounded-3" />
+
+                </span>
             }
             else
             {
@@ -32,7 +38,7 @@
             {
                 <div class="card-body p-0 mt-2 shadw cardBodyBg">
 
-                    <p class="card-title fs-6 lh-1 my-1 mt-2">@Model.CardText</p>
+                    <p class="card-title lh-1 my-1 mt-2">@Model.CardText</p>
 
                 </div>
             }

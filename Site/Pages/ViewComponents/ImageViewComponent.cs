@@ -8,7 +8,6 @@ namespace Site.Pages.ViewComponents
     public class Image : ViewComponent
     {
         private readonly IImageModelRepository _imageContext;
-
         public Image(IImageModelRepository imageContext) => _imageContext = imageContext;
 
         public IViewComponentResult Invoke(string imageName, string cssClass)

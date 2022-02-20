@@ -23,6 +23,8 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet()
         {
+            PageNumber = 14;
+
             SitemapItem = _sitemapContext.GetPageById(SitemapItem.SitemapModelId);
 
             if (SitemapItem == null)
@@ -30,13 +32,15 @@ namespace Site.Pages.DBCRUD
                 return RedirectToPage("ViewPages");
             }
 
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            
 
             return Page();
         }
 
         public IActionResult OnPost()
         {
+            PageNumber = 14;
+
             _sitemapContext.DeletePageById(SitemapItem.SitemapModelId);
 
             return RedirectToPage("ViewPages");

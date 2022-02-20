@@ -92,7 +92,7 @@ namespace Site
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseWebMarkupMin();
+            app.UseWebMarkupMin();
             app.UseWelcomePage("/Welcome");
 
             app.UseRouting();

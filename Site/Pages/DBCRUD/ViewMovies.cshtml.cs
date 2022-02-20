@@ -13,10 +13,8 @@ namespace Site.Pages.DBCRUD
     public class ViewMoviesModel : PageModel
     {
         private readonly IMovieModelRepository _movieContext;
-        private readonly ISitemapModelRepository _sitemapContext;
-        public ViewMoviesModel(ISitemapModelRepository sitemapContext, IMovieModelRepository movieContext)
+        public ViewMoviesModel(IMovieModelRepository movieContext)
         {
-            _sitemapContext = sitemapContext;
             _movieContext = movieContext;
         }
 
@@ -26,7 +24,7 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 16;
 
             AllMovies = _movieContext.Movies.ToArray(); ;
 

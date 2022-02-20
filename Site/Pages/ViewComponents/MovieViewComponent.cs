@@ -9,9 +9,9 @@ namespace Site.Pages.ViewComponents
         private readonly IMovieModelRepository _movieContext;
         public Movie(IMovieModelRepository context) => _movieContext = context;
 
-        public IViewComponentResult Invoke(string imageName)
+        public IViewComponentResult Invoke(string movieCaption)
         {
-            MovieModel movie = _movieContext.GetMovieByImageName(imageName);
+            MovieModel movie = _movieContext.GetMovieByMovieCaption(movieCaption);
 
             return View(movie);
         }

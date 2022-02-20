@@ -2,7 +2,7 @@
 
 <html lang="ru-RU" itemscope itemtype="http://schema.org/WebPage" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# book: http://ogp.me/ns/book# video: http://ogp.me/ns/video# ya: http://webmaster.yandex.ru/vocabularies/">
 
-<vc:head page-number="@Model.PageNumber"></vc:head>
+<vc:head page-number="@Model.PageNumber" />
 
 <body>
 
@@ -13,24 +13,24 @@
         <hr class="liniya" />
 
         @await Html.PartialAsync("_NavPartial")
+         
+    <div class="row text-center bg-light">
 
-        <div class="row text-center bg-light">
+        <vc:background-left page-number="@Model.PageNumber" />
 
-            <vc:background-left page-number="@Model.PageNumber"></vc:background-left>
+        <main role="main" itemprop="mainContentOfPage" class="col-12 col-sm-9 pb-3 text-center shadw">
 
-            <main role="main" itemprop="mainContentOfPage" class="col-12 col-sm-9 pb-3 text-center shadw">
+            <div class="container-fluid px-0">
 
-                <div class="container-fluid px-0">
+                @RenderBody()
 
-                    @RenderBody()
+            </div>
 
-                </div>
+        </main>
 
-            </main>
+        <vc:background-right page-number="@Model.PageNumber" />
 
-            <vc:background-right page-number="@Model.PageNumber"></vc:background-right>
-
-        </div>
+    </div>
 
         <hr class="liniya" />
 

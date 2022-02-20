@@ -1,5 +1,5 @@
-﻿@page "{pageNumber=22}/{**data}"
-@model Site.Pages.DBCRUD.AddMovieModel
+﻿@page
+@model AddMovieModel
 
 @{
     Layout = "_CrudLayout";
@@ -81,13 +81,13 @@
             <hr class="liniya" />
 
             <div class="form-check form-check-inline">
-                <input class="form-check-input" asp-for="Movie.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyTrue" value="True">
+                <input class="form-check-input" asp-for="Movie.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyTrue" value="true">
                 <label class="form-check-label" for="IsFamilyFriendlyTrue">
                     Нет ограничений для просмотра
                 </label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" asp-for="Movie.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyFalse" value="False">
+                <input class="form-check-input" asp-for="Movie.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyFalse" value="false">
                 <label class="form-check-label" for="IsFamilyFriendlyFalse">
                     Есть ограничения для просмотра
                 </label>
@@ -240,6 +240,96 @@
                 актер (актриса)
             </div>
             <span asp-validation-for="Movie.Actor10" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieCaptionForOnlineInput" asp-for="Movie.CaptionForOnline" class="form-label text-primary fs-5"></label>
+            <input id="MovieCaptionForOnlineInput" asp-for="Movie.CaptionForOnline" class="form-control" aria-describedby="MovieCaptionForOnlineInputHelpBlock" />
+            <div id="MovieCaptionForOnlineInputHelpBlock" class="form-text">
+                заголовок страницы воспроизведения
+            </div>
+            <span asp-validation-for="Movie.CaptionForOnline" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieYouTubeInput" asp-for="Movie.YouTube" class="form-label text-primary fs-5"></label>
+            <input id="MovieYouTubeInput" asp-for="Movie.YouTube" class="form-control" aria-describedby="MovieYouTubeInputHelpBlock" />
+            <div id="MovieYouTubeInputHelpBlock" class="form-text">
+                видео на youtube.com
+            </div>
+            <span asp-validation-for="Movie.YouTube" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieVkVideoInput" asp-for="Movie.VkVideo" class="form-label text-primary fs-5"></label>
+            <input id="MovieVkVideoInput" asp-for="Movie.VkVideo" class="form-control" aria-describedby="MovieVkVideoInputHelpBlock" />
+            <div id="MovieVkVideoInputHelpBlock" class="form-text">
+                видео на vk.com
+            </div>
+            <span asp-validation-for="Movie.VkVideo" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieMailRuVideoInput" asp-for="Movie.MailRuVideo" class="form-label text-primary fs-5"></label>
+            <input id="MovieMailRuVideoInput" asp-for="Movie.MailRuVideo" class="form-control" aria-describedby="MovieMailRuVideoInputHelpBlock" />
+            <div id="MovieMailRuVideoInputHelpBlock" class="form-text">
+                видео на mail.ru
+            </div>
+            <span asp-validation-for="Movie.MailRuVideo" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieOkVideoInput" asp-for="Movie.OkVideo" class="form-label text-primary fs-5"></label>
+            <input id="MovieOkVideoInput" asp-for="Movie.OkVideo" class="form-control" aria-describedby="MovieOkVideoInputHelpBlock" />
+            <div id="MovieOkVideoInputHelpBlock" class="form-text">
+                видео на ok.ru
+            </div>
+            <span asp-validation-for="Movie.OkVideo" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieYandexDiskVideoInput" asp-for="Movie.YandexDiskVideo" class="form-label text-primary fs-5"></label>
+            <input id="MovieYandexDiskVideoInput" asp-for="Movie.YandexDiskVideo" class="form-control" aria-describedby="MovieYandexDiskVideoInputHelpBlock" />
+            <div id="MovieYandexDiskVideoInputHelpBlock" class="form-text">
+                видео на YandexDisk
+            </div>
+            <span asp-validation-for="Movie.YandexDiskVideo" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieKinoTeatrRuInput" asp-for="Movie.KinoTeatrRu" class="form-label text-primary fs-5"></label>
+            <input id="MovieKinoTeatrRuInput" asp-for="Movie.KinoTeatrRu" class="form-control" aria-describedby="MovieKinoTeatrRuInputHelpBlock" />
+            <div id="MovieKinoTeatrRuInputHelpBlock" class="form-text">
+                информация на kino-teatr.ru
+            </div>
+            <span asp-validation-for="Movie.KinoTeatrRu" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieSummaryInput" asp-for="Movie.Summary" class="form-label text-primary fs-5"></label>
+            <input id="MovieSummaryInput" asp-for="Movie.Summary" class="form-control" aria-describedby="MovieSummaryInputHelpBlock" />
+            <div id="MovieSummaryInputHelpBlock" class="form-text">
+                краткое содержание для страницы фильма
+            </div>
+            <span asp-validation-for="Movie.Summary" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieAspPageInput" asp-for="Movie.AspPage" class="form-label text-primary fs-5"></label>
+            <input id="MovieAspPageInput" asp-for="Movie.AspPage" class="form-control" aria-describedby="MovieAspPageInputHelpBlock" />
+            <div id="MovieAspPageInputHelpBlock" class="form-text">
+                адрес страницы на сайте
+            </div>
+            <span asp-validation-for="Movie.AspPage" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieThumbnailInput" asp-for="Movie.Thumbnail" class="form-label text-primary fs-5"></label>
+            <input id="MovieThumbnailInput" asp-for="Movie.Thumbnail" class="form-control" aria-describedby="MovieThumbnailInputHelpBlock" />
+            <div id="MovieThumbnailInputHelpBlock" class="form-text">
+                картинка для фильма
+            </div>
+            <span asp-validation-for="Movie.Thumbnail" class="text-danger"></span>
 
             <hr class="liniya" />
 

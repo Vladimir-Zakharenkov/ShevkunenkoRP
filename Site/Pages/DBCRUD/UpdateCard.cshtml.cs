@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
 using Site.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Site.Pages.DBCRUD
@@ -13,19 +12,16 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class UpdateCardModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
         private readonly ICardModelRepository _cardContext;
         private readonly IImageModelRepository _imageContext;
         private readonly IMovieModelRepository _movieContext;
 
         public UpdateCardModel(
-            ISitemapModelRepository sitemapContext, 
-            ICardModelRepository cardContext, 
+            ICardModelRepository cardContext,
             IImageModelRepository imageContext,
             IMovieModelRepository movieContext)
 
         {
-            _sitemapContext = sitemapContext;
             _cardContext = cardContext;
             _imageContext = imageContext;
             _movieContext = movieContext;
@@ -37,12 +33,12 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet(Guid? cardId)
         {
+            PageNumber = 24;
+
             if (cardId == null || _cardContext.Cards.FirstOrDefault(x => x.CardId == cardId) == null)
             {
                 return RedirectToPage("ViewCards");
             }
-
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             CardToUpdate = _cardContext.GetCardById(cardId);
 
@@ -51,7 +47,7 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnPost()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 24; ;
 
             if (_imageContext.Images.FirstOrDefault(x => x.ImageName == CardToUpdate.ImageName) == null)
             {
@@ -60,14 +56,12 @@ namespace Site.Pages.DBCRUD
                 return Page();
             }
 
-            if (CardToUpdate.CardMovie == true & _movieContext.Movies.FirstOrDefault(x => x.ImageName == CardToUpdate.ImageName) == null)
+            if (CardToUpdate.CardMovie == true & _movieContext.Movies.FirstOrDefault(x => x.MovieCaption == CardToUpdate.MovieCaption) == null)
             {
-                ModelState.AddModelError("CardToUpdate.CardMovie", "Фильма для такой карточки не существует");
+                ModelState.AddModelError("CardToUpdate.MovieCaption", "Фильма с таким названием не существует");
 
                 return Page();
             }
-
-
 
             //if (_cardContext.Cards.FirstOrDefault(x => x.ImageName == CardToUpdate.ImageName) != null)
             //{
@@ -75,8 +69,6 @@ namespace Site.Pages.DBCRUD
 
             //    return Page();
             //}
-
-
 
             if (ModelState.IsValid)
             {

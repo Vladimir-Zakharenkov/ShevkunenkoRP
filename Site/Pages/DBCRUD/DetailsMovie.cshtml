@@ -1,5 +1,5 @@
-﻿@page "{PageNumber=17}/{**data}"
-@model Site.Pages.DBCRUD.DetailsMovieModel
+﻿@page
+@model DetailsMovieModel
 
 @{
     Layout = "_CrudLayout";
@@ -40,8 +40,8 @@
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">ImageName</span><br />
-                        <span id="imageName" class="fs-5">@Model.Movie.ImageName</span><br />
-                        <span id="imageNameHelpBlock" class="form-text">
+                        <span id="ImageName" class="fs-5">@Model.Movie.ImageName</span><br />
+                        <span id="ImageNameHelpBlock" class="form-text">
                             параметр «image-name» для ViewComponent
                         </span>
                     </li>
@@ -83,7 +83,7 @@
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">UploadDate</span><br />
                         <span id="MovieUploadDate" class="fs-5">@Model.Movie.UploadDate.ToString("yyyy-MM-dd")</span><br />
-                        <span id="" MovieUploadDateHelpBlock" class="form-text">
+                        <span id="MovieUploadDateHelpBlock" class="form-text">
                             дата публикации на сайте
                         </span>
                     </li>
@@ -204,6 +204,76 @@
                         <span id="MovieActor10" class="fs-5">@Model.Movie.Actor10</span><br />
                         <span id="MovieActor10HelpBlock" class="form-text">
                             актер (актриса)
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">CaptionForOnline</span><br />
+                        <span id="MovieCaptionForOnline" class="fs-5">@Model.Movie.CaptionForOnline</span><br />
+                        <span id="MovieCaptionForOnlineHelpBlock" class="form-text">
+                            заголовок страницы воспроизведения
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">youtube.com</span><br />
+                        <span id="MovieYouTube" class="fs-5">@Model.Movie.YouTube</span><br />
+                        <span id="MovieYouTubeHelpBlock" class="form-text">
+                            видео на youtube.com
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">vk.com</span><br />
+                        <span id="MovieVkVideo" class="fs-5">@Model.Movie.VkVideo</span><br />
+                        <span id="MovieVkVideoHelpBlock" class="form-text">
+                            видео на vk.com
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">mail.ru</span><br />
+                        <span id="MovieMailRuVideo" class="fs-5">@Model.Movie.MailRuVideo</span><br />
+                        <span id="MovieMailRuVideoHelpBlock" class="form-text">
+                            видео на mail.ru
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">ok.ru</span><br />
+                        <span id="MovieOkVideo" class="fs-5">@Model.Movie.OkVideo</span><br />
+                        <span id="MovieOkVideoHelpBlock" class="form-text">
+                            видео на ok.ru
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">YandexDisk</span><br />
+                        <span id="MovieYandexDiskVideo" class="fs-5">@Model.Movie.YandexDiskVideo</span><br />
+                        <span id="MovieYandexDiskVideoHelpBlock" class="form-text">
+                            видео на YandexDisk
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">KinoTeatrRu</span><br />
+                        <span id="MovieKinoTeatrRu" class="fs-5">@Model.Movie.KinoTeatrRu</span><br />
+                        <span id="MovieKinoTeatrRuHelpBlock" class="form-text">
+                            информация на kino-teatr.ru
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Summary</span><br />
+                        <span id="MovieSummary" class="fs-5">@Model.Movie.Summary</span><br />
+                        <span id="MovieSummaryHelpBlock" class="form-text">
+                            краткое содержание для страницы фильма
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">AspPage</span><br />
+                        <span id="MovieAspPage" class="fs-5">@Model.Movie.AspPage</span><br />
+                        <span id="MovieAspPageHelpBlock" class="form-text">
+                            адрес страницы на сайте
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">Thumbnail</span><br />
+                        <span id="MovieThumbnail" class="fs-5">@Model.Movie.Thumbnail</span><br />
+                        <span id="MovieThumbnailHelpBlock" class="form-text">
+                            картинка для фильма
                         </span>
                     </li>
                 </ul>

@@ -14,7 +14,6 @@ namespace Site.Models
         public string ImageName { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
-        //[DataType(DataType.Url)]
         [Display(Name = "Адрес страницы")]
         public Uri CardLink { get; set; }
 
@@ -28,5 +27,9 @@ namespace Site.Models
 
         [Display(Name = "Карточка для фильма")]
         public bool CardMovie { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Название фильма")]
+        public string MovieCaption { get; set; }
     }
 }

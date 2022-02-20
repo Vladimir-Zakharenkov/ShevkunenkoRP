@@ -12,12 +12,10 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class LoginModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
         private readonly IAdminAccessRepository _adminContext;
 
-        public LoginModel(ISitemapModelRepository sitemapContext, IAdminAccessRepository adminContext)
+        public LoginModel(IAdminAccessRepository adminContext)
         {
-            _sitemapContext = sitemapContext;
             _adminContext = adminContext;
         }
 
@@ -25,15 +23,15 @@ namespace Site.Pages.DBCRUD
 
         public AdminAccess Admin { get; set; }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
-
-            return Page();
+            PageNumber = 18;
         }
 
         public IActionResult OnPost()
         {
+            PageNumber = 18;
+
             if (ModelState.IsValid)
             {
                 AdminAccess admin = _adminContext.GetAdmin(Admin);

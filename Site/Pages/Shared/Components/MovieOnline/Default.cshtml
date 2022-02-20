@@ -1,0 +1,86 @@
+﻿@model Site.Models.MovieModel
+
+<div class="row">
+
+    <div class="col">
+
+        <h1 class="text_shadow">@Model.CaptionForOnline.</h1>
+
+        <hr class="liniya" />
+
+    </div>
+
+</div>
+
+<div class="row row-cols-1">
+
+    <div class="col mx-auto mb-4 px-0 adap3 shadw">
+
+        <div id="tnrec3" itemscope itemtype="http://schema.org/VideoObject">
+
+            <meta itemprop="name" content="@Model.MovieCaption" />
+            <meta itemprop="caption" content="@Model.MovieCaption" />
+            <meta itemprop="duration" content="@Model.Duration.ToString("'T'HH'H'mm'M'ss'S'")" />
+            <meta itemprop="datePublished" content="@Model.DatePublished.ToString("yyyy-MM-dd")" />
+            <meta itemprop="dateCreated" content="@Model.DateCreated.ToString("yyyy-MM-dd")" />
+            <meta itemprop="uploadDate" content="@Model.UploadDate.ToString("yyyy-MM-dd")" />
+            <meta itemprop="isFamilyFriendly" content="@Model.IsFamilyFriendly.ToString()" />
+            <meta itemprop="inLanguage" content="@Model.InLanguage" />
+            <meta itemprop="productionCompany" content="@Model.РroductionCompany" />
+            <meta itemprop="director" content="@Model.Director" />
+            <meta itemprop="musicBy" content="@Model.MusicBy" />
+            <meta itemprop="genre" content="@Model.Genre" />
+            <meta itemprop="actor" content="@Model.Actor01" />
+            <meta itemprop="actor" content="@Model.Actor02" />
+            <meta itemprop="actor" content="@Model.Actor03" />
+            <meta itemprop="actor" content="@Model.Actor04" />
+            <meta itemprop="actor" content="@Model.Actor05" />
+            <meta itemprop="actor" content="@Model.Actor06" />
+            <meta itemprop="actor" content="@Model.Actor07" />
+            <meta itemprop="actor" content="@Model.Actor08" />
+            <meta itemprop="actor" content="@Model.Actor09" />
+            <meta itemprop="actor" content="@Model.Actor10" />
+            <meta itemprop="description" content="@Model.Description" />
+            <link itemprop="contentUrl" href="@Model.ContentUrl" />
+            <link itemprop="thumbnail" href="@Model.Thumbnail" />
+
+            <iframe src="@ViewData["VideoProvider"]?rel=0&amp;showinfo=0" allowfullscreen itemprop="url"></iframe>
+
+        </div>
+
+    </div>
+
+    <div class="accordion" id="accordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="true" aria-controls="collapse">
+                    Краткое содержание:
+                </button>
+            </h2>
+            <div id="collapse" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#accordion">
+                <div class="accordion-body">
+                    @Model.Summary
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row row-cols-3 row-cols-md-6 mt-3 justify-content-center g-3">
+
+    <a asp-page="@Model.AspPage" asp-route-videoprovider="youtube"><vc:image image-name="youtube-video" css-class="adp_img shadw imgLink @ViewData["youtubeBorder"]" /></a>
+
+    <a asp-page="@Model.AspPage" asp-route-videoprovider="vkvideo"><vc:image image-name="vk-video" css-class="adp_img shadw imgLink @ViewData["vkvideoBorder"]" /></a>
+
+    <a asp-page="@Model.AspPage" asp-route-videoprovider="mailruvideo"><vc:image image-name="mailru-video" css-class="adp_img shadw imgLink @ViewData["mailruvideoBorder"]" /></a>
+
+    <a asp-page="@Model.AspPage" asp-route-videoprovider="okvideo"><vc:image image-name="odnoklassniki-video" css-class="adp_img shadw imgLink @ViewData["okvideoBorder"]" /></a>
+
+    <a onClick="this.target='_blank'" href="@Model.YandexDiskVideo"><vc:image image-name="yandexdisk-video" css-class="adp_img shadw imgLink" /></a>
+
+    <a onClick="this.target='_blank'" href="@Model.KinoTeatrRu"><vc:image image-name="kinoteatr-video" css-class="adp_img shadw imgLink" /></a>
+
+    <hr class="liniya" />
+
+</div>

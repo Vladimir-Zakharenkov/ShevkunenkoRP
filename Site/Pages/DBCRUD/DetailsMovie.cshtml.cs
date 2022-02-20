@@ -10,11 +10,9 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class DetailsMovieModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
         private readonly IMovieModelRepository _movieContext;
-        public DetailsMovieModel(ISitemapModelRepository sitemapContext, IMovieModelRepository movieContext)
+        public DetailsMovieModel(IMovieModelRepository movieContext)
         {
-            _sitemapContext = sitemapContext;
             _movieContext = movieContext;
         }
 
@@ -24,14 +22,14 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet()
         {
+            PageNumber = 17;
+
             Movie = _movieContext.GetMovie(Movie.MovieId);
 
             if (Movie == null)
             {
                 return RedirectToPage("ViewMovies");
             }
-
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
         }

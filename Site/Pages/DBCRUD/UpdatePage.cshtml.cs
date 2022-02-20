@@ -28,12 +28,12 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet(Guid? sitemapModelId)
         {
+            PageNumber = 28;
+
             if (sitemapModelId == null || _sitemapContext.Sitemaps.FirstOrDefault(x => x.SitemapModelId == sitemapModelId) == null)
             {
                 return RedirectToPage("ViewPages");
             }
-
-            PageNumber = _sitemapContext.GetPageById(sitemapModelId).PageNumber;
 
             PageToUpdate = _sitemapContext.GetPageById(sitemapModelId);
 
@@ -44,7 +44,7 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnPost()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 28;
 
             ImageForPage = _sitemapContext.GetPage(PageNumber).ImageModel.ImageName;
 

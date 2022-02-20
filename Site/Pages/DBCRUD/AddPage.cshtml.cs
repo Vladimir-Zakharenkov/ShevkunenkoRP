@@ -24,16 +24,14 @@ namespace Site.Pages.DBCRUD
 
         public SitemapModel SitemapItem { get; set; }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
-
-            return Page();
+            PageNumber = 13;
         }
 
         public IActionResult OnPost()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 13;
 
             if (_sitemapContext.Sitemaps.FirstOrDefault(x => x.PageNumber == 0) == null)
             {

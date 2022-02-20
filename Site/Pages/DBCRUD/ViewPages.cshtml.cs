@@ -24,7 +24,7 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 12;
 
             AllPages = _sitemapContext.Sitemaps.ToArray();
 

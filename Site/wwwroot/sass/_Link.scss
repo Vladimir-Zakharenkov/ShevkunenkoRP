@@ -1,0 +1,15 @@
+﻿.imgLink {
+    border: 3px ridge;
+    border-color: transparent;
+    opacity: .8;
+    transition: all .6s ease;
+}
+
+.imgLink:hover {
+    border-color: hsla(0,90%,40%,1);
+    opacity: 1;
+}
+
+.videoBorder {
+    border-color: hsla(0,90%,40%,1);
+}

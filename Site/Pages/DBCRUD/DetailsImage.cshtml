@@ -1,5 +1,5 @@
-﻿@page "{PageNumber=7}/{**data}"
-@model Site.Pages.DBCRUD.DetailsImageModel
+﻿@page
+@model DetailsImageModel
 
 @{
     Layout = "_CrudLayout";
@@ -40,15 +40,15 @@
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">ImageName</span><br />
-                        <span id="imageName" class="fs-5">@Model.Image.ImageName</span><br />
-                        <span id="imageNameHelpBlock" class="form-text">
+                        <span id="ImageName" class="fs-5">@Model.Image.ImageName</span><br />
+                        <span id="ImageNameHelpBlock" class="form-text">
                             параметр «image-name» для ViewComponent
                         </span>
                     </li>
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">ImageName2</span><br />
-                        <span id="imageName2" class="fs-5">@Model.Image.ImageName2</span><br />
-                        <span id="imageName2HelpBlock" class="form-text">
+                        <span id="ImageName2" class="fs-5">@Model.Image.ImageName2</span><br />
+                        <span id="ImageName2HelpBlock" class="form-text">
                             параметр «name» для Microdata
                         </span>
                     </li>

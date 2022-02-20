@@ -25,6 +25,8 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet()
         {
+            PageNumber = 10;
+
             Image = _imageContext.GetImage(Image.ImageId);
 
             if (Image == null)
@@ -32,13 +34,13 @@ namespace Site.Pages.DBCRUD
                 return RedirectToPage("ViewImages");
             }
 
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
-
             return Page();
         }
 
         public IActionResult OnPost()
         {
+            PageNumber = 10;
+
             _imageContext.DeleteImage(Image.ImageId);
 
             return RedirectToPage("ViewImages");

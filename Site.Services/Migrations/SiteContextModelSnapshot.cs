@@ -61,6 +61,9 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MovieCaption")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("CardId");
 
                     b.ToTable("CardModels");
@@ -162,6 +165,14 @@ namespace Site.Services.Migrations
                     b.Property<string>("Actor10")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("AspPage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CaptionForOnline")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ContentUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -177,7 +188,6 @@ namespace Site.Services.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Director")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Duration")
@@ -198,16 +208,41 @@ namespace Site.Services.Migrations
                     b.Property<bool>("IsFamilyFriendly")
                         .HasColumnType("bit");
 
+                    b.Property<string>("KinoTeatrRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MailRuVideo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MovieCaption")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MusicBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OkVideo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Thumbnail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UploadDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("VkVideo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("YandexDiskVideo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("YouTube")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("РroductionCompany")
                         .IsRequired()

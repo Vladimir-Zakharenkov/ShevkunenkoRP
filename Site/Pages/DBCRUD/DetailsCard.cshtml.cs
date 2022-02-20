@@ -10,12 +10,10 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class DetailsCardModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
         private readonly ICardModelRepository _cardContext;
 
-        public DetailsCardModel(ISitemapModelRepository sitemapContext, ICardModelRepository cardContext)
+        public DetailsCardModel(ICardModelRepository cardContext)
         {
-            _sitemapContext = sitemapContext;
             _cardContext = cardContext;
         }
 
@@ -25,14 +23,14 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet()
         {
+            PageNumber = 23;
+
             Card = _cardContext.GetCardById(Card.CardId);
 
             if (Card == null)
             {
                 return RedirectToPage("ViewCards");
             }
-
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
         }

@@ -1,5 +1,5 @@
-﻿@page "{PageNumber=23}/{**data}"
-@model DBCRUD.DetailsCardModel
+﻿@page
+@model DetailsCardModel
 
 @{
     Layout = "_CrudLayout";
@@ -71,6 +71,13 @@
                         <span id="CardMovie" class="fs-5">@Model.Card.CardMovie</span><br />
                         <span id="CardMovieHelpBlock" class="form-text">
                             карточка для фильма
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">CardMovie</span><br />
+                        <span id="MovieCaption" class="fs-5">@Model.Card.MovieCaption</span><br />
+                        <span id="MovieCaptionHelpBlock" class="form-text">
+                            название фильма
                         </span>
                     </li>
 

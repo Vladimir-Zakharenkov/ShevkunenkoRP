@@ -32,13 +32,15 @@ namespace Site.Pages.DBCRUD
                 return RedirectToPage("ViewCards");
             }
 
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 26;
 
             return Page();
         }
 
         public IActionResult OnPost()
         {
+            PageNumber = 26;
+
             _cardContext.DeleteCard(Card.CardId);
 
             return RedirectToPage("ViewImages");

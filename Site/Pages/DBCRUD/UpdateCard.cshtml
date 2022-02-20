@@ -1,5 +1,5 @@
-﻿@page "{PageNumber=24}/{**data}"
-@model DBCRUD.UpdateCardModel
+﻿@page
+@model UpdateCardModel
 
 @{
     Layout = "_CrudLayout";
@@ -79,6 +79,15 @@
                 </label>
             </div><br />
             <span asp-validation-for="CardToUpdate.CardMovie" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieCaptionInput" asp-for="CardToUpdate.MovieCaption" class="form-label text-primary fs-5"></label>
+            <input id="MovieCaptionInput" asp-for="CardToUpdate.MovieCaption" class="form-control" aria-describedby="MovieCaptionInputHelpBlock" />
+            <div id="MovieCaptionInputHelpBlock" class="form-text">
+                название фильма
+            </div>
+            <span asp-validation-for="CardToUpdate.MovieCaption" class="text-danger"></span>
 
             <hr class="liniya" />
 

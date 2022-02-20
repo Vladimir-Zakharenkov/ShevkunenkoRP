@@ -11,31 +11,29 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class AddCardModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
         private readonly ICardModelRepository _cardContext;
         private readonly IImageModelRepository _imageContext;
+        private readonly IMovieModelRepository _movieContext;
 
-        public AddCardModel(ISitemapModelRepository sitemapContext, ICardModelRepository cardContext, IImageModelRepository imageContext)
+        public AddCardModel(ICardModelRepository cardContext, IImageModelRepository imageContext, IMovieModelRepository movieContext)
         {
-            _sitemapContext = sitemapContext;
             _cardContext = cardContext;
             _imageContext = imageContext;
+            _movieContext = movieContext;
         }
 
         public uint PageNumber { get; set; }
 
         public CardModel Card { get; set; }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
-
-            return Page();
+            PageNumber = 25;
         }
 
         public IActionResult OnPost()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 25;
 
             if (_imageContext.Images.FirstOrDefault(x => x.ImageName == Card.ImageName) == null)
             {
@@ -47,6 +45,13 @@ namespace Site.Pages.DBCRUD
             if (_cardContext.Cards.FirstOrDefault(x => x.ImageName == Card.ImageName) != null)
             {
                 ModelState.AddModelError("Card.ImageName", " арточка с такой картинкой уже существует");
+
+                return Page();
+            }
+
+            if (Card.CardMovie == true & _movieContext.Movies.FirstOrDefault(x => x.MovieCaption == Card.MovieCaption) == null)
+            {
+                ModelState.AddModelError("Card.MovieCaption", "‘ильма с таким названием не существует");
 
                 return Page();
             }

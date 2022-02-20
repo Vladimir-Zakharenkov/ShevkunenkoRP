@@ -22,14 +22,14 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet()
         {
+            PageNumber = 15;
+
             SitemapItem = _sitemapContext.GetPageById(SitemapItem.SitemapModelId);
 
             if (SitemapItem == null)
             {
                 return RedirectToPage("ViewPages");
             }
-
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             return Page();
         }

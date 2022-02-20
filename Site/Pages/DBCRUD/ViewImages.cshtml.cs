@@ -12,11 +12,9 @@ namespace Site.Pages.DBCRUD
     public class ViewImagesModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly IImageModelRepository _imageContext;
-        private readonly ISitemapModelRepository _sitemapContext;
-        public ViewImagesModel(IImageModelRepository imageContext, ISitemapModelRepository sitemapContext)
+        public ViewImagesModel(IImageModelRepository imageContext)
         {
             _imageContext = imageContext;
-            _sitemapContext = sitemapContext;
         }
 
         public uint PageNumber { get; set; }
@@ -25,7 +23,7 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 6;
 
             AllImages = _imageContext.Images.ToArray();
 

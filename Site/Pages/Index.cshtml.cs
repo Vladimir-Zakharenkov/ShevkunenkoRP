@@ -1,26 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Site.Services;
 
 namespace Site.Pages
 {
     [BindProperties(SupportsGet = true)]
     public class IndexModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
-
-        public IndexModel(ISitemapModelRepository sitemapContext)
-        {
-            _sitemapContext = sitemapContext;
-        }
-
         public uint PageNumber { get; set; }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
-
-            return Page();
+            PageNumber = 1;
         }
     }
 }

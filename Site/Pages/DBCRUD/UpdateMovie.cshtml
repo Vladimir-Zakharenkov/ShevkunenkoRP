@@ -1,5 +1,5 @@
-﻿@page "{PageNumber=19}/{**data}"
-@model Site.Pages.DBCRUD.UpdateMovieModel
+﻿@page
+@model UpdateMovieModel
 
 @{
     Layout = "_CrudLayout";
@@ -94,13 +94,13 @@
             <hr class="liniya" />
 
             <div class="form-check form-check-inline">
-                <input class="form-check-input" asp-for="MovieToUpdate.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyTrue" value="True">
+                <input class="form-check-input" asp-for="MovieToUpdate.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyTrue" value="true">
                 <label class="form-check-label" for="IsFamilyFriendlyTrue">
                     Нет ограничений для просмотра
                 </label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" asp-for="MovieToUpdate.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyFalse" value="False">
+                <input class="form-check-input" asp-for="MovieToUpdate.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyFalse" value="false">
                 <label class="form-check-label" for="IsFamilyFriendlyFalse">
                     Есть ограничения для просмотра
                 </label>
@@ -253,6 +253,96 @@
                 актер (актриса)
             </div>
             <span asp-validation-for="MovieToUpdate.Actor10" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieActor10Input" asp-for="MovieToUpdate.CaptionForOnline" class="form-label text-primary fs-5"></label>
+            <input id="MovieActor10Input" asp-for="MovieToUpdate.CaptionForOnline" class="form-control" aria-describedby="MovieCaptionForOnlineInputHelpBlock" />
+            <div id="MovieCaptionForOnlineInputHelpBlock" class="form-text">
+                заголовок страницы воспроизведения
+            </div>
+            <span asp-validation-for="MovieToUpdate.Actor10" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieYouTubeInput" asp-for="MovieToUpdate.YouTube" class="form-label text-primary fs-5"></label>
+            <input id="MovieYouTubeInput" asp-for="MovieToUpdate.YouTube" class="form-control" aria-describedby="MovieYouTubeInputHelpBlock" />
+            <div id="MovieYouTubeInputHelpBlock" class="form-text">
+                видео на youtube.com
+            </div>
+            <span asp-validation-for="MovieToUpdate.YouTube" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieVkVideoInput" asp-for="MovieToUpdate.VkVideo" class="form-label text-primary fs-5"></label>
+            <input id="MovieVkVideoInput" asp-for="MovieToUpdate.VkVideo" class="form-control" aria-describedby="MovieVkVideoInputHelpBlock" />
+            <div id="MovieVkVideoInputHelpBlock" class="form-text">
+                видео на vk.com
+            </div>
+            <span asp-validation-for="MovieToUpdate.VkVideo" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieMailRuVideoInput" asp-for="MovieToUpdate.MailRuVideo" class="form-label text-primary fs-5"></label>
+            <input id="MovieMailRuVideoInput" asp-for="MovieToUpdate.MailRuVideo" class="form-control" aria-describedby="MovieMailRuVideoInputHelpBlock" />
+            <div id="MovieMailRuVideoInputHelpBlock" class="form-text">
+                видео на mail.ru
+            </div>
+            <span asp-validation-for="MovieToUpdate.MailRuVideo" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieOkVideoInput" asp-for="MovieToUpdate.OkVideo" class="form-label text-primary fs-5"></label>
+            <input id="MovieOkVideoInput" asp-for="MovieToUpdate.OkVideo" class="form-control" aria-describedby="MovieOkVideoInputHelpBlock" />
+            <div id="MovieOkVideoInputHelpBlock" class="form-text">
+                видео на ok.ru
+            </div>
+            <span asp-validation-for="MovieToUpdate.OkVideo" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieYandexDiskVideoInput" asp-for="MovieToUpdate.YandexDiskVideo" class="form-label text-primary fs-5"></label>
+            <input id="MovieYandexDiskVideoInput" asp-for="MovieToUpdate.YandexDiskVideo" class="form-control" aria-describedby="MovieYandexDiskVideoInputHelpBlock" />
+            <div id="MovieYandexDiskVideoInputHelpBlock" class="form-text">
+                видео на YandexDisk
+            </div>
+            <span asp-validation-for="MovieToUpdate.YandexDiskVideo" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieKinoTeatrRuInput" asp-for="MovieToUpdate.KinoTeatrRu" class="form-label text-primary fs-5"></label>
+            <input id="MovieKinoTeatrRuInput" asp-for="MovieToUpdate.KinoTeatrRu" class="form-control" aria-describedby="MovieKinoTeatrRuInputHelpBlock" />
+            <div id="MovieKinoTeatrRuInputHelpBlock" class="form-text">
+                информация на kino-teatr.ru
+            </div>
+            <span asp-validation-for="MovieToUpdate.KinoTeatrRu" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieSummaryInput" asp-for="MovieToUpdate.Summary" class="form-label text-primary fs-5"></label>
+            <input id="MovieSummaryInput" asp-for="MovieToUpdate.Summary" class="form-control" aria-describedby="MovieSummaryInputHelpBlock" />
+            <div id="MovieSummaryInputHelpBlock" class="form-text">
+                краткое содержание для страницы фильма
+            </div>
+            <span asp-validation-for="MovieToUpdate.Summary" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieAspPageInput" asp-for="MovieToUpdate.AspPage" class="form-label text-primary fs-5"></label>
+            <input id="MovieAspPageInput" asp-for="MovieToUpdate.AspPage" class="form-control" aria-describedby="MovieAspPageInputHelpBlock" />
+            <div id="MovieAspPageInputHelpBlock" class="form-text">
+                адрес страницы на сайте
+            </div>
+            <span asp-validation-for="MovieToUpdate.AspPage" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieThumbnailInput" asp-for="MovieToUpdate.Thumbnail" class="form-label text-primary fs-5"></label>
+            <input id="MovieThumbnailInput" asp-for="MovieToUpdate.Thumbnail" class="form-control" aria-describedby="MovieThumbnailInputHelpBlock" />
+            <div id="MovieThumbnailInputHelpBlock" class="form-text">
+                картинка для фильма
+            </div>
+            <span asp-validation-for="MovieToUpdate.Thumbnail" class="text-danger"></span>
 
             <hr class="liniya" />
 

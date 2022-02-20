@@ -10,12 +10,9 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class AddImageModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
         private readonly IImageModelRepository _imageContext;
-
-        public AddImageModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext)
+        public AddImageModel(IImageModelRepository imageContext)
         {
-            _sitemapContext = sitemapContext;
             _imageContext = imageContext;
         }
 
@@ -24,16 +21,14 @@ namespace Site.Pages.DBCRUD
         public ImageModel Image { get; set; }
 
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
-
-            return Page();
+            PageNumber = 9;
         }
 
         public IActionResult OnPost()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 9;
 
             if (ModelState.IsValid)
             {

@@ -28,12 +28,38 @@ namespace Site.Services
 
         public MovieModel GetMovie(Guid? movieId)
         {
-            return _siteContext.MovieModels.Find(movieId);
+            MovieModel movie = _siteContext.MovieModels.Find(movieId);
+
+            if (movie == null)
+            {
+                return null;
+            }
+
+            return movie;
         }
 
         public MovieModel GetMovieByImageName(string imageName)
         {
-            return _siteContext.MovieModels.FirstOrDefault(x => x.ImageName == imageName);
+            MovieModel movie = _siteContext.MovieModels.FirstOrDefault(x => x.ImageName == imageName);
+
+            if (movie == null)
+            {
+                return null;
+            }
+
+            return movie;
+        }
+
+        public MovieModel GetMovieByMovieCaption(string movieCaption)
+        {
+            MovieModel movie = _siteContext.MovieModels.FirstOrDefault(x => x.MovieCaption == movieCaption);
+
+            if (movie == null)
+            {
+                return null;
+            }
+
+            return movie;
         }
 
         public void UpdateMovie(MovieModel movieToUpdate)

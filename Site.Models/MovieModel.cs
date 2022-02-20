@@ -52,12 +52,10 @@ namespace Site.Models
         [Display(Name = "Название киностудии")]
         public string РroductionCompany { get; set; }
 
-        [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
         [Display(Name = "Режиссер")]
         public string Director { get; set; }
 
-        [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
         [Display(Name = "Композитор")]
         public string MusicBy { get; set; }
@@ -116,5 +114,49 @@ namespace Site.Models
         [DataType(DataType.Url)]
         [Display(Name = "Адрес в Интернете")]
         public string ContentUrl { get; set; }
+
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Заголовок страницы воспроизведения")]
+        public string CaptionForOnline { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Видео на youtube.com")]
+        public string YouTube { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Видео на vk.com")]
+        public string VkVideo { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Видео на mail.ru")]
+        public string MailRuVideo { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Видео на ok.ru")]
+        public string OkVideo { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Видео на YandexDisk")]
+        public string YandexDiskVideo { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "Информация на kino-teatr.ru")]
+        public string KinoTeatrRu { get; set; }
+
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Краткое содержание")]
+        public string Summary { get; set; }
+
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Адрес страницы на сайте")]
+        public string AspPage { get; set; }
+
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Картинка для фильма")]
+        public string Thumbnail { get; set; }
     }
 }

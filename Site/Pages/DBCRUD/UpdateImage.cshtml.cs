@@ -11,12 +11,10 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class UpdateImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
         private readonly IImageModelRepository _imageContext;
-        public UpdateImageModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext)
+        public UpdateImageModel(IImageModelRepository imageContext)
 
         {
-            _sitemapContext = sitemapContext;
             _imageContext = imageContext;
         }
 
@@ -26,12 +24,12 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet(Guid? imageId)
         {
+            PageNumber = 8;
+
             if (imageId == null || _imageContext.Images.FirstOrDefault(x => x.ImageId == imageId) == null)
             {
                 return RedirectToPage("ViewImages");
             }
-
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
 
             ImageToUpdate = _imageContext.GetImage(imageId);
 
@@ -40,7 +38,7 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnPost()
         {
-            PageNumber = _sitemapContext.GetPageNumber(PageNumber);
+            PageNumber = 8;
 
             if (ModelState.IsValid)
             {
