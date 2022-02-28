@@ -25,7 +25,7 @@ namespace Site.Pages.DBCRUD
 
         public void OnGet()
         {
-            PageNumber = 22;
+            PageNumber = 21;
         }
 
         public IActionResult OnPost()

@@ -26,6 +26,13 @@ namespace Site.Services
             _siteContext.SaveChanges();
         }
 
+        public void UpdateMovie(MovieModel movieToUpdate)
+        {
+            var entry = _siteContext.MovieModels.First(e => e.MovieId == movieToUpdate.MovieId);
+            _siteContext.Entry(entry).CurrentValues.SetValues(movieToUpdate);
+            _siteContext.SaveChanges();
+        }
+
         public MovieModel GetMovie(Guid? movieId)
         {
             MovieModel movie = _siteContext.MovieModels.Find(movieId);
@@ -60,13 +67,6 @@ namespace Site.Services
             }
 
             return movie;
-        }
-
-        public void UpdateMovie(MovieModel movieToUpdate)
-        {
-            var entry = _siteContext.MovieModels.First(e => e.MovieId == movieToUpdate.MovieId);
-            _siteContext.Entry(entry).CurrentValues.SetValues(movieToUpdate);
-            _siteContext.SaveChanges();
         }
     }
 }

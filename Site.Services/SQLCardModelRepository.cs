@@ -26,6 +26,13 @@ namespace Site.Services
             _siteContext.SaveChanges();
         }
 
+        public void UpdateCard(CardModel cardToUpdate)
+        {
+            var entry = _siteContext.CardModels.First(e => e.CardId == cardToUpdate.CardId);
+            _siteContext.Entry(entry).CurrentValues.SetValues(cardToUpdate);
+            _siteContext.SaveChanges();
+        }
+
         public CardModel GetCard(string imageName)
         {
             if (_siteContext.CardModels.FirstOrDefault(z => z.ImageName == imageName) == null)
@@ -44,13 +51,6 @@ namespace Site.Services
             }
 
             return _siteContext.CardModels.FirstOrDefault(z => z.CardId == cardId);
-        }
-
-        public void UpdateCard(CardModel cardToUpdate)
-        {
-            var entry = _siteContext.CardModels.First(e => e.CardId == cardToUpdate.CardId);
-            _siteContext.Entry(entry).CurrentValues.SetValues(cardToUpdate);
-            _siteContext.SaveChanges();
         }
     }
 }

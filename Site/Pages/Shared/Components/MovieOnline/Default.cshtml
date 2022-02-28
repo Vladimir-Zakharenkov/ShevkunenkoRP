@@ -4,7 +4,7 @@
 
     <div class="col">
 
-        <h1 class="text_shadow">@Model.CaptionForOnline.</h1>
+        <h1 class="text_shadow">@Model.CaptionForOnline</h1>
 
         <hr class="liniya" />
 
@@ -43,6 +43,7 @@
             <meta itemprop="description" content="@Model.Description" />
             <link itemprop="contentUrl" href="@Model.ContentUrl" />
             <link itemprop="thumbnail" href="@Model.Thumbnail" />
+            <link itemprop="thumbnailUrl" href="@Model.Thumbnail" />
 
             <iframe src="@ViewData["VideoProvider"]?rel=0&amp;showinfo=0" allowfullscreen itemprop="url"></iframe>
 
@@ -80,7 +81,5 @@
     <a onClick="this.target='_blank'" href="@Model.YandexDiskVideo"><vc:image image-name="yandexdisk-video" css-class="adp_img shadw imgLink" /></a>
 
     <a onClick="this.target='_blank'" href="@Model.KinoTeatrRu"><vc:image image-name="kinoteatr-video" css-class="adp_img shadw imgLink" /></a>
-
-    <hr class="liniya" />
 
 </div>

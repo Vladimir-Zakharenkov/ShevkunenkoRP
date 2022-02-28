@@ -328,6 +328,12 @@ table.gsc-search-box, form.gsc-search-box {
 .bg-biografy-right {
   background-image: url(/images/backgrounds/fon-biografy-right.png); }
 
+.bg-kalinin-left {
+  background-image: url(/images/backgrounds/fon-kalinin-left.png); }
+
+.bg-kalinin-right {
+  background-image: url(/images/backgrounds/fon-kalinin-right.png); }
+
 .imgLink {
   border: 3px ridge;
   border-color: transparent;

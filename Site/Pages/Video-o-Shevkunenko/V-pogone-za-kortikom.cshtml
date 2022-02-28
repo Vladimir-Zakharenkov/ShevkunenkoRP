@@ -1,0 +1,16 @@
+﻿@page "{VideoProvider?}"
+@model Site.Pages.Video_o_Shevkunenko.V_pogone_za_kortikomModel
+
+<vc:movie-online movie-caption="@Model.MovieCaption" video-provider="@Model.VideoProvider" />
+
+<partial name="_FilmyShevkunenkoPartial" />
+
+<div class="row row-cols-2 row-cols-md-3 justify-content-center g-2">
+
+    <vc:card image-name="biografy-page" />
+    <vc:card image-name="foto-page" />
+    <vc:card image-name="pressa-page" />
+
+</div>
+
+<partial name="_VideoOShevkunenkoPartial" />
