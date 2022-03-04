@@ -25,8 +25,23 @@ namespace Site.Services
 
         public void UpdatePage(SitemapModel pageToUpdate)
         {
-            var entry = _siteContext.SitemapModels.First(e => e.SitemapModelId == pageToUpdate.SitemapModelId);
-            _siteContext.Entry(entry).CurrentValues.SetValues(pageToUpdate);
+            SitemapModel page = _siteContext.SitemapModels.Find(pageToUpdate.SitemapModelId);
+
+            page.PageNumber = pageToUpdate.PageNumber;
+            page.Loc = pageToUpdate.Loc;
+            page.Lastmod = pageToUpdate.Lastmod;
+            page.Changefreq = pageToUpdate.Changefreq;
+            page.Priority = pageToUpdate.Priority;
+            page.LeftBackground = pageToUpdate.LeftBackground;
+            page.RightBackground = pageToUpdate.RightBackground;
+            page.Title = pageToUpdate.Title;
+            page.Description = pageToUpdate.Description;
+            page.KeyWords = pageToUpdate.KeyWords;
+            page.ImageModelImageId = pageToUpdate.ImageModelImageId;
+
+            //var entry = _siteContext.SitemapModels.First(e => e.SitemapModelId == pageToUpdate.SitemapModelId);
+            //_siteContext.Entry(entry).CurrentValues.SetValues(pageToUpdate);
+
             _siteContext.SaveChanges();
         }
 

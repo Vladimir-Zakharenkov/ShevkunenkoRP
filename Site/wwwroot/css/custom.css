@@ -95,6 +95,32 @@
   text-align: justify;
   text-indent: 1.25rem; }
 
+.fade {
+  transition: opacity 0.15s linear; }
+  @media (prefers-reduced-motion: reduce) {
+    .fade {
+      transition: none; } }
+  .fade:not(.show) {
+    opacity: 0; }
+
+.collapse:not(.show) {
+  display: none; }
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.8s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    .collapsing {
+      transition: none; } }
+  .collapsing.collapse-horizontal {
+    width: 0;
+    height: auto;
+    transition: width 0.8s ease; }
+    @media (prefers-reduced-motion: reduce) {
+      .collapsing.collapse-horizontal {
+        transition: none; } }
+
 body {
   font-family: 'Philosopher', sans-serif; }
 
@@ -246,33 +272,6 @@ table.gsc-search-box, form.gsc-search-box {
   opacity: .9 !important;
   margin: 1rem auto; }
 
-/* Выравнивание текста по ширине абзаца */
-.text_p_justify p {
-  text-align: justify;
-  margin-bottom: 0;
-  text-indent: 1.5rem; }
-
-/* ссылка в тексте книги */
-.atext {
-  width: auto !important;
-  height: auto !important;
-  font-weight: 600;
-  text-indent: 0;
-  border-radius: .4rem;
-  padding: 0 .3rem .1rem;
-  background-color: rgba(101, 153, 205, 0.2);
-  transition: all .7s ease; }
-
-.atext:hover {
-  color: white;
-  background-color: rgba(144, 35, 35, 0.8); }
-
-/* Фон по краям*/
-.bg-image {
-  background-size: 100% auto;
-  background-repeat: repeat-y;
-  background-position: center; }
-
 /*адаптивный формат видео*/
 .adap3, .adap16 {
   width: 96%;
@@ -304,17 +303,14 @@ table.gsc-search-box, form.gsc-search-box {
   height: 100%; }
 
 /*--------------------*/
-.adp_img {
-  max-width: 96%;
-  border-radius: 1rem; }
-
-.maxwidth320px {
-  width: 30%;
-  max-width: 320px;
-  min-width: 180px; }
-
 .ten {
   box-shadow: 0.5rem 0.4rem 0.4rem rgba(0, 0, 0, 0.6); }
+
+/* Фон по краям*/
+.bg-image {
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  background-position: center; }
 
 .bg-kortik-left {
   background-image: url(/images/backgrounds/fon-kortik-left.png); }
@@ -334,6 +330,12 @@ table.gsc-search-box, form.gsc-search-box {
 .bg-kalinin-right {
   background-image: url(/images/backgrounds/fon-kalinin-right.png); }
 
+.bg-pervaya-krov-left {
+  background-image: url(/images/backgrounds/fon-pervaya-krov-left.png); }
+
+.bg-pervaya-krov-right {
+  background-image: url(/images/backgrounds/fon-pervaya-krov-right.png); }
+
 .imgLink {
   border: 3px ridge;
   border-color: transparent;
@@ -346,3 +348,40 @@ table.gsc-search-box, form.gsc-search-box {
 
 .videoBorder {
   border-color: #c20a0a; }
+
+.adp_img {
+  max-width: 96%;
+  border-radius: 1rem; }
+
+.maxwidth320px {
+  width: 30%;
+  max-width: 320px;
+  min-width: 180px; }
+
+.width50percent {
+  width: 50%;
+  min-width: 180px; }
+
+/* Выравнивание текста по ширине абзаца */
+.text_p_justify p {
+  text-align: justify;
+  margin-bottom: 0;
+  text-indent: 1.5rem; }
+
+.text_justify {
+  text-align: justify; }
+
+/* ссылка в тексте книги */
+.atext {
+  width: auto !important;
+  height: auto !important;
+  font-weight: 600;
+  text-indent: 0;
+  border-radius: .4rem;
+  padding: 0 .3rem .1rem;
+  background-color: rgba(101, 153, 205, 0.2);
+  transition: all .7s ease; }
+
+.atext:hover {
+  color: white;
+  background-color: rgba(144, 35, 35, 0.8); }

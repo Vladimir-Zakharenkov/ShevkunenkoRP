@@ -1,4 +1,11 @@
-﻿.bg-kortik-left {
+﻿/* Фон по краям*/
+.bg-image {
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-position: center;
+}
+
+.bg-kortik-left {
     background-image: url(/images/backgrounds/fon-kortik-left.png);
 }
 
@@ -20,4 +27,12 @@
 
 .bg-kalinin-right {
     background-image: url(/images/backgrounds/fon-kalinin-right.png);
+}
+
+.bg-pervaya-krov-left {
+    background-image: url(/images/backgrounds/fon-pervaya-krov-left.png);
+}
+
+.bg-pervaya-krov-right {
+    background-image: url(/images/backgrounds/fon-pervaya-krov-right.png);
 }

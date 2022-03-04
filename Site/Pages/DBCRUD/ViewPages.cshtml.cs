@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
 using Site.Services;
@@ -9,7 +8,6 @@ using System.Linq;
 namespace Site.Pages.DBCRUD
 {
     [Authorize]
-    [BindProperties(SupportsGet = true)]
     public class ViewPagesModel : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
@@ -22,13 +20,11 @@ namespace Site.Pages.DBCRUD
 
         public IEnumerable<SitemapModel> AllPages { get; set; }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
             PageNumber = 12;
 
             AllPages = _sitemapContext.Sitemaps.ToArray();
-
-            return Page();
         }
     }
 }

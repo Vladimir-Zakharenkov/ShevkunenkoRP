@@ -24,8 +24,6 @@ namespace Site.Pages.DBCRUD
 
         public SitemapModel PageToUpdate { get; set; }
 
-        public string ImageForPage { get; set; }
-
         public IActionResult OnGet(Guid? sitemapModelId)
         {
             PageNumber = 28;
@@ -37,17 +35,11 @@ namespace Site.Pages.DBCRUD
 
             PageToUpdate = _sitemapContext.GetPageById(sitemapModelId);
 
-            ImageForPage = _sitemapContext.GetPage(PageNumber).ImageModel.ImageName;
-
             return Page();
         }
 
         public IActionResult OnPost()
         {
-            PageNumber = 28;
-
-            ImageForPage = _sitemapContext.GetPage(PageNumber).ImageModel.ImageName;
-
             if (_imageContext.Images.FirstOrDefault(x => x.ImageId == PageToUpdate.ImageModelImageId) == null)
             {
                 ModelState.AddModelError("PageToUpdate.ImageModelImageId", "Картинки с таким идентификатором не существует");

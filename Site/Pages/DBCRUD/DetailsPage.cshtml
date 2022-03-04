@@ -15,107 +15,111 @@
 
         <hr class="liniya" />
 
-        <div class="card p-2">
+        <div class="card p-1">
 
             <div class="card-footer px-0">
-                <a asp-page="@Model.SitemapItem.Loc.ToString().Trim().Substring(24)" class="btn btn-outline-primary  mt-1 shadw">Run</a>
-                <a asp-page="UpdatePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success mt-1 shadw">Edit</a>
-                <a asp-page="DeletePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-danger mt-1 shadw">Delete</a>
-                <a asp-page="ViewPages" class="btn btn-outline-primary mt-1 shadw">Pages</a>
+                <a asp-page="@Model.SitemapItem.Loc.ToString().Trim().Substring(24)" class="btn btn-outline-primary py-1 me-2 shadw">Run</a>
+                <a asp-page="UpdatePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success py-1 me-2 shadw">Edit</a>
+                <a asp-page="DeletePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 me-2 shadw">Del</a>
+                <a asp-page="ViewPages" class="btn btn-outline-primary py-1 shadw">Pages</a>
             </div>
-
-            <hr class="liniya" />
-
-            <vc:image image-name="@Model.SitemapItem.ImageModel.ImageName" css-class="card-img-top adp_img shadw" />
-
-            <hr class="liniya" />
 
             <div class="card-body mx-0 px-0">
 
                 <ul class="list-group list-group-flush text-center">
 
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">SitemapModelId</span><br />
-                        <span id="SitemapModelId" class="fs-5">@Model.SitemapItem.SitemapModelId</span><br />
+                        <span class="fw-bold fs-5 text-primary">PageNumber&nbsp;: </span>
+                        <span id="PageNumber" class="fs-6">@Model.SitemapItem.PageNumber</span><br />
+                        <span id="PageNumberHelpBlock" class="form-text">номер страницы</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">SitemapModelId&nbsp;:</span>
+                        <span id="SitemapModelId" class="fs-6">@Model.SitemapItem.SitemapModelId</span><br />
                         <span id="SitemapModelIdHelpBlock" class="form-text">
-                            идентификатор в базе данных
+                            идентификатор в базе данных GUID
                         </span>
                     </li>
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">PageNumber</span><br />
-                        <span id="PageNumber" class="fs-5">@Model.SitemapItem.PageNumber</span><br />
-                        <span id="PageNumberHelpBlock" class="form-text">
-                            номер страницы
+                        <vc:image image-name="@Model.SitemapItem.ImageModel.ImageName" css-class="card-img-top mb-3 width50percent shadw" /><br />
+                        <span class="fw-bold fs-5 text-primary">ImageModelImageId&nbsp;:</span>
+                        <span id="ImageModelImageId" class="fs-6">@Model.SitemapItem.ImageModelImageId</span><br />
+                        <span id="ImageModelImageIdHelpBlock" class="form-text">
+                            картинка для страницы GUID
                         </span>
                     </li>
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">Loc</span><br />
-                        <span id="Loc" class="fs-5">@Model.SitemapItem.Loc</span><br />
+                        <span class="fw-bold fs-5 text-primary">Loc&nbsp;:</span>
+                        <span id="Loc" class="fs-6">@Model.SitemapItem.Loc</span><br />
                         <span id="LocHelpBlock" class="form-text">
-                            адрес страницы
+                            адрес страницы (https://.....)
                         </span>
                     </li>
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">Lastmod</span><br />
-                        <span id="Lastmod" class="fs-5">@Model.SitemapItem.Lastmod</span><br />
+                        <span class="fw-bold fs-5 text-primary">Lastmod&nbsp;:</span>
+                        <span id="Lastmod" class="fs-6">@Model.SitemapItem.Lastmod.ToString("dd.MM.yyyy")</span><br />
                         <span id="LastmodHelpBlock" class="form-text">
                             дата последнего изменения
                         </span>
                     </li>
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">Changefreq</span><br />
-                        <span id="Changefreq" class="fs-5">@Model.SitemapItem.Changefreq</span><br />
+                        <span class="fw-bold fs-5 text-primary">Changefreq&nbsp;:</span>
+                        <span id="Changefreq" class="fs-6">@Model.SitemapItem.Changefreq</span><br />
                         <span id="ChangefreqHelpBlock" class="form-text">
                             частота изменения страницы
                         </span>
                     </li>
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">Priority</span><br />
-                        <span id="Priority" class="fs-5">@Model.SitemapItem.Priority</span><br />
+                        <span class="fw-bold fs-5 text-primary">Priority&nbsp;:</span>
+                        <span id="Priority" class="fs-6">@Model.SitemapItem.Priority</span><br />
                         <span id="PriorityHelpBlock" class="form-text">
                             значимость страницы ( от 0.0 до 1.0)
                         </span>
                     </li>
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">LeftBackground</span><br />
-                        <span id="LeftBackground" class="fs-5">@Model.SitemapItem.LeftBackground</span><br />
+                        <span class="fw-bold fs-5 text-primary">LeftBackground&nbsp;:</span>
+                        <span id="LeftBackground" class="fs-6">@Model.SitemapItem.LeftBackground</span><br />
                         <span id="LeftBackgroundlHelpBlock" class="form-text">
-                            фон страницы слева
+                            фон страницы слева (фотопленка)
                         </span>
                     </li>
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">RightBackground</span><br />
-                        <span id="RightBackground" class="fs-5">@Model.SitemapItem.RightBackground</span><br />
+                        <span class="fw-bold fs-5 text-primary">RightBackground&nbsp;:</span>
+                        <span id="RightBackground" class="fs-6">@Model.SitemapItem.RightBackground</span><br />
                         <span id="RightBackgroundHelpBlock" class="form-text">
-                            фон страницы справа
+                            фон страницы справа (фотопленка)
                         </span>
                     </li>
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">Title</span><br />
-                        <span id="Title" class="fs-5">@Model.SitemapItem.Title</span><br />
+                        <span class="fw-bold fs-5 text-primary">Title&nbsp;:</span>
+                        <span id="Title" class="fs-6">@Model.SitemapItem.Title</span><br />
                         <span id="TitleHelpBlock" class="form-text">
                             заголовок страницы
                         </span>
                     </li>
-                    <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">Description</span><br />
-                        <span id="Description" class="fs-5">@Model.SitemapItem.Description</span><br />
-                        <span id="DescriptionHelpBlock" class="form-text">
+
+                    <li class="list-group-item text_justify">
+                        <span class="fw-bold fs-5 text-primary">Description&nbsp;:</span>
+                        <span id="Description" class="fs-6">@Model.SitemapItem.Description</span><br />
+                        <span id="DescriptionHelpBlock" class="form-text d-flex justify-content-center">
                             описание страницы
                         </span>
                     </li>
-                    <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">KeyWords</span><br />
-                        <span id="KeyWords" class="fs-5">@Model.SitemapItem.KeyWords</span><br />
-                        <span id="KeyWordsHelpBlock" class="form-text">
+
+                    <li class="list-group-item text_justify">
+                        <span class="fw-bold fs-5 text-primary">KeyWords&nbsp;:</span>
+                        <span id="KeyWords" class="fs-6">@Model.SitemapItem.KeyWords</span><br />
+                        <span id="KeyWordsHelpBlock" class="form-text d-flex justify-content-center">
                             ключевые слова
-                        </span>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageModelImageId</span><br />
-                        <span id="ImageModelImageId" class="fs-5">@Model.SitemapItem.ImageModelImageId</span><br />
-                        <span id="ImageModelImageIdHelpBlock" class="form-text">
-                            картинка для страницы GUID
                         </span>
                     </li>
 
@@ -123,13 +127,11 @@
 
             </div>
 
-            <hr class="liniya" />
-
             <div class="card-footer px-0">
-                <a asp-page="@Model.SitemapItem.Loc.ToString().Trim().Substring(24)" class="btn btn-outline-primary  mt-1 shadw">Run</a>
-                <a asp-page="UpdatePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success mt-1 shadw">Edit</a>
-                <a asp-page="DeletePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-danger mt-1 shadw">Delete</a>
-                <a asp-page="ViewPages" class="btn btn-outline-primary mt-1 shadw">Pages</a>
+                <a asp-page="@Model.SitemapItem.Loc.ToString().Trim().Substring(24)" class="btn btn-outline-primary py-1 me-2 shadw">Run</a>
+                <a asp-page="UpdatePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success py-1 me-2 shadw">Edit</a>
+                <a asp-page="DeletePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 me-2 shadw">Del</a>
+                <a asp-page="ViewPages" class="btn btn-outline-primary py-1 shadw">Pages</a>
             </div>
 
         </div>

@@ -1,0 +1,10 @@
+﻿@import "../lib/bootstrap/scss/_functions.scss";
+
+
+$transition-collapse: height .8s ease;
+$transition-collapse-width: width .8s ease;
+
+@import "../lib/bootstrap/scss/_variables.scss";
+@import "../lib/bootstrap/scss/_mixins.scss";
+
+@import "../lib/bootstrap/scss/_transitions.scss";

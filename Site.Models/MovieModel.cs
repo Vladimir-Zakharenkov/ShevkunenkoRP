@@ -146,11 +146,6 @@ namespace Site.Models
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
-        [Display(Name = "Краткое содержание")]
-        public string Summary { get; set; }
-
-        [Required(ErrorMessage = "Поле не может быть пустым")]
-        [DataType(DataType.Text)]
         [Display(Name = "Адрес страницы на сайте")]
         public string AspPage { get; set; }
 

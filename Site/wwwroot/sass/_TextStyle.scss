@@ -1,0 +1,27 @@
+﻿/* Выравнивание текста по ширине абзаца */
+.text_p_justify p {
+    text-align: justify;
+    margin-bottom: 0;
+    text-indent: 1.5rem;
+}
+
+.text_justify{
+    text-align:justify;
+}
+
+/* ссылка в тексте книги */
+.atext {
+    width: auto !important;
+    height: auto !important;
+    font-weight: 600;
+    text-indent: 0;
+    border-radius: .4rem;
+    padding: 0 .3rem .1rem;
+    background-color: hsla(210,51%,60%,0.2);
+    transition: all .7s ease
+}
+
+.atext:hover {
+    color: hsla(0,50%,100%,1);
+    background-color: hsla(0,61%,35%,.8)
+}
