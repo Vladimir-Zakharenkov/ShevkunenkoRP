@@ -21,44 +21,27 @@
 
                 <ul class="list-group list-group-flush text-center">
 
+                    <vc:image-by-id image-id="@Model.SitemapItem.ImageModelImageId" css-class="width50percent ten mb-2" />
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">SitemapPageID</span><br />
-                        <span id="SitemapPageID" class="fs-5">@Model.SitemapItem.SitemapModelId</span><br />
-                        <span id="SitemapPageIDHelpBlock" class="form-text">
-                            идентификатор в базе данных
-                        </span>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">PageNumber</span><br />
-                        <span id="PageNumber" class="fs-5">@Model.SitemapItem.PageNumber</span><br />
-                        <span id="PageNumberHelpBlock" class="form-text">
-                            номер страницы
-                        </span>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">Loc</span><br />
-                        <span id="Loc" class="fs-5">@Model.SitemapItem.Loc</span><br />
+                        <span class="fw-bold fs-5 text-primary">Loc&nbsp;:</span>
+                        <span id="Loc" class="fs-6">@Model.SitemapItem.Loc</span><br />
                         <span id="LocHelpBlock" class="form-text">
-                            адрес страницы
+                            адрес страницы (https://.....)
                         </span>
                     </li>
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">Title</span><br />
-                        <span id="Title" class="fs-5">@Model.SitemapItem.Title</span><br />
+                        <span class="fw-bold fs-5 text-primary">Title&nbsp;:</span>
+                        <span id="Title" class="fs-6">@Model.SitemapItem.Title</span><br />
                         <span id="TitleHelpBlock" class="form-text">
                             заголовок страницы
                         </span>
                     </li>
+
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">Description</span><br />
-                        <span id="Description" class="fs-5">@Model.SitemapItem.Description</span><br />
-                        <span id="DescriptionHelpBlock" class="form-text">
-                            описание страницы
-                        </span>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">Lastmod</span><br />
-                        <span id="Lastmod" class="fs-5">@Model.SitemapItem.Lastmod.ToString("yyyy-MM-dd")</span><br />
+                        <span class="fw-bold fs-5 text-primary">Lastmod&nbsp;:</span>
+                        <span id="Lastmod" class="fs-6">@Model.SitemapItem.Lastmod.ToString("dd.MM.yyyy")</span><br />
                         <span id="LastmodHelpBlock" class="form-text">
                             дата последнего изменения
                         </span>

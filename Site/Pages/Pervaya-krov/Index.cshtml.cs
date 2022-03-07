@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Site.Pages
+namespace Site.Pages.Pervaya_krov
 {
     [BindProperties(SupportsGet = true)]
     public class IndexModel : PageModel
@@ -10,7 +10,7 @@ namespace Site.Pages
 
         public void OnGet()
         {
-            PageNumber = 69;
+            PageNumber = 1;
         }
     }
 }

@@ -32,8 +32,6 @@ namespace Site.Pages.DBCRUD
                 return RedirectToPage("ViewPages");
             }
 
-            
-
             return Page();
         }
 

@@ -12,6 +12,8 @@ namespace Site.Pages.ViewComponents
             _movieContext = movieContext;
         }
 
+        public string HtmlText { get; set; }
+
         public IViewComponentResult Invoke(string movieCaption, string videoProvider)
         {
             MovieModel movie = _movieContext.GetMovieByMovieCaption(movieCaption);

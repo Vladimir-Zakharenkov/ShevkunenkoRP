@@ -336,6 +336,12 @@ table.gsc-search-box, form.gsc-search-box {
 .bg-pervaya-krov-right {
   background-image: url(/images/backgrounds/fon-pervaya-krov-right.png); }
 
+.bg-lihie90-left {
+  background-image: url(/images/backgrounds/fon-lihie90-left.png); }
+
+.bg-lihie90-right {
+  background-image: url(/images/backgrounds/fon-lihie90-right.png); }
+
 .imgLink {
   border: 3px ridge;
   border-color: transparent;
