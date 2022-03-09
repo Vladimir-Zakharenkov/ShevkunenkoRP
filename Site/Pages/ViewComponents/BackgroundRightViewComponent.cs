@@ -9,14 +9,11 @@ namespace Site.Pages.ViewComponents
     {
         private readonly ISitemapModelRepository _sitemapContext;
 
-        public BackgroundRight(ISitemapModelRepository sitemapContext)
-        {
-            _sitemapContext = sitemapContext;
-        }
+        public BackgroundRight(ISitemapModelRepository sitemapContext) => _sitemapContext = sitemapContext;
 
         public IViewComponentResult Invoke(uint? pageNumber)
         {
-            if (_sitemapContext.Sitemaps.FirstOrDefault(x => x.PageNumber == pageNumber) == null)
+            if (pageNumber == null || _sitemapContext.Sitemaps.FirstOrDefault(x => x.PageNumber == pageNumber) == null)
             {
                 pageNumber = 0;
             }

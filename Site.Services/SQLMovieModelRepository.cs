@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 
 namespace Site.Services
 {
@@ -29,8 +28,45 @@ namespace Site.Services
 
         public void UpdateMovie(MovieModel movieToUpdate)
         {
-            var entry = _siteContext.MovieModels.First(e => e.MovieId == movieToUpdate.MovieId);
-            _siteContext.Entry(entry).CurrentValues.SetValues(movieToUpdate);
+            MovieModel movie = _siteContext.MovieModels.Find(movieToUpdate.MovieId);
+
+            movie.ImageName = movieToUpdate.ImageName;
+            movie.MovieCaption = movieToUpdate.MovieCaption;
+            movie.Duration = movieToUpdate.Duration;
+            movie.DatePublished = movieToUpdate.DatePublished;
+            movie.DateCreated = movieToUpdate.DateCreated;
+            movie.UploadDate = movieToUpdate.UploadDate;
+            movie.IsFamilyFriendly = movieToUpdate.IsFamilyFriendly;
+            movie.InLanguage = movieToUpdate.InLanguage;
+            movie.РroductionCompany = movieToUpdate.РroductionCompany;
+            movie.Director = movieToUpdate.Director;
+            movie.MusicBy = movieToUpdate.MusicBy;
+            movie.Genre = movieToUpdate.Genre;
+            movie.Description = movieToUpdate.Description;
+            movie.Actor01 = movieToUpdate.Actor01;
+            movie.Actor02 = movieToUpdate.Actor02;
+            movie.Actor03 = movieToUpdate.Actor03;
+            movie.Actor04 = movieToUpdate.Actor04;
+            movie.Actor05 = movieToUpdate.Actor05;
+            movie.Actor06 = movieToUpdate.Actor06;
+            movie.Actor07 = movieToUpdate.Actor07;
+            movie.Actor08 = movieToUpdate.Actor08;
+            movie.Actor09 = movieToUpdate.Actor09;
+            movie.Actor10 = movieToUpdate.Actor10;
+            movie.ContentUrl = movieToUpdate.ContentUrl;
+            movie.CaptionForOnline = movieToUpdate.CaptionForOnline;
+            movie.YouTube = movieToUpdate.YouTube;
+            movie.VkVideo = movieToUpdate.VkVideo;
+            movie.MailRuVideo = movieToUpdate.MailRuVideo;
+            movie.OkVideo = movieToUpdate.OkVideo;
+            movie.YandexDiskVideo = movieToUpdate.YandexDiskVideo;
+            movie.KinoTeatrRu = movieToUpdate.KinoTeatrRu;
+            movie.AspPage = movieToUpdate.AspPage;
+            movie.Thumbnail = movieToUpdate.Thumbnail;
+
+            //var entry = _siteContext.MovieModels.First(e => e.MovieId == movieToUpdate.MovieId);
+            //_siteContext.Entry(entry).CurrentValues.SetValues(movieToUpdate);
+
             _siteContext.SaveChanges();
         }
 

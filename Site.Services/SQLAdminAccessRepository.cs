@@ -1,7 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Site.Models;
+﻿using Site.Models;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Site.Services
 {

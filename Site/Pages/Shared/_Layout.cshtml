@@ -13,24 +13,24 @@
         <hr class="liniya" />
 
         @await Html.PartialAsync("_NavPartial")
-         
-    <div class="row text-center bg-light">
 
-        <vc:background-left page-number="@Model.PageNumber" />
+        <div class="row text-center bg-light">
 
-        <main role="main" itemprop="mainContentOfPage" class="col-12 col-sm-9 pb-3 text-center shadw">
+            <vc:background-left page-number="@Model.PageNumber" />
 
-            <div class="container-fluid px-0">
+            <main role="main" itemprop="mainContentOfPage" class="col-12 col-sm-9 pb-3 text-center shadw">
 
-                @RenderBody()
+                <div class="container-fluid px-0">
 
-            </div>
+                    @RenderBody()
 
-        </main>
+                </div>
 
-        <vc:background-right page-number="@Model.PageNumber" />
+            </main>
 
-    </div>
+            <vc:background-right page-number="@Model.PageNumber" />
+
+        </div>
 
         <hr class="liniya" />
 

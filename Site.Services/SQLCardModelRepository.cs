@@ -28,8 +28,18 @@ namespace Site.Services
 
         public void UpdateCard(CardModel cardToUpdate)
         {
-            var entry = _siteContext.CardModels.First(e => e.CardId == cardToUpdate.CardId);
-            _siteContext.Entry(entry).CurrentValues.SetValues(cardToUpdate);
+            CardModel card = _siteContext.CardModels.Find(cardToUpdate.CardId);
+
+            card.ImageName = cardToUpdate.ImageName;
+            card.CardLink = cardToUpdate.CardLink;
+            card.CardBody = cardToUpdate.CardBody;
+            card.CardText = cardToUpdate.CardText;
+            card.CardMovie = cardToUpdate.CardMovie;
+            card.MovieCaption = cardToUpdate.MovieCaption;
+
+            //var entry = _siteContext.CardModels.First(e => e.CardId == cardToUpdate.CardId);
+            //_siteContext.Entry(entry).CurrentValues.SetValues(cardToUpdate);
+
             _siteContext.SaveChanges();
         }
 
