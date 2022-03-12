@@ -1,0 +1,68 @@
+﻿@page
+@model Image_IconsModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <hr class="liniya" />
+
+    <div class="col">
+        <a asp-page="Image-Add-Update" class="btn btn btn-outline-danger shadw">ДОБАВИТЬ КАРТИНКУ</a>
+    </div>
+
+    <hr class="liniya" />
+
+</div>
+
+@if (Model.AllImages.Count() == 0)
+{
+    <div class="row">
+
+        <div class="col text-center p-2">
+            <p class="fs-4 text-primary">Нет данных</p>
+        </div>
+
+    </div>
+}
+else
+{
+    <div class="row">
+
+        <div class="col-12 text-center">
+            <p class="fs-4 text-primary">Количество изображений:&nbsp;@Model.AllImages.Count()</p>
+        </div>
+
+        <div class="col">
+            <a asp-page="Image-List" class="btn btn btn-outline-primary shadw">СПИСОК</a>
+        </div>
+
+    </div>
+}
+
+<hr class="liniya" />
+
+<div class="row row-cols-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-7 row-cols-xxl-8 g-2 justify-content-center">
+
+    @foreach (var image in Model.AllImages)
+    {
+        <div class="col">
+
+            <div class="card h-100 me-1 mb-1 p-1 shadw borderforitem">
+
+                <a asp-page="Image-Details" asp-route-imageid="@image.ImageId">
+                    <vc:image image-name="@image.ImageName" css-class="card-img-top shadw" />
+                </a>
+
+                <div class="card-body py-0"></div>
+
+            </div>
+
+        </div>
+    }
+
+</div>
+
+<hr class="liniya" />

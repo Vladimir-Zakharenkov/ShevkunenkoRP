@@ -19,6 +19,7 @@
         {
             <p class="fs-5">Количество страниц:&nbsp;@Model.AllPages.Count()</p>
         }
+
     </div>
 
 </div>
@@ -26,7 +27,7 @@
 <div class="row">
 
     <div class="col">
-        <a asp-page="AddPage" class="btn btn btn-outline-danger shadw">ДОБАВИТЬ СТРАНИЦУ</a>
+        <a asp-page="Page-Add-Update" class="btn btn btn-outline-danger shadw">ДОБАВИТЬ СТРАНИЦУ</a>
     </div>
 
 </div>
@@ -59,12 +60,12 @@
                     @foreach (var sitemapItem in Model.AllPages)
                     {
                     <tr>
-                        <td><span class="fw-bold text-primary">@sitemapItem.PageNumber</span></td>
-                        <td class="text-start">@sitemapItem.Loc.ToString().Substring(24)</td>
-                        <td><a asp-page="DetailsPage" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-primary py-1 px-1 shadw" title="@sitemapItem.Title">Info</a></td>
-                        <td><a asp-page="UpdatePage" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать страницу">Edit</a></td>
-                        <td><a asp-page="DeletePage" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить страницу">Del</a></td>
-                        <td><a asp-page="@sitemapItem.Loc.ToString().Substring(24)" class="btn btn-outline-primary py-1 px-1 shadw" title="Просмотр страницы">Run</a></td>
+                        <td scope="col"><span class="fw-bold text-primary">@sitemapItem.PageNumber</span></td>
+                        <td scope="col" class="text-start">@sitemapItem.Loc.ToString().Substring(24)</td>
+                        <td scope="col"><a asp-page="Page-Details" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-primary py-1 px-1 shadw" title="@sitemapItem.Title">Info</a></td>
+                        <td scope="col"><a asp-page="Page-Add-Update" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать страницу">Edit</a></td>
+                        <td scope="col"><a asp-page="Page-Delete" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить страницу">Del</a></td>
+                        <td scope="col"><a asp-page="@sitemapItem.Loc.ToString().Substring(24)" class="btn btn-outline-primary py-1 px-1 shadw" title="Просмотр страницы">Run</a></td>
                     </tr>
                     }
 
@@ -73,8 +74,6 @@
             </table>
 
         </div>
-
-
 
     </div>
 

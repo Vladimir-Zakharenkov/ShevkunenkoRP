@@ -1,0 +1,15 @@
+﻿.cardborder a, .borderforitem {
+    border: .2rem ridge transparent;
+    transition: all .3s ease-in-out;
+    color: black;
+}
+
+.cardborder a:hover, .borderforitem:hover {
+    border: .2rem $border-red ridge;
+    opacity: .9;
+    color: $border-red;
+}
+
+.cardBodyBg {
+    background-color: hsl(0, 15%, 84%) !important;
+}

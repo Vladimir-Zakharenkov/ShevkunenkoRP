@@ -10,14 +10,8 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class DeleteImageModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
         private readonly IImageModelRepository _imageContext;
-
-        public DeleteImageModel(IImageModelRepository imageContext, ISitemapModelRepository sitemapContext)
-        {
-            _imageContext = imageContext;
-            _sitemapContext = sitemapContext;
-        }
+        public DeleteImageModel(IImageModelRepository imageContext) => _imageContext = imageContext;
 
         public uint PageNumber { get; set; }
 
@@ -31,7 +25,7 @@ namespace Site.Pages.DBCRUD
 
             if (Image == null)
             {
-                return RedirectToPage("ViewImages");
+                return RedirectToPage("Image-Icons");
             }
 
             return Page();
@@ -43,7 +37,7 @@ namespace Site.Pages.DBCRUD
 
             _imageContext.DeleteImage(Image.ImageId);
 
-            return RedirectToPage("ViewImages");
+            return RedirectToPage("Image-Icons");
         }
     }
 }

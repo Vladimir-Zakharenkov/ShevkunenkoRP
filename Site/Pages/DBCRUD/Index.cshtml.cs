@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Site.Pages.DBCRUD
 {
-    [BindProperties(SupportsGet = true)]
+    [Authorize]
     public class IndexModel : PageModel
     {
         public uint PageNumber { get; set; }

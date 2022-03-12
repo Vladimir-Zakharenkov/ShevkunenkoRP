@@ -11,10 +11,7 @@ namespace Site.Pages.DBCRUD
     public class ViewPagesModel : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
-        public ViewPagesModel(ISitemapModelRepository sitemapContext)
-        {
-            _sitemapContext = sitemapContext;
-        }
+        public ViewPagesModel(ISitemapModelRepository sitemapContext) => _sitemapContext = sitemapContext;
 
         public uint PageNumber { get; set; }
 

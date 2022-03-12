@@ -7,10 +7,7 @@ namespace Site.Pages.ViewComponents
     public class MovieOnline : ViewComponent
     {
         private readonly IMovieModelRepository _movieContext;
-        public MovieOnline(IMovieModelRepository movieContext)
-        {
-            _movieContext = movieContext;
-        }
+        public MovieOnline(IMovieModelRepository movieContext) =>_movieContext = movieContext;
 
         public string HtmlText { get; set; }
 

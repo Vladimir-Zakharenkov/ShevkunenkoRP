@@ -18,10 +18,12 @@
         <div class="card p-1">
 
             <div class="card-footer px-0">
-                <a asp-page="@Model.SitemapItem.Loc.ToString().Trim().Substring(24)" class="btn btn-outline-primary py-1 me-2 shadw">Run</a>
-                <a asp-page="UpdatePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success py-1 me-2 shadw">Edit</a>
-                <a asp-page="DeletePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 me-2 shadw">Del</a>
-                <a asp-page="ViewPages" class="btn btn-outline-primary py-1 shadw">Pages</a>
+
+                <a asp-page="@Model.SitemapItem.Loc.ToString().Trim().Substring(24)" class="btn btn-outline-primary py-1 m-2 shadw">Run</a>
+                <a asp-page="Page-Add-Update" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success py-1 m-2 shadw">Edit</a>
+                <a asp-page="Page-Delete" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 m-2 shadw">Del</a>
+                <a asp-page="Page-List" class="btn btn-outline-primary py-1 shadw">Pages</a>
+
             </div>
 
             <div class="card-body mx-0 px-0">
@@ -38,7 +40,7 @@
                         <span class="fw-bold fs-5 text-primary">SitemapModelId&nbsp;:</span>
                         <span id="SitemapModelId" class="fs-6">@Model.SitemapItem.SitemapModelId</span><br />
                         <span id="SitemapModelIdHelpBlock" class="form-text">
-                            идентификатор в базе данных GUID
+                            идентификатор в базе данных (GUID)
                         </span>
                     </li>
 
@@ -47,7 +49,7 @@
                         <span class="fw-bold fs-5 text-primary">ImageModelImageId&nbsp;:</span>
                         <span id="ImageModelImageId" class="fs-6">@Model.SitemapItem.ImageModelImageId</span><br />
                         <span id="ImageModelImageIdHelpBlock" class="form-text">
-                            картинка для страницы GUID
+                            картинка для страницы (GUID)
                         </span>
                     </li>
 
@@ -87,7 +89,7 @@
                         <span class="fw-bold fs-5 text-primary">LeftBackground&nbsp;:</span>
                         <span id="LeftBackground" class="fs-6">@Model.SitemapItem.LeftBackground</span><br />
                         <span id="LeftBackgroundlHelpBlock" class="form-text">
-                            фон страницы слева (фотопленка)
+                            фон слева (фотопленка)
                         </span>
                     </li>
 
@@ -95,7 +97,7 @@
                         <span class="fw-bold fs-5 text-primary">RightBackground&nbsp;:</span>
                         <span id="RightBackground" class="fs-6">@Model.SitemapItem.RightBackground</span><br />
                         <span id="RightBackgroundHelpBlock" class="form-text">
-                            фон страницы справа (фотопленка)
+                            фон справа (фотопленка)
                         </span>
                     </li>
 
@@ -128,10 +130,12 @@
             </div>
 
             <div class="card-footer px-0">
-                <a asp-page="@Model.SitemapItem.Loc.ToString().Trim().Substring(24)" class="btn btn-outline-primary py-1 me-2 shadw">Run</a>
-                <a asp-page="UpdatePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success py-1 me-2 shadw">Edit</a>
-                <a asp-page="DeletePage" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 me-2 shadw">Del</a>
-                <a asp-page="ViewPages" class="btn btn-outline-primary py-1 shadw">Pages</a>
+
+                <a asp-page="@Model.SitemapItem.Loc.ToString().Trim().Substring(24)" class="btn btn-outline-primary py-1 m-2 shadw">Run</a>
+                <a asp-page="Page-Add-Update" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-success py-1 m-2 shadw">Edit</a>
+                <a asp-page="Page-Delete" asp-route-sitemapmodelid="@Model.SitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 m-2 shadw">Del</a>
+                <a asp-page="Page-List" class="btn btn-outline-primary py-1 shadw">Pages</a>
+
             </div>
 
         </div>

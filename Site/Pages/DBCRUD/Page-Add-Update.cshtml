@@ -1,0 +1,197 @@
+﻿@page
+@model Page_Add_UpdateModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <div class="col col-lg-9 col-xl-7 col-xxl-6 d-block mx-auto px-2">
+
+        <hr class="liniya" />
+
+        @{
+            if ((string)ViewData["Action"] == "Edit")
+            {
+                <h1 class="fs-3 text_shadow">Изменить информацию о странице №@Model.SitemapItem.PageNumber</h1>
+            }
+            else
+            {
+                <h1 class="fs-3 text_shadow">Добавить новую страницу</h1>
+            }
+        }
+
+        <hr class="liniya" />
+
+        <form asp-page-handler="OnPost" method="post">
+
+            <input asp-for="SitemapItem.SitemapModelId" type="hidden" />
+            <input asp-for="SitemapItem.PageNumber" type="hidden" />
+
+            <vc:image-by-id image-id="@Model.SitemapItem.ImageModelImageId" css-class="width50percent ten mb-3" /><br />
+
+            <label for="ImageModelImageIdInput" asp-for="SitemapItem.ImageModelImageId" class="form-label text-primary fs-5 fw-bold"></label>
+            <input id="ImageModelImageIdInput" asp-for="SitemapItem.ImageModelImageId" class="form-control text-center" aria-describedby="ImageModelImageIdInputHelpBlock" />
+            <div id="ImageModelImageIdInputHelpBlock" class="form-text">
+                картинка для страницы (GUID) - <span class="text-danger">обязательное поле</span>
+            </div>
+            <span asp-validation-for="SitemapItem.ImageModelImageId" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="LocInput" asp-for="SitemapItem.Loc" class="form-label text-primary fs-5 fw-bold"></label>
+            <input id="ImageModelImageIdInput" asp-for="SitemapItem.Loc" class="form-control text-center" aria-describedby="LocInputHelpBlock" />
+            <div id="LocInputHelpBlock" class="form-text">
+                Loc: адрес страницы (https://...) - <span class="text-danger">обязательное поле</span>
+            </div>
+            <span asp-validation-for="SitemapItem.Loc" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="LastmodInput" asp-for="SitemapItem.Lastmod" class="col-form-label text-primary fs-5 fw-bold"></label>
+                </div>
+                <div class="col-auto">
+                    <input id="LastmodInput" asp-for="SitemapItem.Lastmod" class="form-control" aria-describedby="LastmodInputHelpBlock" />
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="LastmodInputHelpBlock" class="form-text">
+                        Lastmod: дата последнего изменения - <span class="text-danger">обязательное поле</span>
+                    </span>
+                </div>
+            </div>
+            <span asp-validation-for="SitemapItem.Lastmod" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="ChangefreqInput" asp-for="SitemapItem.Changefreq" class="col-form-label text-primary fs-5 fw-bold"></label>
+                </div>
+                <div class="col-auto">
+                    <select id="ChangefreqInput" asp-for="SitemapItem.Changefreq" class="form-select">
+                        <option value="always">always</option>
+                        <option value="hourly">hourly</option>
+                        <option value="daily">daily</option>
+                        <option value="weekly">weekly</option>
+                        <option value="monthly" selected>monthly</option>
+                        <option value="yearly">yearly</option>
+                        <option value="never">never</option>
+                    </select>
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="ChangefreqInputHelpBlock" class="form-text">
+                        Changefreq: частота изменения страницы - <span class="text-danger">обязательное поле</span>
+                    </span>
+                </div>
+            </div>
+            <span asp-validation-for="SitemapItem.Changefreq" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="PrioritylInput" asp-for="SitemapItem.Priority" class="col-form-label text-primary fs-5 fw-bold"></label>
+                </div>
+                <div class="col-auto">
+                    <select id="PriorityInput" asp-for="SitemapItem.Priority" class="form-select">
+                        <option value="0.0">0.0</option>
+                        <option value="0.1">0.1</option>
+                        <option value="0.2">0.2</option>
+                        <option value="0.3">0.3</option>
+                        <option value="0.4">0.4</option>
+                        <option value="0.5" selected>0.5</option>
+                        <option value="0.6">0.6</option>
+                        <option value="0.7">0.7</option>
+                        <option value="0.8">0.8</option>
+                        <option value="0.9">0.9</option>
+                        <option value="1.0">1.0</option>
+                    </select>
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="PrioritylInputHelpBlock" class="form-text">
+                        Priority: значимость страницы ( от 0.0 до 1.0) - <span class="text-danger">обязательное поле</span>
+                    </span>
+                </div>
+            </div>
+            <span asp-validation-for="SitemapItem.Priority" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="LeftBackgroundInput" asp-for="SitemapItem.LeftBackground" class="col-form-label text-primary fs-5 fw-bold"></label>
+                </div>
+                <div class="col-auto">
+                    <input id="LeftBackgroundInput" asp-for="SitemapItem.LeftBackground" class="form-control" aria-describedby="LeftBackgroundInputHelpBlock" />
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="LeftBackgroundInputHelpBlock" class="form-text">
+                        LeftBackground: фон страницы слева (класс CSS)
+                    </span>
+                </div>
+            </div>
+            <span asp-validation-for="SitemapItem.LeftBackground" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="RightBackgroundInput" asp-for="SitemapItem.RightBackground" class="col-form-label text-primary fs-5 fw-bold"></label>
+                </div>
+                <div class="col-auto">
+                    <input id="RightBackgroundInput" asp-for="SitemapItem.RightBackground" class="form-control" aria-describedby="RightBackgroundInputHelpBlock" />
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="RightBackgroundInputHelpBlock" class="form-text">
+                        LeftBackground: фон страницы справа (класс CSS)
+                    </span>
+                </div>
+            </div>
+            <span asp-validation-for="SitemapItem.RightBackground" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="TitleInput" asp-for="SitemapItem.Title" class="form-label text-primary fs-5 fw-bold"></label>
+            <input id="TitleInput" asp-for="SitemapItem.Title" class="form-control" aria-describedby="TitleHelpBlock" />
+            <div id="TitleInputHelpBlock" class="form-text">
+                Title: заголовок страницы - <span class="text-danger">обязательное поле</span>
+            </div>
+            <span asp-validation-for="SitemapItem.Title" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="DescriptionInput" asp-for="SitemapItem.Description" class="form-label text-primary fs-5 fw-bold"></label>
+            <textarea id="DescriptionInput" asp-for="SitemapItem.Description" class="form-control" rows="5" aria-describedby="DescriptionInputHelpBlock"></textarea>
+            <div id="DescriptionInputHelpBlock" class="form-text">
+                Description: описание страницы - <span class="text-danger">обязательное поле</span>
+            </div>
+            <span asp-validation-for="SitemapItem.Description" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="KeyWordsInput" asp-for="SitemapItem.KeyWords" class="form-label text-primary fs-5 fw-bold"></label>
+            <textarea id="KeyWordsInput" asp-for="SitemapItem.KeyWords" class="form-control" rows="3" aria-describedby="KeyWordsInputHelpBlock"></textarea>
+            <div id="KeyWordsHelpBlock" class="form-text">
+                KeyWords: ключевые слова
+            </div>
+            <span asp-validation-for="SitemapItem.KeyWords" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="text-center">
+
+                <button type="submit" class="btn btn-outline-success text-center shadw">СОХРАНИТЬ</button>
+                <a asp-page="Page-List" class="btn btn-outline-danger ms-3 shadw">ОТМЕНИТЬ</a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <hr class="liniya" />
+
+</div>

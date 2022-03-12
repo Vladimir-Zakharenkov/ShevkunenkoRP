@@ -10,11 +10,7 @@ namespace Site.Pages.DBCRUD
     public class DetailsImageModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     {
         private readonly IImageModelRepository _imageContext;
-
-        public DetailsImageModel(IImageModelRepository imageContext)
-        {
-            _imageContext = imageContext;
-        }
+        public DetailsImageModel(IImageModelRepository imageContext) => _imageContext = imageContext;
 
         public uint PageNumber { get; set; }
 
@@ -28,7 +24,7 @@ namespace Site.Pages.DBCRUD
 
             if (Image == null)
             {
-                return RedirectToPage("ViewImages");
+                return RedirectToPage("Image-Icons");
             }
 
             return Page();

@@ -1,0 +1,92 @@
+﻿@page
+@model Site.Pages.DBCRUD.Image_ListModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <hr class="liniya" />
+
+    <div class="col">
+        <a asp-page="Image-Add-Update" class="btn btn btn-outline-danger shadw">ДОБАВИТЬ КАРТИНКУ</a>
+    </div>
+
+    <hr class="liniya" />
+
+</div>
+
+@if (Model.AllImages.Count() == 0)
+{
+    <div class="row">
+
+        <div class="col text-center p-2">
+            <p class="fs-4 text-primary">Нет данных</p>
+        </div>
+
+    </div>
+}
+else
+{
+    <div class="row">
+
+        <div class="col-12 text-center">
+            <p class="fs-4 text-primary">Количество изображений:&nbsp;@Model.AllImages.Count()</p>
+        </div>
+
+        <div class="col">
+            <a asp-page="Image-Icons" class="btn btn btn-outline-primary shadw">ИКОНКИ</a>
+        </div>
+
+    </div>
+}
+
+<hr class="liniya" />
+
+<div class="row">
+
+    <div class="col">
+
+        <div class="table-responsive">
+
+            <table class="table table-sm table-hover caption-top align-middle">
+
+                <thead>
+
+                    <tr>
+                        <th scope="col" class="text-start">ImageName</th>
+                        <th scope="col" class="d-none d-sm-table-cell text-sm-start">ImageCaption</th>
+                        <th scope="col" class="d-none d-lg-table-cell text-lg-start">Width</th>
+                        <th scope="col" class="d-none d-lg-table-cell text-lg-start">Height</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var imageItem in Model.AllImages)
+                    {
+                    <tr class="text-start">
+                        <td scope="col" class="text-start">@imageItem.ImageName</td>
+                        <td scope="col" class="d-none d-sm-table-cell text-sm-start">@imageItem.ImageCaption</td>
+                        <td scope="col" class="d-none d-lg-table-cell text-lg-start">@imageItem.ImageWidth</td>
+                        <td scope="col" class="d-none d-lg-table-cell text-lg-start">@imageItem.ImageHeight</td>
+                        <td scope="col"><a asp-page="Image-Details" asp-route-imageid="@imageItem.ImageId" class="btn btn-outline-primary py-1 px-1 shadw" title="Информация">Info</a></td>
+                        <td scope="col"><a asp-page="Image-Add-Update" asp-route-imageid="@imageItem.ImageId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать">Edit</a></td>
+                        <td scope="col"><a asp-page="Image-Delete" asp-route-imageid="@imageItem.ImageId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить">Del</a></td>
+                    </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

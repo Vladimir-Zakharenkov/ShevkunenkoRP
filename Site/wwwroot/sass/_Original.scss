@@ -107,22 +107,6 @@ a:active, .dropdown:active {
     top: 0;
 }
 
-.cardborder a {
-    border: .3rem ridge transparent;
-    transition: all .3s ease-in-out;
-    color: black;
-}
-
-.cardborder a:hover {
-    border: .3rem $border-red ridge;
-    opacity: .9;
-    color: $border-red;
-}
-
-.cardBodyBg {
-    background-color: hsl(0, 15%, 84%) !important
-}
-
 .container-fluid-1920 {
     max-width: 1920px;
 }

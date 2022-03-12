@@ -8,14 +8,10 @@ namespace Site.Pages.DBCRUD
 {
     [Authorize]
     [BindProperties(SupportsGet = true)]
-    public class DeletePageModel : PageModel
+    public class DetailsPageModel : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
-
-        public DeletePageModel(ISitemapModelRepository sitemapContext)
-        {
-            _sitemapContext = sitemapContext;
-        }
+        public DetailsPageModel(ISitemapModelRepository sitemapContext) => _sitemapContext = sitemapContext;
 
         public uint PageNumber { get; set; }
 
@@ -23,25 +19,16 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnGet()
         {
-            PageNumber = 14;
+            PageNumber = 15;
 
             SitemapItem = _sitemapContext.GetPageById(SitemapItem.SitemapModelId);
 
             if (SitemapItem == null)
             {
-                return RedirectToPage("ViewPages");
+                return RedirectToPage("Page-List");
             }
 
             return Page();
-        }
-
-        public IActionResult OnPost()
-        {
-            PageNumber = 14;
-
-            _sitemapContext.DeletePageById(SitemapItem.SitemapModelId);
-
-            return RedirectToPage("ViewPages");
         }
     }
 }

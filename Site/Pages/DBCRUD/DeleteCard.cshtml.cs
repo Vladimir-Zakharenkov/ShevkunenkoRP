@@ -43,7 +43,7 @@ namespace Site.Pages.DBCRUD
 
             _cardContext.DeleteCard(Card.CardId);
 
-            return RedirectToPage("ViewImages");
+            return RedirectToPage("Image-Icons");
         }
     }
 }

@@ -2,8 +2,8 @@
 
     <div class="container-fluid">
 
-        <a class="navbar-brand text-black pe-2 me-2" asp-page="/Index" title="Помочь сайту">
-            <span class="donate shadw px-2 border border-2 rounded-1">Site</span>
+        <a class="navbar-brand text-black pe-2 me-2" asp-page="/Index" title="На сайт">
+            <span class="donate shadw px-2 border border-2 rounded-1">Сайт</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,35 +13,61 @@
 
             <ul class="navbar-nav mb-3 mb-md-0" itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
 
-                <li class="nav-item">
-                    <a class="nav-link active" asp-page="/DBCRUD/ViewImages" id="Images" role="button" itemprop="item">
-                        <span class="donate shadw px-2 border border-2 rounded-1" itemprop="name">Images</span>
+                <li class="nav-item dropdown donate shadw px-1 py-1 py-md-0 me-3 border border-2 rounded-1 custom" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+
+                    <a class="nav-link dropdown-toggle p-0" href="#" id="Images" role="button" data-bs-toggle="dropdown" aria-expanded="false" itemprop="item">
+                        <span itemprop="name">Картинки</span>
                         <meta itemprop="position" content="1">
                     </a>
-                </li>
 
-                <li class="nav-item">
-                    <a class="nav-link active" asp-page="/DBCRUD/ViewPages" id="Pages" role="button" itemprop="item">
-                        <span class="donate shadw px-2 border border-2 rounded-1" itemprop="name">Pages</span>
-                        <meta itemprop="position" content="2">
-                    </a>
-                </li>
+                    <ul class="dropdown-menu border-0 p-0 rounded-3" aria-labelledby="Images" itemscope itemtype="http://schema.org/BreadcrumbList">
 
-                <li class="nav-item">
-                    <a class="nav-link active" asp-page="/DBCRUD/ViewMovies" id="Movies" role="button" itemprop="item">
-                        <span class="donate shadw px-2 border border-2 rounded-1" itemprop="name">Movies</span>
-                        <meta itemprop="position" content="3">
-                    </a>
-                </li>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a class="dropdown-item shadw lh-sm mt-2 p-1" asp-page="/DBCRUD/Image-Icons" itemprop="item">
+                                <span class="fs-5" itemprop="name">Иконки</span>
+                                <meta itemprop="position" content="1">
+                            </a>
+                        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link active" asp-page="/DBCRUD/ViewCards" id="Cards" role="button" itemprop="item">
-                        <span class="donate shadw px-2 border border-2 rounded-1" itemprop="name">Cards</span>
-                        <meta itemprop="position" content="4">
-                    </a>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a class="dropdown-item shadw lh-sm mt-2 p-1" asp-page="/DBCRUD/Image-List" itemprop="item">
+                                <span class="fs-5" itemprop="name">Список</span>
+                                <meta itemprop="position" content="2">
+                            </a>
+                        </li>
+
+                    </ul>
+
                 </li>
 
             </ul>
+
+            <div class="navbar-nav">
+
+                <a class="nav-link active" asp-page="/DBCRUD/Page-List" id="Pages" role="button" itemprop="item">
+                    <span class="donate shadw px-2 border border-2 rounded-1" itemprop="name">Страницы</span>
+                    <meta itemprop="position" content="2">
+                </a>
+
+            </div>
+
+            <div class="navbar-nav">
+
+                <a class="nav-link active" asp-page="/DBCRUD/ViewMovies" id="Movies" role="button" itemprop="item">
+                    <span class="donate shadw px-2 border border-2 rounded-1" itemprop="name">Фильмы</span>
+                    <meta itemprop="position" content="3">
+                </a>
+
+            </div>
+
+            <div class="navbar-nav">
+
+                <a class="nav-link active" asp-page="/DBCRUD/ViewCards" id="Cards" role="button" itemprop="item">
+                    <span class="donate shadw px-2 border border-2 rounded-1" itemprop="name">Карточки</span>
+                    <meta itemprop="position" content="4">
+                </a>
+
+            </div>
 
         </div>
 

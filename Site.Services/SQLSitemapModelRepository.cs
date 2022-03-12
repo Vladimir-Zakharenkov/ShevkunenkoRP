@@ -10,10 +10,7 @@ namespace Site.Services
     {
         private readonly SiteContext _siteContext;
 
-        public SQLSitemapModelRepository(SiteContext siteContext)
-        {
-            _siteContext = siteContext;
-        }
+        public SQLSitemapModelRepository(SiteContext siteContext) => _siteContext = siteContext;
 
         public IEnumerable<SitemapModel> Sitemaps => _siteContext.SitemapModels.Include(p => p.ImageModel);
 
@@ -23,21 +20,21 @@ namespace Site.Services
             _siteContext.SaveChanges();
         }
 
-        public void UpdatePage(SitemapModel pageToUpdate)
+        public void UpdatePage(SitemapModel sitemapItem)
         {
-            SitemapModel page = _siteContext.SitemapModels.Find(pageToUpdate.SitemapModelId);
+            SitemapModel page = _siteContext.SitemapModels.Find(sitemapItem.SitemapModelId);
 
-            page.PageNumber = pageToUpdate.PageNumber;
-            page.Loc = pageToUpdate.Loc;
-            page.Lastmod = pageToUpdate.Lastmod;
-            page.Changefreq = pageToUpdate.Changefreq;
-            page.Priority = pageToUpdate.Priority;
-            page.LeftBackground = pageToUpdate.LeftBackground;
-            page.RightBackground = pageToUpdate.RightBackground;
-            page.Title = pageToUpdate.Title;
-            page.Description = pageToUpdate.Description;
-            page.KeyWords = pageToUpdate.KeyWords;
-            page.ImageModelImageId = pageToUpdate.ImageModelImageId;
+            page.PageNumber = sitemapItem.PageNumber;
+            page.Loc = sitemapItem.Loc;
+            page.Lastmod = sitemapItem.Lastmod;
+            page.Changefreq = sitemapItem.Changefreq;
+            page.Priority = sitemapItem.Priority;
+            page.LeftBackground = sitemapItem.LeftBackground;
+            page.RightBackground = sitemapItem.RightBackground;
+            page.Title = sitemapItem.Title;
+            page.Description = sitemapItem.Description;
+            page.KeyWords = sitemapItem.KeyWords;
+            page.ImageModelImageId = sitemapItem.ImageModelImageId;
 
             //var entry = _siteContext.SitemapModels.First(e => e.SitemapModelId == pageToUpdate.SitemapModelId);
             //_siteContext.Entry(entry).CurrentValues.SetValues(pageToUpdate);

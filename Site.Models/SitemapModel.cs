@@ -17,52 +17,52 @@ namespace Site.Models
 
         [Required(ErrorMessage = "Необходимо ввести адрес страницы")]
         [DataType(DataType.Url)]
-        [Display(Name = "Адрес страницы")]
+        [Display(Name = "Адрес страницы:")]
         public Uri Loc { get; set; }
 
         [Required(ErrorMessage = "Необходимо указать дату")]
         [DataType(DataType.Date)]
-        [Display(Name = "Дата изменения")]
+        [Display(Name = "Дата изменения:")]
         public DateTime Lastmod { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
-        [Display(Name = "Частота изменения")]
+        [Display(Name = "Частота изменения:")]
         [MaxLength(7)]
         public string Changefreq { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Duration)]
-        [Display(Name = "Приоритет страницы")]
+        [Display(Name = "Приоритет страницы:")]
         [MaxLength(3)]
         public string Priority { get; set; }
 
         [DataType(DataType.Text)]
-        [Display(Name = "Фон страницы слева")]
+        [Display(Name = "Фон страницы слева:")]
         public string LeftBackground { get; set; }
 
         [DataType(DataType.Text)]
-        [Display(Name = "Фон страницы справа")]
+        [Display(Name = "Фон страницы справа:")]
         public string RightBackground { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
-        [Display(Name = "Заголовок страницы")]
+        [Display(Name = "Заголовок страницы:")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
-        [Display(Name = "Описание страницы")]
+        [Display(Name = "Описание страницы:")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
-        [Display(Name = "Ключевые слова")]
+        [Display(Name = "Ключевые слова:")]
         public string KeyWords { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
-        [Display(Name = "Картинка для страницы")]
+        [Display(Name = "Картинка для страницы (GUID):")]
         public Guid ImageModelImageId { get; set; }
         public ImageModel ImageModel { get; set; }
     }
