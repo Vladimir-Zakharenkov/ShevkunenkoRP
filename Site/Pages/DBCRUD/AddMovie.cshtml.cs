@@ -30,7 +30,7 @@ namespace Site.Pages.DBCRUD
 
         public IActionResult OnPost()
         {
-            PageNumber = 22;
+            PageNumber = 21;
 
             if (_imageContext.Images.FirstOrDefault(x => x.ImageName == Movie.ImageName) == null)
             {

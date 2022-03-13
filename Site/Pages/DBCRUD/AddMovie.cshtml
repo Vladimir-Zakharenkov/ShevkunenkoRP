@@ -18,7 +18,7 @@
         <form method="post" asp-page-handler="OnPost">
 
             <label for="ImageNameInput" asp-for="Movie.ImageName" class="form-label text-primary fs-5"></label>
-            <input id="ImageNameInput" asp-for="Movie.ImageName" class="form-control" type="text" aria-describedby="ImageNameHelpBlock" />
+            <input id="ImageNameInput" asp-for="Movie.ImageName" class="form-control" aria-describedby="ImageNameInputHelpBlock" />
             <div id="ImageNameInputHelpBlock" class="form-text">
                 параметр «image-name» для ViewComponent
             </div>
@@ -26,12 +26,12 @@
 
             <hr class="liniya" />
 
-            <label for="MovieCaptionInput" asp-for="Movie. MovieCaption" class="form-label text-primary fs-5"></label>
-            <input id="MovieCaptionInput" asp-for="Movie. MovieCaption" class="form-control" type="text" aria-describedby=" MovieCaptionHelpBlock" />
-            <div id="imageName2InputHelpBlock" class="form-text">
+            <label for="MovieCaptionInput" asp-for="Movie.MovieCaption" class="form-label text-primary fs-5"></label>
+            <input id="MovieCaptionInput" asp-for="Movie.MovieCaption" class="form-control" aria-describedby="MovieCaptionInputHelpBlock" />
+            <div id="MovieCaptionInputHelpBlock" class="form-text">
                 название фильма
             </div>
-            <span asp-validation-for="Movie. MovieCaption" class="text-danger"></span>
+            <span asp-validation-for="Movie.MovieCaption" class="text-danger"></span>
 
             <hr class="liniya" />
 

@@ -7,7 +7,7 @@ namespace Site.Pages.ViewComponents
     public class Movie : ViewComponent
     {
         private readonly IMovieModelRepository _movieContext;
-        public Movie(IMovieModelRepository context) => _movieContext = context;
+        public Movie(IMovieModelRepository movieContext) => _movieContext = movieContext;
 
         public IViewComponentResult Invoke(string movieCaption)
         {

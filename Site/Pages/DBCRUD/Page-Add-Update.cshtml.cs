@@ -13,7 +13,13 @@ namespace Site.Pages.DBCRUD
     public class Page_Add_UpdateModel : PageModel
     {
         private readonly ISitemapModelRepository _sitemapContext;
-        public Page_Add_UpdateModel(ISitemapModelRepository sitemapContext) => _sitemapContext = sitemapContext;
+        private readonly IImageModelRepository _imageContext;
+
+        public Page_Add_UpdateModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext)
+        {
+            _sitemapContext = sitemapContext;
+            _imageContext = imageContext;
+        }
 
         public uint PageNumber { get; set; }
 
@@ -64,7 +70,7 @@ namespace Site.Pages.DBCRUD
                 }
             }
 
-            if (_sitemapContext.Sitemaps.FirstOrDefault(x => x.ImageModelImageId == SitemapItem.ImageModelImageId) == null)
+            if (_imageContext.Images.FirstOrDefault(x => x.ImageId == SitemapItem.ImageModelImageId) == null)
             {
                 ModelState.AddModelError("SitemapItem.ImageModelImageId", "Картинки с таким GUID не существует");
 

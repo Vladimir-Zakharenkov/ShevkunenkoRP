@@ -50,6 +50,13 @@ namespace Site.Pages.DBCRUD
         {
             PageNumber = 82;
 
+            if (_imageContext.Images.FirstOrDefault(x => x.ImageName == Image.ImageName) != null)
+            {
+                ModelState.AddModelError("Image.ImageName", " артинка с таким именем уже существует");
+
+                return Page();
+            }
+
             if (ModelState.IsValid)
             {
                 if (Image.ImageId == Guid.Empty)
