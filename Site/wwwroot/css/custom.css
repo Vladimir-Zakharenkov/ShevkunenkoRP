@@ -355,6 +355,9 @@ table.gsc-search-box, form.gsc-search-box {
   width: 50%;
   min-width: 180px; }
 
+p {
+  margin-bottom: 0; }
+
 /* Выравнивание текста по ширине абзаца */
 .text_p_justify p {
   text-align: justify;

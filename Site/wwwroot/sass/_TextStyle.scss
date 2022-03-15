@@ -1,12 +1,16 @@
-﻿/* Выравнивание текста по ширине абзаца */
+﻿p {
+    margin-bottom: 0;
+}
+
+/* Выравнивание текста по ширине абзаца */
 .text_p_justify p {
     text-align: justify;
     margin-bottom: 0;
     text-indent: 1.5rem;
 }
 
-.text_justify{
-    text-align:justify;
+.text_justify {
+    text-align: justify;
 }
 
 /* ссылка в тексте книги */
