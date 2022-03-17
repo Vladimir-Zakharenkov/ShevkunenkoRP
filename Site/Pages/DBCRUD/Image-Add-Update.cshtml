@@ -15,6 +15,8 @@
             if ((string)ViewData["Action"] == "Edit")
             {
                 <h1 class="fs-3 text_shadow">Изменить данные картинки</h1>
+
+                <vc:image-by-id image-id="@Model.Image.ImageId" css-class="width50percent ten mb-3" image-icon="false" />
             }
             else
             {
@@ -26,71 +28,38 @@
 
         <form asp-page-handler="OnPost" method="post">
 
-            <input asp-for="Image.ImageId" type="hidden" />
-
-            <vc:image-by-id image-id="@Model.Image.ImageId" css-class="width50percent ten mb-3" /><br />
-
-            <hr class="liniya" />
-
-            <div class="row g-2 justify-content-center">
-                <div class="col-auto text-end">
-                    <label for="imageNameInput" asp-for="Image.ImageName" class="col-form-label text-primary fs-5 fw-bold"></label>
-                </div>
-                <div class="col-6">
-                    <input id="imageNameInput" asp-for="Image.ImageName" class="form-control text-start" aria-describedby="imageNameInputHelpBlock" />
-                </div>
-                <div class="col-12 justify-content-center">
-                    <span id="imageNameInputHelpBlock" class="form-text">
-                        имя файла картинки без расширения - <span class="text-danger">обязательное поле</span>
-                    </span>
-                </div>
+            <label for="ImageIdInput" asp-for="Image.ImageId" class="form-label text-primary fs-5 fw-bold"></label>
+            <input readonly id="ImageIdInput" asp-for="Image.ImageId" class="form-control text-center" aria-describedby="ImageIdInputHelpBlock" />
+            <div id="ImageIdInputHelpBlock" class="form-text">
+                <span class="text-danger"></span>
             </div>
-            <span asp-validation-for="Image.ImageName" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageName2Input" asp-for="Image.ImageName2" class="form-label text-primary fs-5 fw-bold"></label>
-            <input id="imageName2Input" asp-for="Image.ImageName2" class="form-control text-center" aria-describedby="imageName2HelpBlock" />
-            <div id="imageName2InputBlock" class="form-text">
-                <span class="text-danger">обязательное поле</span>
-            </div>
-            <span asp-validation-for="Image.ImageName2" class="text-danger"></span>
-
-            <hr class="liniya" />
-
-            <label for="imageCaptionInput" asp-for="Image.ImageCaption" class="form-label text-primary fs-5 fw-bold"></label>
-            <input id="imageCaptionInput" asp-for="Image.ImageCaption" class="form-control text-center" aria-describedby="imageCaptionInputHelpBlock" />
-            <div id="imageCaptionInputHelpBlock" class="form-text">
+            <label for="ImageCaptionInput" asp-for="Image.ImageCaption" class="form-label text-primary fs-5 fw-bold"></label>
+            <input id="ImageCaptionInput" asp-for="Image.ImageCaption" class="form-control text-center" aria-describedby="ImageCaptionInputHelpBlock" />
+            <div id="ImageCaptionInputHelpBlock" class="form-text">
                 <span class="text-danger">обязательное поле</span>
             </div>
             <span asp-validation-for="Image.ImageCaption" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageDescriptionInput" asp-for="Image.ImageDescription" class="form-label text-primary fs-5 fw-bold"></label>
-            <textarea id="imageDescriptionInput" asp-for="Image.ImageDescription" class="form-control" rows="1" aria-describedby="imageDescriptionInputHelpBlock"></textarea>
-            <div id="imageDescriptionInputHelpBlock" class="form-text">
+            <label for="ImageDescriptionInput" asp-for="Image.ImageDescription" class="form-label text-primary fs-5 fw-bold"></label>
+            <textarea id="ImageDescriptionInput" asp-for="Image.ImageDescription" class="form-control" rows="1" aria-describedby="ImageDescriptionInputHelpBlock"></textarea>
+            <div id="ImageDescriptionInputHelpBlock" class="form-text">
                 <span class="text-danger">обязательное поле</span>
             </div>
             <span asp-validation-for="Image.ImageDescription" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageContentUrlInput" asp-for="Image.ImageContentUrl" class="form-label text-primary fs-5 fw-bold"></label>
-            <input id="imageContentUrlInput" asp-for="Image.ImageContentUrl" class="form-control text-center" aria-describedby="imageContentUrlInputHelpBlock" />
-            <div id="imageContentUrlInputHelpBlock" class="form-text">
+            <label for="ImageContentUrlInput" asp-for="Image.ImageContentUrl" class="form-label text-primary fs-5 fw-bold"></label>
+            <input id="ImageContentUrlInput" asp-for="Image.ImageContentUrl" class="form-control text-center" aria-describedby="ImageContentUrlInputHelpBlock" />
+            <div id="ImageContentUrlInputHelpBlock" class="form-text">
                 <span class="text-danger">обязательное поле</span>
             </div>
             <span asp-validation-for="Image.ImageContentUrl" class="text-danger"></span>
-
-            <hr class="liniya" />
-
-            <label for="imageThumbnailUrlInput" asp-for="Image.ImageThumbnailUrl" class="form-label text-primary fs-5 fw-bold"></label>
-            <input id="imageThumbnailUrlInput" asp-for="Image.ImageThumbnailUrl" class="form-control text-center" aria-describedby="imageThumbnailUrlInputHelpBlock" />
-            <div id="imageThumbnailUrlInputHelpBlock" class="form-text">
-                <span class="text-danger">обязательное поле</span>
-            </div>
-            <span asp-validation-for="Image.ImageThumbnailUrl" class="text-danger"></span>
 
             <hr class="liniya" />
 
@@ -128,47 +97,67 @@
 
             <hr class="liniya" />
 
-            <label for="imageSrcInput" asp-for="Image.ImageSrc" class="form-label text-primary fs-5 fw-bold"></label>
-            <input id="imageSrcInput" asp-for="Image.ImageSrc" class="form-control text-center" aria-describedby="imageSrcInputHelpBlock" />
-            <div id="imageSrcInputHelpBlock" class="form-text">
-                путь к картинке (/images/...) - <span class="text-danger">обязательное поле</span>
-            </div>
-            <span asp-validation-for="Image.ImageSrc" class="text-danger"></span>
-
-            <hr class="liniya" />
-
-            <label for="imageAltInput" asp-for="Image.ImageAlt" class="form-label text-primary fs-5 fw-bold"></label>
-            <input id="imageAltInput" asp-for="Image.ImageAlt" class="form-control text-center" aria-describedby="imageAltInputHelpBlock" />
-            <div id="imageAltInputHelpBlock" class="form-text col-12">
+            <label for="ImageAltInput" asp-for="Image.ImageAlt" class="form-label text-primary fs-5 fw-bold"></label>
+            <input id="ImageAltInput" asp-for="Image.ImageAlt" class="form-control text-center" aria-describedby="ImageAltInputHelpBlock" />
+            <div id="ImageAltInputHelpBlock" class="form-text col-12">
                 <span class="text-danger">обязательное поле</span>
             </div>
             <span asp-validation-for="Image.ImageAlt" class="text-danger"></span>
 
             <hr class="liniya" />
 
-            <label for="imageTitleInput" asp-for="Image.ImageTitle" class="form-label text-primary fs-5 fw-bold"></label>
-            <input id="imageTitleInput" asp-for="Image.ImageTitle" class="form-control text-center" aria-describedby="imageTitleInputHelpBlock" />
-            <div id="imageTitleInputHelpBlock" class="form-text col-12">
-                <span class="text-danger">обязательное поле</span>
+            <h1 class="fs-3 text_shadow mb-3">Иконка</h1>
+
+            @{
+                if ((string)ViewData["Action"] == "Edit")
+                {
+                    <vc:image-by-id image-id="@Model.Image.ImageId" css-class="width50percent ten mb-3" image-icon="true" />
+                }
+            }
+
+            <hr class="liniya" />
+
+            <label for="ImageThumbnailUrlInput" asp-for="Image.ImageThumbnailUrl" class="form-label text-danger fs-5 fw-bold"></label>
+            <input id="ImageThumbnailUrlInput" asp-for="Image.ImageThumbnailUrl" class="form-control text-center" aria-describedby="ImageThumbnailUrlInputHelpBlock" />
+            <div id="ImageThumbnailUrlInputHelpBlock" class="form-text">
+                адрес иконки (https://...) - <span class="text-primary">обязательное поле</span>
             </div>
-            <span asp-validation-for="Image.ImageTitle" class="text-danger"></span>
+            <span asp-validation-for="Image.ImageThumbnailUrl" class="text-danger"></span>
 
             <hr class="liniya" />
 
             <div class="row g-2 justify-content-center">
                 <div class="col-auto">
-                    <label for="ImageTypeInput" asp-for="Image.ImageType" class="col-form-label text-primary fs-5 fw-bold"></label>
+                    <label for="ImageThumbnailWidthInput" asp-for="Image.ImageThumbnailWidth" class="col-form-label text-danger fs-5 fw-bold"></label>
                 </div>
                 <div class="col-auto">
-                    <input id="ImageTypeInput" asp-for="Image.ImageType" class="form-control text-start" aria-describedby="ImageTypeInputHelpBlock" />
+                    <input id="ImageThumbnailWidthInput" asp-for="Image.ImageThumbnailWidth" class="form-control text-start" aria-describedby="ImageThumbnailWidthInputHelpBlock" />
                 </div>
                 <div class="col-12 justify-content-center">
-                    <span id="ImageTypeInputHelpBlock" class="form-text">
-                        расширение файла - <span class="text-danger">обязательное поле</span>
+                    <span id="ImageThumbnailWidthHelpBlock" class="form-text">
+                        ширина иконки в px - <span class="text-primary">обязательное поле</span>
                     </span>
                 </div>
             </div>
-            <span asp-validation-for="Image.ImageType" class="text-danger"></span>
+            <span asp-validation-for="Image.ImageThumbnailWidth" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="ImageThumbnailHeightInput" asp-for="Image.ImageThumbnailHeight" class="col-form-label text-danger fs-5 fw-bold"></label>
+                </div>
+                <div class="col-auto">
+                    <input id="ImageThumbnailHeightInput" asp-for="Image.ImageThumbnailHeight" class="form-control text-start" aria-describedby="ImageThumbnailHeightInputHelpBlock" />
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="ImageThumbnailHeightHelpBlock" class="form-text">
+                        высота иконки в px - <span class="text-primary">обязательное поле</span>
+                    </span>
+                </div>
+            </div>
+            <span asp-validation-for="Image.ImageThumbnailHeight" class="text-danger"></span>
+
 
             <hr class="liniya" />
 

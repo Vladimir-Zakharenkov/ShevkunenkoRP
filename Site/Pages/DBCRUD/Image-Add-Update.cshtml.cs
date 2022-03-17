@@ -50,9 +50,16 @@ namespace Site.Pages.DBCRUD
         {
             PageNumber = 82;
 
-            if (_imageContext.Images.FirstOrDefault(x => x.ImageName == Image.ImageName) != null)
+            if (Image.ImageId == Guid.Empty & _imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == Image.ImageContentUrl.Segments.Last()) != null)
             {
-                ModelState.AddModelError("Image.ImageName", "Картинка с таким именем уже существует");
+                ModelState.AddModelError("Image.ImageContentUrl", "Такой файл уже существует");
+
+                return Page();
+            }
+
+            if (Image.ImageId == Guid.Empty & _imageContext.Images.FirstOrDefault(x => x.ImageThumbnailUrl.Segments.Last() == Image.ImageThumbnailUrl.Segments.Last()) != null)
+            {
+                ModelState.AddModelError("Image.ImageThumbnailUrl", "Такой файл уже существует");
 
                 return Page();
             }

@@ -153,5 +153,11 @@ namespace Site.Models
         [DataType(DataType.Text)]
         [Display(Name = "Картинка для фильма")]
         public string Thumbnail { get; set; }
+
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Картинка для страницы (GUID):")]
+        public Guid ImageModelImageId { get; set; }
+        public ImageModel ImageModel { get; set; }
     }
 }

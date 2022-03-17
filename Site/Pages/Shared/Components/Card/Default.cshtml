@@ -25,13 +25,13 @@
 
                     <vc:movie movie-caption="@Model.MovieCaption" />
 
-                    <vc:image image-name="@Model.ImageName" css-class="card-img-top shadw rounded-3" />
+                    <vc:image file-name="@Model.ImageName" css-class="card-img-top shadw rounded-3" image-icon="@((bool)ViewData["ImageIcon"])" />
 
                 </span>
             }
             else
             {
-                <vc:image image-name="@Model.ImageName" css-class="card-img-top shadw rounded-3" />
+                <vc:image file-name="@Model.ImageName" css-class="card-img-top shadw rounded-3" image-icon="@((bool)ViewData["ImageIcon"])" />
             }
 
             @if (Model.CardBody)

@@ -49,12 +49,12 @@ namespace Site.Pages.DBCRUD
         {
             PageNumber = 24; ;
 
-            if (_imageContext.Images.FirstOrDefault(x => x.ImageName == CardToUpdate.ImageName) == null)
-            {
-                ModelState.AddModelError("CardToUpdate.ImageName", "ViewComponent с таким параметром не существует");
+            //if (_imageContext.Images.FirstOrDefault(x => x.ImageName == CardToUpdate.ImageName) == null)
+            //{
+            //    ModelState.AddModelError("CardToUpdate.ImageName", "ViewComponent с таким параметром не существует");
 
-                return Page();
-            }
+            //    return Page();
+            //}
 
             if (CardToUpdate.CardMovie == true & _movieContext.Movies.FirstOrDefault(x => x.MovieCaption == CardToUpdate.MovieCaption) == null)
             {

@@ -31,12 +31,12 @@ else
 {
     <div class="row">
 
-        <div class="col-12 text-center">
+        <div class="col-12 text-center mb-2">
             <p class="fs-4 text-primary">Количество изображений:&nbsp;@Model.AllImages.Count()</p>
         </div>
 
         <div class="col">
-            <a asp-page="Image-Icons" class="btn btn btn-outline-primary shadw">ИКОНКИ</a>
+            <a asp-page="Image-Icons" class="btn btn btn-outline-primary shadw">КАРТИНКИ</a>
         </div>
 
     </div>
@@ -55,10 +55,10 @@ else
                 <thead>
 
                     <tr>
-                        <th scope="col" class="text-start">ImageName</th>
-                        <th scope="col" class="d-none d-sm-table-cell text-sm-start">ImageCaption</th>
-                        <th scope="col" class="d-none d-lg-table-cell text-lg-start">Width</th>
-                        <th scope="col" class="d-none d-lg-table-cell text-lg-start">Height</th>
+                        <th scope="col" class="text-start">FileName</th>
+                        <th scope="col" class="d-none d-md-table-cell text-start">ImageCaption</th>
+                        <th scope="col" class="d-md-none d-lg-table-cell text-start">Width</th>
+                        <th scope="col" class="d-md-none d-lg-table-cell text-start">Height</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                         <th scope="col"></th>
@@ -68,16 +68,16 @@ else
 
                 <tbody>
 
-                    @foreach (var imageItem in Model.AllImages)
+                    @foreach (var image in Model.AllImages)
                     {
                     <tr class="text-start">
-                        <td scope="col" class="text-start">@imageItem.ImageName</td>
-                        <td scope="col" class="d-none d-sm-table-cell text-sm-start">@imageItem.ImageCaption</td>
-                        <td scope="col" class="d-none d-lg-table-cell text-lg-start">@imageItem.ImageWidth</td>
-                        <td scope="col" class="d-none d-lg-table-cell text-lg-start">@imageItem.ImageHeight</td>
-                        <td scope="col"><a asp-page="Image-Details" asp-route-imageid="@imageItem.ImageId" class="btn btn-outline-primary py-1 px-1 shadw" title="Информация">Info</a></td>
-                        <td scope="col"><a asp-page="Image-Add-Update" asp-route-imageid="@imageItem.ImageId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать">Edit</a></td>
-                        <td scope="col"><a asp-page="Image-Delete" asp-route-imageid="@imageItem.ImageId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить">Del</a></td>
+                        <td scope="col" class="text-sm-start">@image.ImageContentUrl.Segments.Last()</td>
+                        <td scope="col" class="d-none d-md-table-cell text-start">@image.ImageCaption</td>
+                        <td scope="col" class="d-md-none d-lg-table-cell text-start">@image.ImageWidth</td>
+                        <td scope="col" class="d-md-none d-lg-table-cell text-start">@image.ImageHeight</td>
+                        <td scope="col"><a asp-page="Image-Details" asp-route-imageid="@image.ImageId" class="btn btn-outline-primary py-1 px-1 shadw" title="Информация">Info</a></td>
+                        <td scope="col"><a asp-page="Image-Add-Update" asp-route-imageid="@image.ImageId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать">Edit</a></td>
+                        <td scope="col"><a asp-page="Image-Delete" asp-route-imageid="@image.ImageId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить">Del</a></td>
                     </tr>
                     }
 

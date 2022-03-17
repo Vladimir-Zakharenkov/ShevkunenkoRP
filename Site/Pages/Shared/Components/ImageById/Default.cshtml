@@ -1,22 +1,47 @@
 ﻿@model Site.Models.ImageModel
 
-<span itemscope itemtype="http://schema.org/ImageObject">
+@if ((bool)ViewData["ImageIcon"])
 
-    <meta itemprop="name" content="@Model.ImageName2" />
+{
+    <span itemscope itemtype="http://schema.org/ImageObject">
 
-    <meta itemprop="caption" content="@Model.ImageCaption" />
+        <meta itemprop="name" content="@Model.ImageCaption" />
 
-    <meta itemprop="description" content="@Model.ImageDescription" />
+        <meta itemprop="caption" content="@Model.ImageCaption" />
 
-    <link itemprop="contentUrl" href="@Model.ImageContentUrl" />
+        <meta itemprop="description" content="@Model.ImageDescription" />
 
-    <link itemprop="thumbnailUrl" href="@Model.ImageThumbnailUrl" />
+        <link itemprop="contentUrl" href="@Model.ImageThumbnailUrl" />
 
-    <meta itemprop="width" content="@Model.ImageWidth px" />
+        <link itemprop="thumbnailUrl" href="@Model.ImageThumbnailUrl" />
 
-    <meta itemprop="height" content="@Model.ImageHeight px" />
+        <meta itemprop="width" content="@Model.ImageThumbnailWidth px" />
 
-    <img itemprop="image" class="@ViewData["CssClass"]" asp-append-version="true"
-         src="@Model.ImageSrc" alt="@Model.ImageAlt" title="@Model.ImageTitle" />
+        <meta itemprop="height" content="@Model.ImageThumbnailHeight px" />
 
-</span>
+        <img itemprop="image" class="@ViewData["CssClass"]" src="@Model.ImageThumbnailUrl.ToString().Trim().Substring(24)" asp-append-version="true" alt="@Model.ImageAlt" title="@Model.ImageAlt" />
+
+    </span>
+}
+else
+{
+    <span itemscope itemtype="http://schema.org/ImageObject">
+
+        <meta itemprop="name" content="@Model.ImageCaption" />
+
+        <meta itemprop="caption" content="@Model.ImageCaption" />
+
+        <meta itemprop="description" content="@Model.ImageDescription" />
+
+        <link itemprop="contentUrl" href="@Model.ImageContentUrl" />
+
+        <link itemprop="thumbnailUrl" href="@Model.ImageThumbnailUrl" />
+
+        <meta itemprop="width" content="@Model.ImageWidth px" />
+
+        <meta itemprop="height" content="@Model.ImageHeight px" />
+
+        <img itemprop="image" class="@ViewData["CssClass"]" src="@Model.ImageContentUrl.ToString().Trim().Substring(24)" asp-append-version="true" alt="@Model.ImageAlt" title="@Model.ImageAlt" />
+
+    </span>
+}

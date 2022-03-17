@@ -4,21 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Site.Models
 {
-    [Index(nameof(ImageName), IsUnique = true)]
+    //[Index(nameof(ImageName), IsUnique = true)]
     public class ImageModel
     {
         [Key]
+        [Display(Name = "«ImageId» идентификатор Guid")]
         public Guid ImageId { get; set; }
-
-        [Required(ErrorMessage = "Поле не может быть пустым")]
-        [DataType(DataType.Text)]
-        [Display(Name = "«image-name»:")]
-        public string ImageName { get; set; }
-
-        [Required(ErrorMessage = "Поле не может быть пустым")]
-        [DataType(DataType.Text)]
-        [Display(Name = "«name» для Microdata:")]
-        public string ImageName2 { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
@@ -31,14 +22,9 @@ namespace Site.Models
         public string ImageCaption { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
-        [DataType(DataType.ImageUrl, ErrorMessage = "Поле должно содержать адрес http://....")]
+        [DataType(DataType.ImageUrl, ErrorMessage = "Поле должно содержать адрес http://...")]
         [Display(Name = "«contentUrl» для Microdata:")]
-        public string ImageContentUrl { get; set; }
-
-        [Required(ErrorMessage = "Поле не может быть пустым")]
-        [DataType(DataType.ImageUrl, ErrorMessage = "Поле должно содержать адрес http://....")]
-        [Display(Name = "«thumbnailUrl» для Microdata:")]
-        public string ImageThumbnailUrl { get; set; }
+        public Uri ImageContentUrl { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Duration, ErrorMessage = "Поле не может быть пустым")]
@@ -53,23 +39,25 @@ namespace Site.Models
         public int ImageHeight { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
-        [DataType(DataType.Text)]
-        [Display(Name = "Адрес картинки для вьюшек:")]
-        public string ImageSrc { get; set; }
+        [DataType(DataType.ImageUrl, ErrorMessage = "Поле должно содержать адрес http://...")]
+        [Display(Name = "«thumbnailUrl» для Microdata:")]
+        public Uri ImageThumbnailUrl { get; set; }
+
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Duration, ErrorMessage = "Поле не может быть пустым")]
+        [Range(0, 8000, ErrorMessage = "Ширина картинки от 0 до 8000 px")]
+        [Display(Name = "Ширина иконки:")]
+        public int ImageThumbnailWidth { get; set; }
+
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Duration, ErrorMessage = "Поле не может быть пустым")]
+        [Range(0, 8000, ErrorMessage = "Высота картинки от 0 до 8000 px")]
+        [Display(Name = "Высота иконки:")]
+        public int ImageThumbnailHeight { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
-        [Display(Name = "«alt» для тега «img»:")]
+        [Display(Name = "«alt» и «title» для тега «img»:")]
         public string ImageAlt { get; set; }
-
-        [Required(ErrorMessage = "Поле не может быть пустым")]
-        [DataType(DataType.Text)]
-        [Display(Name = "«title» для тега «img»:")]
-        public string ImageTitle { get; set; }
-
-        [Required(ErrorMessage = "Поле не может быть пустым")]
-        [DataType(DataType.Text)]
-        [Display(Name = "Тип изображения:")]
-        public string ImageType { get; set; }
     }
 }

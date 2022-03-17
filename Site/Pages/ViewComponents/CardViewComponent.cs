@@ -9,14 +9,16 @@ namespace Site.Pages.ViewComponents
         private readonly ICardModelRepository _cardContext;
         public Card(ICardModelRepository context) => _cardContext = context;
 
-        public IViewComponentResult Invoke(string imageName)
+        public IViewComponentResult Invoke(string fileName, bool imageIcon)
         {
-            CardModel card = _cardContext.GetCard(imageName);
+            CardModel card = _cardContext.GetCardByFileName(fileName);
 
             if (card == null)
             {
-                card = _cardContext.GetCard("no-image");
+                card = _cardContext.GetCardByFileName("no-image.png");
             }
+
+            ViewData["ImageIcon"] = imageIcon;
 
             return View(card);
         }

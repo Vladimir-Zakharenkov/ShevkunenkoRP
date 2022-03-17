@@ -137,6 +137,35 @@ body {
   position: absolute;
   z-index: -2; }
 
+/* перенос слов в тексте */
+body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+  -ms-hyphenate-limit-chars: 6 3 3;
+  -webkit-hyphenate-limit-chars: 6 3 3;
+  -moz-hyphenate-limit-chars: 6 3 3;
+  -o-hyphenate-limit-chars: 6 3 3;
+  -webkit-hyphenate-limit-before: 3;
+  -webkit-hyphenate-limit-after: 3;
+  hyphenate-limit-chars: 6 3 3;
+  -ms-hyphenate-limit-lines: 2;
+  -webkit-hyphenate-limit-lines: 2;
+  -moz-hyphenate-limit-lines: 2;
+  -o-hyphenate-limit-lines: 2;
+  hyphenate-limit-lines: 2;
+  /* запрет переноса последнего слова в абзаце */
+  -ms-hyphenate-limit-last: always;
+  -webkit-hyphenate-limit-last: always;
+  -moz-hyphenate-limit-last: always;
+  -o-hyphenate-limit-last: always;
+  hyphenate-limit-last: always;
+  /* hyphenate-limit-zone: 8% */ }
+
 /* Donate */
 .wbform {
   width: 240px;

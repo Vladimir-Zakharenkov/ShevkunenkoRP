@@ -31,7 +31,7 @@ else
 {
     <div class="row">
 
-        <div class="col-12 text-center">
+        <div class="col-12 text-center mb-2">
             <p class="fs-4 text-primary">Количество изображений:&nbsp;@Model.AllImages.Count()</p>
         </div>
 
@@ -53,10 +53,23 @@ else
             <div class="card h-100 me-1 mb-1 p-1 shadw borderforitem">
 
                 <a asp-page="Image-Details" asp-route-imageid="@image.ImageId">
-                    <vc:image image-name="@image.ImageName" css-class="card-img-top shadw" />
-                </a>
 
-                <div class="card-body py-0"></div>
+                    <p class="text-primary fs-6">КАРТИНКА (@image.ImageWidth&nbsp;x&nbsp;@image.ImageHeight)</p>
+
+                    <vc:image-by-id image-id="@image.ImageId" css-class="card-img-top shadw" image-icon="false" />
+
+                    @if (image.ImageContentUrl != image.ImageThumbnailUrl)
+                    {
+                        <hr class="mb-0" />
+
+                        <p class="text-danger fs-6">ИКОНКА (@image.ImageThumbnailWidth&nbsp;x&nbsp;@image.ImageThumbnailHeight)</p>
+
+                        <vc:image-by-id image-id="@image.ImageId" css-class="card-img-top shadw" image-icon="true" />
+                    }
+
+                    <div class="card-body py-0"></div>
+
+                </a>
 
             </div>
 

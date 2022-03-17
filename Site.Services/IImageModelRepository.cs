@@ -10,10 +10,10 @@ namespace Site.Services
 
         void AddImage(ImageModel image);
 
-        ImageModel GetImage(Guid? imageId);
-
         void UpdateImage(ImageModel image);
 
         void DeleteImage(Guid imageId);
+
+        ImageModel GetImage(Guid? imageId);
     }
 }

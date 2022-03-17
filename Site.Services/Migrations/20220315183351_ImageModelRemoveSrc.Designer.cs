@@ -10,8 +10,8 @@ using Site.Services;
 namespace Site.Services.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20220315112252_test")]
-    partial class test
+    [Migration("20220315183351_ImageModelRemoveSrc")]
+    partial class ImageModelRemoveSrc
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -100,25 +100,15 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ImageName2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageSrc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ImageThumbnailHeight")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImageThumbnailUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ImageThumbnailWidth")
+                        .HasColumnType("int");
 
                     b.Property<int>("ImageWidth")
                         .HasColumnType("int");
@@ -199,6 +189,9 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("ImageModelImageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("ImageName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -247,6 +240,8 @@ namespace Site.Services.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MovieId");
+
+                    b.HasIndex("ImageModelImageId");
 
                     b.ToTable("MovieModels");
                 });
@@ -308,6 +303,17 @@ namespace Site.Services.Migrations
                         .IsUnique();
 
                     b.ToTable("SitemapModels");
+                });
+
+            modelBuilder.Entity("Site.Models.MovieModel", b =>
+                {
+                    b.HasOne("Site.Models.ImageModel", "ImageModel")
+                        .WithMany()
+                        .HasForeignKey("ImageModelImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ImageModel");
                 });
 
             modelBuilder.Entity("Site.Models.SitemapModel", b =>

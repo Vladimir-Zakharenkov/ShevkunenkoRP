@@ -1,4 +1,5 @@
-﻿using Site.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Site.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Site.Services
         private readonly SiteContext _siteContext;
         public SQLCardModelRepository(SiteContext siteContext) => _siteContext = siteContext;
 
-        public IEnumerable<CardModel> Cards => _siteContext.CardModels;
+        public IEnumerable<CardModel> Cards => _siteContext.CardModels.Include(p => p.ImageModel);
 
         public void AddCard(CardModel card)
         {
@@ -31,6 +32,7 @@ namespace Site.Services
             CardModel card = _siteContext.CardModels.Find(cardToUpdate.CardId);
 
             card.ImageName = cardToUpdate.ImageName;
+            card.ImageModelImageId = cardToUpdate.ImageModelImageId;
             card.CardLink = cardToUpdate.CardLink;
             card.CardBody = cardToUpdate.CardBody;
             card.CardText = cardToUpdate.CardText;
@@ -61,6 +63,18 @@ namespace Site.Services
             }
 
             return _siteContext.CardModels.FirstOrDefault(z => z.CardId == cardId);
+        }
+
+        public CardModel GetCardByFileName(string fileName)
+        {
+            CardModel card = Cards.FirstOrDefault(y => y.ImageModel.ImageContentUrl.Segments.Last() == fileName);
+
+            if (card == null)
+            {
+                card = Cards.FirstOrDefault(y => y.ImageModel.ImageContentUrl.Segments.Last() == "no-image.png");
+            }
+
+            return card;
         }
     }
 }

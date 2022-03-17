@@ -31,5 +31,11 @@ namespace Site.Models
         [DataType(DataType.Text)]
         [Display(Name = "Название фильма")]
         public string MovieCaption { get; set; }
+
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Картинка для карточки (GUID):")]
+        public Guid ImageModelImageId { get; set; }
+        public ImageModel ImageModel { get; set; }
     }
 }

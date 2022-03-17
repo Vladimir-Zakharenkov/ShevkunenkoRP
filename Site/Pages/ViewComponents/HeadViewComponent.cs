@@ -7,10 +7,7 @@ namespace Site.Pages.ViewComponents
     public class Head : ViewComponent
     {
         private readonly ISitemapModelRepository _sitemapContext;
-        public Head(ISitemapModelRepository pageContext)
-        {
-            _sitemapContext = pageContext;
-        }
+        public Head(ISitemapModelRepository pageContext) => _sitemapContext = pageContext;
 
         public IViewComponentResult Invoke(uint? pageNumber)
         {

@@ -32,12 +32,12 @@ namespace Site.Pages.DBCRUD
         {
             PageNumber = 21;
 
-            if (_imageContext.Images.FirstOrDefault(x => x.ImageName == Movie.ImageName) == null)
-            {
-                ModelState.AddModelError("Movie.ImageName", "ViewComponent с таким именем не существует");
+            //if (_imageContext.Images.FirstOrDefault(x => x.ImageName == Movie.ImageName) == null)
+            //{
+            //    ModelState.AddModelError("Movie.ImageName", "ViewComponent с таким именем не существует");
 
-                return Page();
-            }
+            //    return Page();
+            //}
 
             if (_movieContext.Movies.FirstOrDefault(x => x.MovieCaption == Movie.MovieCaption) != null)
             {

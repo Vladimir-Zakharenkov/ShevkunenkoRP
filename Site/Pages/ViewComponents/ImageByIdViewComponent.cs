@@ -11,16 +11,17 @@ namespace Site.Pages.ViewComponents
         private readonly IImageModelRepository _imageContext;
         public ImageById(IImageModelRepository imageContext) => _imageContext = imageContext;
 
-        public IViewComponentResult Invoke(Guid imageId, string cssClass)
+        public IViewComponentResult Invoke(Guid imageId, string cssClass, bool imageIcon)
         {
             ImageModel image = _imageContext.Images.FirstOrDefault(x => x.ImageId == imageId);
 
             if (image == null)
             {
-                image = _imageContext.Images.FirstOrDefault(x => x.ImageName == "no-image");
+                image = _imageContext.Images.FirstOrDefault(x => x.ImageId.ToString() == "9DFC87B8-B8CD-47F8-A147-9ED335227221");
             }
 
             ViewData["CssClass"] = cssClass;
+            ViewData["ImageIcon"] = imageIcon;
 
             return View(image);
         }

@@ -10,6 +10,8 @@ namespace Site.Services
 
         CardModel GetCard(string cardName);
 
+        CardModel GetCardByFileName(string fileName);
+
         CardModel GetCardById(Guid? cardId);
 
         void AddCard(CardModel card);

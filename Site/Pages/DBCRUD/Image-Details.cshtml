@@ -25,7 +25,18 @@
 
             </div>
 
-            <vc:image image-name="@Model.Image.ImageName" css-class="card-img-top m-2 width50percent shadw" />
+            <p class="text-primary fs-4">КАРТИНКА (@Model.Image.ImageWidth x @Model.Image.ImageHeight)</p>
+
+            <vc:image-by-id image-id="@Model.Image.ImageId" css-class="card-img-top m-2 width50percent shadw" image-icon="false" />
+
+            @if (Model.Image.ImageContentUrl != Model.Image.ImageThumbnailUrl)
+            {
+                <hr class="liniya" />
+
+                <p class="text-danger fs-4">ИКОНКА (@Model.Image.ImageThumbnailWidth x @Model.Image.ImageThumbnailHeight)</p>
+
+                <vc:image-by-id image-id="@Model.Image.ImageId" css-class="card-img-top m-2 width50percent shadw" image-icon="true" />
+            }
 
             <hr class="liniya" />
 
@@ -42,26 +53,10 @@
                     </li>
 
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageName&nbsp;:</span>
-                        <span id="ImageName" class="fs-5">@Model.Image.ImageName</span><br />
-                        <span id="ImageNameHelpBlock" class="form-text">
-                            «image-name» для ViewComponent
-                        </span>
-                    </li>
-
-                    <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageName2&nbsp;:</span><br />
-                        <span id="ImageName2" class="fs-5">@Model.Image.ImageName2</span><br />
-                        <span id="ImageName2HelpBlock" class="form-text">
-                            «name» для Microdata
-                        </span>
-                    </li>
-
-                    <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">ImageCaption&nbsp;:</span><br />
                         <span id="ImageCaption" class="fs-5">@Model.Image.ImageCaption</span><br />
                         <span id="ImageCaptionHelpBlock" class="form-text">
-                            «caption» для Microdata
+                            «caption» и «name» для Microdata
                         </span>
                     </li>
 
@@ -82,14 +77,6 @@
                     </li>
 
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageThumbnailUrl&nbsp;:</span><br />
-                        <span id="ImageThumbnailUrl" class="fs-5">@Model.Image.ImageThumbnailUrl</span><br />
-                        <span id="ImageThumbnailUrlHelpBlock" class="form-text">
-                            «thumbnailUrl» для Microdata
-                        </span>
-                    </li>
-
-                    <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">ImageWidth&nbsp;:</span>
                         <span id="ImageWidth" class="fs-5">@Model.Image.ImageWidth</span><br />
                         <span id="ImageWidthHelpBlock" class="form-text">
@@ -106,34 +93,36 @@
                     </li>
 
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageSrc&nbsp;:</span><br />
-                        <span id="ImageSrc" class="fs-5">@Model.Image.ImageSrc</span><br />
-                        <span id="ImageSrcHelpBlock" class="form-text">
-                            путь к картинке (/images/...)
-                        </span>
-                    </li>
-
-                    <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">ImageAlt&nbsp;:</span><br />
                         <span id="ImageAlt" class="fs-5">@Model.Image.ImageAlt</span><br />
                         <span id="ImageAltHelpBlock" class="form-text">
-                            «alt» для тега «img»
+                            «alt» и «title» для тега «img»
+                        </span>
+                    </li>
+
+                    <li><hr class="liniya" /></li>
+
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-danger">ImageThumbnailUrl&nbsp;:</span><br />
+                        <span id="ImageThumbnailUrl" class="fs-5">@Model.Image.ImageThumbnailUrl</span><br />
+                        <span id="ImageThumbnailUrlHelpBlock" class="form-text">
+                            «thumbnailUrl» для Microdata
                         </span>
                     </li>
 
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageTitle&nbsp;:</span><br />
-                        <span id="ImageTitle" class="fs-5">@Model.Image.ImageTitle</span><br />
-                        <span id="ImageTitleHelpBlock" class="form-text">
-                            «title» для тега «img»
+                        <span class="fw-bold fs-5 text-danger">ImageThumbnailWidth&nbsp;:</span>
+                        <span id="ImageThumbnailWidth" class="fs-5">@Model.Image.ImageThumbnailWidth</span><br />
+                        <span id="ImageThumbnailWidthHelpBlock" class="form-text">
+                            ширина иконки в px
                         </span>
                     </li>
 
                     <li class="list-group-item">
-                        <span class="fw-bold fs-5 text-primary">ImageType&nbsp;:</span>
-                        <span id="ImageType" class="fs-5">@Model.Image.ImageType</span><br />
-                        <span id="ImageTypeHelpBlock" class="form-text">
-                            расширение файла
+                        <span class="fw-bold fs-5 text-danger">ImageHeight&nbsp;:</span>
+                        <span id="ImageThumbnailHeight" class="fs-5">@Model.Image.ImageThumbnailHeight</span><br />
+                        <span id="ImageThumbnailHeightHelpBlock" class="form-text">
+                            высота иконки в px
                         </span>
                     </li>
 

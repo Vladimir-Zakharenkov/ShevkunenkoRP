@@ -35,19 +35,19 @@ namespace Site.Pages.DBCRUD
         {
             PageNumber = 25;
 
-            if (_imageContext.Images.FirstOrDefault(x => x.ImageName == Card.ImageName) == null)
-            {
-                ModelState.AddModelError("Card.ImageName", "ViewComponent с таким параметром не существует");
+            //if (_imageContext.Images.FirstOrDefault(x => x.ImageName == Card.ImageName) == null)
+            //{
+            //    ModelState.AddModelError("Card.ImageName", "ViewComponent с таким параметром не существует");
 
-                return Page();
-            }
+            //    return Page();
+            //}
 
-            if (_cardContext.Cards.FirstOrDefault(x => x.ImageName == Card.ImageName) != null)
-            {
-                ModelState.AddModelError("Card.ImageName", "Карточка с такой картинкой уже существует");
+            //if (_cardContext.Cards.FirstOrDefault(x => x.ImageName == Card.ImageName) != null)
+            //{
+            //    ModelState.AddModelError("Card.ImageName", "Карточка с такой картинкой уже существует");
 
-                return Page();
-            }
+            //    return Page();
+            //}
 
             if (Card.CardMovie == true & _movieContext.Movies.FirstOrDefault(x => x.MovieCaption == Card.MovieCaption) == null)
             {
