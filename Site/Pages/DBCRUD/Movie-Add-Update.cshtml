@@ -1,0 +1,511 @@
+﻿@page
+@model Movie_Add_UpdateModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <div class="col col-lg-9 col-xl-7 col-xxl-6 d-block mx-auto px-2">
+
+        <hr class="liniya" />
+
+        @if ((string)ViewData["Action"] == "Edit")
+        {
+            <h1 class="fs-3 text_shadow">Изменить данные фильма</h1>
+        }
+        else
+        {
+            <h1 class="fs-3 text_shadow">Добавить фильм</h1>
+        }
+
+        <hr class="liniya" />
+
+        <form asp-page-handler="OnPost" method="post" enctype="multipart/form-data">
+
+            <input asp-for="Movie.MovieId" type="hidden" />
+            <input asp-for="Movie.ImageModelImageId" type="hidden" />
+
+            @if (Model.Movie.MovieId == Guid.Empty)
+            {
+                <vc:image file-name="no-image.png" css-class="width50percent ten mb-3" image-icon="true" />
+            }
+            else
+            {
+                <vc:image-by-id image-id="@Model.Movie.ImageModelImageId" css-class="card-img-top mb-3 width50percent shadw" image-icon="false" />
+
+                if (Model.Movie.ImageModel != null)
+                {
+                    <p class="text-center"><span class="text-primary">Файл: </span><span class="text-danger">@Model.Movie.ImageModel.ImageContentUrl.Segments.Last()</span></p>
+                }
+            }
+
+            <hr class="liniya" />
+
+            <label for="ImageFileInput" asp-for="ImageFile" class="form-label text-primary fs-5">Thumbnail&nbsp;:</label>
+            <input id="ImageFileInput" asp-for="ImageFile" class="form-control" aria-describedby="ImageFileInputHelpBlock" />
+            <div id="ImageFileInputHelpBlock" class="form-text">
+                @if ((string)ViewData["Action"] == "Edit")
+                {
+                    <span>изменить файл картинки</span>
+                }
+                else
+                {
+                    <span>выбрать файл картинки - </span><span class="text-danger">обязательное поле</span>
+                }
+            </div>
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieCaptionInput" asp-for="Movie.MovieCaption" class="form-label text-primary fs-5">MovieCaption&nbsp;:</label>
+            <input id="MovieCaptionInput" asp-for="Movie.MovieCaption" class="form-control text-center" aria-describedby="MovieCaptionHelpBlock" />
+            <div id="MovieCaptionInputBlock" class="form-text">
+                <span>название фильма - </span><span class="text-danger">обязательное поле</span>
+            </div>
+            <span asp-validation-for="Movie.MovieCaption" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieDescriptionInput" asp-for="Movie.Description" class="form-label text-primary fs-5">Description&nbsp;:</label>
+            <textarea id="MovieDescriptionInput" rows="7" asp-for="Movie.Description" class="form-control" aria-describedby="MovieDescriptionInputHelpBlock"></textarea>
+            <div id="MovieDescriptionInputHelpBlock" class="form-text">
+                <span>краткое содержание (HTML) - </span><span class="text-danger">обязательное поле</span>
+            </div>
+            <span asp-validation-for="Movie.Description" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="list-group-item accordion" id="accordion">
+                <div class="accordion-item">
+
+                    <h2 class="accordion-header" id="heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="true" aria-controls="collapse">
+                            Съемочная группа:
+                        </button>
+                    </h2>
+                    <div id="collapse" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#accordion">
+                        <div class="accordion-body accordion-body-nointend">
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieРroductionCompanyInput" asp-for="Movie.РroductionCompany" class="col-form-label text-primary fs-6">РroductionCompany&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieРroductionCompanyInputHelpBlock">
+                                        <span>киностудии&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieРroductionCompanyInput" asp-for="Movie.РroductionCompany" class="form-control" aria-describedby="MovieРroductionCompanyInputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.РroductionCompany" class="text-danger"></span>
+
+                            <hr />
+
+                            <div class="row g-2 justify-content-start mb-2 mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieDirectorInput" asp-for="Movie.Director" class="col-form-label text-primary fs-6">Director&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieDirectorInputHelpBlock">
+                                        <span>режиссер&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieDirectorInput" asp-for="Movie.Director" class="form-control" aria-describedby="MovieDirectorInputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Director" class="text-danger"></span>
+
+                            <div class="row g-2 justify-content-start">
+                                <div class="col-auto text-end">
+                                    <label for="MovieMusicByInput" asp-for="Movie.MusicBy" class="col-form-label text-primary fs-6">MusicBy&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieMusicByInputHelpBlock">
+                                        <span>композитор&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieMusicByInput" asp-for="Movie.MusicBy" class="form-control" aria-describedby="MovieMusicByInputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.MusicBy" class="text-danger"></span>
+
+                            <hr />
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieActor01Input" asp-for="Movie.Actor01" class="col-form-label text-primary fs-6">Actor01&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieActor01InputHelpBlock">
+                                        <span>актер (актриса)&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieActor01Input" asp-for="Movie.Actor01" class="form-control" aria-describedby="MovieActor01InputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Actor01" class="text-danger"></span>
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieActor02Input" asp-for="Movie.Actor02" class="col-form-label text-primary fs-6">Actor02&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieActor02InputHelpBlock">
+                                        <span>актер (актриса)&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieActor02Input" asp-for="Movie.Actor02" class="form-control" aria-describedby="MovieActor02InputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Actor02" class="text-danger"></span>
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieActor03Input" asp-for="Movie.Actor03" class="col-form-label text-primary fs-6">Actor03&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieActor03InputHelpBlock">
+                                        <span>актер (актриса)&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieActor03Input" asp-for="Movie.Actor03" class="form-control" aria-describedby="MovieActor03InputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Actor03" class="text-danger"></span>
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieActor04Input" asp-for="Movie.Actor04" class="col-form-label text-primary fs-6">Actor04&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieActor04InputHelpBlock">
+                                        <span>актер (актриса)&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieActor04Input" asp-for="Movie.Actor04" class="form-control" aria-describedby="MovieActor04InputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Actor04" class="text-danger"></span>
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieActor05Input" asp-for="Movie.Actor05" class="col-form-label text-primary fs-6">Actor05&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieActor05InputHelpBlock">
+                                        <span>актер (актриса)&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieActor05Input" asp-for="Movie.Actor05" class="form-control" aria-describedby="MovieActor05InputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Actor05" class="text-danger"></span>
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieActor06Input" asp-for="Movie.Actor06" class="col-form-label text-primary fs-6">Actor06&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieActor06InputHelpBlock">
+                                        <span>актер (актриса)&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieActor06Input" asp-for="Movie.Actor06" class="form-control" aria-describedby="MovieActor06InputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Actor06" class="text-danger"></span>
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieActor07Input" asp-for="Movie.Actor07" class="col-form-label text-primary fs-6">Actor07&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieActor07InputHelpBlock">
+                                        <span>актер (актриса)&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieActor07Input" asp-for="Movie.Actor07" class="form-control" aria-describedby="MovieActor07InputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Actor07" class="text-danger"></span>
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieActor08Input" asp-for="Movie.Actor08" class="col-form-label text-primary fs-6">Actor08&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieActor08InputHelpBlock">
+                                        <span>актер (актриса)&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieActor08Input" asp-for="Movie.Actor08" class="form-control" aria-describedby="MovieActor08InputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Actor08" class="text-danger"></span>
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieActor09Input" asp-for="Movie.Actor09" class="col-form-label text-primary fs-6">Actor09&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieActor09InputHelpBlock">
+                                        <span>актер (актриса)&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieActor09Input" asp-for="Movie.Actor09" class="form-control" aria-describedby="MovieActor09InputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Actor09" class="text-danger"></span>
+
+                            <div class="row g-2 justify-content-start mb-2">
+                                <div class="col-auto text-end">
+                                    <label for="MovieActor10Input" asp-for="Movie.Actor10" class="col-form-label text-primary fs-6">Actor10&nbsp;</label>
+                                    <span class="col-auto form-text" id="MovieActor10InputHelpBlock">
+                                        <span>актер (актриса)&nbsp;:</span>
+                                    </span>
+                                </div>
+                                <div class="col-auto">
+                                    <input id="MovieActor10Input" asp-for="Movie.Actor10" class="form-control" aria-describedby="MovieActor10InputHelpBlock" />
+                                </div>
+                            </div>
+                            <span asp-validation-for="Movie.Actor10" class="text-danger"></span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="MovieDurationInput" asp-for="Movie.Duration" class="col-form-label text-primary fs-5">Duration&nbsp;:</label>
+                </div>
+                <div class="col-auto">
+                    <input id="MovieDurationInput" asp-for="Movie.Duration" class="form-control text-center" aria-describedby="MovieDurationInputHelpBlock" />
+                </div>
+                <div id="MovieDurationInputHelpBlock" class="form-text">
+                    <span>продолжительность фильма - </span><span class="text-danger">обязательное поле</span>
+                </div>
+                <span asp-validation-for="Movie.Duration" class="text-danger"></span>
+            </div>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="MovieDatePublishedInput" asp-for="Movie.DatePublished" class="col-form-label text-primary fs-5">DatePublished&nbsp;:</label>
+                </div>
+                <div class="col-auto">
+                    <input id="MovieDatePublishedInput" asp-for="Movie.DatePublished" class="form-control text-center" aria-describedby="MovieDatePublishedInputHelpBlock" />
+                </div>
+                <div id="MovieDatePublishedInputHelpBlock" class="form-text">
+                    <span>дата премьеры - </span><span class="text-danger">обязательное поле</span>
+                </div>
+                <span asp-validation-for="Movie.DatePublished" class="text-danger"></span>
+            </div>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="MovieDateCreatedInput" asp-for="Movie.DateCreated" class="col-form-label text-primary fs-5">DateCreated&nbsp;:</label>
+                </div>
+                <div class="col-auto">
+                    <input id="MovieDateCreatedInput" asp-for="Movie.DateCreated" class="form-control text-center" aria-describedby="MovieDateCreatedInputHelpBlock" />
+                </div>
+                <div id="MovieDateCreatedInputHelpBlock" class="form-text">
+                    <span>дата производства - </span><span class="text-danger">обязательное поле</span>
+                </div>
+                <span asp-validation-for="Movie.DateCreated" class="text-danger"></span>
+            </div>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="MovieUploadDateInput" asp-for="Movie.UploadDate" class="col-form-label text-primary fs-5">UploadDate&nbsp;:</label>
+                </div>
+                <div class="col-auto">
+                    <input id="MovieUploadDateInput" asp-for="Movie.UploadDate" class="form-control text-center" aria-describedby="MovieUploadDateInputHelpBlock" />
+                </div>
+                <div id="MovieUploadDateInputHelpBlock" class="form-text">
+                    <span>дата публикации на сайте - </span><span class="text-danger">обязательное поле</span>
+                </div>
+                <span asp-validation-for="Movie.UploadDate" class="text-danger"></span>
+            </div>
+
+            <hr class="liniya" />
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" asp-for="Movie.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyTrue" value="true">
+                <label class="form-check-label" for="IsFamilyFriendlyTrue">
+                    Нет ограничений для просмотра
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" asp-for="Movie.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyFalse" value="false">
+                <label class="form-check-label" for="IsFamilyFriendlyFalse">
+                    Есть ограничения для просмотра
+                </label>
+            </div>
+            <span asp-validation-for="Movie.IsFamilyFriendly" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="ScreenFormatInput" asp-for="Movie.ScreenFormat" class="col-form-label text-primary fs-5">ScreenFormat&nbsp;:</label>
+                </div>
+                <div class="col-auto">
+                    <select id="ScreenFormatInput" asp-for="Movie.ScreenFormat" class="form-select">
+                        <option value="4X3">4X3</option>
+                        <option value="16X9">16X9</option>
+                    </select>
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="ScreenFormatInputHelpBlock" class="form-text">
+                        формат изображения - <span class="text-danger">обязательное поле</span>
+                    </span>
+                </div>
+            </div>
+            <span asp-validation-for="Movie.ScreenFormat" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="MovieInLanguageInput" asp-for="Movie.InLanguage" class="col-form-label text-primary fs-5">InLanguage&nbsp;:</label>
+                </div>
+                <div class="col-auto">
+                    <select id="MovieInLanguageInput" asp-for="Movie.InLanguage" class="form-select">
+                        <option value="ru" selected>ru</option>
+                        <option value="en">en</option>
+                    </select>
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="MovieInLanguageInputHelpBlock" class="form-text">
+                        язык звуковой дорожки
+                    </span>
+                </div>
+            </div>
+            <span asp-validation-for="Movie.InLanguage" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="MovieGenreInput" asp-for="Movie.Genre" class="col-form-label text-primary fs-5">Genre&nbsp;:</label>
+                </div>
+                <div class="col-auto">
+                    <input id="MovieGenreInput" asp-for="Movie.Genre" class="form-control" aria-describedby="MovieGenreInputHelpBlock" />
+                </div>
+                <div id="MovieGenreInputHelpBlock" class="form-text">
+                    <sapn>жанр - </sapn><span class="text-danger">обязательное поле</span>
+                </div>
+                <span asp-validation-for="Movie.Genre" class="text-danger"></span>
+            </div>
+
+            <hr class="liniya" />
+
+            <label for="MovieContentUrlInput" asp-for="Movie.ContentUrl" class="form-label text-primary fs-5">ContentUrl&nbsp;:</label>
+            <input id="MovieContentUrlInput" asp-for="Movie.ContentUrl" class="form-control text-center" aria-describedby="MovieContentUrlInputHelpBlock" />
+            <div id="MovieContentUrlInputHelpBlock" class="form-text">
+                <span>адрес файла фильма на сервере - </span><span class="text-danger">обязательное поле</span>
+            </div>
+            <span asp-validation-for="Movie.ContentUrl" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieActor10Input" asp-for="Movie.CaptionForOnline" class="form-label text-primary fs-5">CaptionForOnline&nbsp;:</label>
+            <input id="MovieActor10Input" asp-for="Movie.CaptionForOnline" class="form-control text-center" aria-describedby="MovieCaptionForOnlineInputHelpBlock" />
+            <div id="MovieCaptionForOnlineInputHelpBlock" class="form-text">
+                <span>заголовок страницы фильма (HTML) - </span><span class="text-danger">обязательное поле</span>
+            </div>
+            <span asp-validation-for="Movie.CaptionForOnline" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="list-group-item accordion" id="accordion2">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                            Видео хостинги:
+                        </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion2">
+
+                        <label for="MovieYouTubeInput" asp-for="Movie.YouTube" class="form-label text-primary fs-5">YouTube&nbsp;:</label>
+                        <input id="MovieYouTubeInput" asp-for="Movie.YouTube" class="form-control text-center" aria-describedby="MovieYouTubeInputHelpBlock" />
+                        <div id="MovieYouTubeInputHelpBlock" class="form-text">
+                            <span>видео на youtube.com</span>
+                        </div>
+                        <span asp-validation-for="Movie.YouTube" class="text-danger"></span>
+
+                        <hr />
+
+                        <label for="MovieVkVideoInput" asp-for="Movie.VkVideo" class="form-label text-primary fs-5">VkVideo&nbsp;:</label>
+                        <input id="MovieVkVideoInput" asp-for="Movie.VkVideo" class="form-control text-center" aria-describedby="MovieVkVideoInputHelpBlock" />
+                        <div id="MovieVkVideoInputHelpBlock" class="form-text">
+                            <span>видео на vk.com</span>
+                        </div>
+                        <span asp-validation-for="Movie.VkVideo" class="text-danger"></span>
+
+                        <hr />
+
+                        <label for="MovieMailRuVideoInput" asp-for="Movie.MailRuVideo" class="form-label text-primary fs-5">MailRuVideo&nbsp;:</label>
+                        <input id="MovieMailRuVideoInput" asp-for="Movie.MailRuVideo" class="form-control text-center" aria-describedby="MovieMailRuVideoInputHelpBlock" />
+                        <div id="MovieMailRuVideoInputHelpBlock" class="form-text">
+                            <span>видео на mail.ru</span>
+                        </div>
+                        <span asp-validation-for="Movie.MailRuVideo" class="text-danger"></span>
+
+                        <hr />
+
+                        <label for="MovieOkVideoInput" asp-for="Movie.OkVideo" class="form-label text-primary fs-5">OkVideo&nbsp;:</label>
+                        <input id="MovieOkVideoInput" asp-for="Movie.OkVideo" class="form-control text-center" aria-describedby="MovieOkVideoInputHelpBlock" />
+                        <div id="MovieOkVideoInputHelpBlock" class="form-text">
+                            <span>видео на ok.ru</span>
+                        </div>
+                        <span asp-validation-for="Movie.OkVideo" class="text-danger"></span>
+
+                        <hr />
+
+                        <label for="MovieYandexDiskVideoInput" asp-for="Movie.YandexDiskVideo" class="form-label text-primary fs-5">YandexDiskVideo&nbsp;:</label>
+                        <input id="MovieYandexDiskVideoInput" asp-for="Movie.YandexDiskVideo" class="form-control text-center" aria-describedby="MovieYandexDiskVideoInputHelpBlock" />
+                        <div id="MovieYandexDiskVideoInputHelpBlock" class="form-text">
+                            <span>видео на YandexDisk</span>
+                        </div>
+                        <span asp-validation-for="Movie.YandexDiskVideo" class="text-danger"></span>
+
+                    </div>
+                </div>
+            </div>
+
+            <label for="MovieKinoTeatrRuInput" asp-for="Movie.KinoTeatrRu" class="form-label text-primary fs-5">KinoTeatrRu&nbsp;:</label>
+            <input id="MovieKinoTeatrRuInput" asp-for="Movie.KinoTeatrRu" class="form-control text-center" aria-describedby="MovieKinoTeatrRuInputHelpBlock" />
+            <div id="MovieKinoTeatrRuInputHelpBlock" class="form-text">
+                <span>информация на kino-teatr.ru</span>
+            </div>
+            <span asp-validation-for="Movie.KinoTeatrRu" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <label for="MovieAspPageInput" asp-for="Movie.AspPage" class="form-label text-primary fs-5">AspPage&nbsp;:</label>
+            <input id="MovieAspPageInput" asp-for="Movie.AspPage" class="form-control text-center" aria-describedby="MovieAspPageInputHelpBlock" />
+            <div id="MovieAspPageInputHelpBlock" class="form-text">
+                <span>адрес страницы на сайте - </span><span class="text-danger">обязательное поле</span>
+            </div>
+            <span asp-validation-for="Movie.AspPage" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="text-center">
+
+                @if ((string)ViewData["Action"] == "Edit")
+                {
+                    <button type="submit" class="btn btn-outline-success m-2 text-center shadw">ИЗМЕНИТЬ</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-outline-success m-2 text-center shadw">ДОБАВИТЬ</button>
+                }
+
+                <a asp-page="/DBCRUD/Movie-List" class="btn btn-outline-danger m-2 shadw">ОТМЕНИТЬ</a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

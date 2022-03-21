@@ -45,7 +45,7 @@
                     </li>
 
                     <li class="list-group-item">
-                        @*<vc:image file-name="@Model.SitemapItem.ImageModel.ImageName" css-class="card-img-top mb-3 width50percent shadw" /><br />*@
+                        <vc:image file-name="@Model.SitemapItem.ImageModel.ImageContentUrl.Segments.Last()" css-class="card-img-top mb-3 width50percent shadw" image-icon="false" /><br />
                         <span class="fw-bold fs-5 text-primary">ImageModelImageId&nbsp;:</span>
                         <span id="ImageModelImageId" class="fs-6">@Model.SitemapItem.ImageModelImageId</span><br />
                         <span id="ImageModelImageIdHelpBlock" class="form-text">

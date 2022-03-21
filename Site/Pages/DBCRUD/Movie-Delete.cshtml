@@ -11,13 +11,13 @@
 
         <hr class="liniya" />
 
-        <h1 class="fs-3 text_shadow">Удалить фильм</h1>
+        <h1 class="fs-3 text_shadow">Удалить фильм<br />@Model.Movie.MovieCaption</h1>
 
         <hr class="liniya" />
 
         <div class="card p-2">
 
-            <vc:image file-name="@Model.Movie.ImageName" css-class="card-img-top shadw" />
+            <vc:image file-name="@Model.Movie.ImageModel.ImageContentUrl.Segments.Last()" css-class="card-img-top mb-3 width50percent shadw" image-icon="false" />
 
             <hr class="liniya" />
 
@@ -28,7 +28,7 @@
         <form method="post" asp-page-handler="OnPost" asp-route-movieid="@Model.Movie.MovieId" class="mt-2">
 
             <button type="submit" class="btn btn-outline-danger me-2 shadw">Delete</button>
-            <a asp-page="ViewMovies" class="btn btn-outline-success shadw">Cancel</a>
+            <a asp-page="Movie-List" class="btn btn-outline-success shadw">Cancel</a>
 
         </form>
 

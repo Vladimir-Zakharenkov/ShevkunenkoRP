@@ -8,7 +8,7 @@ namespace Site.Services
     {
         public IEnumerable<MovieModel> Movies { get; }
 
-        MovieModel GetMovieByImageName(string imageName);
+        //MovieModel GetMovieByImageName(string imageName);
 
         MovieModel GetMovieByMovieCaption(string moviCaption);
 

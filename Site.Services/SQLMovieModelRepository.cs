@@ -1,4 +1,5 @@
-﻿using Site.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Site.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Site.Services
         private readonly SiteContext _siteContext;
         public SQLMovieModelRepository(SiteContext siteContext) => _siteContext = siteContext;
 
-        public IEnumerable<MovieModel> Movies => _siteContext.MovieModels;
+        public IEnumerable<MovieModel> Movies => _siteContext.MovieModels.Include(p => p.ImageModel);
 
         public void AddMovie(MovieModel movie)
         {
@@ -28,9 +29,8 @@ namespace Site.Services
 
         public void UpdateMovie(MovieModel movieToUpdate)
         {
-            MovieModel movie = _siteContext.MovieModels.Find(movieToUpdate.MovieId);
+            MovieModel movie = _siteContext.MovieModels.First(r => r.MovieId == movieToUpdate.MovieId);
 
-            movie.ImageName = movieToUpdate.ImageName;
             movie.MovieCaption = movieToUpdate.MovieCaption;
             movie.Duration = movieToUpdate.Duration;
             movie.DatePublished = movieToUpdate.DatePublished;
@@ -62,7 +62,8 @@ namespace Site.Services
             movie.YandexDiskVideo = movieToUpdate.YandexDiskVideo;
             movie.KinoTeatrRu = movieToUpdate.KinoTeatrRu;
             movie.AspPage = movieToUpdate.AspPage;
-            movie.Thumbnail = movieToUpdate.Thumbnail;
+            movie.ScreenFormat = movieToUpdate.ScreenFormat;
+            movie.ImageModelImageId = movieToUpdate.ImageModelImageId;
 
             //var entry = _siteContext.MovieModels.First(e => e.MovieId == movieToUpdate.MovieId);
             //_siteContext.Entry(entry).CurrentValues.SetValues(movieToUpdate);
@@ -72,19 +73,7 @@ namespace Site.Services
 
         public MovieModel GetMovie(Guid? movieId)
         {
-            MovieModel movie = _siteContext.MovieModels.Find(movieId);
-
-            if (movie == null)
-            {
-                return null;
-            }
-
-            return movie;
-        }
-
-        public MovieModel GetMovieByImageName(string imageName)
-        {
-            MovieModel movie = _siteContext.MovieModels.FirstOrDefault(x => x.ImageName == imageName);
+            MovieModel movie = _siteContext.MovieModels.Include(p => p.ImageModel).FirstOrDefault(m => m.MovieId == movieId);
 
             if (movie == null)
             {
@@ -96,7 +85,7 @@ namespace Site.Services
 
         public MovieModel GetMovieByMovieCaption(string movieCaption)
         {
-            MovieModel movie = _siteContext.MovieModels.FirstOrDefault(x => x.MovieCaption == movieCaption);
+            MovieModel movie = _siteContext.MovieModels.Include(p => p.ImageModel).FirstOrDefault(x => x.MovieCaption == movieCaption);
 
             if (movie == null)
             {

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
@@ -14,7 +15,6 @@ namespace Site.Pages.DBCRUD
     {
         private readonly ISitemapModelRepository _sitemapContext;
         private readonly IImageModelRepository _imageContext;
-
         public Page_Add_UpdateModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext)
         {
             _sitemapContext = sitemapContext;
@@ -24,6 +24,8 @@ namespace Site.Pages.DBCRUD
         public uint PageNumber { get; set; }
 
         public SitemapModel SitemapItem { get; set; }
+
+        public IFormFile ImageFile { get; set; }
 
         public IActionResult OnGet(Guid? sitemapModelId)
         {
@@ -51,6 +53,15 @@ namespace Site.Pages.DBCRUD
         {
             PageNumber = 81;
 
+            if (SitemapItem.SitemapModelId != Guid.Empty)
+            {
+                ViewData["Action"] = "Edit";
+            }
+            else
+            {
+                ViewData["Action"] = "Add";
+            }
+
             if (SitemapItem.SitemapModelId == Guid.Empty)
             {
                 if (_sitemapContext.Sitemaps.FirstOrDefault(x => x.PageNumber == 0) == null)
@@ -70,11 +81,29 @@ namespace Site.Pages.DBCRUD
                 }
             }
 
-            if (_imageContext.Images.FirstOrDefault(x => x.ImageId == SitemapItem.ImageModelImageId) == null)
+            // Если файл не выбран
+            if (ImageFile == null)
             {
-                ModelState.AddModelError("SitemapItem.ImageModelImageId", "Картинки с таким GUID не существует");
+                if (SitemapItem.ImageModelImageId == Guid.Empty)
+                {
+                    ModelState.AddModelError("ImageFile", "Выберите файл");
 
-                return Page();
+                    return Page();
+                }
+            }
+            else
+            {
+                if (_imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == ImageFile.FileName) == null)
+                {
+                    ModelState.AddModelError("ImageFile", "Такого файла нет в базе данных");
+
+                    return Page();
+                }
+                else
+                {
+                    SitemapItem.ImageModelImageId = (_imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == ImageFile.FileName).ImageId);
+                }
+
             }
 
             if (ModelState.IsValid)

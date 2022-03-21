@@ -10,19 +10,14 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class DeleteMovieModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
         private readonly IMovieModelRepository _movieContext;
+        public DeleteMovieModel(IMovieModelRepository movieContext) => _movieContext = movieContext;
 
-        public DeleteMovieModel(ISitemapModelRepository sitemapContext, IMovieModelRepository movieContext)
-        {
-            _sitemapContext = sitemapContext;
-            _movieContext = movieContext;
-        }
         public uint PageNumber { get; set; }
 
         public MovieModel Movie{ get; set; }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
             PageNumber = 20;
 
@@ -30,10 +25,8 @@ namespace Site.Pages.DBCRUD
 
             if (Movie == null)
             {
-                return RedirectToPage("ViewMovies");
+                RedirectToPage("/DBCRUD/Movie-List");
             }
-
-            return Page();
         }
 
         public IActionResult OnPost()
@@ -42,7 +35,7 @@ namespace Site.Pages.DBCRUD
 
             _movieContext.DeleteMovie(Movie.MovieId);
 
-            return RedirectToPage("ViewMovies");
+            return RedirectToPage("/DBCRUD/Movie-List");
         }
     }
 }

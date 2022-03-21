@@ -1,0 +1,90 @@
+﻿@page
+@model Movie_ListModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <hr class="liniya" />
+
+    <div class="col">
+
+        <a asp-page="Movie-Add-Update" class="btn btn btn-outline-danger shadw">ДОБАВИТЬ ФИЛЬМ</a>
+
+    </div>
+
+    <hr class="liniya" />
+
+</div>
+
+@if (Model.AllMovies.Count() == 0)
+{
+    <div class="row">
+
+        <div class="col text-center p-2">
+            <p class="fs-4 text-danger">Нет данных</p>
+        </div>
+
+    </div>
+}
+else
+{
+    <div class="row">
+
+        <div class="col text-center p-2">
+            <p class="fs-4 text-danger">Количество фильмов:&nbsp;@Model.AllMovies.Count()</p>
+        </div>
+
+    </div>
+}
+
+<div class="row">
+
+    <div class="col">
+
+        <div class="table-responsive">
+
+            <table class="table table-sm table-hover caption-top align-middle">
+
+                <thead>
+
+                    <tr>
+                        <th scope="col" class="text-start">Название</th>
+                        <th scope="col" class="d-none d-lg-table-cell text-start">Файл</th>
+                        <th scope="col" class="d-none d-xl-table-cell text-start">Формат</th>
+                        <th scope="col" class="d-none d-xl-table-cell text-start">Время</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var movie in Model.AllMovies)
+                    {
+                    <tr class="text-start">
+                        <td scope="col" class="text-start">@movie.MovieCaption</td>
+                        <td scope="col" class="d-none d-lg-table-cell text-start" title="@movie.ContentUrl">@movie.ContentUrl.Segments.Last()</td>
+                        <td scope="col" class="d-none d-xl-table-cell text-start">@movie.ScreenFormat</td>
+                        <td scope="col" class="d-none d-xl-table-cell text-start">@movie.Duration.ToString("H'ч 'mm'мин 'ss'сек'")</td>
+                        <td scope="col"><a asp-page="Movie-Details" asp-route-movieid="@movie.MovieId" class="btn btn-outline-primary py-1 px-1 shadw" title="Информация">Info</a></td>
+                        <td scope="col"><a asp-page="Movie-Add-Update" asp-route-movieid="@movie.MovieId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать">Edit</a></td>
+                        <td scope="col"><a asp-page="Movie-Delete" asp-route-movieid="@movie.MovieId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить">Del</a></td>
+                        <td scope="col"><a asp-page="@movie.AspPage" class="btn btn-outline-danger py-1 px-1 shadw" title="Смотреть">Run</a></td>
+                    </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

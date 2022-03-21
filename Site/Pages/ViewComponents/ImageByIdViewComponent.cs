@@ -17,7 +17,7 @@ namespace Site.Pages.ViewComponents
 
             if (image == null)
             {
-                image = _imageContext.Images.FirstOrDefault(x => x.ImageId.ToString() == "9DFC87B8-B8CD-47F8-A147-9ED335227221");
+                image = _imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == "no-image.png");
             }
 
             ViewData["CssClass"] = cssClass;

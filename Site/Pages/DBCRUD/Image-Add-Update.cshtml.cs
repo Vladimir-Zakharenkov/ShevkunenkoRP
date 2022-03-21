@@ -50,18 +50,60 @@ namespace Site.Pages.DBCRUD
         {
             PageNumber = 82;
 
-            if (Image.ImageId == Guid.Empty & _imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == Image.ImageContentUrl.Segments.Last()) != null)
+            if (Image.ImageId == Guid.Empty)
             {
-                ModelState.AddModelError("Image.ImageContentUrl", "Такой файл уже существует");
-
-                return Page();
+                ViewData["Action"] = "Add";
+            }
+            else
+            {
+                ViewData["Action"] = "Edit";
             }
 
-            if (Image.ImageId == Guid.Empty & _imageContext.Images.FirstOrDefault(x => x.ImageThumbnailUrl.Segments.Last() == Image.ImageThumbnailUrl.Segments.Last()) != null)
+            if (Image.ImageId == Guid.Empty)
             {
-                ModelState.AddModelError("Image.ImageThumbnailUrl", "Такой файл уже существует");
+                if (_imageContext.Images.FirstOrDefault(x => x.ImageContentUrl == Image.ImageContentUrl) != null)
+                {
+                    ModelState.AddModelError("Image.ImageContentUrl", "Такая картинка уже существует");
 
-                return Page();
+                    return Page();
+                }
+
+                if (_imageContext.Images.FirstOrDefault(x => x.ImageThumbnailUrl == Image.ImageContentUrl) != null)
+                {
+                    ModelState.AddModelError("Image.ImageContentUrl", "Такая картинка уже существует как иконка");
+
+                    return Page();
+                }
+
+                if (_imageContext.Images.FirstOrDefault(x => x.ImageThumbnailUrl == Image.ImageThumbnailUrl) != null)
+                {
+                    ModelState.AddModelError("Image.ImageThumbnailUrl", "Такая иконка уже существует");
+
+                    return Page();
+                }
+
+                if (_imageContext.Images.FirstOrDefault(x => x.ImageThumbnailUrl == Image.ImageContentUrl) != null)
+                {
+                    ModelState.AddModelError("Image.ImageThumbnailUrl", "Такая иконка уже существует как картинка");
+
+                    return Page();
+                }
+            }
+            else
+            {
+                if (_imageContext.Images.FirstOrDefault(x => x.ImageContentUrl == Image.ImageContentUrl) == null)
+                {
+                    ModelState.AddModelError("Image.ImageContentUrl", "Такой картинки нет в базе данных");
+
+                    return Page();
+                }
+
+                if (_imageContext.Images.FirstOrDefault(x => x.ImageThumbnailUrl == Image.ImageThumbnailUrl) == null)
+                {
+                    ModelState.AddModelError("Image.ImageThumbnailUrl", "Такой иконки нет в базе данных");
+
+                    return Page();
+                }
             }
 
             if (ModelState.IsValid)

@@ -24,7 +24,7 @@
 
 </div>
 
-<div class="row">
+<div class="row mt-2">
 
     <div class="col">
         <a asp-page="Page-Add-Update" class="btn btn btn-outline-danger shadw">ДОБАВИТЬ СТРАНИЦУ</a>
@@ -47,6 +47,7 @@
                     <tr>
                         <th scope="col" title="Номер страницы"><span class="text-primary">№</span></th>
                         <th scope="col" class="text-start">Адрес</th>
+                        <th scope="col" class="d-none d-xl-table-cell text-start">Заголовок</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                         <th scope="col"></th>
@@ -62,6 +63,7 @@
                     <tr>
                         <td scope="col"><span class="fw-bold text-primary">@sitemapItem.PageNumber</span></td>
                         <td scope="col" class="text-start">@sitemapItem.Loc.ToString().Substring(24)</td>
+                        <td scope="col" class="d-none d-xl-table-cell text-start">@sitemapItem.Title</td>
                         <td scope="col"><a asp-page="Page-Details" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-primary py-1 px-1 shadw" title="@sitemapItem.Title">Info</a></td>
                         <td scope="col"><a asp-page="Page-Add-Update" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать страницу">Edit</a></td>
                         <td scope="col"><a asp-page="Page-Delete" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить страницу">Del</a></td>

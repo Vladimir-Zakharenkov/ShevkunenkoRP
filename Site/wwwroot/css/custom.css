@@ -95,6 +95,9 @@
   text-align: justify;
   text-indent: 1.25rem; }
 
+.accordion-body-nointend {
+  text-indent: 0; }
+
 .fade {
   transition: opacity 0.15s linear; }
   @media (prefers-reduced-motion: reduce) {

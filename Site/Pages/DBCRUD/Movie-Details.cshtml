@@ -1,0 +1,226 @@
+﻿@page
+@model Movie_DetailsModel
+
+@{
+    Layout = "_CrudLayout";
+}
+
+<div class="row">
+
+    <div class="col col-lg-9 col-xl-7 col-xxl-6 d-block mx-auto px-2">
+
+        <hr class="liniya" />
+
+        <h1 class="fs-3 text_shadow">Информация о фильме<br />«&nbsp;@Model.Movie.MovieCaption&nbsp;»</h1>
+
+        <hr class="liniya" />
+
+        <div class="card p-2">
+
+            <div class="card-footer px-0">
+
+                <a asp-page="@Model.Movie.AspPage" class="btn btn-outline-primary py-1 m-2 shadw">Смотреть</a>
+                <a asp-page="Movie-Add-Update" asp-route-movieid="@Model.Movie.MovieId" class="btn btn-outline-success py-1 m-2 shadw">Изменить</a>
+                <a asp-page="Movie-Delete" asp-route-movieid="@Model.Movie.MovieId" class="btn btn-outline-danger py-1 m-2 shadw">Удалить</a>
+                <a asp-page="Movie-List" class="btn btn-outline-primary py-1 m-2 shadw">Фильмы</a>
+
+            </div>
+
+            <div class="card-body mx-0 px-0">
+
+                <ul class="list-group list-group-flush text-center">
+
+                    <li class="list-group-item">
+                        <vc:image file-name="@Model.Movie.ImageModel.ImageContentUrl.Segments.Last()" css-class="card-img-top mb-3 width50percent shadw" image-icon="false" /><br />
+                        <span class="fs-5 text-primary">Thumbnail&nbsp;:</span><br />
+                        <span class="fs-6">@Model.Movie.ImageModel.ImageContentUrl</span><br />
+                        <span class="form-text">картинка для фильма</span>
+                    </li>
+
+                    <li class="list-group-item text_justify">
+                        <span class="fs-5 text-primary">Description&nbsp;:</span><br />
+                        <span class="fs-6 accordion-body">@Html.Raw(Model.Movie.Description)</span><br />
+                        <span class="form-text d-flex justify-content-center">краткое содержание (HTML)</span>
+                    </li>
+
+                    <li class="list-group-item accordion" id="accordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="true" aria-controls="collapse">
+                                    Съемочная группа:
+                                </button>
+                            </h2>
+                            <div id="collapse" class="accordion-collapse collapse" aria-labelledby="heading" data-bs-parent="#accordion">
+                                <div class="accordion-body accordion-body-nointend">
+
+                                    <span class="fw-bold fs-6 text-primary">РroductionCompany </span>
+                                    <span class="form-text">(киностудия)</span>&nbsp;:
+                                    <span class="fs-6">@Model.Movie.РroductionCompany</span>
+                                    <hr />
+                                    <span class="fw-bold fs-6 text-primary">Director </span>
+                                    <span class="form-text">(режиссер)</span>&nbsp;:
+                                    <span class="fs-6">@Model.Movie.Director</span><br />
+
+                                    <span class="fw-bold fs-6 text-primary">MusicBy </span>
+                                    <span class="form-text">(композитор)</span>&nbsp;:
+                                    <span class="fs-6">@Model.Movie.MusicBy</span>
+                                    <hr />
+                                    <span class="fw-bold fs-6 text-primary">Actor01 </span>
+                                    <span class="form-text">актер (актриса)&nbsp;:</span>
+                                    <span class="fs-6">@Model.Movie.Actor01</span><br />
+                                    <span class="fw-bold fs-6 text-primary">Actor02 </span>
+                                    <span class="form-text">актер (актриса)&nbsp;:</span>
+                                    <span class="fs-6">@Model.Movie.Actor02</span><br />
+                                    <span class="fw-bold fs-6 text-primary">Actor03 </span>
+                                    <span class="form-text">актер (актриса)&nbsp;:</span>
+                                    <span class="fs-6">@Model.Movie.Actor03</span><br />
+                                    <span class="fw-bold fs-6 text-primary">Actor04 </span>
+                                    <span class="form-text">актер (актриса)&nbsp;:</span>
+                                    <span class="fs-6">@Model.Movie.Actor04</span><br />
+                                    <span class="fw-bold fs-6 text-primary">Actor05 </span>
+                                    <span class="form-text">актер (актриса)&nbsp;:</span>
+                                    <span class="fs-6">@Model.Movie.Actor05</span><br />
+                                    <span class="fw-bold fs-6 text-primary">Actor06 </span>
+                                    <span class="form-text">актер (актриса)&nbsp;:</span>
+                                    <span class="fs-6">@Model.Movie.Actor06</span><br />
+                                    <span class="fw-bold fs-6 text-primary">Actor07 </span>
+                                    <span class="form-text">актер (актриса)&nbsp;:</span>
+                                    <span class="fs-6">@Model.Movie.Actor07</span><br />
+                                    <span class="fw-bold fs-6 text-primary">Actor08 </span>
+                                    <span class="form-text">актер (актриса)&nbsp;:</span>
+                                    <span class="fs-6">@Model.Movie.Actor08</span><br />
+                                    <span class="fw-bold fs-6 text-primary">Actor09 </span>
+                                    <span class="form-text">актер (актриса)&nbsp;:</span>
+                                    <span class="fs-6">@Model.Movie.Actor09</span><br />
+                                    <span class="fw-bold fs-6 text-primary">Actor10 </span>
+                                    <span class="form-text">актер (актриса)&nbsp;:</span>
+                                    <span class="fs-6">@Model.Movie.Actor10</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">Duration&nbsp;:</span>
+                        <span class="fs-6">@Model.Movie.Duration.ToString("H'ч 'mm'мин 'ss'сек'")</span><br />
+                        <span class="form-text">продолжительность фильма</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">ScreenFormat&nbsp;:</span>
+                        <span class="fs-6">@Model.Movie.ScreenFormat</span><br />
+                        <span class="form-text">формат изображения</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">DatePublished&nbsp;:</span>
+                        <span class="fs-6">@Model.Movie.DatePublished.ToString("dd-MM-yyyy")</span><br />
+                        <span class="form-text">дата премьеры</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">DateCreated&nbsp;:</span>
+                        <span class="fs-6">@Model.Movie.DateCreated.ToString("dd-MM-yyyy")</span><br />
+                        <span class="form-text">дата производства</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">UploadDate&nbsp;:</span>
+                        <span class="fs-6">@Model.Movie.UploadDate.ToString("dd-MM-yyyy")</span><br />
+                        <span class="form-text">дата публикации на сайте</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">IsFamilyFriendly&nbsp;:</span>
+                        <span class="fs-6">@Model.Movie.IsFamilyFriendly</span><br />
+                        <span class="form-text">нет ограничений для просмотра</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">InLanguage&nbsp;:</span>
+                        <span class="fs-6">@Model.Movie.InLanguage</span><br />
+                        <span class="form-text">язык звуковой дорожки</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">Genre&nbsp;:</span>
+                        <span class="fs-6">@Model.Movie.Genre</span><br />
+                        <span class="form-text">жанр</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">ContentUrl&nbsp;:</span><br />
+                        <span class="fs-6"><a onClick="this.target='_blank'" href="@Model.Movie.ContentUrl" class="text-danger">@Model.Movie.ContentUrl</a></span><br />
+                        <span class="form-text">адрес файла фильма на сервере</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">CaptionForOnline&nbsp;:</span><br />
+                        <span class="fs-6">@Html.Raw(Model.Movie.CaptionForOnline)</span><br />
+                        <span class="form-text">заголовок страницы фильма (HTML)</span>
+                    </li>
+
+                    <li class="list-group-item accordion" id="accordion2">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                                    Видео хостинги:
+                                </button>
+                            </h2>
+                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion2">
+
+                                <span class="fs-5 text-primary">youtube.com&nbsp;:</span><br />
+                                <span class="fs-6"><a onClick="this.target='_blank'" href="@Model.Movie.YouTube" class="text-danger">@Model.Movie.YouTube</a></span><br />
+                                <span class="form-text">видео на youtube.com</span>
+                                <hr />
+                                <span class="fs-5 text-primary">vk.com&nbsp;:</span><br />
+                                <span class="fs-6"><a onClick="this.target='_blank'" href="@Model.Movie.VkVideo" class="text-danger">@Model.Movie.VkVideo</a></span><br />
+                                <span class="form-text">видео на vk.com</span>
+                                <hr />
+                                <span class="fs-5 text-primary">mail.ru&nbsp;:</span><br />
+                                <span class="fs-6"><a onClick="this.target='_blank'" href="@Model.Movie.MailRuVideo" class="text-danger">@Model.Movie.MailRuVideo</a></span><br />
+                                <span class="form-text">видео на mail.ru</span>
+                                <hr />
+                                <span class="fs-5 text-primary">ok.ru&nbsp;:</span><br />
+                                <span class="fs-6"><a onClick="this.target='_blank'" href="@Model.Movie.OkVideo" class="text-danger">@Model.Movie.OkVideo</a></span><br />
+                                <span class="form-text">видео на ok.ru</span>
+                                <hr />
+                                <span class="fs-5 text-primary">YandexDisk&nbsp;:</span><br />
+                                <span class="fs-6"><a onClick="this.target='_blank'" href="@Model.Movie.YandexDiskVideo" class="text-danger">@Model.Movie.YandexDiskVideo</a></span><br />
+                                <span class="form-text">видео на YandexDisk</span>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">KinoTeatrRu&nbsp;:</span><br />
+                        <span class="fs-6"><a onClick="this.target='_blank'" href="@Model.Movie.KinoTeatrRu" class="text-danger">@Model.Movie.KinoTeatrRu</a></span><br />
+                        <span class="form-text">информация на kino-teatr.ru</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fs-5 text-primary">AspPage&nbsp;:</span><br />
+                        <span class="fs-6"><a class="text-danger" asp-page="@Model.Movie.AspPage">@Model.Movie.AspPage</a> </span><br />
+                        <span class="form-text">адрес страницы на сайте</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="card-footer px-0">
+
+                <a asp-page="@Model.Movie.AspPage" class="btn btn-outline-primary py-1 m-2 shadw">Смотреть</a>
+                <a asp-page="Movie-Add-Update" asp-route-movieid="@Model.Movie.MovieId" class="btn btn-outline-success py-1 m-2 shadw">Изменить</a>
+                <a asp-page="Movie-Delete" asp-route-movieid="@Model.Movie.MovieId" class="btn btn-outline-danger py-1 m-2 shadw">Удалить</a>
+                <a asp-page="Movie-List" class="btn btn-outline-primary py-1 m-2 shadw">Фильмы</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

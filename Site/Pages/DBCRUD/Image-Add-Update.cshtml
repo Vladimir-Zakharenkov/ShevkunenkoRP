@@ -1,5 +1,5 @@
 ﻿@page
-@model Site.Pages.DBCRUD.Image_Add_UpdateModel
+@model Image_Add_UpdateModel
 
 @{
     Layout = "_CrudLayout";
@@ -31,7 +31,7 @@
             <label for="ImageIdInput" asp-for="Image.ImageId" class="form-label text-primary fs-5 fw-bold"></label>
             <input readonly id="ImageIdInput" asp-for="Image.ImageId" class="form-control text-center" aria-describedby="ImageIdInputHelpBlock" />
             <div id="ImageIdInputHelpBlock" class="form-text">
-                <span class="text-danger"></span>
+                <span>идентификатор в базе данных (GUID)</span>
             </div>
 
             <hr class="liniya" />
@@ -39,7 +39,7 @@
             <label for="ImageCaptionInput" asp-for="Image.ImageCaption" class="form-label text-primary fs-5 fw-bold"></label>
             <input id="ImageCaptionInput" asp-for="Image.ImageCaption" class="form-control text-center" aria-describedby="ImageCaptionInputHelpBlock" />
             <div id="ImageCaptionInputHelpBlock" class="form-text">
-                <span class="text-danger">обязательное поле</span>
+                «caption» и «name» для Microdata - <span class="text-danger">обязательное поле</span>
             </div>
             <span asp-validation-for="Image.ImageCaption" class="text-danger"></span>
 
@@ -48,7 +48,7 @@
             <label for="ImageDescriptionInput" asp-for="Image.ImageDescription" class="form-label text-primary fs-5 fw-bold"></label>
             <textarea id="ImageDescriptionInput" asp-for="Image.ImageDescription" class="form-control" rows="1" aria-describedby="ImageDescriptionInputHelpBlock"></textarea>
             <div id="ImageDescriptionInputHelpBlock" class="form-text">
-                <span class="text-danger">обязательное поле</span>
+                «description» для Microdata - <span class="text-danger">обязательное поле</span>
             </div>
             <span asp-validation-for="Image.ImageDescription" class="text-danger"></span>
 
@@ -57,7 +57,7 @@
             <label for="ImageContentUrlInput" asp-for="Image.ImageContentUrl" class="form-label text-primary fs-5 fw-bold"></label>
             <input id="ImageContentUrlInput" asp-for="Image.ImageContentUrl" class="form-control text-center" aria-describedby="ImageContentUrlInputHelpBlock" />
             <div id="ImageContentUrlInputHelpBlock" class="form-text">
-                <span class="text-danger">обязательное поле</span>
+                адрес картинки (https://...) - <span class="text-danger">обязательное поле</span>
             </div>
             <span asp-validation-for="Image.ImageContentUrl" class="text-danger"></span>
 
@@ -100,7 +100,7 @@
             <label for="ImageAltInput" asp-for="Image.ImageAlt" class="form-label text-primary fs-5 fw-bold"></label>
             <input id="ImageAltInput" asp-for="Image.ImageAlt" class="form-control text-center" aria-describedby="ImageAltInputHelpBlock" />
             <div id="ImageAltInputHelpBlock" class="form-text col-12">
-                <span class="text-danger">обязательное поле</span>
+                «alt» и «title» для тега «img» - <span class="text-danger">обязательное поле</span>
             </div>
             <span asp-validation-for="Image.ImageAlt" class="text-danger"></span>
 
@@ -157,7 +157,6 @@
                 </div>
             </div>
             <span asp-validation-for="Image.ImageThumbnailHeight" class="text-danger"></span>
-
 
             <hr class="liniya" />
 

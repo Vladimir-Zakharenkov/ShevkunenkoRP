@@ -12,11 +12,11 @@ namespace Site.Pages.ViewComponents
 
         public IViewComponentResult Invoke(string fileName, string cssClass, bool imageIcon)
         {
-            ImageModel image = _imageContext.Images.FirstOrDefault(y => y.ImageContentUrl.Segments.Last() == fileName);
+            ImageModel image = _imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == fileName);
 
             if (image == null)
             {
-                image = _imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == "no-image.png");
+                image = _imageContext.Images.FirstOrDefault(y => y.ImageContentUrl.Segments.Last() == "no-image.png");
             }
 
             ViewData["CssClass"] = cssClass;

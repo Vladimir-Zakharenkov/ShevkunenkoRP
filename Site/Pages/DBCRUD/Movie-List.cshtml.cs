@@ -10,25 +10,20 @@ namespace Site.Pages.DBCRUD
 {
     [Authorize]
     [BindProperties(SupportsGet = true)]
-    public class ViewMoviesModel : PageModel
+    public class Movie_ListModel : PageModel
     {
         private readonly IMovieModelRepository _movieContext;
-        public ViewMoviesModel(IMovieModelRepository movieContext)
-        {
-            _movieContext = movieContext;
-        }
+        public Movie_ListModel(IMovieModelRepository movieContext) => _movieContext = movieContext;
 
         public uint PageNumber { get; set; }
 
         public IEnumerable<MovieModel> AllMovies { get; set; }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            PageNumber = 16;
+            PageNumber = 91;
 
             AllMovies = _movieContext.Movies.ToArray(); ;
-
-            return Page();
         }
     }
 }
