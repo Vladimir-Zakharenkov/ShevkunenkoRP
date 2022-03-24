@@ -27,6 +27,7 @@
             <input asp-for="SitemapItem.SitemapModelId" type="hidden" />
             <input asp-for="SitemapItem.PageNumber" type="hidden" />
             <input asp-for="SitemapItem.ImageModelImageId" type="hidden" />
+            <input asp-for="SitemapItem.MovieModelMovieId" type="hidden" />
 
             @if (Model.SitemapItem.ImageModelImageId == Guid.Empty)
             {
@@ -193,6 +194,57 @@
                 KeyWords: ключевые слова
             </div>
             <span asp-validation-for="SitemapItem.KeyWords" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="CardTextInput" asp-for="SitemapItem.CardText" class="col-form-label text-primary fs-5 fw-bold"></label>
+                </div>
+                <div class="col-auto">
+                    <input id="CardTextInput" asp-for="SitemapItem.CardText" class="form-control" aria-describedby="CardTextInputHelpBlock" />
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="CardTextInputHelpBlock" class="form-text">
+                        CardText: текст для карточки
+                    </span>
+                </div>
+            </div>
+            <span asp-validation-for="SitemapItem.CardText" class="text-danger"></span>
+
+            <hr class="liniya" />
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="MoviePageInput" asp-for="SitemapItem.MoviePage" class="col-form-label text-primary fs-5 fw-bold"></label>
+                </div>
+                <div class="col-auto">
+                    <select id="MoviePageInput" asp-for="SitemapItem.MoviePage" class="form-select">
+                        <option value="True">Да</option>
+                        <option value="False">Нет</option>
+                    </select>
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="MovieInLanguageInputHelpBlock" class="form-text">
+                        страница для фильма
+                    </span>
+                </div>
+            </div>
+            <span asp-validation-for="SitemapItem.MoviePage" class="text-danger"></span>
+
+            <div class="row g-2 justify-content-center">
+                <div class="col-auto">
+                    <label for="MovieCaptionInput" asp-for="NameForMovie" class="col-form-label text-primary fs-5 fw-bold">MovieCaption&nbsp;:</label>
+                </div>
+                <div class="col-auto">
+                    <input id="MovieCaptionInput" asp-for="NameForMovie" class="form-control" aria-describedby="MovieCaptionInputHelpBlock" />
+                </div>
+                <div class="col-12 justify-content-center">
+                    <span id="MovieCaptionInputHelpBlock" class="form-text">
+                        MovieCaption: название фильма
+                </div>
+            </div>
+            <span asp-validation-for="NameForMovie" class="text-danger"></span>
 
             <hr class="liniya" />
 

@@ -10,7 +10,7 @@ namespace Site.Pages.Pervaya_krov
 
         public void OnGet()
         {
-            PageNumber = 1;
+            PageNumber = 69;
         }
     }
 }

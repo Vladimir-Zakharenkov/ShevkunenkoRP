@@ -10,8 +10,8 @@ using Site.Services;
 namespace Site.Services.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20220315183351_ImageModelRemoveSrc")]
-    partial class ImageModelRemoveSrc
+    [Migration("20220323070320_MoviePageNull")]
+    partial class MoviePageNull
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,37 +40,6 @@ namespace Site.Services.Migrations
                     b.ToTable("AdminAccess");
                 });
 
-            modelBuilder.Entity("Site.Models.CardModel", b =>
-                {
-                    b.Property<Guid>("CardId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("CardBody")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("CardLink")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("CardMovie")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("CardText")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MovieCaption")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CardId");
-
-                    b.ToTable("CardModels");
-                });
-
             modelBuilder.Entity("Site.Models.ImageModel", b =>
                 {
                     b.Property<Guid>("ImageId")
@@ -96,10 +65,6 @@ namespace Site.Services.Migrations
                     b.Property<int>("ImageHeight")
                         .HasColumnType("int");
 
-                    b.Property<string>("ImageName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("ImageThumbnailHeight")
                         .HasColumnType("int");
 
@@ -114,9 +79,6 @@ namespace Site.Services.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ImageId");
-
-                    b.HasIndex("ImageName")
-                        .IsUnique();
 
                     b.ToTable("ImageModels");
                 });
@@ -192,10 +154,6 @@ namespace Site.Services.Migrations
                     b.Property<Guid>("ImageModelImageId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ImageName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("InLanguage")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -219,7 +177,7 @@ namespace Site.Services.Migrations
                     b.Property<string>("OkVideo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Thumbnail")
+                    b.Property<string>("ScreenFormat")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -252,6 +210,9 @@ namespace Site.Services.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("CardText")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Changefreq")
                         .IsRequired()
                         .HasMaxLength(7)
@@ -280,6 +241,12 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("MovieModelMovieId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("MoviePage")
+                        .HasColumnType("bit");
+
                     b.Property<long>("PageNumber")
                         .HasColumnType("bigint");
 
@@ -298,6 +265,8 @@ namespace Site.Services.Migrations
                     b.HasKey("SitemapModelId");
 
                     b.HasIndex("ImageModelImageId");
+
+                    b.HasIndex("MovieModelMovieId");
 
                     b.HasIndex("PageNumber")
                         .IsUnique();
@@ -324,7 +293,15 @@ namespace Site.Services.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Site.Models.MovieModel", "MovieModel")
+                        .WithMany()
+                        .HasForeignKey("MovieModelMovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("ImageModel");
+
+                    b.Navigation("MovieModel");
                 });
 #pragma warning restore 612, 618
         }

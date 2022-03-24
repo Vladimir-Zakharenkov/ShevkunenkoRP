@@ -374,6 +374,21 @@ table.gsc-search-box, form.gsc-search-box {
 .videoBorder {
   border-color: #c20a0a; }
 
+/* ссылка в тексте книги */
+.atext {
+  width: auto !important;
+  height: auto !important;
+  font-weight: 600;
+  text-indent: 0;
+  border-radius: .4rem;
+  padding: 0 .3rem .1rem;
+  background-color: rgba(101, 153, 205, 0.2);
+  transition: all .7s ease; }
+
+.atext:hover {
+  color: white;
+  background-color: rgba(144, 35, 35, 0.8); }
+
 .adp_img {
   max-width: 96%;
   border-radius: 1rem; }
@@ -398,21 +413,6 @@ p {
 
 .text_justify {
   text-align: justify; }
-
-/* ссылка в тексте книги */
-.atext {
-  width: auto !important;
-  height: auto !important;
-  font-weight: 600;
-  text-indent: 0;
-  border-radius: .4rem;
-  padding: 0 .3rem .1rem;
-  background-color: rgba(101, 153, 205, 0.2);
-  transition: all .7s ease; }
-
-.atext:hover {
-  color: white;
-  background-color: rgba(144, 35, 35, 0.8); }
 
 .cardborder a, .borderforitem {
   border: .2rem ridge transparent;

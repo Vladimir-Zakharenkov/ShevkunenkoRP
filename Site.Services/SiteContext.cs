@@ -10,8 +10,8 @@ namespace Site.Services
         }
 
         public DbSet<ImageModel> ImageModels { get; set; }
+
         public DbSet<MovieModel> MovieModels { get; set; }
-        public DbSet<CardModel> CardModels { get; set; }
 
         public DbSet<SitemapModel> SitemapModels { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

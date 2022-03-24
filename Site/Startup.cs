@@ -40,8 +40,6 @@ namespace Site
 
             services.AddScoped<IImageModelRepository, SQLImageModelRepository>();
 
-            services.AddScoped<ICardModelRepository, SQLCardModelRepository>();
-
             services.AddScoped<IMovieModelRepository, SQLMovieModelRepository>();
 
             services.AddScoped<IAdminAccessRepository, SQLAdminAccessRepository>();
@@ -92,7 +90,7 @@ namespace Site
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //app.UseWebMarkupMin();
+            app.UseWebMarkupMin();
             app.UseWelcomePage("/Welcome");
 
             app.UseRouting();

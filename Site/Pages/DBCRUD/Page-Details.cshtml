@@ -32,14 +32,14 @@
 
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">PageNumber&nbsp;: </span>
-                        <span id="PageNumber" class="fs-6">@Model.SitemapItem.PageNumber</span><br />
-                        <span id="PageNumberHelpBlock" class="form-text">номер страницы</span>
+                        <span class="fs-6">@Model.SitemapItem.PageNumber</span><br />
+                        <span class="form-text">номер страницы</span>
                     </li>
 
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">SitemapModelId&nbsp;:</span>
-                        <span id="SitemapModelId" class="fs-6">@Model.SitemapItem.SitemapModelId</span><br />
-                        <span id="SitemapModelIdHelpBlock" class="form-text">
+                        <span class="fs-6">@Model.SitemapItem.SitemapModelId</span><br />
+                        <span class="form-text">
                             идентификатор в базе данных (GUID)
                         </span>
                     </li>
@@ -47,81 +47,105 @@
                     <li class="list-group-item">
                         <vc:image file-name="@Model.SitemapItem.ImageModel.ImageContentUrl.Segments.Last()" css-class="card-img-top mb-3 width50percent shadw" image-icon="false" /><br />
                         <span class="fw-bold fs-5 text-primary">ImageModelImageId&nbsp;:</span>
-                        <span id="ImageModelImageId" class="fs-6">@Model.SitemapItem.ImageModelImageId</span><br />
-                        <span id="ImageModelImageIdHelpBlock" class="form-text">
+                        <span class="fs-6">@Model.SitemapItem.ImageModelImageId</span><br />
+                        <span class="form-text">
                             картинка для страницы (GUID)
                         </span>
                     </li>
 
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Loc&nbsp;:</span>
-                        <span id="Loc" class="fs-6">@Model.SitemapItem.Loc</span><br />
-                        <span id="LocHelpBlock" class="form-text">
+                        <span class="fs-6">@Model.SitemapItem.Loc</span><br />
+                        <span class="form-text">
                             адрес страницы (https://.....)
                         </span>
                     </li>
 
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Lastmod&nbsp;:</span>
-                        <span id="Lastmod" class="fs-6">@Model.SitemapItem.Lastmod.ToString("dd.MM.yyyy")</span><br />
-                        <span id="LastmodHelpBlock" class="form-text">
+                        <span class="fs-6">@Model.SitemapItem.Lastmod.ToString("dd.MM.yyyy")</span><br />
+                        <span class="form-text">
                             дата последнего изменения
                         </span>
                     </li>
 
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Changefreq&nbsp;:</span>
-                        <span id="Changefreq" class="fs-6">@Model.SitemapItem.Changefreq</span><br />
-                        <span id="ChangefreqHelpBlock" class="form-text">
+                        <span class="fs-6">@Model.SitemapItem.Changefreq</span><br />
+                        <span class="form-text">
                             частота изменения страницы
                         </span>
                     </li>
 
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Priority&nbsp;:</span>
-                        <span id="Priority" class="fs-6">@Model.SitemapItem.Priority</span><br />
-                        <span id="PriorityHelpBlock" class="form-text">
+                        <span class="fs-6">@Model.SitemapItem.Priority</span><br />
+                        <span class="form-text">
                             значимость страницы ( от 0.0 до 1.0)
                         </span>
                     </li>
 
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">LeftBackground&nbsp;:</span>
-                        <span id="LeftBackground" class="fs-6">@Model.SitemapItem.LeftBackground</span><br />
-                        <span id="LeftBackgroundlHelpBlock" class="form-text">
+                        <span class="fs-6">@Model.SitemapItem.LeftBackground</span><br />
+                        <span class="form-text">
                             фон слева (фотопленка)
                         </span>
                     </li>
 
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">RightBackground&nbsp;:</span>
-                        <span id="RightBackground" class="fs-6">@Model.SitemapItem.RightBackground</span><br />
-                        <span id="RightBackgroundHelpBlock" class="form-text">
+                        <span class="fs-6">@Model.SitemapItem.RightBackground</span><br />
+                        <span class="form-text">
                             фон справа (фотопленка)
                         </span>
                     </li>
 
                     <li class="list-group-item">
                         <span class="fw-bold fs-5 text-primary">Title&nbsp;:</span>
-                        <span id="Title" class="fs-6">@Model.SitemapItem.Title</span><br />
-                        <span id="TitleHelpBlock" class="form-text">
+                        <span class="fs-6">@Model.SitemapItem.Title</span><br />
+                        <span class="form-text">
                             заголовок страницы
                         </span>
                     </li>
 
                     <li class="list-group-item text_justify">
                         <span class="fw-bold fs-5 text-primary">Description&nbsp;:</span>
-                        <span id="Description" class="fs-6">@Model.SitemapItem.Description</span><br />
-                        <span id="DescriptionHelpBlock" class="form-text d-flex justify-content-center">
+                        <span class="fs-6">@Model.SitemapItem.Description</span><br />
+                        <span class="form-text d-flex justify-content-center">
                             описание страницы
                         </span>
                     </li>
 
                     <li class="list-group-item text_justify">
                         <span class="fw-bold fs-5 text-primary">KeyWords&nbsp;:</span>
-                        <span id="KeyWords" class="fs-6">@Model.SitemapItem.KeyWords</span><br />
-                        <span id="KeyWordsHelpBlock" class="form-text d-flex justify-content-center">
+                        <span class="fs-6">@Model.SitemapItem.KeyWords</span><br />
+                        <span class="form-text d-flex justify-content-center">
                             ключевые слова
+                        </span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">CardText&nbsp;:</span>
+                        <span class="fs-6">@Model.SitemapItem.CardText</span><br />
+                        <span class="form-text d-flex justify-content-center">
+                            текст для карточки
+                        </span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">MoviePage&nbsp;:</span>
+                        <span class="fs-6">@Model.SitemapItem.MoviePage</span><br />
+                        <span class="form-text d-flex justify-content-center">
+                            страница для фильма
+                        </span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span class="fw-bold fs-5 text-primary">MovieCaption&nbsp;:</span>
+                        <span class="fs-5 text-danger">@Model.SitemapItem.MovieModel.MovieCaption</span><br />
+                        <span class="form-text d-flex justify-content-center">
+                            фильм для страницы
                         </span>
                     </li>
 

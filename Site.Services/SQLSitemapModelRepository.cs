@@ -9,10 +9,9 @@ namespace Site.Services
     public class SQLSitemapModelRepository : ISitemapModelRepository
     {
         private readonly SiteContext _siteContext;
-
         public SQLSitemapModelRepository(SiteContext siteContext) => _siteContext = siteContext;
 
-        public IEnumerable<SitemapModel> Sitemaps => _siteContext.SitemapModels.Include(p => p.ImageModel);
+        public IEnumerable<SitemapModel> Sitemaps => _siteContext.SitemapModels.Include(p => p.ImageModel).Include(m => m.MovieModel);
 
         public void AddSitemapItem(SitemapModel sitemapItem)
         {
@@ -34,7 +33,10 @@ namespace Site.Services
             page.Title = sitemapItem.Title;
             page.Description = sitemapItem.Description;
             page.KeyWords = sitemapItem.KeyWords;
+            page.CardText = sitemapItem.CardText;
+            page.MoviePage = sitemapItem.MoviePage;
             page.ImageModelImageId = sitemapItem.ImageModelImageId;
+            page.MovieModelMovieId = sitemapItem.MovieModelMovieId;
 
             //var entry = _siteContext.SitemapModels.First(e => e.SitemapModelId == pageToUpdate.SitemapModelId);
             //_siteContext.Entry(entry).CurrentValues.SetValues(pageToUpdate);
@@ -57,12 +59,12 @@ namespace Site.Services
                 pageNumber = 0;
             }
 
-            return _siteContext.SitemapModels.Include(p => p.ImageModel).FirstOrDefault(x => x.PageNumber == pageNumber);
+            return _siteContext.SitemapModels.Include(p => p.ImageModel).Include(m => m.MovieModel).FirstOrDefault(x => x.PageNumber == pageNumber);
         }
 
         public SitemapModel GetPageById(Guid? sitemapModelId)
         {
-            return _siteContext.SitemapModels.Include(i => i.ImageModel).FirstOrDefault(x => x.SitemapModelId == sitemapModelId);
+            return _siteContext.SitemapModels.Include(i => i.ImageModel).Include(m => m.MovieModel).FirstOrDefault(x => x.SitemapModelId == sitemapModelId);
         }
 
         public uint GetPageNumber(uint? pageNumber)
@@ -72,7 +74,7 @@ namespace Site.Services
                 pageNumber = 0;
             }
 
-            return _siteContext.SitemapModels.FirstOrDefault(x => x.PageNumber == pageNumber).PageNumber;
+            return _siteContext.SitemapModels.Include(i => i.ImageModel).Include(m => m.MovieModel).FirstOrDefault(x => x.PageNumber == pageNumber).PageNumber;
         }
     }
 }

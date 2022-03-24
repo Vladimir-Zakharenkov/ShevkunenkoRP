@@ -202,7 +202,14 @@
 
                     <li class="list-group-item">
                         <span class="fs-5 text-primary">AspPage&nbsp;:</span><br />
+                        @if (Model.Movie.AspPage.Contains("shevkunenko.ru"))
+                        {
+                        <span class="fs-6"><a class="text-danger" href="@Model.Movie.AspPage">@Model.Movie.AspPage</a> </span><br />
+                        }
+                        else
+                        {
                         <span class="fs-6"><a class="text-danger" asp-page="@Model.Movie.AspPage">@Model.Movie.AspPage</a> </span><br />
+                        }
                         <span class="form-text">адрес страницы на сайте</span>
                     </li>
 

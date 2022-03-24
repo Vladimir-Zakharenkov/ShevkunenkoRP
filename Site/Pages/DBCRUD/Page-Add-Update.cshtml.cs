@@ -15,10 +15,12 @@ namespace Site.Pages.DBCRUD
     {
         private readonly ISitemapModelRepository _sitemapContext;
         private readonly IImageModelRepository _imageContext;
-        public Page_Add_UpdateModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext)
+        private readonly IMovieModelRepository _movieContext;
+        public Page_Add_UpdateModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext, IMovieModelRepository movieContext)
         {
             _sitemapContext = sitemapContext;
             _imageContext = imageContext;
+            _movieContext = movieContext;
         }
 
         public uint PageNumber { get; set; }
@@ -26,6 +28,8 @@ namespace Site.Pages.DBCRUD
         public SitemapModel SitemapItem { get; set; }
 
         public IFormFile ImageFile { get; set; }
+
+        public string NameForMovie { get; set; }
 
         public IActionResult OnGet(Guid? sitemapModelId)
         {
@@ -36,6 +40,8 @@ namespace Site.Pages.DBCRUD
                 ViewData["Action"] = "Edit";
 
                 SitemapItem = _sitemapContext.Sitemaps.FirstOrDefault(p => p.SitemapModelId == sitemapModelId);
+
+                NameForMovie = SitemapItem.MovieModel.MovieCaption;
 
                 return Page();
             }
@@ -103,7 +109,17 @@ namespace Site.Pages.DBCRUD
                 {
                     SitemapItem.ImageModelImageId = (_imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == ImageFile.FileName).ImageId);
                 }
+            }
 
+            if (_movieContext.Movies.FirstOrDefault(m => m.MovieCaption == NameForMovie.Trim()) == null)
+            {
+                ModelState.AddModelError("NameForMovie", "Такого фильма нет в базе данных");
+
+                return Page();
+            }
+            else
+            {
+                SitemapItem.MovieModelMovieId = _movieContext.Movies.FirstOrDefault(m => m.MovieCaption == NameForMovie.Trim()).MovieId;
             }
 
             if (ModelState.IsValid)

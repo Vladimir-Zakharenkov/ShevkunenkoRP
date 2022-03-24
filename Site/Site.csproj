@@ -17,6 +17,7 @@
 
 	<ItemGroup>
 		<Folder Include="wwwroot\images\LinksForVideo\" />
+		<Folder Include="wwwroot\images\interview\" />
 		<Folder Include="wwwroot\js\" />
 	</ItemGroup>
 

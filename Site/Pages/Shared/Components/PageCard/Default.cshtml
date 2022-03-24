@@ -1,0 +1,78 @@
+﻿@model Site.Models.SitemapModel
+
+@if (Model.Loc.ToString().Contains("shevkunenko.site"))
+{
+    <div class="col">
+
+        <div class="card shadw rounded-3 cardborder">
+
+            <a asp-page="@Model.Loc.ToString().Trim().Substring(24)" itemprop="url">
+
+                @if ((bool)Model.MoviePage)
+                {
+                    <span itemscope itemtype="http://schema.org/VideoObject">
+
+                        <vc:movie movie-caption="@Model.MovieModel.MovieCaption" />
+
+                        <vc:image file-name="@Model.ImageModel.ImageContentUrl.Segments.Last()" css-class="card-img-top shadw rounded-3" image-icon="@((bool)ViewData["ImageIcon"])" />
+
+                    </span>
+                }
+                else
+                {
+                    <vc:image file-name="@Model.ImageModel.ImageContentUrl.Segments.Last()" css-class="card-img-top shadw rounded-3" image-icon="@((bool)ViewData["ImageIcon"])" />
+                }
+
+                @if (Model.CardText != null)
+                {
+                    <div class="card-body p-0 mt-2 shadw cardBodyBg">
+
+                        <p class="card-title lh-1 my-1 mt-2">@Model.CardText</p>
+
+                    </div>
+                }
+
+            </a>
+
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="col">
+
+        <div class="card shadw rounded-3 cardborder">
+
+            <a href="@Model.Loc.ToString()" itemprop="url">
+
+                @if ((bool)Model.MoviePage)
+                {
+                    <span itemscope itemtype="http://schema.org/VideoObject">
+
+                        <vc:movie movie-caption="@Model.MovieModel.MovieCaption" />
+
+                        <vc:image file-name="@Model.ImageModel.ImageContentUrl.Segments.Last()" css-class="card-img-top shadw rounded-3" image-icon="@((bool)ViewData["ImageIcon"])" />
+
+                    </span>
+                }
+                else
+                {
+                    <vc:image file-name="@Model.ImageModel.ImageContentUrl.Segments.Last()" css-class="card-img-top shadw rounded-3" image-icon="@((bool)ViewData["ImageIcon"])" />
+                }
+
+                @if (Model.CardText != null & ((bool)ViewData["ImageIcon"]) == false)
+                {
+                    <div class="card-body p-0 mt-2 shadw cardBodyBg">
+
+                        <p class="card-title lh-1 my-1 mt-2">@Model.CardText</p>
+
+                    </div>
+                }
+
+            </a>
+
+        </div>
+
+    </div>
+}

@@ -62,12 +62,26 @@
                     {
                     <tr>
                         <td scope="col"><span class="fw-bold text-primary">@sitemapItem.PageNumber</span></td>
-                        <td scope="col" class="text-start">@sitemapItem.Loc.ToString().Substring(24)</td>
+                        @if (sitemapItem.Loc.ToString().Contains("shevkunenko.site"))
+                        {
+                            <td scope="col" class="text-start">@sitemapItem.Loc.ToString().Substring(24)</td>
+                        }
+                        else
+                        {
+                            <td scope="col" class="text-start">@sitemapItem.Loc.ToString()</td>
+                        }
                         <td scope="col" class="d-none d-xl-table-cell text-start">@sitemapItem.Title</td>
                         <td scope="col"><a asp-page="Page-Details" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-primary py-1 px-1 shadw" title="@sitemapItem.Title">Info</a></td>
                         <td scope="col"><a asp-page="Page-Add-Update" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать страницу">Edit</a></td>
                         <td scope="col"><a asp-page="Page-Delete" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить страницу">Del</a></td>
-                        <td scope="col"><a asp-page="@sitemapItem.Loc.ToString().Substring(24)" class="btn btn-outline-primary py-1 px-1 shadw" title="Просмотр страницы">Run</a></td>
+                        @if (sitemapItem.Loc.ToString().Contains("shevkunenko.ru"))
+                        {
+                            <td scope="col"><a href="@sitemapItem.Loc" class="btn btn-outline-primary py-1 px-1 shadw" title="Просмотр страницы">Run</a></td>
+                        }
+                        else
+                        {
+                            <td scope="col"><a asp-page="@sitemapItem.Loc.ToString().Substring(24)" class="btn btn-outline-primary py-1 px-1 shadw" title="Просмотр страницы">Run</a></td>
+                        }
                     </tr>
                     }
 

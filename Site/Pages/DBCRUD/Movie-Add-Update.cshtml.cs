@@ -98,6 +98,16 @@ namespace Site.Pages.DBCRUD
                 }
             }
 
+            if (Movie.MovieId == Guid.Empty)
+            {
+                if (_movieContext.Movies.FirstOrDefault(m => m.MovieCaption == Movie.MovieCaption) != null)
+                {
+                    ModelState.AddModelError("Movie.Caption", "Такой фильм уже есть в базе данных");
+
+                return Page();
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 if (Movie.MovieId == Guid.Empty)
