@@ -326,19 +326,13 @@
 
             <hr class="liniya" />
 
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" asp-for="Movie.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyTrue" value="true">
+            <div class="form-check form-check-inline justify-content-center">
+                <input class="form-check-input" asp-for="Movie.IsFamilyFriendly" id="IsFamilyFriendlyTrue" value="true" />
                 <label class="form-check-label" for="IsFamilyFriendlyTrue">
-                    Нет ограничений для просмотра
+                    Нет ограничений по возрасту
                 </label>
+                <span asp-validation-for="Movie.IsFamilyFriendly" class="text-danger"></span>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" asp-for="Movie.IsFamilyFriendly" type="radio" id="IsFamilyFriendlyFalse" value="false">
-                <label class="form-check-label" for="IsFamilyFriendlyFalse">
-                    Есть ограничения для просмотра
-                </label>
-            </div>
-            <span asp-validation-for="Movie.IsFamilyFriendly" class="text-danger"></span>
 
             <hr class="liniya" />
 

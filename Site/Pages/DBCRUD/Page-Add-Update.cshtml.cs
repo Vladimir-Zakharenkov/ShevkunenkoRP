@@ -111,15 +111,22 @@ namespace Site.Pages.DBCRUD
                 }
             }
 
-            if (_movieContext.Movies.FirstOrDefault(m => m.MovieCaption == NameForMovie.Trim()) == null)
+            if (SitemapItem.MoviePage)
             {
-                ModelState.AddModelError("NameForMovie", "Такого фильма нет в базе данных");
+                if (_movieContext.Movies.FirstOrDefault(m => m.MovieCaption == NameForMovie.Trim()) == null)
+                {
+                    ModelState.AddModelError("NameForMovie", "Такого фильма нет в базе данных");
 
-                return Page();
+                    return Page();
+                }
+                else
+                {
+                    SitemapItem.MovieModelMovieId = _movieContext.Movies.FirstOrDefault(m => m.MovieCaption == NameForMovie.Trim()).MovieId;
+                }
             }
             else
             {
-                SitemapItem.MovieModelMovieId = _movieContext.Movies.FirstOrDefault(m => m.MovieCaption == NameForMovie.Trim()).MovieId;
+                SitemapItem.MovieModelMovieId = _movieContext.Movies.FirstOrDefault(m => m.MovieCaption == "Криминальная звезда").MovieId;
             }
 
             if (ModelState.IsValid)

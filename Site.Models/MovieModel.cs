@@ -33,7 +33,7 @@ namespace Site.Models
         public DateTime UploadDate { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
-        [Display(Name = "Нет ограничений для просмотра:")]
+        [Display(Name = "Нет ограничений по возрасту:")]
         public bool IsFamilyFriendly { get; set; }
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
