@@ -1,0 +1,20 @@
+﻿@page "{VideoProvider?}"
+@model Site.Pages.Znakomye_o_Shevkunenko.Andrey_NesterovModel
+
+<vc:movie-online page-number="@Model.PageNumber" video-provider="@Model.VideoProvider" />
+
+<hr class="liniya" />
+
+<div class="row row-cols-2 row-cols-md-3 justify-content-center g-2">
+
+    <vc:page-card page-number="5" image-icon="false" />
+    <vc:page-card page-number="96" image-icon="false" />
+    <vc:page-card page-number="95" image-icon="false" />
+
+</div>
+
+<partial name="_FilmyShevkunenkoPartial" />
+
+<partial name="_ZnakomyeShevkunenkoPartial" />
+
+<partial name="_VideoOShevkunenkoPartial" />

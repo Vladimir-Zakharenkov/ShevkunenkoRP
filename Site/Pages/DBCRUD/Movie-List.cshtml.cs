@@ -23,7 +23,7 @@ namespace Site.Pages.DBCRUD
         {
             PageNumber = 91;
 
-            AllMovies = _movieContext.Movies.ToArray(); ;
+            AllMovies = _movieContext.Movies.ToArray();
         }
     }
 }

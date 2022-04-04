@@ -43,6 +43,7 @@ namespace Site.Services
             movie.MusicBy = movieToUpdate.MusicBy;
             movie.Genre = movieToUpdate.Genre;
             movie.Description = movieToUpdate.Description;
+            movie.DescriptionForSchemaOrg = movieToUpdate.DescriptionForSchemaOrg;
             movie.Actor01 = movieToUpdate.Actor01;
             movie.Actor02 = movieToUpdate.Actor02;
             movie.Actor03 = movieToUpdate.Actor03;

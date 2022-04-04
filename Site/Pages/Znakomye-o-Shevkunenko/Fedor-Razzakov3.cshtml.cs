@@ -8,15 +8,11 @@ namespace Site.Pages.Znakomye_o_Shevkunenko
     {
         public uint PageNumber { get; set; }
 
-        public string MovieCaption { get; set; }
-
         public string VideoProvider { get; set; }
 
         public void OnGet()
         {
             PageNumber = 114;
-
-            MovieCaption = "Интервью - писатель Федор Раззаков (3)";
         }
     }
 }

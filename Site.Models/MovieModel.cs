@@ -56,8 +56,13 @@ namespace Site.Models
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Краткое содержание:")]
+        [Display(Name = "Краткое содержание (HTML):")]
         public string Description { get; set; }
+
+        //[Required(ErrorMessage = "Поле не может быть пустым")]
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Краткое содержание:")]
+        public string DescriptionForSchemaOrg { get; set; }
 
         [DataType(DataType.Text)]
         public string Actor01 { get; set; }

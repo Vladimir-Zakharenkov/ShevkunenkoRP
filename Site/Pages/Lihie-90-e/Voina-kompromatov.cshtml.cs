@@ -8,15 +8,11 @@ namespace Site.Pages.Lihie_90_e
     {
         public uint PageNumber { get; set; }
 
-        public string MovieCaption { get; set; }
-
         public string VideoProvider { get; set; }
 
         public void OnGet()
         {
             PageNumber = 76;
-
-            MovieCaption = "Программа «Лихие 90-е» Война компроматов";
         }
     }
 }

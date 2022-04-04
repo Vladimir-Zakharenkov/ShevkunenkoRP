@@ -232,16 +232,19 @@
             </div>
             <span asp-validation-for="SitemapItem.MoviePage" class="text-danger"></span>
 
+            <hr class="liniya" />
+
             <div class="row g-2 justify-content-center">
                 <div class="col-auto">
                     <label for="MovieCaptionInput" asp-for="NameForMovie" class="col-form-label text-primary fs-5 fw-bold">MovieCaption&nbsp;:</label>
                 </div>
-                <div class="col-auto">
+                <div class="col-12">
                     <input id="MovieCaptionInput" asp-for="NameForMovie" class="form-control" aria-describedby="MovieCaptionInputHelpBlock" />
                 </div>
                 <div class="col-12 justify-content-center">
                     <span id="MovieCaptionInputHelpBlock" class="form-text">
                         MovieCaption: название фильма
+                    </span>
                 </div>
             </div>
             <span asp-validation-for="NameForMovie" class="text-danger"></span>

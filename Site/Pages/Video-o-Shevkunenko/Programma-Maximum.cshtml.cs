@@ -8,15 +8,11 @@ namespace Site.Pages.Video_o_Shevkunenko
     {
         public uint PageNumber { get; set; }
 
-        public string MovieCaption { get; set; }
-
         public string VideoProvider { get; set; }
 
         public void OnGet()
         {
             PageNumber = 30;
-
-            MovieCaption = "Программа Максимум от 19.04.2008";
         }
     }
 }

@@ -39,6 +39,13 @@
 
                     <li class="list-group-item text_justify">
                         <span class="fs-5 text-primary">Description&nbsp;:</span><br />
+                        <span class="fs-6 accordion-body">@Model.Movie.DescriptionForSchemaOrg</span><br />
+                        <span class="form-text d-flex justify-content-center">краткое содержание (SchemaOrg)</span>
+                    </li>
+
+
+                    <li class="list-group-item text_justify">
+                        <span class="fs-5 text-primary">Description&nbsp;:</span><br />
                         <span class="fs-6 accordion-body">@Html.Raw(Model.Movie.Description)</span><br />
                         <span class="form-text d-flex justify-content-center">краткое содержание (HTML)</span>
                     </li>
@@ -204,11 +211,11 @@
                         <span class="fs-5 text-primary">AspPage&nbsp;:</span><br />
                         @if (Model.Movie.AspPage.Contains("shevkunenko.ru"))
                         {
-                        <span class="fs-6"><a class="text-danger" href="@Model.Movie.AspPage">@Model.Movie.AspPage</a> </span><br />
+                            <span class="fs-6"><a class="text-danger" href="@Model.Movie.AspPage">@Model.Movie.AspPage</a> </span><br />
                         }
                         else
                         {
-                        <span class="fs-6"><a class="text-danger" asp-page="@Model.Movie.AspPage">@Model.Movie.AspPage</a> </span><br />
+                            <span class="fs-6"><a class="text-danger" asp-page="@Model.Movie.AspPage">@Model.Movie.AspPage</a> </span><br />
                         }
                         <span class="form-text">адрес страницы на сайте</span>
                     </li>

@@ -8,15 +8,11 @@ namespace Site.Pages.Video_o_Shevkunenko
     {
         public uint PageNumber { get; set; }
 
-        public string MovieCaption { get; set; }
-
         public string VideoProvider { get; set; }
 
         public void OnGet()
         {
             PageNumber = 41;
-
-            MovieCaption = "Программа «Говорим и показываем» от 05.10.2011";
         }
     }
 }

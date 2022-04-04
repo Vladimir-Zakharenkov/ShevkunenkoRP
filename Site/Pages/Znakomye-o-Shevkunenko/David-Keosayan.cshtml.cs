@@ -9,15 +9,11 @@ namespace Site.Pages.Znakomye_o_Shevkunenko
     {
         public uint PageNumber { get; set; }
 
-        public string MovieCaption { get; set; }
-
         public string VideoProvider { get; set; }
 
         public void OnGet()
         {
             PageNumber = 115;
-
-            MovieCaption = "Интервью - Давид Кеосаян";
         }
     }
 }

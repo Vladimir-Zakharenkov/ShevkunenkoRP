@@ -8,15 +8,11 @@ namespace Site.Pages.Video_o_Shevkunenko
     {
         public uint PageNumber { get; set; }
 
-        public string MovieCaption { get; set; }
-
         public string VideoProvider { get; set; }
 
         public void OnGet()
         {
             PageNumber = 37;
-
-            MovieCaption = "Программа «Прямой эфир» от 04.08.2011";
         }
     }
 }

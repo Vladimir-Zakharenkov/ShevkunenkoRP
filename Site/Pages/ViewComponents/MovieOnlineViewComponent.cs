@@ -7,13 +7,18 @@ namespace Site.Pages.ViewComponents
     public class MovieOnline : ViewComponent
     {
         private readonly IMovieModelRepository _movieContext;
-        public MovieOnline(IMovieModelRepository movieContext) =>_movieContext = movieContext;
+        private readonly ISitemapModelRepository _pagenumberContext;
 
-        public string HtmlText { get; set; }
-
-        public IViewComponentResult Invoke(string movieCaption, string videoProvider)
+        public MovieOnline(IMovieModelRepository movieContext, ISitemapModelRepository pagenumberContext)
         {
-            MovieModel movie = _movieContext.GetMovieByMovieCaption(movieCaption);
+            _movieContext = movieContext;
+            _pagenumberContext = pagenumberContext;
+        }
+
+        public IViewComponentResult Invoke(uint pageNumber, string videoProvider)
+        {
+            MovieModel movie = _movieContext.GetMovie(_pagenumberContext.GetPage(pageNumber).MovieModelMovieId);
+
 
             if (movie == null)
             {

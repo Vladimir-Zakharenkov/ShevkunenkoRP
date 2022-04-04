@@ -139,6 +139,10 @@ namespace Site.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DescriptionForSchemaOrg")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Director")
                         .HasColumnType("nvarchar(max)");
 
