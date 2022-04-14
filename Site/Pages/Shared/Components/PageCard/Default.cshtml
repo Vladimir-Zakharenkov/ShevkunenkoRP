@@ -58,7 +58,14 @@ else
                 }
                 else
                 {
-                    <vc:image file-name="@Model.ImageModel.ImageContentUrl.Segments.Last()" css-class="card-img-top shadw rounded-3" image-icon="@((bool)ViewData["ImageIcon"])" />
+                    if (Model.PageNumber == 96)
+                    {
+                        <vc:foto-carousel id-for-carousel="first" image-catalog="FotoAlbom/" image-thumbnail="false" />
+                    }
+                    else
+                    {
+                        <vc:image file-name="@Model.ImageModel.ImageContentUrl.Segments.Last()" css-class="card-img-top shadw rounded-3" image-icon="@((bool)ViewData["ImageIcon"])" />
+                    }
                 }
 
                 @if (Model.CardText != null & ((bool)ViewData["ImageIcon"]) == false)

@@ -89,22 +89,22 @@ namespace Site.Pages.DBCRUD
                     return Page();
                 }
             }
-            else
-            {
-                if (_imageContext.Images.FirstOrDefault(x => x.ImageContentUrl == Image.ImageContentUrl) == null)
-                {
-                    ModelState.AddModelError("Image.ImageContentUrl", "Такой картинки нет в базе данных");
+            //else
+            //{
+            //    if (_imageContext.Images.FirstOrDefault(x => x.ImageContentUrl == Image.ImageContentUrl) == null)
+            //    {
+            //        ModelState.AddModelError("Image.ImageContentUrl", "Такой картинки нет в базе данных");
 
-                    return Page();
-                }
+            //        return Page();
+            //    }
 
-                if (_imageContext.Images.FirstOrDefault(x => x.ImageThumbnailUrl == Image.ImageThumbnailUrl) == null)
-                {
-                    ModelState.AddModelError("Image.ImageThumbnailUrl", "Такой иконки нет в базе данных");
+            //    if (_imageContext.Images.FirstOrDefault(x => x.ImageThumbnailUrl == Image.ImageThumbnailUrl) == null)
+            //    {
+            //        ModelState.AddModelError("Image.ImageThumbnailUrl", "Такой иконки нет в базе данных");
 
-                    return Page();
-                }
-            }
+            //        return Page();
+            //    }
+            //}
 
             if (ModelState.IsValid)
             {

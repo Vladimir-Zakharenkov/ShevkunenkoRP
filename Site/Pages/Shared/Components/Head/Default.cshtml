@@ -1,4 +1,5 @@
 ﻿<head>
+
     <title>@Model.Title</title>
     <meta name="pageId" content="@Model.PageNumber" />
     <meta name="description" content="@Model.Description" />
@@ -56,8 +57,21 @@
 
     <meta property="fb:admins" content="100000630675210" />
 
+    @if (Model.MoviePage)
+    {
+        <meta property="og:type" content="video.movie">
+        <meta property="og:video" content="@Model.MovieModel.ContentUrl">
+        <meta property="og:video:type" content="video/mp4">
+        <meta property="ya:ovs:upload_date" content="@Model.MovieModel.UploadDate.ToString("yyyy-MM-dd")">
+        <meta property="ya:ovs:adult" content="@Model.MovieModel.IsFamilyFriendly.ToString()">
+        <meta property="video:duration" content="@TimeSpan.Parse(Model.MovieModel.Duration.ToString("H:mm:ss")).TotalSeconds">
+    }
+    else
+    {
+        <meta property="og:type" content="website" />
+    }
+
     <meta property="og:locale" content="ru_RU" />
-    <meta property="og:type" content="website" />
     <meta property="og:title" content="@Model.Title" />
     <meta property="og:description" content="@Model.Description" />
     <meta property="og:url" content="@Model.Loc" />
@@ -86,4 +100,5 @@
 
         gtag('config', 'G-3WELF8XC9E');
     </script>
+
 </head>

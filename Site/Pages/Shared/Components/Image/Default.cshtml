@@ -3,25 +3,25 @@
 @if ((bool)ViewData["ImageIcon"])
 
 {
-    <span itemscope itemtype="http://schema.org/ImageObject">
+<span itemscope itemtype="http://schema.org/ImageObject">
 
-        <meta itemprop="name" content="@Model.ImageCaption" />
+    <meta itemprop="name" content="@Model.ImageCaption" />
 
-        <meta itemprop="caption" content="@Model.ImageCaption" />
+    <meta itemprop="caption" content="@Model.ImageCaption" />
 
-        <meta itemprop="description" content="@Model.ImageDescription" />
+    <meta itemprop="description" content="@Model.ImageDescription" />
 
-        <link itemprop="contentUrl" href="@Model.ImageThumbnailUrl" />
+    <link itemprop="contentUrl" href="@Model.ImageThumbnailUrl" />
 
-        <link itemprop="thumbnailUrl" href="@Model.ImageThumbnailUrl" />
+    <link itemprop="thumbnailUrl" href="@Model.ImageThumbnailUrl" />
 
-        <meta itemprop="width" content="@Model.ImageThumbnailWidth px" />
+    <meta itemprop="width" content="@Model.ImageThumbnailWidth px" />
 
-        <meta itemprop="height" content="@Model.ImageThumbnailHeight px" />
+    <meta itemprop="height" content="@Model.ImageThumbnailHeight px" />
 
-        <img itemprop="image" class="@ViewData["CssClass"]" src="@Model.ImageThumbnailUrl.ToString().Trim().Substring(24)" asp-append-version="true" alt="@Model.ImageAlt" title="@Model.ImageAlt" />
+    <img itemprop="image" class="@ViewData["CssClass"]" src="@Model.ImageThumbnailUrl.LocalPath" asp-append-version="true" alt="@Model.ImageAlt" title="@Model.ImageAlt" />
 
-    </span>
+</span>
 }
 else
 {
@@ -41,7 +41,7 @@ else
 
         <meta itemprop="height" content="@Model.ImageHeight px" />
 
-        <img itemprop="image" class="@ViewData["CssClass"]" src="@Model.ImageContentUrl.ToString().Trim().Substring(24)" asp-append-version="true" alt="@Model.ImageAlt" title="@Model.ImageAlt" />
+        <img itemprop="image" class="@ViewData["CssClass"]" src="@Model.ImageContentUrl.LocalPath" asp-append-version="true" alt="@Model.ImageAlt" title="@Model.ImageAlt" />
 
     </span>
 }

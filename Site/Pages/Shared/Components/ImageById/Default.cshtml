@@ -19,7 +19,7 @@
 
         <meta itemprop="height" content="@Model.ImageThumbnailHeight px" />
 
-        <img itemprop="image" class="@ViewData["CssClass"]" src="@Model.ImageThumbnailUrl.ToString().Trim().Substring(24)" asp-append-version="true" alt="@Model.ImageAlt" title="@Model.ImageAlt" />
+        <img itemprop="image" class="@ViewData["CssClass"]" src="@Model.ImageThumbnailUrl.LocalPath" asp-append-version="true" alt="@Model.ImageAlt" title="@Model.ImageAlt" />
 
     </span>
 }
@@ -41,7 +41,7 @@ else
 
         <meta itemprop="height" content="@Model.ImageHeight px" />
 
-        <img itemprop="image" class="@ViewData["CssClass"]" src="@Model.ImageContentUrl.ToString().Trim().Substring(24)" asp-append-version="true" alt="@Model.ImageAlt" title="@Model.ImageAlt" />
+        <img itemprop="image" class="@ViewData["CssClass"]" src="@Model.ImageContentUrl.LocalPath" asp-append-version="true" alt="@Model.ImageAlt" title="@Model.ImageAlt" />
 
     </span>
 }

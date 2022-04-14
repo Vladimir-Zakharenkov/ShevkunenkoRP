@@ -398,6 +398,10 @@ table.gsc-search-box, form.gsc-search-box {
   max-width: 320px;
   min-width: 180px; }
 
+.maxwidth720px {
+  width: 100%;
+  max-width: 720px; }
+
 .width50percent {
   width: 50%;
   min-width: 180px; }

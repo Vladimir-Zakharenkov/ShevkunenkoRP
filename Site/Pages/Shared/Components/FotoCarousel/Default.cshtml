@@ -1,0 +1,66 @@
+﻿@model Site.Models.ImageModel[]
+
+<div id="@ViewData["idForCarousel"]" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+        @{
+            int i = 0;
+
+        }
+
+        @if ((bool)ViewData["imageThumbnail"])
+        {
+            @foreach (var item in Model)
+            {
+                @if (i == 0)
+                {
+                    <div class="carousel-item active">
+
+                        <img src="@item.ImageThumbnailUrl.LocalPath" class="d-block mx-auto maxwidth720px" alt="@item.ImageAlt" title="@item.ImageAlt">
+
+                    </div>
+                }
+                else
+                {
+                    <div class="carousel-item">
+
+                        <img src="@item.ImageThumbnailUrl.LocalPath" class="d-block mx-auto maxwidth720px" alt="@item.ImageAlt" title="@item.ImageAlt">
+
+                    </div>
+
+                }
+
+                i++;
+            }
+
+        }
+        else
+        {
+
+            @foreach (var item in Model)
+            {
+                @if (i == 0)
+                {
+                    <div class="carousel-item active">
+
+                        <img src="@item.ImageContentUrl.LocalPath" class="d-block mx-auto maxwidth720px" alt="@item.ImageAlt" title="@item.ImageAlt">
+
+                    </div>
+                }
+                else
+                {
+                    <div class="carousel-item">
+
+                        <img src="@item.ImageContentUrl.LocalPath" class="d-block mx-auto maxwidth720px" alt="@item.ImageAlt" title="@item.ImageAlt">
+
+                    </div>
+                }
+
+                i++;
+            }
+        }
+
+    </div>
+
+</div>
