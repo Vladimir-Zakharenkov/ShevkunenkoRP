@@ -1,6 +1,7 @@
 ﻿using Site.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Site.Services
 {
@@ -8,12 +9,12 @@ namespace Site.Services
     {
         public IEnumerable<ImageModel> Images { get; }
 
-        void AddImage(ImageModel image);
+        Task AddImageAsync(ImageModel image);
 
-        void UpdateImage(ImageModel image);
+        Task UpdateImageAsync(ImageModel image);
 
-        void DeleteImage(Guid imageId);
+        Task DeleteImageAsync(Guid imageId);
 
-        ImageModel GetImage(Guid? imageId);
+        Task<ImageModel> GetImageAsync(Guid? imageId);
     }
 }

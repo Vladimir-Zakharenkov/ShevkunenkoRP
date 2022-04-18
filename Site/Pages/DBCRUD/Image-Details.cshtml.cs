@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Site.Models;
 using Site.Services;
+using System.Threading.Tasks;
 
 namespace Site.Pages.DBCRUD
 {
@@ -16,11 +17,11 @@ namespace Site.Pages.DBCRUD
 
         public ImageModel Image { get; set; }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
             PageNumber = 7;
 
-            Image = _imageContext.GetImage(Image.ImageId);
+            Image = await _imageContext.GetImageAsync(Image.ImageId);
 
             if (Image == null)
             {

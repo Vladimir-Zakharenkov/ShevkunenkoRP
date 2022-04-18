@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Site.Models;
 using Site.Services;
+using System.Threading.Tasks;
 
 namespace Site.Pages.DBCRUD
 {
@@ -17,11 +18,11 @@ namespace Site.Pages.DBCRUD
 
         public ImageModel Image { get; set; }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
             PageNumber = 10;
 
-            Image = _imageContext.GetImage(Image.ImageId);
+            Image = await _imageContext.GetImageAsync(Image.ImageId);
 
             if (Image == null)
             {
@@ -31,11 +32,11 @@ namespace Site.Pages.DBCRUD
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             PageNumber = 10;
 
-            _imageContext.DeleteImage(Image.ImageId);
+            await _imageContext.DeleteImageAsync(Image.ImageId);
 
             return RedirectToPage("Image-Icons");
         }

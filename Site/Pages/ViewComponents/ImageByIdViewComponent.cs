@@ -3,21 +3,23 @@ using Site.Models;
 using Site.Services;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Site.Pages.ViewComponents
 {
     public class ImageById : ViewComponent
     {
-        private readonly IImageModelRepository _imageContext;
-        public ImageById(IImageModelRepository imageContext) => _imageContext = imageContext;
+        private readonly SiteContext _siteContext;
+        public ImageById(SiteContext siteContext) => _siteContext = siteContext;
 
-        public IViewComponentResult Invoke(Guid imageId, string cssClass, bool imageIcon)
+        public async Task<IViewComponentResult> InvokeAsync(Guid imageId, string cssClass, bool imageIcon)
         {
-            ImageModel image = _imageContext.Images.FirstOrDefault(x => x.ImageId == imageId);
+            ImageModel image = await _siteContext.ImageModels.FindAsync(imageId);
 
             if (image == null)
             {
-                image = _imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == "no-image.png");
+                image = await _siteContext.ImageModels.FirstOrDefaultAsync(x => x.ImageContentUrl.Segments.Last() == "no-image.png");
             }
 
             ViewData["CssClass"] = cssClass;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Site.Models;
 using Site.Services;
 using System;
@@ -15,9 +16,19 @@ namespace Site.Pages.ViewComponents
             _imageContext = imageContext;
         }
 
+        //public IViewComponentResult Invoke(string idForCarousel, string imageCatalog, bool imageThumbnail)
+        //{
+        //    ImageModel[] images =_imageContext.Images.Where(i => i.ImageContentUrl.Segments.Contains(imageCatalog)).ToArray();
+
+        //    ViewData["idForCarousel"] = idForCarousel;
+
+        //    ViewData["imageThumbnail"] = imageThumbnail;
+
+        //    return View(images);
+        //}
+
         public IViewComponentResult Invoke(string idForCarousel, string imageCatalog, bool imageThumbnail)
         {
-
             ImageModel[] images = _imageContext.Images.Where(i => i.ImageContentUrl.Segments.Contains(imageCatalog)).ToArray();
 
             ViewData["idForCarousel"] = idForCarousel;

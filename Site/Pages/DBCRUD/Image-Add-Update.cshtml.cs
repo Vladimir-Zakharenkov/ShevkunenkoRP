@@ -5,6 +5,7 @@ using Site.Models;
 using Site.Services;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Site.Pages.DBCRUD
 {
@@ -46,7 +47,7 @@ namespace Site.Pages.DBCRUD
             }
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             PageNumber = 82;
 
@@ -110,11 +111,11 @@ namespace Site.Pages.DBCRUD
             {
                 if (Image.ImageId == Guid.Empty)
                 {
-                    _imageContext.AddImage(Image);
+                   await _imageContext.AddImageAsync(Image);
                 }
                 else
                 {
-                    _imageContext.UpdateImage(Image);
+                    await _imageContext.UpdateImageAsync(Image);
                 }
 
                 return RedirectToPage("/DBCRUD/Image-Icons");

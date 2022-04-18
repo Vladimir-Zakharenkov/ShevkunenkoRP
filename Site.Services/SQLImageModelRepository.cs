@@ -1,38 +1,40 @@
-﻿using Site.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Site.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Site.Services
 {
     public class SQLImageModelRepository : IImageModelRepository
     {
         private readonly SiteContext _siteContext;
-        public SQLImageModelRepository(SiteContext siteContext) =>_siteContext = siteContext;
+        public SQLImageModelRepository(SiteContext siteContext) => _siteContext = siteContext;
 
         public IEnumerable<ImageModel> Images => _siteContext.ImageModels;
 
-        public ImageModel GetImage(Guid? imageId)
+        public async Task<ImageModel> GetImageAsync(Guid? imageId)
         {
-            return _siteContext.ImageModels.Find(imageId);
+            return await _siteContext.ImageModels.FirstOrDefaultAsync(i => i.ImageId == imageId);
         }
 
-        public void AddImage(ImageModel image)
+        public async Task AddImageAsync(ImageModel image)
         {
-            _siteContext.ImageModels.Add(image);
-            _siteContext.SaveChanges();
+            await _siteContext.ImageModels.AddAsync(image);
+            await _siteContext.SaveChangesAsync();
         }
 
-        public void DeleteImage(Guid imageId)
+        public async Task DeleteImageAsync(Guid imageId)
         {
-            var imageToDelete = _siteContext.ImageModels.Find(imageId);
+            var imageToDelete = await _siteContext.ImageModels.FindAsync(imageId);
 
             _siteContext.ImageModels.Remove(imageToDelete);
-            _siteContext.SaveChanges();
+            await _siteContext.SaveChangesAsync();
         }
 
-        public void UpdateImage(ImageModel imageToUpdate)
+        public async Task UpdateImageAsync(ImageModel imageToUpdate)
         {
-            ImageModel image = _siteContext.ImageModels.Find(imageToUpdate.ImageId);
+            ImageModel image = await _siteContext.ImageModels.FindAsync(imageToUpdate.ImageId);
 
             image.ImageDescription = imageToUpdate.ImageDescription;
             image.ImageCaption = imageToUpdate.ImageCaption;
@@ -47,7 +49,7 @@ namespace Site.Services
             //var entry = _siteContext.ImageModels.First(e => e.ImageId == imageToUpdate.ImageId);
             //_siteContext.Entry(entry).CurrentValues.SetValues(imageToUpdate);
 
-            _siteContext.SaveChanges();
+            await _siteContext.SaveChangesAsync();
         }
     }
 }
