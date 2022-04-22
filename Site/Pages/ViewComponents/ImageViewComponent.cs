@@ -9,18 +9,11 @@ namespace Site.Pages.ViewComponents
 {
     public class Image : ViewComponent
     {
-        private readonly SiteContext _siteContext;
         private readonly IImageModelRepository _imageContext;
+        public Image(IImageModelRepository imageContext) => _imageContext = imageContext;
 
-        public Image(SiteContext siteContext, IImageModelRepository imageContext)
+        public async Task<IViewComponentResult> InvokeAsync(string fileName, string cssClass, bool imageIcon)
         {
-            _siteContext = siteContext;
-            _imageContext = imageContext;
-        }
-
-        public IViewComponentResult Invoke(string fileName, string cssClass, bool imageIcon)
-        {
-            //ImageModel image = await _siteContext.ImageModels.FirstOrDefaultAsync(x => x.ImageContentUrl.Segments.Last() == fileName);
             ImageModel image = _imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == fileName);
 
             if (image == null)
@@ -31,7 +24,7 @@ namespace Site.Pages.ViewComponents
             ViewData["CssClass"] = cssClass;
             ViewData["ImageIcon"] = imageIcon;
 
-            return View(image);
+            return await Task.Run(() => View(image));
         }
     }
 }

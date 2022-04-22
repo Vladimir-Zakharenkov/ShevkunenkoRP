@@ -1,27 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using System.Linq;
 using Site.Models;
 using Site.Services;
-using System.Linq;
 
 namespace Site.Pages.ViewComponents
 {
     public class PageCard : ViewComponent
     {
-        private readonly ISitemapModelRepository _pageContext;
-        public PageCard(ISitemapModelRepository pageContext) => _pageContext = pageContext;
+        private readonly ISitemapModelRepository _sitemapContext;
+        public PageCard(ISitemapModelRepository sitemapContext) => _sitemapContext = sitemapContext;
 
-        public IViewComponentResult Invoke(uint pageNumber, bool imageIcon)
+        public async Task<IViewComponentResult> InvokeAsync(uint pageNumber, bool imageIcon)
         {
-            SitemapModel page = _pageContext.Sitemaps.FirstOrDefault(p => p.PageNumber == pageNumber);
+            SitemapModel page = await _sitemapContext.Sitemaps.AsQueryable().FirstOrDefaultAsync(p => p.PageNumber == pageNumber);
 
             if (page == null)
             {
-                page = _pageContext.Sitemaps.FirstOrDefault(p => p.PageNumber == 0);
+                page = await _sitemapContext.Sitemaps.AsQueryable().FirstOrDefaultAsync(p => p.PageNumber == 0);
             }
 
             ViewData["ImageIcon"] = imageIcon;
 
-            return View(page);
+            return await Task.Run(() => View(page));
         }
     }
 }
