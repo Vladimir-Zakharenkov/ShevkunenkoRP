@@ -1,17 +1,9 @@
 ﻿@page "{VideoProvider?}"
-@model Site.Pages.Znakomye_o_Shevkunenko.Nataliya_ChemodurovaModel
+@model Site.Pages.Video_o_Shevkunenko.PrigovorModel
 
 <vc:movie-online page-number="@Model.PageNumber" video-provider="@Model.VideoProvider" />
 
-<hr class="liniya" />
-
-<div class="row row-cols-2 row-cols-md-3 justify-content-center g-2">
-
-    <vc:page-card page-number="150" image-icon="true" />
-
-</div>
-
-<hr class="liniya" />
+<partial name="_FilmyShevkunenkoPartial" />
 
 <div class="row row-cols-2 row-cols-md-3 justify-content-center g-2">
 
@@ -20,9 +12,5 @@
     <vc:page-card page-number="95" image-icon="false" />
 
 </div>
-
-<partial name="_FilmyShevkunenkoPartial" />
-
-<partial name="_ZnakomyeShevkunenkoPartial" />
 
 <partial name="_VideoOShevkunenkoPartial" />

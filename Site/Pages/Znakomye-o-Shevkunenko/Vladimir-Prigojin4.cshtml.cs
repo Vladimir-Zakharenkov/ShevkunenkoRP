@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Site.Pages.Znakomye_o_Shevkunenko
 {
-    [BindProperties(SupportsGet = true)]
-    public class Irina_Eluhina2Model : PageModel
+        [BindProperties(SupportsGet = true)]
+    public class Vladimir_Prigogin4Model : PageModel
     {
         public uint PageNumber { get; set; }
 
@@ -12,7 +12,7 @@ namespace Site.Pages.Znakomye_o_Shevkunenko
 
         public void OnGet()
         {
-            PageNumber = 128;
+            PageNumber = 148;
         }
     }
 }
