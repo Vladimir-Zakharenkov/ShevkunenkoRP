@@ -254,10 +254,6 @@ a:active, .dropdown:active {
 .container-fluid-1920 {
   max-width: 1920px; }
 
-#tsnt, #teasernet {
-  color: white;
-  max-width: 98%; }
-
 .footer-image img {
   border-width: 0 !important; }
 
@@ -361,6 +357,18 @@ table.gsc-search-box, form.gsc-search-box {
 .bg-lihie90-right {
   background-image: url(/images/backgrounds/fon-lihie90-right.png); }
 
+.bg-legendy-left {
+  background-image: url(/images/backgrounds/fon-legendy-left.png); }
+
+.bg-legedy-right {
+  background-image: url(/images/backgrounds/fon-legendy-right.png); }
+
+.bg-ya-i-iren-left {
+  background-image: url(/images/backgrounds/fon-ya-i-iren-left.png); }
+
+.bg-ya-i-iren-right {
+  background-image: url(/images/backgrounds/fon-ya-i-iren-right.png); }
+
 .imgLink {
   border: 3px ridge;
   border-color: transparent;
@@ -430,3 +438,6 @@ p {
 
 .cardBodyBg {
   background-color: #dcd0d0 !important; }
+
+.rsy {
+  max-height: 210px !important; }

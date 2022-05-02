@@ -8,27 +8,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Remove="compilerconfig.json" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<Content Update="appsettings.Development.json" CopyToPublishDirectory="Never" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="wwwroot\images\LinksForVideo\" />
 		<Folder Include="wwwroot\images\interview\" />
-		<Folder Include="wwwroot\images\FotoAlbom\" />
-		<Folder Include="wwwroot\images\Znakomye\" />
+		<Folder Include="wwwroot\images\LegendyDublyaja\" />
+		<Folder Include="wwwroot\images\Kino\" />
 		<Folder Include="wwwroot\js\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Include="compilerconfig.json" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="AspNetCore.SEOHelper" Version="1.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.16" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.16">
 			<PrivateAssets>all</PrivateAssets>

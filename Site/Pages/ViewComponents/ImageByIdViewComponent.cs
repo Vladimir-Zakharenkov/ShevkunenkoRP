@@ -13,13 +13,13 @@ namespace Site.Pages.ViewComponents
         private readonly SiteContext _siteContext;
         public ImageById(SiteContext siteContext) => _siteContext = siteContext;
 
-        public async Task<IViewComponentResult> InvokeAsync(Guid imageId, string cssClass, bool imageIcon)
+        public IViewComponentResult Invoke(Guid imageId, string cssClass, bool imageIcon)
         {
-            ImageModel image = await _siteContext.ImageModels.FindAsync(imageId);
+            ImageModel image = _siteContext.ImageModels.Find(imageId);
 
             if (image == null)
             {
-                image = await _siteContext.ImageModels.FirstOrDefaultAsync(x => x.ImageContentUrl.Segments.Last() == "no-image.png");
+                image = _siteContext.ImageModels.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == "no-image.png");
             }
 
             ViewData["CssClass"] = cssClass;

@@ -4,35 +4,36 @@ using Site.Models;
 using Site.Services;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Site.Pages.ViewComponents
 {
     public class FotoCarousel : ViewComponent
     {
         private readonly IImageModelRepository _imageContext;
+        public FotoCarousel(IImageModelRepository imageContext) => _imageContext = imageContext;
 
-        public FotoCarousel(IImageModelRepository imageContext)
+        public IViewComponentResult Invoke(string idForCarousel, string imageCatalog, bool imageThumbnail)
         {
-            _imageContext = imageContext;
-        }
+            ImageModel[] images = _imageContext.Images.Where(i => i.ImageContentUrl.Segments.Contains(imageCatalog)).Where(i => i.ImageHeight == 540).ToArray();
 
-        public async Task<IViewComponentResult> InvokeAsync(string idForCarousel, string imageCatalog, bool imageThumbnail)
-        {
-            ImageModel[] images = _imageContext.Images.Where(i => i.ImageContentUrl.Segments.Contains(imageCatalog)).ToArray();
+            ImageModel[] images1 = new ImageModel[5];
 
-            ImageModel[] images1 = new ImageModel[6];
+            Random rand = new();
 
-            Random rand = new Random();
-
-            //Copy(Array, Int32, Array, Int32, Int32)
-            Array.Copy(images, rand.Next(0, (images.Length - 6)), images1, 0, 6);
+            if (images.Length >= 10)
+            {
+                Array.Copy(images, rand.Next(0, (images.Length - 4)), images1, 0, 5);
+            }
+            else
+            {
+                Array.Copy(images, 0, images1, 0, 5);
+            }
 
             ViewData["idForCarousel"] = idForCarousel;
 
             ViewData["imageThumbnail"] = imageThumbnail;
 
-            return await Task.Run(() => View(images1));
+            return View(images1);
         }
     }
 }

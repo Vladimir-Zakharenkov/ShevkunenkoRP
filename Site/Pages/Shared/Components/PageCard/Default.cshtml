@@ -22,7 +22,15 @@
                 {
                     if (Model.PageNumber == 96)
                     {
-                        <vc:foto-carousel id-for-carousel="first" image-catalog="FotoAlbom/" image-thumbnail="false" />
+                        <vc:foto-carousel id-for-carousel="first" image-catalog="FotoAlbom/" image-thumbnail="@((bool)ViewData["ImageIcon"])" />
+                    }
+                    else if (Model.PageNumber == 101)
+                    {
+                        <vc:foto-carousel id-for-carousel="second" image-catalog="Znakomye/" image-thumbnail="@((bool)ViewData["ImageIcon"])" />
+                    }
+                    else if (Model.PageNumber == 90)
+                    {
+                        <vc:foto-carousel id-for-carousel="third" image-catalog="LinksForVideo/" image-thumbnail="@((bool)ViewData["ImageIcon"])" />
                     }
                     else
                     {
@@ -30,7 +38,7 @@
                     }
                 }
 
-                @if (Model.CardText != null & ((bool)ViewData["ImageIcon"]) == false)
+                @if (Model.CardText != null & (bool)ViewData["ImageIcon"] == false)
                 {
                     <div class="card-body p-0 mt-2 shadw cardBodyBg">
 
