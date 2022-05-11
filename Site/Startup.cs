@@ -88,6 +88,7 @@ namespace Site
 
             app.UseStatusCodePagesWithReExecute("/Error{0}");
 
+            app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseWebMarkupMin();

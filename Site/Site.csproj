@@ -13,7 +13,6 @@
 
 	<ItemGroup>
 		<Folder Include="wwwroot\images\interview\" />
-		<Folder Include="wwwroot\images\LegendyDublyaja\" />
 		<Folder Include="wwwroot\images\Kino\" />
 		<Folder Include="wwwroot\js\" />
 	</ItemGroup>
