@@ -1,0 +1,49 @@
+﻿@page
+@model Site.Pages.Foto_AlbomModel
+
+<div class="row">
+
+    <div class="col">
+
+        <h1 class="text_shadow">ФОТО&nbsp;ИЗ&nbsp;ФИЛЬМОВ<br />О&nbsp;СЕРГЕЯ ШЕВКУНЕНКО</h1>
+
+        <hr class="liniya" />
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col">
+
+        @{
+            int i = 0;
+        }
+
+        @foreach (var item in Model.Images)
+        {
+            @if (i == 0)
+            {
+                <div class="carousel-item active">
+
+                    <img src="@item.ImageThumbnailUrl.LocalPath" class="d-block mx-auto maxwidth720px" alt="@item.ImageAlt" title="@item.ImageAlt">
+
+                </div>
+            }
+            else
+            {
+                <div class="carousel-item">
+
+                    <img src="@item.ImageThumbnailUrl.LocalPath" class="d-block mx-auto maxwidth720px" alt="@item.ImageAlt" title="@item.ImageAlt">
+
+                </div>
+
+            }
+
+            i++;
+        }
+
+    </div>
+
+</div>
