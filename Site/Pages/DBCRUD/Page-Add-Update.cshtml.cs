@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Site.Models;
 using Site.Services;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Site.Pages.DBCRUD
 {
@@ -13,14 +15,10 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class Page_Add_UpdateModel : PageModel
     {
-        private readonly ISitemapModelRepository _sitemapContext;
-        private readonly IImageModelRepository _imageContext;
-        private readonly IMovieModelRepository _movieContext;
-        public Page_Add_UpdateModel(ISitemapModelRepository sitemapContext, IImageModelRepository imageContext, IMovieModelRepository movieContext)
+        private readonly SiteContext _siteContext;
+        public Page_Add_UpdateModel(SiteContext siteContext)
         {
-            _sitemapContext = sitemapContext;
-            _imageContext = imageContext;
-            _movieContext = movieContext;
+            _siteContext =siteContext;
         }
 
         public uint PageNumber { get; set; }
@@ -31,7 +29,7 @@ namespace Site.Pages.DBCRUD
 
         public string NameForMovie { get; set; }
 
-        public IActionResult OnGet(Guid? sitemapModelId)
+        public async Task<IActionResult> OnGetAsync(Guid? sitemapModelId)
         {
             PageNumber = 81;
 
@@ -39,7 +37,7 @@ namespace Site.Pages.DBCRUD
             {
                 ViewData["Action"] = "Edit";
 
-                SitemapItem = _sitemapContext.Sitemaps.FirstOrDefault(p => p.SitemapModelId == sitemapModelId);
+                SitemapItem =await _siteContext.SitemapModels.Include(i => i.ImageModel).Include(f => f.MovieModel).FirstOrDefaultAsync(p => p.SitemapModelId == sitemapModelId);
 
                 NameForMovie = SitemapItem.MovieModel.MovieCaption;
 
@@ -55,7 +53,7 @@ namespace Site.Pages.DBCRUD
             }
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             PageNumber = 81;
 
@@ -70,16 +68,16 @@ namespace Site.Pages.DBCRUD
 
             if (SitemapItem.SitemapModelId == Guid.Empty)
             {
-                if (_sitemapContext.Sitemaps.FirstOrDefault(x => x.PageNumber == 0) == null)
+                if (_siteContext.SitemapModels.FirstOrDefault(x => x.PageNumber == 0) == null)
                 {
                     SitemapItem.PageNumber = 0;
                 }
                 else
                 {
-                    SitemapItem.PageNumber = _sitemapContext.Sitemaps.Max(y => y.PageNumber) + 1;
+                    SitemapItem.PageNumber = _siteContext.SitemapModels.Max(y => y.PageNumber) + 1;
                 }
 
-                if (_sitemapContext.Sitemaps.FirstOrDefault(x => x.Loc == SitemapItem.Loc) != null)
+                if (_siteContext.SitemapModels.FirstOrDefault(x => x.Loc == SitemapItem.Loc) != null)
                 {
                     ModelState.AddModelError("SitemapItem.Loc", "Такая страница уже существует");
 
@@ -92,52 +90,70 @@ namespace Site.Pages.DBCRUD
             {
                 if (SitemapItem.ImageModelImageId == Guid.Empty)
                 {
-                    ModelState.AddModelError("ImageFile", "Выберите файл");
+                    ModelState.AddModelError("ImageFile", "Выберите файл картинки");
 
                     return Page();
                 }
             }
             else
             {
-                if (_imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == ImageFile.FileName) == null)
+                if (_siteContext.ImageModels.AsEnumerable().FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == ImageFile.FileName) == null)
                 {
-                    ModelState.AddModelError("ImageFile", "Такого файла нет в базе данных");
+                    ModelState.AddModelError("ImageFile", "Такого файла картинки нет в базе данных");
 
                     return Page();
                 }
                 else
                 {
-                    SitemapItem.ImageModelImageId = (_imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == ImageFile.FileName).ImageId);
+                    SitemapItem.ImageModelImageId = _siteContext.ImageModels.AsEnumerable().FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == ImageFile.FileName).ImageId;
                 }
             }
 
             if (SitemapItem.MoviePage)
             {
-                if (_movieContext.Movies.FirstOrDefault(m => m.MovieCaption == NameForMovie.Trim()) == null)
+                if (_siteContext.MovieModels.AsEnumerable().FirstOrDefault(m => m.MovieCaption == NameForMovie.Trim()) == null)
                 {
-                    ModelState.AddModelError("NameForMovie", "Такого фильма нет в базе данных");
+                    ModelState.AddModelError("NameForMovie", "Фильма с таким названием нет в базе данных");
 
                     return Page();
                 }
                 else
                 {
-                    SitemapItem.MovieModelMovieId = _movieContext.Movies.FirstOrDefault(m => m.MovieCaption == NameForMovie.Trim()).MovieId;
+                    SitemapItem.MovieModelMovieId = _siteContext.MovieModels.AsEnumerable().FirstOrDefault(m => m.MovieCaption == NameForMovie.Trim()).MovieId;
                 }
             }
             else
             {
-                SitemapItem.MovieModelMovieId = _movieContext.Movies.FirstOrDefault(m => m.MovieCaption == "Криминальная звезда").MovieId;
+                SitemapItem.MovieModelMovieId = _siteContext.MovieModels.AsEnumerable().FirstOrDefault(m => m.MovieCaption == "Криминальная звезда").MovieId;
             }
 
             if (ModelState.IsValid)
             {
                 if (SitemapItem.SitemapModelId == Guid.Empty)
                 {
-                    _sitemapContext.AddSitemapItem(SitemapItem);
+                    await _siteContext.SitemapModels.AddAsync(SitemapItem);
+                    await _siteContext.SaveChangesAsync();
                 }
                 else
                 {
-                    _sitemapContext.UpdatePage(SitemapItem);
+                    SitemapModel page = await _siteContext.SitemapModels.FindAsync(SitemapItem.SitemapModelId);
+
+                    page.PageNumber = SitemapItem.PageNumber;
+                    page.Loc = SitemapItem.Loc;
+                    page.Lastmod = SitemapItem.Lastmod;
+                    page.Changefreq = SitemapItem.Changefreq;
+                    page.Priority = SitemapItem.Priority;
+                    page.LeftBackground = SitemapItem.LeftBackground;
+                    page.RightBackground = SitemapItem.RightBackground;
+                    page.Title = SitemapItem.Title;
+                    page.Description = SitemapItem.Description;
+                    page.KeyWords = SitemapItem.KeyWords;
+                    page.CardText = SitemapItem.CardText;
+                    page.MoviePage = SitemapItem.MoviePage;
+                    page.ImageModelImageId = SitemapItem.ImageModelImageId;
+                    page.MovieModelMovieId = SitemapItem.MovieModelMovieId;
+
+                    await _siteContext.SaveChangesAsync();
                 }
 
                 return RedirectToPage("/DBCRUD/Page-List");

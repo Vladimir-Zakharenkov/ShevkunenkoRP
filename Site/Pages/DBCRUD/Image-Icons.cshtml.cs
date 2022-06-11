@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Site.Models;
 using Site.Services;
+using System.Threading.Tasks;
 
 namespace Site.Pages.DBCRUD
 {
@@ -12,18 +13,20 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class Image_IconsModel : PageModel
     {
-        private readonly IImageModelRepository _imageContext;
-        public Image_IconsModel(IImageModelRepository imageContext) => _imageContext = imageContext;
+        private readonly SiteContext _siteContext;
+        public Image_IconsModel(SiteContext siteContext) => _siteContext = siteContext;
 
         public uint PageNumber { get; set; }
 
         public IEnumerable<ImageModel> AllImages { get; set; }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
             PageNumber = 6;
 
-            AllImages = _imageContext.Images.ToArray();
+            AllImages = await _siteContext.ImageModels.ToArrayAsync();
+
+            return Page();
         }
     }
 }

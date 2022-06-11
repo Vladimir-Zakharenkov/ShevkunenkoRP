@@ -136,6 +136,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Part-01", "AdamFreeman\LINQ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsStore2", "AdamFreeman\SportsStore2\SportsStore2.csproj", "{D17FE9AD-6CA9-4A32-BD5E-A5C0E446AA5F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesMovie", "MicrosoftTutorial\RazorPagesMovie\RazorPagesMovie.csproj", "{F73F4CD3-1AEB-4CA5-82E9-84DB93FCA37C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -330,6 +332,10 @@ Global
 		{D17FE9AD-6CA9-4A32-BD5E-A5C0E446AA5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D17FE9AD-6CA9-4A32-BD5E-A5C0E446AA5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D17FE9AD-6CA9-4A32-BD5E-A5C0E446AA5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F73F4CD3-1AEB-4CA5-82E9-84DB93FCA37C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F73F4CD3-1AEB-4CA5-82E9-84DB93FCA37C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F73F4CD3-1AEB-4CA5-82E9-84DB93FCA37C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F73F4CD3-1AEB-4CA5-82E9-84DB93FCA37C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -383,6 +389,7 @@ Global
 		{A7EFA876-5796-4B5C-9057-CB62B5050D2C} = {510594C0-ECCC-477B-AF0E-9465D71EB0FB}
 		{9EFCB823-7B61-4CA1-86F1-51DD736D0C84} = {A7EFA876-5796-4B5C-9057-CB62B5050D2C}
 		{D17FE9AD-6CA9-4A32-BD5E-A5C0E446AA5F} = {A2565391-B638-4E34-8AAD-449FFDC9D102}
+		{F73F4CD3-1AEB-4CA5-82E9-84DB93FCA37C} = {8F186CA0-BBD7-40CF-B376-F24BAFFE2392}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59220CDA-F737-4816-83F9-5F8ABEF6EEFB}

@@ -6,6 +6,7 @@ using Site.Models;
 using Site.Services;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Site.Pages.DBCRUD
 {
@@ -13,13 +14,9 @@ namespace Site.Pages.DBCRUD
     [BindProperties(SupportsGet = true)]
     public class Movie_Add_UpdateModel : PageModel
     {
-        private readonly IMovieModelRepository _movieContext;
-        private readonly IImageModelRepository _imageContext;
-        public Movie_Add_UpdateModel(IMovieModelRepository movieContext, IImageModelRepository imageContext)
-        {
-            _movieContext = movieContext;
-            _imageContext = imageContext;
-        }
+        private readonly SiteContext _siteContext;
+
+        public Movie_Add_UpdateModel(SiteContext siteContext) => _siteContext = siteContext;
 
         public uint PageNumber { get; set; }
 
@@ -27,13 +24,13 @@ namespace Site.Pages.DBCRUD
 
         public IFormFile ImageFile { get; set; }
 
-        public IActionResult OnGet(Guid? movieId)
+        public async Task<IActionResult> OnGetAsync(Guid? movieId)
         {
             PageNumber = 93;
 
             if (movieId.HasValue)
             {
-                Movie = _movieContext.Movies.First(p => p.MovieId == movieId);
+                Movie = await _siteContext.MovieModels.FirstOrDefaultAsync(p => p.MovieId == movieId);
 
                 if (Movie == null)
                 {
@@ -54,7 +51,7 @@ namespace Site.Pages.DBCRUD
             }
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             PageNumber = 93;
 
@@ -72,39 +69,39 @@ namespace Site.Pages.DBCRUD
             {
                 if (Movie.MovieId == Guid.Empty)
                 {
-                    ModelState.AddModelError("ImageFile", "Выберите файл");
+                    ModelState.AddModelError("ImageFile", "Выберите файл картинки");
 
                     return Page();
                 }
             }
             else
             {
-                if (_imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == ImageFile.FileName) == null & _imageContext.Images.FirstOrDefault(x => x.ImageThumbnailUrl.Segments.Last() == ImageFile.FileName) == null)
+                if (await _siteContext.ImageModels.AsAsyncEnumerable().FirstOrDefaultAsync(x => x.ImageContentUrl.Segments.Last() == ImageFile.FileName) == null & await _siteContext.ImageModels.FirstOrDefaultAsync(x => x.ImageThumbnailUrl.Segments.Last() == ImageFile.FileName) == null)
                 {
-                    ModelState.AddModelError("ImageFile", "Такого файла нет в базе данных");
+                    ModelState.AddModelError("ImageFile", "Такого файла картинки нет в базе данных");
 
                     return Page();
                 }
                 else
                 {
-                    if (_imageContext.Images.FirstOrDefault(x => x.ImageThumbnailUrl.Segments.Last() == ImageFile.FileName) != null)
+                    if (await _siteContext.ImageModels.AsAsyncEnumerable().FirstOrDefaultAsync(x => x.ImageThumbnailUrl.Segments.Last() == ImageFile.FileName) != null)
                     {
-                        Movie.ImageModelImageId = (_imageContext.Images.FirstOrDefault(y => y.ImageThumbnailUrl.Segments.Last() == ImageFile.FileName).ImageId);
+                        Movie.ImageModelImageId = _siteContext.ImageModels.AsEnumerable().FirstOrDefault(y => y.ImageThumbnailUrl.Segments.Last() == ImageFile.FileName).ImageId;
                     }
                     else
                     {
-                        Movie.ImageModelImageId = (_imageContext.Images.FirstOrDefault(b => b.ImageContentUrl.Segments.Last() == ImageFile.FileName).ImageId);
+                        Movie.ImageModelImageId = _siteContext.ImageModels.AsEnumerable().FirstOrDefault(b => b.ImageContentUrl.Segments.Last() == ImageFile.FileName).ImageId;
                     }
                 }
             }
 
             if (Movie.MovieId == Guid.Empty)
             {
-                if (_movieContext.Movies.FirstOrDefault(m => m.MovieCaption == Movie.MovieCaption) != null)
+                if (await _siteContext.MovieModels.FirstOrDefaultAsync(m => m.MovieCaption == Movie.MovieCaption) != null)
                 {
-                    ModelState.AddModelError("Movie.Caption", "Такой фильм уже есть в базе данных");
+                    ModelState.AddModelError("Movie.Caption", "Фильм с таким названием уже есть в базе данных");
 
-                return Page();
+                    return Page();
                 }
             }
 
@@ -112,11 +109,51 @@ namespace Site.Pages.DBCRUD
             {
                 if (Movie.MovieId == Guid.Empty)
                 {
-                    _movieContext.AddMovie(Movie);
+                    await _siteContext.MovieModels.AddAsync(Movie);
+                    await _siteContext.SaveChangesAsync();
                 }
                 else
                 {
-                    _movieContext.UpdateMovie(Movie);
+                    ViewData["Action"] = "Edit";
+
+                    MovieModel movie = await _siteContext.MovieModels.FirstAsync(r => r.MovieId == Movie.MovieId);
+
+                    movie.MovieCaption = Movie.MovieCaption;
+                    movie.Duration = Movie.Duration;
+                    movie.DatePublished = Movie.DatePublished;
+                    movie.DateCreated = Movie.DateCreated;
+                    movie.UploadDate = Movie.UploadDate;
+                    movie.IsFamilyFriendly = Movie.IsFamilyFriendly;
+                    movie.InLanguage = Movie.InLanguage;
+                    movie.РroductionCompany = Movie.РroductionCompany;
+                    movie.Director = Movie.Director;
+                    movie.MusicBy = Movie.MusicBy;
+                    movie.Genre = Movie.Genre;
+                    movie.Description = Movie.Description;
+                    movie.DescriptionForSchemaOrg = Movie.DescriptionForSchemaOrg;
+                    movie.Actor01 = Movie.Actor01;
+                    movie.Actor02 = Movie.Actor02;
+                    movie.Actor03 = Movie.Actor03;
+                    movie.Actor04 = Movie.Actor04;
+                    movie.Actor05 = Movie.Actor05;
+                    movie.Actor06 = Movie.Actor06;
+                    movie.Actor07 = Movie.Actor07;
+                    movie.Actor08 = Movie.Actor08;
+                    movie.Actor09 = Movie.Actor09;
+                    movie.Actor10 = Movie.Actor10;
+                    movie.ContentUrl = Movie.ContentUrl;
+                    movie.CaptionForOnline = Movie.CaptionForOnline;
+                    movie.YouTube = Movie.YouTube;
+                    movie.VkVideo = Movie.VkVideo;
+                    movie.MailRuVideo = Movie.MailRuVideo;
+                    movie.OkVideo = Movie.OkVideo;
+                    movie.YandexDiskVideo = Movie.YandexDiskVideo;
+                    movie.KinoTeatrRu = Movie.KinoTeatrRu;
+                    movie.AspPage = Movie.AspPage;
+                    movie.ScreenFormat = Movie.ScreenFormat;
+                    movie.ImageModelImageId = Movie.ImageModelImageId;
+
+                    await _siteContext.SaveChangesAsync();
                 }
 
                 return RedirectToPage("/DBCRUD/Movie-List");

@@ -46,7 +46,7 @@
             <hr class="liniya" />
 
             <label for="ImageDescriptionInput" asp-for="Image.ImageDescription" class="form-label text-primary fs-5 fw-bold"></label>
-            <textarea id="ImageDescriptionInput" asp-for="Image.ImageDescription" class="form-control" rows="1" aria-describedby="ImageDescriptionInputHelpBlock"></textarea>
+            <textarea id="ImageDescriptionInput" asp-for="Image.ImageDescription" class="form-control text-center" rows="1" aria-describedby="ImageDescriptionInputHelpBlock"></textarea>
             <div id="ImageDescriptionInputHelpBlock" class="form-text">
                 «description» для Microdata - <span class="text-danger">обязательное поле</span>
             </div>
@@ -68,7 +68,7 @@
                     <label for="ImageWidthInput" asp-for="Image.ImageWidth" class="col-form-label text-primary fs-5 fw-bold"></label>
                 </div>
                 <div class="col-auto">
-                    <input id="ImageWidthInput" asp-for="Image.ImageWidth" value="720" class="form-control text-start" aria-describedby="ImageWidthInputHelpBlock" />
+                    <input id="ImageWidthInput" asp-for="Image.ImageWidth" value="@Model.Image.ImageWidth" class="form-control text-start" aria-describedby="ImageWidthInputHelpBlock" />
                 </div>
                 <div class="col-12 justify-content-center">
                     <span id="ImageWidthInputHelpBlock" class="form-text">
@@ -85,7 +85,7 @@
                     <label for="ImageHeightInput" asp-for="Image.ImageHeight" class="col-form-label text-primary fs-5 fw-bold"></label>
                 </div>
                 <div class="col-auto">
-                    <input id="ImageHeightInput" asp-for="Image.ImageHeight" value="540" class="form-control text-start" aria-describedby="ImageHeightInputHelpBlock" />
+                    <input id="ImageHeightInput" asp-for="Image.ImageHeight" value="@Model.Image.ImageHeight" class="form-control text-start" aria-describedby="ImageHeightInputHelpBlock" />
                 </div>
                 <div class="col-12 justify-content-center">
                     <span id="ImageHeightInputHelpBlock" class="form-text">

@@ -525,3 +525,6 @@ p {
 
 .rsy {
   max-height: 210px !important; }
+
+.ya-page_js_yes .ya-site-form_inited_no {
+  display: none; }

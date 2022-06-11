@@ -7,7 +7,7 @@ namespace Site.Services
 {
     public interface IImageModelRepository
     {
-        public IEnumerable<ImageModel> Images { get; }
+        public IAsyncEnumerable<ImageModel> Images { get; }
 
         Task AddImageAsync(ImageModel image);
 

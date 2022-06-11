@@ -1,21 +1,9 @@
 ﻿@page
-@model Site.Pages.DBCRUD.Image_ListModel
+@model Image_ListModel
 
 @{
     Layout = "_CrudLayout";
 }
-
-<div class="row">
-
-    <hr class="liniya" />
-
-    <div class="col">
-        <a asp-page="Image-Add-Update" class="btn btn btn-outline-danger shadw">ДОБАВИТЬ КАРТИНКУ</a>
-    </div>
-
-    <hr class="liniya" />
-
-</div>
 
 @if (Model.AllImages.Count() == 0)
 {
@@ -36,11 +24,79 @@ else
         </div>
 
         <div class="col">
-            <a asp-page="Image-Icons" class="btn btn btn-outline-primary shadw">КАРТИНКИ</a>
+            <a asp-page="Image-Icons" class="btn btn btn-outline-primary py-1 shadw">КАРТИНКИ</a>
         </div>
 
     </div>
 }
+
+<hr class="liniya" />
+
+<div class="row">
+    <div class="col table-responsive border border-primary m-2 p-2">
+        <form>
+            <table class="table table-sm table-hover table-borderless">
+                <tbody>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">ImageCaption:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="ImageCaptionSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">ImageDescription:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="ImageDescriptionSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">ImageContentUrl:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="ImageContentUrlSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">ImageThumbnailUrl:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="ImageThumbnailUrlSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">ImageWidth:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <select class="mt-1" asp-for="ImageWidthSearchString" asp-items="Model.ImageWidthList">
+                                <option value="">All</option>
+                            </select><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">ImageHeight:</span>
+                        </td>
+                        <td class="text-start">
+                            <select class="mt-1" asp-for="ImageHeightSearchString" asp-items="Model.ImageHeightList">
+                                <option value="">All</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                <input type="submit" value="ПОИСК" class="btn btn btn-outline-primary py-1 shadw" />
+            </p>
+        </form>
+    </div>
+</div>
 
 <hr class="liniya" />
 
@@ -70,15 +126,15 @@ else
 
                     @foreach (var image in Model.AllImages)
                     {
-                    <tr class="text-start">
-                        <td scope="col" class="text-sm-start">@image.ImageContentUrl.Segments.Last()</td>
-                        <td scope="col" class="d-none d-md-table-cell text-start">@image.ImageCaption</td>
-                        <td scope="col" class="d-md-none d-lg-table-cell text-start">@image.ImageWidth</td>
-                        <td scope="col" class="d-md-none d-lg-table-cell text-start">@image.ImageHeight</td>
-                        <td scope="col"><a asp-page="Image-Details" asp-route-imageid="@image.ImageId" class="btn btn-outline-primary py-1 px-1 shadw" title="Информация">Info</a></td>
-                        <td scope="col"><a asp-page="Image-Add-Update" asp-route-imageid="@image.ImageId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать">Edit</a></td>
-                        <td scope="col"><a asp-page="Image-Delete" asp-route-imageid="@image.ImageId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить">Del</a></td>
-                    </tr>
+                        <tr class="text-start">
+                            <td scope="col" class="text-sm-start">@image.ImageContentUrl.Segments.Last()</td>
+                            <td scope="col" class="d-none d-md-table-cell text-start">@image.ImageCaption</td>
+                            <td scope="col" class="d-md-none d-lg-table-cell text-start">@image.ImageWidth</td>
+                            <td scope="col" class="d-md-none d-lg-table-cell text-start">@image.ImageHeight</td>
+                            <td scope="col" title="Информация"><a asp-page="Image-Details" asp-route-imageid="@image.ImageId" class="btn btn-outline-primary py-1 px-1 shadw">Info</a></td>
+                            <td scope="col" title="Редактировать"><a asp-page="Image-Add-Update" asp-route-imageid="@image.ImageId" class="btn btn-outline-success py-1 px-1 shadw">Edit</a></td>
+                            <td scope="col" title="Удалить"><a asp-page="Image-Delete" asp-route-imageid="@image.ImageId" class="btn btn-outline-danger py-1 px-1 shadw">Del</a></td>
+                        </tr>
                     }
 
                 </tbody>

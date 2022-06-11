@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using Site.Models;
 using Site.Services;
-using System;
-using System.Linq;
 
 namespace Site.Pages.ViewComponents
 {
@@ -14,7 +14,7 @@ namespace Site.Pages.ViewComponents
 
         public IViewComponentResult Invoke(string idForCarousel, string imageCatalog, bool imageThumbnail)
         {
-            ImageModel[] images = _imageContext.Images.Where(i => i.ImageContentUrl.Segments.Contains(imageCatalog)).Where(i => i.ImageHeight == 540).ToArray();
+            ImageModel[] images = _imageContext.Images.ToEnumerable().Where(i => i.ImageContentUrl.Segments.Contains(imageCatalog)).Where(i => i.ImageHeight == 540).ToArray();
 
             ImageModel[] images1 = new ImageModel[5];
 

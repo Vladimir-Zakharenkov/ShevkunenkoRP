@@ -2,7 +2,6 @@
 using Site.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Site.Services
@@ -12,7 +11,7 @@ namespace Site.Services
         private readonly SiteContext _siteContext;
         public SQLImageModelRepository(SiteContext siteContext) => _siteContext = siteContext;
 
-        public IEnumerable<ImageModel> Images => _siteContext.ImageModels;
+        public IAsyncEnumerable<ImageModel> Images => _siteContext.ImageModels;
 
         public async Task<ImageModel> GetImageAsync(Guid? imageId)
         {

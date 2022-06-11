@@ -2,21 +2,22 @@
 using Site.Models;
 using Site.Services;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Site.Pages.ViewComponents
 {
     public class Image : ViewComponent
     {
-        private readonly IImageModelRepository _imageContext;
-        public Image(IImageModelRepository imageContext) => _imageContext = imageContext;
+        private readonly SiteContext _siteContext;
+        public Image(SiteContext siteContext) => _siteContext = siteContext;
 
-        public IViewComponentResult Invoke(string fileName, string cssClass, bool imageIcon)
+        public async Task<IViewComponentResult> InvokeAsync(string fileName, string cssClass, bool imageIcon)
         {
-            ImageModel image = _imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == fileName);
+            ImageModel image = await _siteContext.ImageModels.FirstOrDefaultAsync(x => x.ImageContentUrl.Segments.Last() == fileName);
 
             if (image == null)
             {
-                image = _imageContext.Images.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == "no-image.png");
+                image = await _siteContext.ImageModels.FirstOrDefaultAsync(x => x.ImageContentUrl.Segments.Last() == "no-image.png");
             }
 
             ViewData["CssClass"] = cssClass;
