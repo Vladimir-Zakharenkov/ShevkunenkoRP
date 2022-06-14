@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Site.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
+using Site.Models;
 
 namespace Site.Services
 {
@@ -11,25 +11,25 @@ namespace Site.Services
         private readonly SiteContext _siteContext;
         public SQLMovieModelRepository(SiteContext siteContext) => _siteContext = siteContext;
 
-        public IEnumerable<MovieModel> Movies => _siteContext.MovieModels.Include(p => p.ImageModel);
+        public IAsyncEnumerable<MovieModel> Movies => _siteContext.MovieModels.Include(p => p.ImageModel).AsAsyncEnumerable();
 
-        public void AddMovie(MovieModel movie)
+        public async Task AddMovieAsync(MovieModel movie)
         {
-            _siteContext.MovieModels.Add(movie);
-            _siteContext.SaveChanges();
+            await _siteContext.MovieModels.AddAsync(movie);
+            await _siteContext.SaveChangesAsync();
         }
 
-        public void DeleteMovie(Guid movieId)
+        public async Task DeleteMovieAsync(Guid movieId)
         {
-            var movieToDelete = _siteContext.MovieModels.Find(movieId);
+            var movieToDelete = await _siteContext.MovieModels.FindAsync(movieId);
 
             _siteContext.MovieModels.Remove(movieToDelete);
-            _siteContext.SaveChanges();
+            await _siteContext.SaveChangesAsync();
         }
 
-        public void UpdateMovie(MovieModel movieToUpdate)
+        public async Task UpdateMovieAsync(MovieModel movieToUpdate)
         {
-            MovieModel movie = _siteContext.MovieModels.First(r => r.MovieId == movieToUpdate.MovieId);
+            MovieModel movie = await _siteContext.MovieModels.FindAsync(movieToUpdate.MovieId);
 
             movie.MovieCaption = movieToUpdate.MovieCaption;
             movie.Duration = movieToUpdate.Duration;
@@ -69,12 +69,12 @@ namespace Site.Services
             //var entry = _siteContext.MovieModels.First(e => e.MovieId == movieToUpdate.MovieId);
             //_siteContext.Entry(entry).CurrentValues.SetValues(movieToUpdate);
 
-            _siteContext.SaveChanges();
+            await _siteContext.SaveChangesAsync();
         }
 
-        public MovieModel GetMovie(Guid? movieId)
+        public async Task<MovieModel> GetMovieAsync(Guid? movieId)
         {
-            MovieModel movie = _siteContext.MovieModels.Include(p => p.ImageModel).FirstOrDefault(m => m.MovieId == movieId);
+            MovieModel movie = await _siteContext.MovieModels.Include(p => p.ImageModel).FirstOrDefaultAsync(m => m.MovieId == movieId);
 
             if (movie == null)
             {
@@ -84,9 +84,9 @@ namespace Site.Services
             return movie;
         }
 
-        public MovieModel GetMovieByMovieCaption(string movieCaption)
+        public async Task<MovieModel> GetMovieByMovieCaptionAsync(string movieCaption)
         {
-            MovieModel movie = _siteContext.MovieModels.Include(p => p.ImageModel).FirstOrDefault(x => x.MovieCaption == movieCaption);
+            MovieModel movie = await _siteContext.MovieModels.Include(p => p.ImageModel).FirstOrDefaultAsync(x => x.MovieCaption == movieCaption);
 
             if (movie == null)
             {

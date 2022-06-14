@@ -13,10 +13,7 @@ namespace Site.Pages.DBCRUD
     public class Image_ListModel : PageModel
     {
         private readonly IImageModelRepository _imageContext;
-        public Image_ListModel(IImageModelRepository imageContext)
-        {
-            _imageContext = imageContext;
-        }
+        public Image_ListModel(IImageModelRepository imageContext) => _imageContext = imageContext;
 
         [BindProperty(SupportsGet = true)]
         public uint PageNumber { get; set; }

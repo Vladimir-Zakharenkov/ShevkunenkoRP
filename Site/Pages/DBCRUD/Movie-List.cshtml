@@ -5,20 +5,6 @@
     Layout = "_CrudLayout";
 }
 
-<div class="row">
-
-    <hr class="liniya" />
-
-    <div class="col">
-
-        <a asp-page="Movie-Add-Update" class="btn btn btn-outline-danger shadw">ДОБАВИТЬ ФИЛЬМ</a>
-
-    </div>
-
-    <hr class="liniya" />
-
-</div>
-
 @if (Model.AllMovies.Count() == 0)
 {
     <div class="row">
@@ -40,9 +26,44 @@ else
     </div>
 }
 
+<hr class="liniya" />
+
+<div class="row">
+    <div class="col table-responsive border border-primary m-2 p-2 shadw">
+        <form>
+            <table class="table table-sm table-hover table-borderless">
+                <tbody>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">Фильм:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="MovieCaptionSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">Актер:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="ActorSearchString" /><br />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                <input type="submit" value="ПОИСК" class="btn btn btn-outline-primary py-1 shadw" />
+            </p>
+        </form>
+    </div>
+</div>
+
+<hr class="liniya" />
+
+
 <div class="row">
 
-    <div class="col">
+    <div class="col m-2 shadw">
 
         <div class="table-responsive">
 
@@ -67,16 +88,16 @@ else
 
                     @foreach (var movie in Model.AllMovies)
                     {
-                    <tr class="text-start">
-                        <td scope="col" class="text-start">@movie.MovieCaption</td>
-                        <td scope="col" class="d-none d-lg-table-cell text-start" title="@movie.ContentUrl">@movie.ContentUrl.Segments.Last()</td>
-                        <td scope="col" class="d-none d-xl-table-cell text-start">@movie.ScreenFormat</td>
-                        <td scope="col" class="d-none d-xl-table-cell text-start">@movie.Duration.ToString("H'ч 'mm'мин 'ss'сек'")</td>
-                        <td scope="col"><a asp-page="Movie-Details" asp-route-movieid="@movie.MovieId" class="btn btn-outline-primary py-1 px-1 shadw" title="Информация">Info</a></td>
-                        <td scope="col"><a asp-page="Movie-Add-Update" asp-route-movieid="@movie.MovieId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать">Edit</a></td>
-                        <td scope="col"><a asp-page="Movie-Delete" asp-route-movieid="@movie.MovieId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить">Del</a></td>
-                        <td scope="col"><a asp-page="@movie.AspPage" class="btn btn-outline-danger py-1 px-1 shadw" title="Смотреть">Run</a></td>
-                    </tr>
+                        <tr class="text-start">
+                            <td scope="col" class="text-start">@movie.MovieCaption</td>
+                            <td scope="col" class="d-none d-lg-table-cell text-start" title="@movie.ContentUrl">@movie.ContentUrl.Segments.Last()</td>
+                            <td scope="col" class="d-none d-xl-table-cell text-start">@movie.ScreenFormat</td>
+                            <td scope="col" class="d-none d-xl-table-cell text-start">@movie.Duration.ToString("H'ч 'mm'мин 'ss'сек'")</td>
+                            <td scope="col"><a asp-page="Movie-Details" asp-route-movieid="@movie.MovieId" class="btn btn-outline-primary py-1 px-1 shadw" title="Информация">Info</a></td>
+                            <td scope="col"><a asp-page="Movie-Add-Update" asp-route-movieid="@movie.MovieId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать">Edit</a></td>
+                            <td scope="col"><a asp-page="Movie-Delete" asp-route-movieid="@movie.MovieId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить">Del</a></td>
+                            <td scope="col"><a asp-page="@movie.AspPage" class="btn btn-outline-danger py-1 px-1 shadw" title="Смотреть">Run</a></td>
+                        </tr>
                     }
 
                 </tbody>

@@ -20,13 +20,11 @@ namespace Site.Pages.DBCRUD
 
         public IEnumerable<ImageModel> AllImages { get; set; }
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task OnGetAsync()
         {
             PageNumber = 6;
 
             AllImages = await _siteContext.ImageModels.ToArrayAsync();
-
-            return Page();
         }
     }
 }

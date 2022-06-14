@@ -10,16 +10,16 @@ namespace Site.Pages.ViewComponents
 {
     public class ImageById : ViewComponent
     {
-        private readonly SiteContext _siteContext;
-        public ImageById(SiteContext siteContext) => _siteContext = siteContext;
+        private readonly IImageModelRepository _imageContext;
+        public ImageById(IImageModelRepository imageContext) => _imageContext = imageContext;
 
-        public IViewComponentResult Invoke(Guid imageId, string cssClass, bool imageIcon)
+        public async Task<IViewComponentResult> InvokeAsync(Guid imageId, string cssClass, bool imageIcon)
         {
-            ImageModel image = _siteContext.ImageModels.Find(imageId);
+            ImageModel image = await _imageContext.Images.FirstOrDefaultAsync(y => y.ImageId == imageId);
 
             if (image == null)
             {
-                image = _siteContext.ImageModels.FirstOrDefault(x => x.ImageContentUrl.Segments.Last() == "no-image.png");
+                image = await _imageContext.Images.FirstOrDefaultAsync(x => x.ImageContentUrl.Segments.Last() == "no-image.png");
             }
 
             ViewData["CssClass"] = cssClass;

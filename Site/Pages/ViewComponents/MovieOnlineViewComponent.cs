@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using Site.Models;
 using Site.Services;
 
@@ -15,9 +16,9 @@ namespace Site.Pages.ViewComponents
             _pagenumberContext = pagenumberContext;
         }
 
-        public IViewComponentResult Invoke(uint pageNumber, string videoProvider)
+        public async Task<IViewComponentResult> InvokeAsync(uint pageNumber, string videoProvider)
         {
-            MovieModel movie = _movieContext.GetMovie(_pagenumberContext.GetPage(pageNumber).MovieModelMovieId);
+            MovieModel movie = await _movieContext.GetMovieAsync(_pagenumberContext.GetPage(pageNumber).MovieModelMovieId);
 
 
             if (movie == null)

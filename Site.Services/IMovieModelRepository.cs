@@ -1,23 +1,22 @@
-﻿using Site.Models;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Site.Models;
 using System;
-using System.Collections.Generic;
 
 namespace Site.Services
 {
     public interface IMovieModelRepository
     {
-        public IEnumerable<MovieModel> Movies { get; }
+        public IAsyncEnumerable<MovieModel> Movies { get; }
 
-        //MovieModel GetMovieByImageName(string imageName);
+        Task<MovieModel> GetMovieByMovieCaptionAsync(string moviCaption);
 
-        MovieModel GetMovieByMovieCaption(string moviCaption);
+        Task<MovieModel> GetMovieAsync(Guid? movieId);
 
-        MovieModel GetMovie(Guid? movieId);
+        Task AddMovieAsync(MovieModel movie);
 
-        void AddMovie(MovieModel movie);
+        Task UpdateMovieAsync(MovieModel image);
 
-        void UpdateMovie(MovieModel image);
-
-        void DeleteMovie(Guid movieId);
+        Task DeleteMovieAsync(Guid movieId);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using Site.Models;
 using Site.Services;
 
@@ -9,9 +10,9 @@ namespace Site.Pages.ViewComponents
         private readonly IMovieModelRepository _movieContext;
         public Movie(IMovieModelRepository movieContext) => _movieContext = movieContext;
 
-        public IViewComponentResult Invoke(string movieCaption)
+        public async Task<IViewComponentResult> InvokeAsync(string movieCaption)
         {
-            MovieModel movie = _movieContext.GetMovieByMovieCaption(movieCaption);
+            MovieModel movie = await _movieContext.GetMovieByMovieCaptionAsync(movieCaption);
 
             return View(movie);
         }

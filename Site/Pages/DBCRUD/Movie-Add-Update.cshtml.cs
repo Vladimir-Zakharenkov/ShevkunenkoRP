@@ -105,6 +105,17 @@ namespace Site.Pages.DBCRUD
                 }
             }
 
+            if (Movie.Actor01 == null) Movie.Actor01 = string.Empty;
+            if (Movie.Actor02 == null) Movie.Actor02 = string.Empty;
+            if (Movie.Actor03 == null) Movie.Actor03 = string.Empty;
+            if (Movie.Actor04 == null) Movie.Actor04 = string.Empty;
+            if (Movie.Actor05 == null) Movie.Actor05 = string.Empty;
+            if (Movie.Actor06 == null) Movie.Actor06 = string.Empty;
+            if (Movie.Actor07 == null) Movie.Actor07 = string.Empty;
+            if (Movie.Actor08 == null) Movie.Actor08 = string.Empty;
+            if (Movie.Actor09 == null) Movie.Actor09 = string.Empty;
+            if (Movie.Actor10 == null) Movie.Actor10 = string.Empty;
+
             if (ModelState.IsValid)
             {
                 if (Movie.MovieId == Guid.Empty)
@@ -152,6 +163,8 @@ namespace Site.Pages.DBCRUD
                     movie.AspPage = Movie.AspPage;
                     movie.ScreenFormat = Movie.ScreenFormat;
                     movie.ImageModelImageId = Movie.ImageModelImageId;
+
+
 
                     await _siteContext.SaveChangesAsync();
                 }

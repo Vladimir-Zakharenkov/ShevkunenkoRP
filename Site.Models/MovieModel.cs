@@ -65,34 +65,34 @@ namespace Site.Models
         public string DescriptionForSchemaOrg { get; set; }
 
         [DataType(DataType.Text)]
-        public string Actor01 { get; set; }
+        public string Actor01 { get; set; } = string.Empty;
 
         [DataType(DataType.Text)]
-        public string Actor02 { get; set; }
+        public string Actor02 { get; set; } = string.Empty;
 
         [DataType(DataType.Text)]
-        public string Actor03 { get; set; }
+        public string Actor03 { get; set; } = string.Empty;
 
         [DataType(DataType.Text)]
-        public string Actor04 { get; set; }
+        public string Actor04 { get; set; } = string.Empty;
 
         [DataType(DataType.Text)]
-        public string Actor05 { get; set; }
+        public string Actor05 { get; set; } = string.Empty;
 
         [DataType(DataType.Text)]
-        public string Actor06 { get; set; }
+        public string Actor06 { get; set; } = string.Empty;
 
         [DataType(DataType.Text)]
-        public string Actor07 { get; set; }
+        public string Actor07 { get; set; } = string.Empty;
 
         [DataType(DataType.Text)]
-        public string Actor08 { get; set; }
+        public string Actor08 { get; set; } = string.Empty;
 
         [DataType(DataType.Text)]
-        public string Actor09 { get; set; }
+        public string Actor09 { get; set; } = string.Empty;
 
         [DataType(DataType.Text)]
-        public string Actor10 { get; set; }
+        public string Actor10 { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Url)]

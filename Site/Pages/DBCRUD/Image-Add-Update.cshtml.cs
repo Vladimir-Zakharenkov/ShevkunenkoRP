@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Site.Models;
-using Site.Services;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Site.Models;
+using Site.Services;
 
 namespace Site.Pages.DBCRUD
 {
@@ -26,11 +26,11 @@ namespace Site.Pages.DBCRUD
 
             if (imageId.HasValue)
             {
-                Image = await _siteContext.ImageModels.FirstOrDefaultAsync(p => p.ImageId == imageId);
+                Image = await _siteContext.ImageModels.FindAsync(imageId);
 
                 if (Image == null)
                 {
-                    return RedirectToPage("/DBCRUD/Image-Icons");
+                    return RedirectToPage("/DBCRUD/Image-List");
                 }
 
                 ViewData["Action"] = "Edit";
@@ -112,7 +112,7 @@ namespace Site.Pages.DBCRUD
                 await _siteContext.SaveChangesAsync();
             }
 
-            return RedirectToPage("/DBCRUD/Image-Icons");
+            return RedirectToPage("/DBCRUD/Image-List");
         }
     }
 }

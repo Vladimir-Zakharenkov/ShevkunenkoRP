@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Site.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Site.Models;
 
 namespace Site.Services
 {

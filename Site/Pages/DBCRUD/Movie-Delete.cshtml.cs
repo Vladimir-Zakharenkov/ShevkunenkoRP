@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Threading.Tasks;
 using Site.Models;
 using Site.Services;
 
@@ -17,11 +18,11 @@ namespace Site.Pages.DBCRUD
 
         public MovieModel Movie{ get; set; }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
             PageNumber = 20;
 
-            Movie = _movieContext.GetMovie(Movie.MovieId);
+            Movie = await _movieContext.GetMovieAsync(Movie.MovieId);
 
             if (Movie == null)
             {
@@ -29,11 +30,11 @@ namespace Site.Pages.DBCRUD
             }
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             PageNumber = 20;
 
-            _movieContext.DeleteMovie(Movie.MovieId);
+            await _movieContext.DeleteMovieAsync(Movie.MovieId);
 
             return RedirectToPage("/DBCRUD/Movie-List");
         }
