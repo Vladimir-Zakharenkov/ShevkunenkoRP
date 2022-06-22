@@ -22,7 +22,7 @@ namespace Site.Models
         [Required(ErrorMessage = "Необходимо указать дату")]
         [DataType(DataType.Date)]
         [Display(Name = "Дата изменения:")]
-        public DateTime Lastmod { get; set; }
+        public DateTime Lastmod { get; set; } = DateTime.Today;
 
         [Required(ErrorMessage = "Выберите значение")]
         [DataType(DataType.Text)]

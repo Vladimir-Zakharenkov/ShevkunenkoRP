@@ -453,6 +453,12 @@ table.gsc-search-box, form.gsc-search-box {
 .bg-sonic-v-kino-right {
   background-image: url(/images/backgrounds/fon-sonic-v-kino-right.png); }
 
+.bg-chelovek-niotkuda-left {
+  background-image: url(/images/backgrounds/fon-chelovek-niotkuda-left.png); }
+
+.bg-chelovek-niotkuda-right {
+  background-image: url(/images/backgrounds/fon-chelovek-niotkuda-right.png); }
+
 .imgLink {
   border: 3px ridge;
   border-color: transparent;

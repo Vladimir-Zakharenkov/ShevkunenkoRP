@@ -38,19 +38,17 @@ namespace Site.Pages.DBCRUD
 
             if (!string.IsNullOrEmpty(ActorSearchString))
             {
-                //allmovies = allmovies.Where(s => s.Actor01.Contains(ActorSearchString)
-                //                                //|| s.Actor02.Contains(ActorSearchString)
-                //                                //|| s.Actor03.Contains(ActorSearchString)
-                //                                //|| s.Actor04.Contains(ActorSearchString)
-                //                                //|| s.Actor05.Contains(ActorSearchString)
-                //                                //|| s.Actor06.Contains(ActorSearchString)
-                //                                //|| s.Actor07.Contains(ActorSearchString)
-                //                                //|| s.Actor08.Contains(ActorSearchString)
-                //                                //|| s.Actor09.Contains(ActorSearchString)
-                //                                //|| s.Actor10.Contains(ActorSearchString)
-                //                                );
-
-                allmovies = allmovies.Where(s => s.Description.Contains(ActorSearchString));
+                allmovies = allmovies.Where(s => s.Actor01.Contains(ActorSearchString)
+                                                || s.Actor02.Contains(ActorSearchString)
+                                                || s.Actor03.Contains(ActorSearchString)
+                                                || s.Actor04.Contains(ActorSearchString)
+                                                || s.Actor05.Contains(ActorSearchString)
+                                                || s.Actor06.Contains(ActorSearchString)
+                                                || s.Actor07.Contains(ActorSearchString)
+                                                || s.Actor08.Contains(ActorSearchString)
+                                                || s.Actor09.Contains(ActorSearchString)
+                                                || s.Actor10.Contains(ActorSearchString)
+                                                );
             }
 
             AllMovies = await allmovies.ToListAsync();

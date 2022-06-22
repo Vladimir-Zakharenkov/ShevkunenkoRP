@@ -4,6 +4,7 @@ using Site.Models;
 using Site.Services;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Site.Pages.DBCRUD
 {
@@ -15,13 +16,13 @@ namespace Site.Pages.DBCRUD
 
         public uint PageNumber { get; set; }
 
-        public IEnumerable<SitemapModel> AllPages { get; set; }
+        public IList<SitemapModel> AllPages { get; set; }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
             PageNumber = 12;
 
-            AllPages = _sitemapContext.Sitemaps.ToArray();
+            AllPages = await _sitemapContext.Sitemaps.ToArrayAsync();
         }
     }
 }

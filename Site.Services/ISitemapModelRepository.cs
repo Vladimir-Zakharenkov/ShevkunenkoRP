@@ -1,23 +1,24 @@
 ﻿using Site.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Site.Services
 {
     public interface ISitemapModelRepository
     {
-        public IEnumerable<SitemapModel> Sitemaps { get; }
+        public IAsyncEnumerable<SitemapModel> Sitemaps { get; }
 
-        SitemapModel GetPage(uint? pageNumber);
+        Task<SitemapModel> GetPageAsync(uint? pageNumber);
 
-        SitemapModel GetPageById(Guid? sitemapModelId);
+        Task<SitemapModel> GetPageByIdAsync(Guid? sitemapModelId);
 
-        uint GetPageNumber(uint? pageNumber);
+        Task<uint> GetPageNumberAsync(uint? pageNumber);
 
-        void AddSitemapItem(SitemapModel sitemapItem);
+        Task AddSitemapItemAsync(SitemapModel sitemapItem);
 
-        void UpdatePage(SitemapModel sitemapItem);
+        Task UpdatePageAsync(SitemapModel sitemapItem);
 
-        void DeletePageById(Guid sitemapModelId);
+        Task DeletePageByIdAsync(Guid sitemapModelId);
     }
 }

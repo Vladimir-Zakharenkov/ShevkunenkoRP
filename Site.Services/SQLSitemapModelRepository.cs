@@ -3,6 +3,7 @@ using Site.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Site.Services
 {
@@ -11,17 +12,17 @@ namespace Site.Services
         private readonly SiteContext _siteContext;
         public SQLSitemapModelRepository(SiteContext siteContext) => _siteContext = siteContext;
 
-        public IEnumerable<SitemapModel> Sitemaps => _siteContext.SitemapModels.Include(p => p.ImageModel).Include(m => m.MovieModel);
+        public IAsyncEnumerable<SitemapModel> Sitemaps => _siteContext.SitemapModels.Include(p => p.ImageModel).Include(m => m.MovieModel).AsAsyncEnumerable();
 
-        public void AddSitemapItem(SitemapModel sitemapItem)
+        public async Task AddSitemapItemAsync(SitemapModel sitemapItem)
         {
-            _siteContext.SitemapModels.Add(sitemapItem);
-            _siteContext.SaveChanges();
+            await _siteContext.SitemapModels.AddAsync(sitemapItem);
+            await _siteContext.SaveChangesAsync();
         }
 
-        public void UpdatePage(SitemapModel sitemapItem)
+        public async Task UpdatePageAsync(SitemapModel sitemapItem)
         {
-            SitemapModel page = _siteContext.SitemapModels.Find(sitemapItem.SitemapModelId);
+            SitemapModel page = await _siteContext.SitemapModels.FindAsync(sitemapItem.SitemapModelId);
 
             page.PageNumber = sitemapItem.PageNumber;
             page.Loc = sitemapItem.Loc;
@@ -41,40 +42,40 @@ namespace Site.Services
             //var entry = _siteContext.SitemapModels.First(e => e.SitemapModelId == pageToUpdate.SitemapModelId);
             //_siteContext.Entry(entry).CurrentValues.SetValues(pageToUpdate);
 
-            _siteContext.SaveChanges();
+            await _siteContext.SaveChangesAsync();
         }
 
-        public void DeletePageById(Guid sitemapModelId)
+        public async Task DeletePageByIdAsync(Guid sitemapModelId)
         {
-            var sitemapPageToDelete = _siteContext.SitemapModels.Find(sitemapModelId);
+            var sitemapPageToDelete = await _siteContext.SitemapModels.FindAsync(sitemapModelId);
 
             _siteContext.SitemapModels.Remove(sitemapPageToDelete);
-            _siteContext.SaveChanges();
+            await _siteContext.SaveChangesAsync();
         }
 
-        public SitemapModel GetPage(uint? pageNumber)
+        public async Task<SitemapModel> GetPageAsync(uint? pageNumber)
         {
-            if (pageNumber == null || _siteContext.SitemapModels.FirstOrDefault(x => x.PageNumber == pageNumber) == null)
+            if (pageNumber == null || await _siteContext.SitemapModels.FirstAsync(x => x.PageNumber == pageNumber) == null)
             {
                 pageNumber = 0;
             }
 
-            return _siteContext.SitemapModels.Include(p => p.ImageModel).Include(m => m.MovieModel).FirstOrDefault(x => x.PageNumber == pageNumber);
+            return await _siteContext.SitemapModels.Include(p => p.ImageModel).Include(m => m.MovieModel).FirstAsync(x => x.PageNumber == pageNumber);
         }
 
-        public SitemapModel GetPageById(Guid? sitemapModelId)
+        public async Task<SitemapModel> GetPageByIdAsync(Guid? sitemapModelId)
         {
-            return _siteContext.SitemapModels.Include(i => i.ImageModel).Include(m => m.MovieModel).FirstOrDefault(x => x.SitemapModelId == sitemapModelId);
+            return await _siteContext.SitemapModels.Include(i => i.ImageModel).Include(m => m.MovieModel).FirstAsync(x => x.SitemapModelId == sitemapModelId);
         }
 
-        public uint GetPageNumber(uint? pageNumber)
+        public async Task<uint> GetPageNumberAsync(uint? pageNumber)
         {
-            if (pageNumber == null || _siteContext.SitemapModels.FirstOrDefault(x => x.PageNumber == pageNumber) == null)
+            if (pageNumber == null || await _siteContext.SitemapModels.FirstAsync(x => x.PageNumber == pageNumber) == null)
             {
                 pageNumber = 0;
             }
 
-            return _siteContext.SitemapModels.Include(i => i.ImageModel).Include(m => m.MovieModel).FirstOrDefault(x => x.PageNumber == pageNumber).PageNumber;
+            return _siteContext.SitemapModels.Include(i => i.ImageModel).Include(m => m.MovieModel).FirstAsync(x => x.PageNumber == pageNumber).Result.PageNumber;
         }
     }
 }

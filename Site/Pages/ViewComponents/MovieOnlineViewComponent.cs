@@ -18,7 +18,7 @@ namespace Site.Pages.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(uint pageNumber, string videoProvider)
         {
-            MovieModel movie = await _movieContext.GetMovieAsync(_pagenumberContext.GetPage(pageNumber).MovieModelMovieId);
+            MovieModel movie = await _movieContext.GetMovieAsync(_pagenumberContext.GetPageAsync(pageNumber).Result.MovieModelMovieId);
 
 
             if (movie == null)

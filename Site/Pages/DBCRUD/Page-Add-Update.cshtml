@@ -57,7 +57,14 @@
             <hr class="liniya" />
 
             <label for="LocInput" asp-for="SitemapItem.Loc" class="form-label text-primary fs-5 fw-bold"></label>
-            <input id="ImageModelImageIdInput" asp-for="SitemapItem.Loc" class="form-control text-center" aria-describedby="LocInputHelpBlock" />
+            @if ((string)ViewData["Action"] == "Add")
+            {
+                <input id="LocInput" value="https://shevkunenko.site/" asp-for="SitemapItem.Loc" class="form-control text-center" aria-describedby="LocInputHelpBlock" />
+            }
+            else
+            {
+                <input id="LocInput" asp-for="SitemapItem.Loc" class="form-control text-center" aria-describedby="LocInputHelpBlock" />
+            }
             <div id="LocInputHelpBlock" class="form-text">
                 Loc: адрес страницы (https://...) - <span class="text-danger">обязательное поле</span>
             </div>
@@ -171,7 +178,7 @@
             <hr class="liniya" />
 
             <label for="TitleInput" asp-for="SitemapItem.Title" class="form-label text-primary fs-5 fw-bold"></label>
-            <input id="TitleInput" asp-for="SitemapItem.Title" class="form-control" aria-describedby="TitleHelpBlock" />
+            <input id="TitleInput" asp-for="SitemapItem.Title" class="form-control text-center" aria-describedby="TitleHelpBlock" />
             <div id="TitleInputHelpBlock" class="form-text">
                 Title: заголовок страницы - <span class="text-danger">обязательное поле</span>
             </div>
@@ -238,8 +245,8 @@
                 <div class="col-auto">
                     <label for="MovieCaptionInput" asp-for="NameForMovie" class="col-form-label text-primary fs-5 fw-bold">MovieCaption&nbsp;:</label>
                 </div>
-                <div class="col-12">
-                    <input id="MovieCaptionInput" asp-for="NameForMovie" class="form-control" aria-describedby="MovieCaptionInputHelpBlock" />
+                <div class="col-12 justify-content-center">
+                    <input id="MovieCaptionInput" asp-for="NameForMovie" class="form-control text-center" aria-describedby="MovieCaptionInputHelpBlock" />
                 </div>
                 <div class="col-12 justify-content-center">
                     <span id="MovieCaptionInputHelpBlock" class="form-text">

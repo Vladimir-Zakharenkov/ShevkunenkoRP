@@ -15,13 +15,26 @@ namespace Site.Services
 
         public async Task AddMovieAsync(MovieModel movie)
         {
+            if (movie.Director == null) movie.Director = string.Empty;
+            if (movie.MusicBy == null) movie.MusicBy = string.Empty;
+            if (movie.Actor01 == null) movie.Actor01 = string.Empty;
+            if (movie.Actor02 == null) movie.Actor02 = string.Empty;
+            if (movie.Actor03 == null) movie.Actor03 = string.Empty;
+            if (movie.Actor04 == null) movie.Actor04 = string.Empty;
+            if (movie.Actor05 == null) movie.Actor05 = string.Empty;
+            if (movie.Actor06 == null) movie.Actor06 = string.Empty;
+            if (movie.Actor07 == null) movie.Actor07 = string.Empty;
+            if (movie.Actor08 == null) movie.Actor08 = string.Empty;
+            if (movie.Actor09 == null) movie.Actor09 = string.Empty;
+            if (movie.Actor10 == null) movie.Actor10 = string.Empty;
+
             await _siteContext.MovieModels.AddAsync(movie);
             await _siteContext.SaveChangesAsync();
         }
 
         public async Task DeleteMovieAsync(Guid movieId)
         {
-            var movieToDelete = await _siteContext.MovieModels.FindAsync(movieId);
+            MovieModel movieToDelete = await _siteContext.MovieModels.FindAsync(movieId);
 
             _siteContext.MovieModels.Remove(movieToDelete);
             await _siteContext.SaveChangesAsync();
@@ -29,6 +42,19 @@ namespace Site.Services
 
         public async Task UpdateMovieAsync(MovieModel movieToUpdate)
         {
+            if (movieToUpdate.Director == null) movieToUpdate.Director = string.Empty;
+            if (movieToUpdate.MusicBy == null) movieToUpdate.MusicBy = string.Empty;
+            if (movieToUpdate.Actor01 == null) movieToUpdate.Actor01 = string.Empty;
+            if (movieToUpdate.Actor02 == null) movieToUpdate.Actor02 = string.Empty;
+            if (movieToUpdate.Actor03 == null) movieToUpdate.Actor03 = string.Empty;
+            if (movieToUpdate.Actor04 == null) movieToUpdate.Actor04 = string.Empty;
+            if (movieToUpdate.Actor05 == null) movieToUpdate.Actor05 = string.Empty;
+            if (movieToUpdate.Actor06 == null) movieToUpdate.Actor06 = string.Empty;
+            if (movieToUpdate.Actor07 == null) movieToUpdate.Actor07 = string.Empty;
+            if (movieToUpdate.Actor08 == null) movieToUpdate.Actor08 = string.Empty;
+            if (movieToUpdate.Actor09 == null) movieToUpdate.Actor09 = string.Empty;
+            if (movieToUpdate.Actor10 == null) movieToUpdate.Actor10 = string.Empty;
+
             MovieModel movie = await _siteContext.MovieModels.FindAsync(movieToUpdate.MovieId);
 
             movie.MovieCaption = movieToUpdate.MovieCaption;

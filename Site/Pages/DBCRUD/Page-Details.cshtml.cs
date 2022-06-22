@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Threading.Tasks;
 using Site.Models;
 using Site.Services;
 
@@ -17,11 +18,11 @@ namespace Site.Pages.DBCRUD
 
         public SitemapModel SitemapItem { get; set; }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
             PageNumber = 15;
 
-            SitemapItem = _sitemapContext.GetPageById(SitemapItem.SitemapModelId);
+            SitemapItem = await _sitemapContext.GetPageByIdAsync(SitemapItem.SitemapModelId);
 
             if (SitemapItem == null)
             {

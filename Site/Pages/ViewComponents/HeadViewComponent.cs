@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using Site.Models;
 using Site.Services;
 
@@ -9,14 +10,11 @@ namespace Site.Pages.ViewComponents
         private readonly ISitemapModelRepository _sitemapContext;
         public Head(ISitemapModelRepository pageContext) => _sitemapContext = pageContext;
 
-        public IViewComponentResult Invoke(uint? pageNumber)
+        public async Task<IViewComponentResult> InvokeAsync(uint? pageNumber)
         {
-            if (_sitemapContext.GetPage(pageNumber) == null)
-            {
-                pageNumber = 0;
-            }
+            if (await _sitemapContext.GetPageAsync(pageNumber) == null) pageNumber = 0;
 
-            SitemapModel sitemapModel = _sitemapContext.GetPage(pageNumber);
+            SitemapModel sitemapModel = await _sitemapContext.GetPageAsync(pageNumber);
 
             return View(sitemapModel);
         }

@@ -30,7 +30,7 @@ namespace Site.Models
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Date)]
-        public DateTime UploadDate { get; set; }
+        public DateTime UploadDate { get; set; } = DateTime.Today;
 
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [Display(Name = "Нет ограничений по возрасту:")]
@@ -45,10 +45,10 @@ namespace Site.Models
         public string РroductionCompany { get; set; }
 
         [DataType(DataType.Text)]
-        public string Director { get; set; }
+        public string Director { get; set; } = string.Empty;
 
         [DataType(DataType.Text)]
-        public string MusicBy { get; set; }
+        public string MusicBy { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Введите жанр фильма")]
         [DataType(DataType.Text)]
@@ -59,11 +59,12 @@ namespace Site.Models
         [Display(Name = "Краткое содержание (HTML):")]
         public string Description { get; set; }
 
-        //[Required(ErrorMessage = "Поле не может быть пустым")]
+        [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.MultilineText)]
         [Display(Name = "Краткое содержание:")]
         public string DescriptionForSchemaOrg { get; set; }
 
+        //[Required(AllowEmptyStrings = true)]
         [DataType(DataType.Text)]
         public string Actor01 { get; set; } = string.Empty;
 

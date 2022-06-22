@@ -2,6 +2,7 @@
 using Site.Models;
 using Site.Services;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Site.Pages.ViewComponents
 {
@@ -11,14 +12,14 @@ namespace Site.Pages.ViewComponents
 
         public BackgroundRight(ISitemapModelRepository sitemapContext) => _sitemapContext = sitemapContext;
 
-        public IViewComponentResult Invoke(uint? pageNumber)
+        public async Task<IViewComponentResult> InvokeAsync(uint? pageNumber)
         {
-            if (pageNumber == null || _sitemapContext.Sitemaps.FirstOrDefault(x => x.PageNumber == pageNumber) == null)
+            if (pageNumber == null || await _sitemapContext.Sitemaps.FirstAsync(x => x.PageNumber == pageNumber) == null)
             {
                 pageNumber = 0;
             }
 
-            SitemapModel sitemapModel = _sitemapContext.GetPage(pageNumber);
+            SitemapModel sitemapModel = await _sitemapContext.GetPageAsync(pageNumber);
 
             return View(sitemapModel);
         }
