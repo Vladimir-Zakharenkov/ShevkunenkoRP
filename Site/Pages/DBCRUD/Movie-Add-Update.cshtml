@@ -455,7 +455,14 @@
                         <hr />
 
                         <label for="MovieOkVideoInput" asp-for="Movie.OkVideo" class="form-label text-primary fs-5">OkVideo&nbsp;:</label>
-                        <input id="MovieOkVideoInput" asp-for="Movie.OkVideo" class="form-control text-center" aria-describedby="MovieOkVideoInputHelpBlock" />
+                        @if ((string)ViewData["Action"] == "Add")
+                        {
+                            <input id="MovieOkVideoInput" value="https:" asp-for="Movie.OkVideo" class="form-control text-center" aria-describedby="MovieOkVideoInputHelpBlock" />
+                        }
+                        else
+                        {
+                            <input id="MovieOkVideoInput" asp-for="Movie.OkVideo" class="form-control text-center" aria-describedby="MovieOkVideoInputHelpBlock" />
+                        }
                         <div id="MovieOkVideoInputHelpBlock" class="form-text">
                             <span>видео на ok.ru</span>
                         </div>
