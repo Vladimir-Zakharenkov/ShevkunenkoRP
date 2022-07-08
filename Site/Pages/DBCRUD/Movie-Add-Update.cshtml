@@ -401,7 +401,14 @@
             <hr class="liniya" />
 
             <label for="MovieContentUrlInput" asp-for="Movie.ContentUrl" class="form-label text-primary fs-5">ContentUrl&nbsp;:</label>
-            <input id="MovieContentUrlInput" asp-for="Movie.ContentUrl" class="form-control text-center" aria-describedby="MovieContentUrlInputHelpBlock" />
+            @if ((string)ViewData["Action"] == "Add")
+            {
+                <input id="MovieContentUrlInput" value="http://vladimirz.asuscomm.com/Video/" asp-for="Movie.ContentUrl" class="form-control text-center" aria-describedby="MovieContentUrlInputHelpBlock" />
+            }
+            else
+            {
+                <input id="MovieContentUrlInput" asp-for="Movie.ContentUrl" class="form-control text-center" aria-describedby="MovieContentUrlInputHelpBlock" />
+            }
             <div id="MovieContentUrlInputHelpBlock" class="form-text">
                 <span>адрес файла фильма на сервере - </span><span class="text-danger">обязательное поле</span>
             </div>
