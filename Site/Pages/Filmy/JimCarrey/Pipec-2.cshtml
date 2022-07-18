@@ -1,0 +1,14 @@
+﻿@page "{VideoProvider?}"
+@model Site.Pages.Filmy.JimCarrey.Pipec_2Model
+
+<vc:movie-online page-number="@Model.PageNumber" video-provider="@Model.VideoProvider" />
+
+<div class="row row-cols-2 row-cols-md-4 g-2 justify-content-center">
+
+    <vc:page-card page-number="241" image-icon="true" />
+
+</div>
+
+<hr class="liniya" />
+
+<partial name="_JimCarreyPartial" />
