@@ -435,7 +435,14 @@
                     <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion2">
 
                         <label for="MovieYouTubeInput" asp-for="Movie.YouTube" class="form-label text-primary fs-5">YouTube&nbsp;:</label>
-                        <input id="MovieYouTubeInput" asp-for="Movie.YouTube" class="form-control text-center" aria-describedby="MovieYouTubeInputHelpBlock" />
+                        @if ((string)ViewData["Action"] == "Add")
+                        {
+                            <input id="MovieYouTubeInput" value="https://www.youtube.com/embed/" asp-for="Movie.YouTube" class="form-control text-center" aria-describedby="MovieYouTubeInputHelpBlock" />
+                        }
+                        else
+                        {
+                            <input id="MovieYouTubeInput" asp-for="Movie.YouTube" class="form-control text-center" aria-describedby="MovieYouTubeInputHelpBlock" />
+                        }
                         <div id="MovieYouTubeInputHelpBlock" class="form-text">
                             <span>видео на youtube.com</span>
                         </div>
@@ -444,7 +451,14 @@
                         <hr />
 
                         <label for="MovieVkVideoInput" asp-for="Movie.VkVideo" class="form-label text-primary fs-5">VkVideo&nbsp;:</label>
-                        <input id="MovieVkVideoInput" asp-for="Movie.VkVideo" class="form-control text-center" aria-describedby="MovieVkVideoInputHelpBlock" />
+                        @if ((string)ViewData["Action"] == "Add")
+                        {
+                            <input id="MovieVkVideoInput" value="https://vk.com/video_ext.php?oid=" asp-for="Movie.VkVideo" class="form-control text-center" aria-describedby="MovieVkVideoInputHelpBlock" />
+                        }
+                        else
+                        {
+                            <input id="MovieVkVideoInput" asp-for="Movie.VkVideo" class="form-control text-center" aria-describedby="MovieVkVideoInputHelpBlock" />
+                        }
                         <div id="MovieVkVideoInputHelpBlock" class="form-text">
                             <span>видео на vk.com</span>
                         </div>
@@ -453,7 +467,14 @@
                         <hr />
 
                         <label for="MovieMailRuVideoInput" asp-for="Movie.MailRuVideo" class="form-label text-primary fs-5">MailRuVideo&nbsp;:</label>
-                        <input id="MovieMailRuVideoInput" asp-for="Movie.MailRuVideo" class="form-control text-center" aria-describedby="MovieMailRuVideoInputHelpBlock" />
+                        @if ((string)ViewData["Action"] == "Add")
+                        {
+                            <input id="MovieVkVideoInput" value="https://my.mail.ru/video/embed/" asp-for="Movie.MailRuVideo" class="form-control text-center" aria-describedby="MovieMailRuVideoInputHelpBlock" />
+                        }
+                        else
+                        {
+                            <input id="MovieVkVideoInput" asp-for="Movie.MailRuVideo" class="form-control text-center" aria-describedby="MovieMailRuVideoInputHelpBlock" />
+                        }
                         <div id="MovieMailRuVideoInputHelpBlock" class="form-text">
                             <span>видео на mail.ru</span>
                         </div>
@@ -464,7 +485,7 @@
                         <label for="MovieOkVideoInput" asp-for="Movie.OkVideo" class="form-label text-primary fs-5">OkVideo&nbsp;:</label>
                         @if ((string)ViewData["Action"] == "Add")
                         {
-                            <input id="MovieOkVideoInput" value="https:" asp-for="Movie.OkVideo" class="form-control text-center" aria-describedby="MovieOkVideoInputHelpBlock" />
+                            <input id="MovieOkVideoInput" value="https://ok.ru/videoembed/" asp-for="Movie.OkVideo" class="form-control text-center" aria-describedby="MovieOkVideoInputHelpBlock" />
                         }
                         else
                         {
@@ -478,7 +499,14 @@
                         <hr />
 
                         <label for="MovieYandexDiskVideoInput" asp-for="Movie.YandexDiskVideo" class="form-label text-primary fs-5">YandexDiskVideo&nbsp;:</label>
-                        <input id="MovieYandexDiskVideoInput" asp-for="Movie.YandexDiskVideo" class="form-control text-center" aria-describedby="MovieYandexDiskVideoInputHelpBlock" />
+                        @if ((string)ViewData["Action"] == "Add")
+                        {
+                            <input id="MovieOkVideoInput" value="https://disk.yandex.ru/i/" asp-for="Movie.YandexDiskVideo" class="form-control text-center" aria-describedby="MovieYandexDiskVideoInputHelpBlock" />
+                        }
+                        else
+                        {
+                            <input id="MovieOkVideoInput" asp-for="Movie.YandexDiskVideo" class="form-control text-center" aria-describedby="MovieYandexDiskVideoInputHelpBlock" />
+                        }
                         <div id="MovieYandexDiskVideoInputHelpBlock" class="form-text">
                             <span>видео на YandexDisk</span>
                         </div>
