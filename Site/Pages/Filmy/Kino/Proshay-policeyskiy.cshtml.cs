@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Site.Pages.Filmy.Legendy_Dublyaja
+namespace Site.Pages.Filmy.Kino
 {
     [BindProperties(SupportsGet = true)]
-    public class Yaroslava_Turyleva_3Model : PageModel
+    public class Proshay_policeyskiyModel : PageModel
     {
         public uint PageNumber { get; set; }
 
@@ -12,7 +12,7 @@ namespace Site.Pages.Filmy.Legendy_Dublyaja
 
         public void OnGet()
         {
-            PageNumber = 169;
+            PageNumber = 290;
         }
     }
 }
