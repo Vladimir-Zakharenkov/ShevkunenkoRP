@@ -27,6 +27,7 @@ namespace Site.Services
             if (movie.Actor08 == null) movie.Actor08 = string.Empty;
             if (movie.Actor09 == null) movie.Actor09 = string.Empty;
             if (movie.Actor10 == null) movie.Actor10 = string.Empty;
+            if (movie.Note == null) movie.Note = string.Empty;
 
             await _siteContext.MovieModels.AddAsync(movie);
             await _siteContext.SaveChangesAsync();
@@ -54,6 +55,7 @@ namespace Site.Services
             if (movieToUpdate.Actor08 == null) movieToUpdate.Actor08 = string.Empty;
             if (movieToUpdate.Actor09 == null) movieToUpdate.Actor09 = string.Empty;
             if (movieToUpdate.Actor10 == null) movieToUpdate.Actor10 = string.Empty;
+            if (movieToUpdate.Note == null) movieToUpdate.Note = string.Empty;
 
             MovieModel movie = await _siteContext.MovieModels.FindAsync(movieToUpdate.MovieId);
 
@@ -91,6 +93,7 @@ namespace Site.Services
             movie.AspPage = movieToUpdate.AspPage;
             movie.ScreenFormat = movieToUpdate.ScreenFormat;
             movie.ImageModelImageId = movieToUpdate.ImageModelImageId;
+            movie.Note = movieToUpdate.Note;
 
             //var entry = _siteContext.MovieModels.First(e => e.MovieId == movieToUpdate.MovieId);
             //_siteContext.Entry(entry).CurrentValues.SetValues(movieToUpdate);

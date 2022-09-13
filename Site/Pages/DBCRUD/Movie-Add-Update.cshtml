@@ -52,7 +52,9 @@
                 }
                 else
                 {
-                    <span>выбрать файл картинки - </span><span class="text-danger">обязательное поле</span>
+                    <span>выбрать файл картинки - </span>
+
+                    <span class="text-danger">обязательное поле</span>
                 }
             </div>
             <span asp-validation-for="ImageFile" class="text-danger"></span>
@@ -533,6 +535,16 @@
             <span asp-validation-for="Movie.AspPage" class="text-danger"></span>
 
             <hr class="liniya" />
+
+            <label for="MovieNoteInput" asp-for="Movie.Note" class="form-label text-primary fs-5">Note&nbsp;:</label>
+            <textarea id="MovieNoteInput" rows="7" asp-for="Movie.Note" class="form-control" aria-describedby="MovieNoteInputHelpBlock"></textarea>
+            <div id="MovieNoteInputHelpBlock" class="form-text">
+                <span>примечания к фильму</span>
+            </div>
+            <span asp-validation-for="Movie.Note" class="text-danger"></span>
+
+            <hr class="liniya" />
+
 
             <div class="text-center">
 

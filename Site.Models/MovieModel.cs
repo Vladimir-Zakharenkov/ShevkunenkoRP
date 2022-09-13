@@ -125,6 +125,9 @@ namespace Site.Models
         [DataType(DataType.Text)]
         public string AspPage { get; set; }
 
+        [DataType(DataType.Text)]
+        public string Note { get; set; } = string.Empty;
+
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.Text)]
         public Guid ImageModelImageId { get; set; }
