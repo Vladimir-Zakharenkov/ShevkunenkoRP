@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Part16": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:51751;http://localhost:51752"
+    }
+  }
+}

@@ -15,6 +15,7 @@
 		<Folder Include="wwwroot\images\interview\" />
 		<Folder Include="wwwroot\images\Kino\" />
 		<Folder Include="wwwroot\images\Multfilmy\" />
+		<Folder Include="wwwroot\images\Sovetskie-Filmy\" />
 		<Folder Include="wwwroot\js\" />
 	</ItemGroup>
 

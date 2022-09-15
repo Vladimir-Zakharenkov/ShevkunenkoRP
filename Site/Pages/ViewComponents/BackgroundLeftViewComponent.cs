@@ -3,22 +3,23 @@ using Microsoft.EntityFrameworkCore;
 using Site.Models;
 using Site.Services;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Site.Pages.ViewComponents
 {
     public class BackgroundLeft : ViewComponent
     {
-        private readonly SiteContext _siteContext;
-        public BackgroundLeft(SiteContext siteContext) => _siteContext = siteContext;
+        private readonly ISitemapModelRepository _sitemapContext;
+        public BackgroundLeft(ISitemapModelRepository sitemapContext) => _sitemapContext = sitemapContext;
 
-        public IViewComponentResult Invoke(uint? pageNumber)
+        public async Task<IViewComponentResult> InvokeAsync(uint? pageNumber)
         {
-            if (pageNumber == null || _siteContext.SitemapModels.FirstOrDefault(x => x.PageNumber == pageNumber) == null)
+            if (pageNumber == null || await _sitemapContext.Sitemaps.FirstAsync(x => x.PageNumber == pageNumber) == null)
             {
                 pageNumber = 0;
             }
 
-            SitemapModel sitemapModel = _siteContext.SitemapModels.Include(p => p.ImageModel).Include(m => m.MovieModel).FirstOrDefault(x => x.PageNumber == pageNumber);
+            SitemapModel sitemapModel = await _sitemapContext.GetPageAsync(pageNumber);
 
             return View(sitemapModel);
         }
