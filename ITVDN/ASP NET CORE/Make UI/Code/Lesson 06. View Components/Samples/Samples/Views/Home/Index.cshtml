@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Poco Component</title>
+</head>
+<body>
+    <header>Poco Component Sample</header>
+    <p>
+        @await Component.InvokeAsync("Cart")
+    </p>
+    <footer>
+        Page Footer
+    </footer>
+</body>
+</html>

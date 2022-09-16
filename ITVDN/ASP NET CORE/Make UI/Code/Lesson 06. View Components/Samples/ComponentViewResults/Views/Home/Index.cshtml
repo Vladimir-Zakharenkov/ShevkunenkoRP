@@ -1,0 +1,28 @@
+﻿@using ComponentViewResults.Components;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Components Results</title>
+</head>
+<body>
+    <header>Components Results Samples</header>
+    <p>
+        @await Component.InvokeAsync(nameof(Component1))
+    </p>
+    <p>
+        @await Component.InvokeAsync(nameof(Component2))
+    </p>
+    <p>
+        @await Component.InvokeAsync(nameof(Component3))
+    </p>
+    <footer>
+        Page Footer
+    </footer>
+</body>
+</html>

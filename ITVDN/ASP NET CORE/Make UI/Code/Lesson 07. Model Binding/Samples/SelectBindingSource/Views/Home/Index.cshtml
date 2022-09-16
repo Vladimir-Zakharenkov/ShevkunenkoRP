@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <button id="btn">Send Request</button>
+    <script>
+        document.querySelector("#btn").addEventListener("click", function () {
+            let xhr = new XMLHttpRequest();
+            let data = new FormData();
+
+            data.append("myValue", "form-value");
+            xhr.open("POST", "/Home/Index?myValue=query-string-value");
+            xhr.setRequestHeader("myValue", "header-value");
+            xhr.send(data);
+        })
+    </script>
+</body>
+</html>

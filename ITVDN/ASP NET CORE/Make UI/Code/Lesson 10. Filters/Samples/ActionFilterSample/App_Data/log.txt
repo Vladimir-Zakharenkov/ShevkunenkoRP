@@ -1,0 +1,4 @@
+На выполнение метода ActionFilterSample.Controllers.HomeController.Index (01_ActionFilterSample) затрачено 00:00:00.0008331
+На выполнение метода ActionFilterSample.Controllers.HomeController.Action1 (01_ActionFilterSample) затрачено 00:00:02.0009755
+На выполнение метода ActionFilterSample.Controllers.HomeController.Action2 (01_ActionFilterSample) затрачено 00:00:00.0002722
+На выполнение метода ActionFilterSample.Controllers.HomeController.Action2 (01_ActionFilterSample) затрачено 00:00:00.0001308

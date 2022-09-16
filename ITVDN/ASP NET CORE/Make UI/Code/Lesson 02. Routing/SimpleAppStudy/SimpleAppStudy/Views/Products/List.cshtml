@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+    <link rel="stylesheet" href="~/styles.css" />
+</head>
+<body>
+    <h2>Список продуктов</h2>
+
+    <table>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>
+                    <a href="/Products/Details/@item.Id">Подробнее...</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @if (Model.Count != 0)
+    {
+        <p>
+            Всего: @Model.Count
+        </p>
+    }
+    else
+    {
+        <p>
+            Список пуст.
+        </p>
+    }
+
+</body>
+
+</html>

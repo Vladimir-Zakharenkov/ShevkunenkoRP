@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <!--Данные отправляются с помощью POST запроса-->
+    <form action="/Data/Create" method="post">
+        <input type="text" name="message" />
+        <input type="submit" value="Отправить на сервер" />
+    </form>
+
+    <!--Данные отправляются с помощью GET запроса, как данные в маршруте-->
+    <a href="/Data/Catalog/Some-Product">Route Data</a>
+
+    <br />
+    <!--Данные отправляются с помощью GET запроса, как данные адресной строки-->
+    <a href="/Data/Users?id=100">QueryString Data</a>
+</body>
+</html>

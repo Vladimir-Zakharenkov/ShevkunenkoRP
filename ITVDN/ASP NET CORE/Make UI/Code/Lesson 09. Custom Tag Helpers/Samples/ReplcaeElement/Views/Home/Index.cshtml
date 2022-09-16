@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .my-btn {
+            border: 1px solid black;
+            border-radius: 3px;
+        }
+
+        .my-btn-red {
+            background-color: lightcoral;
+        }
+
+        .my-btn-blue {
+            background-color: lightblue;
+        }
+
+        .my-btn-green {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <form action="/" method="post">
+        <formbutton />
+        <formbutton my-button-color="red"  type="reset" />
+    </form>
+    <formbutton my-button-color="blue" />
+</body>
+</html>

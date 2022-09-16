@@ -1,0 +1,28 @@
+﻿@using BaseViewComponent.Components
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewComponent Base Class</title>
+</head>
+<body>
+    <header>ViewComponent Base Class Sample</header>
+    <p>
+        @await Component.InvokeAsync("CartSummary")
+    </p>
+    @* или *@
+    <p>
+        @await Component.InvokeAsync(nameof(Cart))
+    </p>
+
+    <footer>
+        Page Footer
+    </footer>
+</body>
+</html>

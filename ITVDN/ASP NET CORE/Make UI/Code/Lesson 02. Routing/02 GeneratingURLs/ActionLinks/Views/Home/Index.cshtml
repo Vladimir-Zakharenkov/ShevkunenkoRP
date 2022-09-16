@@ -1,0 +1,31 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@*
+    addTagHelper добавление tag helper, которые находятся в указанной сборке.
+    Tag Helper механизм, позволяющий использовать серверный код для генерации HTML разметки
+*@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home Controller. Index View</title>
+</head>
+<body>
+    <p>Home Controller. Index View</p>
+
+    <a href="/home/test">Link 1 (href)</a>
+    <br />
+    <a asp-action="test" asp-controller="home">Link 2 (tag helpers)</a>
+    <br />
+    <a href="/home/details/1">Link 3 (href)</a>
+    <br />
+    <a asp-action="details" asp-controller="home" asp-route-id="1">Link 4 (tag helpers)</a>
+
+</body>
+</html>
+

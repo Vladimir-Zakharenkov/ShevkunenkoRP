@@ -1,0 +1,18 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>@ViewData["text"]</p>
+    <p>@(((DateTime)ViewData["date"]).ToShortDateString())</p>
+    @* При использовании ViewData необходимо выполнять приведение к нужному типу данных, так как ViewData обычная коллекция типа ViewDataDictionary *@
+</body>
+</html>

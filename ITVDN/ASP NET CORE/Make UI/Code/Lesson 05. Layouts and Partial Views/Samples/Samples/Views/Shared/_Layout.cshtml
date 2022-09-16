@@ -1,0 +1,25 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <a asp-controller="home" asp-action="index">Home</a>
+        <a asp-controller="home" asp-action="catalog">Catalog</a>
+        <a asp-controller="home" asp-action="contacts">Contacts</a>
+    </header>
+    <div id="main">
+        @* Отображение содержимого (которое не входит в секции) связанного представления *@
+        @RenderBody()
+    </div>
+    <footer>
+        Создание пользовательского интерфейса в ASP.NET Core
+    </footer>
+</body>
+</html>

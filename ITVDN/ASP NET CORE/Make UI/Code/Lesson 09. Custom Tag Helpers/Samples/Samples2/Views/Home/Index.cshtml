@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-spacing: 0 0;
+        }
+        table td {
+            margin: 0;
+            padding: 8px;
+            border: 1px solid black;
+        }
+        .alert {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Balance</td>
+            </tr>
+        </thead>
+        @foreach (User item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td balance-alert>@item.Balance</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

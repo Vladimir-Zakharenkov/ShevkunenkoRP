@@ -1,0 +1,22 @@
+﻿@using ComponentViewModel.Components;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Strongly Typed View</title>
+</head>
+<body>
+    <header>Strongly Typed View</header>
+    <p>
+        @await Component.InvokeAsync(nameof(CartSummary))
+    </p>
+    <footer>
+        Page Footer
+    </footer>
+</body>
+</html>

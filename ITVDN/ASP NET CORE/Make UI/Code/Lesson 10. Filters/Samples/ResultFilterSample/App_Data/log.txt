@@ -1,0 +1,10 @@
+На выполнение метода ActionFilterSample.Controllers.HomeController.Index (ActionFilterSample) затрачено 00:00:00.0000403
+На выполнение метода ActionFilterSample.Controllers.HomeController.Index (ActionFilterSample) затрачено 00:00:00.0073090
+На выполнение метода ActionFilterSample.Controllers.HomeController.Action1 (ActionFilterSample) затрачено 00:00:02.0005374
+На выполнение метода ActionFilterSample.Controllers.HomeController.Action2 (ActionFilterSample) затрачено 00:00:00.0002401
+На выполнение резальтата ActionFilterSample.Controllers.HomeController.Index (ResultFilterSample) затрачено 00:00:00.0837289
+На выполнение резальтата ActionFilterSample.Controllers.HomeController.Action1 (ResultFilterSample) затрачено 00:00:00.0061024
+На выполнение резальтата ActionFilterSample.Controllers.HomeController.Action2 (ResultFilterSample) затрачено 00:00:02.0124618
+На выполнение резальтата ActionFilterSample.Controllers.HomeController.Index (03_ResultFilterSample) затрачено 00:00:00.0534239
+На выполнение резальтата ActionFilterSample.Controllers.HomeController.Action1 (03_ResultFilterSample) затрачено 00:00:00.0084963
+На выполнение резальтата ActionFilterSample.Controllers.HomeController.Action2 (03_ResultFilterSample) затрачено 00:00:02.0066213

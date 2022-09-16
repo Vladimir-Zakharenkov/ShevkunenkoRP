@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+</head>
+<body>
+    @*
+        Данная форма реализована средствами HTML для демонстрации работы привязки модели.
+        Для построения форм в ASP.NET Core используются дескрипторные вспомогательные классы, которые будут рассмотрены в следующих уроках
+    *@
+    <form action="/Home/Registration" method="post">
+        <label>First Name</label>
+        <input name="firstName" />
+        <br />
+        <label>Last Name</label>
+        <input name="lastName" />
+        <br />
+        <label>Email</label>
+        <input type="email" name="email" />
+        <br />
+        <label>Phone Number</label>
+        <input type="tel" name="phoneNumber" />
+        <br />
+
+        @* Вариант 1 *@
+        <label>Address Line 1</label>
+        <input type="tel" name="addresses" />
+        <br />
+        <label>Address Line 2</label>
+        <input type="tel" name="addresses" />
+        <br />
+        <label>Address Line 3</label>
+        <input type="tel" name="addresses" />
+        <br />
+
+        @* Вариант 2 *@
+        @*<label>Address Line 1</label>
+        <input type="tel" name="addresses[0]" />
+        <br />
+        <label>Address Line 2</label>
+        <input type="tel" name="addresses[1]" />
+        <br />
+        <label>Address Line 3</label>
+        <input type="tel" name="addresses[2]" />
+        <br />*@
+
+        @* Вариант 3 *@
+        @*<label>Address Line 1</label>
+        <input type="tel" name="[0]" />
+        <br />
+        <label>Address Line 2</label>
+        <input type="tel" name="[1]" />
+        <br />
+        <label>Address Line 3</label>
+        <input type="tel" name="[2]" />
+        <br />*@
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
+

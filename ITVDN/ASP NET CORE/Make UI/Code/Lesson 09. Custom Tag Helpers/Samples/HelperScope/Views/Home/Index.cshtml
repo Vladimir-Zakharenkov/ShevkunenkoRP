@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .my-btn {
+            border: 1px solid black;
+            border-radius: 3px;
+        }
+
+        .my-btn-red {
+            background-color: lightcoral;
+        }
+
+        .my-btn-blue {
+            background-color: lightblue;
+        }
+
+        .my-btn-green {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <button my-button-color="red">Button 1</button>
+    <button my-button-color="green">Button 2</button>
+    <button my-button-color="blue">Button 3</button>
+    <button my-button-color="orange">Button 4</button>
+    @* Для данной кнопки не будет применён tag helper так как она не содержит атрибут my-button-color *@
+    <button>Button 5</button>
+    <div>
+        @* Для данной кнопок не будет применён tag helper так как их родителем не является элемент body *@
+        <button my-button-color="red">Button 2.1</button>
+        <button my-button-color="green">Button 2.2</button>
+    </div>
+</body>
+</html>
+

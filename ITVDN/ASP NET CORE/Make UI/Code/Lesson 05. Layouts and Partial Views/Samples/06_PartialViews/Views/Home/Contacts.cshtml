@@ -1,0 +1,9 @@
+﻿@model _06_PartialViews.Model.ContactsViewModel
+
+@{
+    ViewData["Title"] = "Contacts";
+}
+
+<h1>Contacts</h1>
+
+@await  Html.PartialAsync("_ContactsPartial", Model)

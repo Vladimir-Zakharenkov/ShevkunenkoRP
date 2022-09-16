@@ -1,0 +1,6 @@
+Действие для ActionFilterSample.Controllers.HomeController.Index (04_HybridFilterSample) = 00:00:00.0017232
+Результат для ActionFilterSample.Controllers.HomeController.Index (04_HybridFilterSample) = 00:00:00.2188595
+Действие для ActionFilterSample.Controllers.HomeController.Action1 (04_HybridFilterSample) = 00:00:02.0007593
+Результат для ActionFilterSample.Controllers.HomeController.Action1 (04_HybridFilterSample) = 00:00:00.0124104
+Действие для ActionFilterSample.Controllers.HomeController.Action2 (04_HybridFilterSample) = 00:00:00.0002845
+Результат для ActionFilterSample.Controllers.HomeController.Action2 (04_HybridFilterSample) = 00:00:02.0069795

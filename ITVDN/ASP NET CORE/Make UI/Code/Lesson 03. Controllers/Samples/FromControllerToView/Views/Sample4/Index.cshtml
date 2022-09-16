@@ -1,0 +1,19 @@
+﻿@* Указание типа модели. Свойство Model текущего представления будет типа Data *@
+@model FromControllerToView.Models.Data
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>@Model.Text</p>
+    <p>@Model.Date.ToShortDateString()</p>
+    @* Строго типизированное представление позволяет создавать безопасные представления, в которых обращение к модели будет проходить проверку компилятором*@
+</body>
+</html>

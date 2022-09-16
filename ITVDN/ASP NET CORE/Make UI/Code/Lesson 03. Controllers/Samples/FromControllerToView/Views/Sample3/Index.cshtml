@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>@Model.Text</p>
+    <p>@Model.Date.ToShortDateString()</p>
+    @* При использовании обычного представления обращение к модели не проходит проверку во время компиляции*@
+</body>
+</html>
+

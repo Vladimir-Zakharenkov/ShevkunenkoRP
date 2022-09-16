@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>@ViewBag.Text</p>
+    <p>@ViewBag.Date.ToShortDateString()</p>
+    @* При использовании ViewBag и ViewData могут быть ошибки на этапе выполнения, так как 
+       работа с ключами ViewData и свойствами ViewBag не проходят проверку на этапе компиляции*@
+</body>
+</html>

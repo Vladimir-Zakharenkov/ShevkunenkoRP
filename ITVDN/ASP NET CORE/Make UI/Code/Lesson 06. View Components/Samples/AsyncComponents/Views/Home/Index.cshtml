@@ -1,0 +1,22 @@
+﻿@using AsyncComponents.Components;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Async Componetns</title>
+</head>
+<body>
+    <header>Async Componetns</header>
+    <p>
+        @await Component.InvokeAsync(nameof(RegistredUsers))
+    </p>
+    <footer>
+        Page Footer
+    </footer>
+</body>
+</html>

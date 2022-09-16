@@ -1,0 +1,22 @@
+﻿@using ComponentContext.Components;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Component Arguments</title>
+</head>
+<body>
+    <header>Component Arguments</header>
+    <p>
+        @await Component.InvokeAsync(nameof(ProductTable), new { showId = false, showTotal = false })
+    </p>
+    <footer>
+        Page Footer
+    </footer>
+</body>
+</html>

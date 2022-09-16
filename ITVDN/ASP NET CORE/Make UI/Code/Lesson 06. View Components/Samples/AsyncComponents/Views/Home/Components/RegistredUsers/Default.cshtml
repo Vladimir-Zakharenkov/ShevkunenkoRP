@@ -1,0 +1,9 @@
+﻿@model List<AsyncComponents.Model.User>
+
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Name (<a href="mailto:@item.Email">@item.Email</a>)</li>
+    }
+</ul>
