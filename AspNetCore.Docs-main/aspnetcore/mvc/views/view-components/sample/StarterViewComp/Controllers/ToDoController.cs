@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using ViewComponentSample.Models;
 
@@ -25,6 +25,11 @@ namespace ViewComponentSample.Controllers
         public string Index2()
         {
             return "View()";
+        }
+
+        public IActionResult IndexVC()
+        {
+            return ViewComponent("PriorityList", new { maxPriority = 3, isDone = false });
         }
     }
 }

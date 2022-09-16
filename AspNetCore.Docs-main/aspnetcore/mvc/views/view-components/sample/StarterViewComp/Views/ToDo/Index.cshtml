@@ -1,3 +1,4 @@
+@using StarterViewComp.ViewComponents
 @using ViewComponentSample.Models
 @model IEnumerable<TodoItem>
 
@@ -33,3 +34,20 @@
         </tr>
     }
 </table>
+
+<div>
+    @* @await Component.InvokeAsync("PriorityList", new { maxPriority = 2, isDone = false })*@
+
+    @*@await Component.InvokeAsync("PriorityList", new { maxPriority = 2, isDone = true })*@
+
+    @*
+    Note:
+    To use the below line, you need to #define no_suffix in ViewComponents/PriorityList.cs or it won't compile.
+    By doing so it will cause a problem to index as there will be multiple viewcomponents
+    with the same name after the compiler removes the suffix "ViewComponent"
+    *@
+
+    @*@await Component.InvokeAsync(nameof(PriorityList), new { maxPriority = 4, isDone = true })*@
+
+    @await Component.InvokeAsync(typeof(PriorityList), new { maxPriority = 4, isDone = true })
+</div>

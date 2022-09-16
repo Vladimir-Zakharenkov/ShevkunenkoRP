@@ -186,6 +186,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewComponent", "ViewCompon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarterViewComp", "AspNetCore.Docs-main\aspnetcore\mvc\views\view-components\sample\StarterViewComp\StarterViewComp.csproj", "{5CBE7ACB-188B-44B7-8D1B-8169B3CF8268}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C-SHARP", "C-SHARP", "{597C2D76-A939-477A-8799-4F4EB9B8AC16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Params", "MicrosoftTutorial\C-SHARP\Params\Params.csproj", "{21865745-89CD-4DA7-A446-037E6FA91ABA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -464,6 +468,10 @@ Global
 		{5CBE7ACB-188B-44B7-8D1B-8169B3CF8268}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CBE7ACB-188B-44B7-8D1B-8169B3CF8268}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CBE7ACB-188B-44B7-8D1B-8169B3CF8268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21865745-89CD-4DA7-A446-037E6FA91ABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21865745-89CD-4DA7-A446-037E6FA91ABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21865745-89CD-4DA7-A446-037E6FA91ABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21865745-89CD-4DA7-A446-037E6FA91ABA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -541,6 +549,8 @@ Global
 		{DC93BC1F-77D3-4D86-9B3B-C40F530844A2} = {DFD89244-59AF-435D-B7BD-0BCB56FCD376}
 		{5853DBFE-77E7-4911-94E7-6EDAF06FF229} = {8F186CA0-BBD7-40CF-B376-F24BAFFE2392}
 		{5CBE7ACB-188B-44B7-8D1B-8169B3CF8268} = {5853DBFE-77E7-4911-94E7-6EDAF06FF229}
+		{597C2D76-A939-477A-8799-4F4EB9B8AC16} = {8F186CA0-BBD7-40CF-B376-F24BAFFE2392}
+		{21865745-89CD-4DA7-A446-037E6FA91ABA} = {597C2D76-A939-477A-8799-4F4EB9B8AC16}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59220CDA-F737-4816-83F9-5F8ABEF6EEFB}
