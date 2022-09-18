@@ -1,0 +1,33 @@
+﻿@model List<Site.Models.SitemapModel>
+
+@if (!String.IsNullOrEmpty(ViewData["BlockHeader"].ToString().Trim()))
+{
+    <h2 class="text_shadow">@Html.Raw(ViewData["BlockHeader"])</h2>
+
+    <hr class="liniya mt-0" />
+}
+
+@if ((bool)ViewData["LinkSize"])
+{
+    <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 g-2 justify-content-center">
+
+        @foreach (var item in Model)
+        {
+            <vc:page-card page-number="item.PageNumber" image-icon="@((bool)ViewData["ImageIcon"])" />
+        }
+
+    </div>
+}
+else
+{
+    <div class="row row-cols-3 row-cols-md-4 row-cols-lg-5 justify-content-center g-2">
+
+        @foreach (var item in Model)
+        {
+            <vc:page-card page-number="item.PageNumber" image-icon="@((bool)ViewData["ImageIcon"])" />
+        }
+
+    </div>
+}
+
+<hr class="liniya" />

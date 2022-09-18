@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -43,6 +44,8 @@ namespace Site
             services.AddScoped<IMovieModelRepository, SQLMovieModelRepository>();
 
             services.AddScoped<IAdminAccessRepository, SQLAdminAccessRepository>();
+
+            services.Configure<RazorViewEngineOptions>(options => options.PageViewLocationFormats.Add("/Pages/Shared/Partial/{0}" + RazorViewEngine.ViewExtension));
 
             services.AddRazorPages();
 
