@@ -15,7 +15,6 @@ namespace Site.Pages.DBCRUD
         private readonly IImageModelRepository _imageContext;
         public Image_ListModel(IImageModelRepository imageContext) => _imageContext = imageContext;
 
-        [BindProperty(SupportsGet = true)]
         public uint PageNumber { get; set; }
 
         public IList<ImageModel> AllImages { get; set; }
