@@ -11,17 +11,15 @@
 
         <hr class="liniya" />
 
-        @{
-            if ((string)ViewData["Action"] == "Edit")
-            {
-                <h1 class="fs-3 text_shadow">Изменить данные картинки</h1>
+        @if ((string)ViewData["Action"] == "Edit")
+        {
+            <h1 class="fs-3 text_shadow">Изменить данные картинки</h1>
 
-                <vc:image-by-id image-id="@Model.Image.ImageId" css-class="width50percent ten mb-3" image-icon="false" />
-            }
-            else
-            {
-                <h1 class="fs-3 text_shadow">Добавить картинку</h1>
-            }
+            <vc:image-by-id image-id="@Model.Image.ImageId" css-class="width50percent ten mb-3" image-icon="false" />
+        }
+        else
+        {
+            <h1 class="fs-3 text_shadow">Добавить картинку</h1>
         }
 
         <hr class="liniya" />

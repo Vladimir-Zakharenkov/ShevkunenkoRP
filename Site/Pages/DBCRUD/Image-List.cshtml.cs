@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,48 +11,48 @@ using System.Threading.Tasks;
 
 namespace Site.Pages.DBCRUD
 {
+    [Authorize]
+    [BindProperties(SupportsGet = true)]
     public class Image_ListModel : PageModel
     {
         private readonly IImageModelRepository _imageContext;
         public Image_ListModel(IImageModelRepository imageContext) => _imageContext = imageContext;
 
-        public uint PageNumber { get; set; }
+        public uint PageNumber { get; set; } = 83;
 
         public IList<ImageModel> AllImages { get; set; }
 
-        [BindProperty(SupportsGet = true)]
         public string ImageCaptionSearchString { get; set; }
 
-        [BindProperty(SupportsGet = true)]
         public string ImageDescriptionSearchString { get; set; }
 
-        [BindProperty(SupportsGet = true)]
         public string ImageContentUrlSearchString { get; set; }
 
-        [BindProperty(SupportsGet = true)]
         public string ImageThumbnailUrlSearchString { get; set; }
 
+        [BindProperty(SupportsGet = false)]
         public SelectList ImageWidthList { get; set; }
 
-        [BindProperty(SupportsGet = true)]
         public int? ImageWidthSearchString { get; set; }
 
+        [BindProperty(SupportsGet = false)]
         public SelectList ImageHeightList { get; set; }
 
-        [BindProperty(SupportsGet = true)]
         public int? ImageHeightSearchString { get; set; }
 
         public async Task OnGetAsync()
         {
-            PageNumber = 83;
-
             var heightQuery = from w in _imageContext.Images
-                             orderby w.ImageHeight
-                             select w.ImageHeight;
+                              orderby w.ImageHeight
+                              select w.ImageHeight;
+
+            ImageHeightList = new SelectList(await heightQuery.Distinct().ToListAsync());
 
             var widthQuery = from w in _imageContext.Images
                              orderby w.ImageWidth
                              select w.ImageWidth;
+
+            ImageWidthList = new SelectList(await widthQuery.Distinct().ToListAsync());
 
             var allimages = from img in _imageContext.Images
                             select img;
@@ -81,14 +82,10 @@ namespace Site.Pages.DBCRUD
                 allimages = allimages.Where(s => s.ImageWidth == ImageWidthSearchString);
             }
 
-            ImageWidthList = new SelectList(await widthQuery.Distinct().ToListAsync());
-
             if (ImageHeightSearchString != null)
             {
                 allimages = allimages.Where(s => s.ImageHeight == ImageHeightSearchString);
             }
-
-            ImageHeightList = new SelectList(await heightQuery.Distinct().ToListAsync());
 
             AllImages = await allimages.ToListAsync();
         }

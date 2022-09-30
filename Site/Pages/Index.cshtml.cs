@@ -4,11 +4,10 @@ namespace Site.Pages
 {
     public class IndexModel : PageModel
     {
-        public uint PageNumber { get; set; }
+        public uint PageNumber { get; set; } = 1;
 
         public void OnGet()
         {
-            PageNumber = 1;
         }
     }
 }

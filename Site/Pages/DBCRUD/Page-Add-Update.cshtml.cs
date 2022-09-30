@@ -16,12 +16,9 @@ namespace Site.Pages.DBCRUD
     public class Page_Add_UpdateModel : PageModel
     {
         private readonly SiteContext _siteContext;
-        public Page_Add_UpdateModel(SiteContext siteContext)
-        {
-            _siteContext =siteContext;
-        }
+        public Page_Add_UpdateModel(SiteContext siteContext) => _siteContext = siteContext;
 
-        public uint PageNumber { get; set; }
+        public uint PageNumber { get; set; } = 81;
 
         public SitemapModel SitemapItem { get; set; }
 
@@ -31,13 +28,11 @@ namespace Site.Pages.DBCRUD
 
         public async Task<IActionResult> OnGetAsync(Guid? sitemapModelId)
         {
-            PageNumber = 81;
-
             if (sitemapModelId.HasValue)
             {
                 ViewData["Action"] = "Edit";
 
-                SitemapItem =await _siteContext.SitemapModels.Include(i => i.ImageModel).Include(f => f.MovieModel).FirstOrDefaultAsync(p => p.SitemapModelId == sitemapModelId);
+                SitemapItem = await _siteContext.SitemapModels.Include(i => i.ImageModel).Include(f => f.MovieModel).FirstOrDefaultAsync(p => p.SitemapModelId == sitemapModelId);
 
                 NameForMovie = SitemapItem.MovieModel.MovieCaption;
 
@@ -126,6 +121,12 @@ namespace Site.Pages.DBCRUD
             {
                 SitemapItem.MovieModelMovieId = _siteContext.MovieModels.AsEnumerable().FirstOrDefault(m => m.MovieCaption == "Криминальная звезда").MovieId;
             }
+
+            if (SitemapItem.RightBackground == null) { SitemapItem.RightBackground = string.Empty; }
+
+            if (SitemapItem.LeftBackground == null) { SitemapItem.LeftBackground = string.Empty; }
+
+            if (SitemapItem.CardText == null) { SitemapItem.CardText = string.Empty; }
 
             if (ModelState.IsValid)
             {

@@ -1,17 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Site.Pages.Filmy.Legendy_Dublyaja
+namespace Site.Pages.Filmy.Multfilmy
 {
     [BindProperties(SupportsGet = true)]
-    public class Yaroslava_Turyleva_1Model : PageModel
+    public class Belka_i_Strelka_3Model : PageModel
     {
-        public uint PageNumber { get; set; } = 167;
+        public uint PageNumber { get; set; }
 
         public string VideoProvider { get; set; }
 
         public void OnGet()
         {
+            PageNumber = 309;
         }
     }
 }

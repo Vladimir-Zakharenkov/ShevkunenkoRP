@@ -26,6 +26,142 @@
 
 <hr class="liniya" />
 
+
+
+<div class="row">
+    <div class="col table-responsive border border-primary m-2 p-2 shadw">
+        <form method="get">
+            <table class="table table-sm table-hover table-borderless">
+                <tbody>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">PageNumber:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="PageNumberSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">Loc:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="LocSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">Lastmod:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="LastmodSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">Changefreq:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <select id="ChangefreqInput" asp-for="ChangefreqSearchString" class="form-select w-50">
+                                <option value="All" selected>All</option>
+                                <option value="always">always</option>
+                                <option value="hourly">hourly</option>
+                                <option value="daily">daily</option>
+                                <option value="weekly">weekly</option>
+                                <option value="monthly">monthly</option>
+                                <option value="yearly">yearly</option>
+                                <option value="never">never</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">Priority:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <select id="PriorityInput" asp-for="PrioritySearchString" class="form-select w-50">
+                                <option value="All" selected>All</option>
+                                <option value="0.0">0.0</option>
+                                <option value="0.1">0.1</option>
+                                <option value="0.2">0.2</option>
+                                <option value="0.3">0.3</option>
+                                <option value="0.4">0.4</option>
+                                <option value="0.5">0.5</option>
+                                <option value="0.6">0.6</option>
+                                <option value="0.7">0.7</option>
+                                <option value="0.8">0.8</option>
+                                <option value="0.9">0.9</option>
+                                <option value="1.0">1.0</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">LeftBackground:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="LeftBackgroundSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">RightBackground:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="RightBackgroundSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">Title:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="TitleSearchString" /><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="text-end">
+                            <span class="fs-5 text-danger">Description:</span><br />
+                        </td>
+                        <td class="text-start">
+                            <input type="text" asp-for="DescriptionSearchString" /><br />
+                        </td>
+                    </tr>
+                    @*
+
+                    
+                    <tr>
+                    <td scope="row" class="text-end">
+                    <span class="fs-5 text-danger">ImageWidth:</span><br />
+                    </td>
+                    <td class="text-start">
+                    <select class="mt-1" asp-for="ImageWidthSearchString" asp-items="Model.ImageWidthList">
+                    <option value="">All</option>
+                    </select><br />
+                    </td>
+                    </tr>
+                    <tr>
+                    <td scope="row" class="text-end">
+                    <span class="fs-5 text-danger">ImageHeight:</span>
+                    </td>
+                    <td class="text-start">
+                    <select class="mt-1" asp-for="ImageHeightSearchString" asp-items="Model.ImageHeightList">
+                    <option value="">All</option>
+                    </select>
+                    </td>
+                    </tr>
+                    *@
+                </tbody>
+            </table>
+            <p>
+                <input type="submit" value="ПОИСК" class="btn btn btn-outline-primary py-1 shadw" />
+            </p>
+        </form>
+    </div>
+</div>
+
+<hr class="liniya" />
+
 <div class="row">
 
     <div class="col">
@@ -52,29 +188,29 @@
 
                     @foreach (var sitemapItem in Model.AllPages)
                     {
-                    <tr>
-                        <td scope="col"><span class="fw-bold text-primary">@sitemapItem.PageNumber</span></td>
-                        @if (sitemapItem.Loc.ToString().Contains("shevkunenko.site"))
-                        {
-                            <td scope="col" class="text-start">@sitemapItem.Loc.ToString().Substring(24)</td>
-                        }
-                        else
-                        {
-                            <td scope="col" class="text-start">@sitemapItem.Loc.ToString()</td>
-                        }
-                        <td scope="col" class="d-none d-xl-table-cell text-start">@sitemapItem.Title</td>
-                        <td scope="col"><a asp-page="Page-Details" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-primary py-1 px-1 shadw" title="@sitemapItem.Title">Info</a></td>
-                        <td scope="col"><a asp-page="Page-Add-Update" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать страницу">Edit</a></td>
-                        <td scope="col"><a asp-page="Page-Delete" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить страницу">Del</a></td>
-                        @if (sitemapItem.Loc.ToString().Contains("shevkunenko.ru"))
-                        {
-                            <td scope="col"><a href="@sitemapItem.Loc" class="btn btn-outline-primary py-1 px-1 shadw" title="Просмотр страницы">Run</a></td>
-                        }
-                        else
-                        {
-                            <td scope="col"><a asp-page="@sitemapItem.Loc.ToString().Substring(24)" class="btn btn-outline-primary py-1 px-1 shadw" title="Просмотр страницы">Run</a></td>
-                        }
-                    </tr>
+                        <tr>
+                            <td scope="col"><span class="fw-bold text-primary">@sitemapItem.PageNumber</span></td>
+                            @if (sitemapItem.Loc.ToString().Contains("shevkunenko.site"))
+                            {
+                                <td scope="col" class="text-start">@sitemapItem.Loc.ToString().Substring(24)</td>
+                            }
+                            else
+                            {
+                                <td scope="col" class="text-start">@sitemapItem.Loc.ToString()</td>
+                            }
+                            <td scope="col" class="d-none d-xl-table-cell text-start">@sitemapItem.Title</td>
+                            <td scope="col"><a asp-page="Page-Details" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-primary py-1 px-1 shadw" title="@sitemapItem.Title">Info</a></td>
+                            <td scope="col"><a asp-page="Page-Add-Update" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-success py-1 px-1 shadw" title="Редактировать страницу">Edit</a></td>
+                            <td scope="col"><a asp-page="Page-Delete" asp-route-sitemapmodelid="@sitemapItem.SitemapModelId" class="btn btn-outline-danger py-1 px-1 shadw" title="Удалить страницу">Del</a></td>
+                            @if (sitemapItem.Loc.ToString().Contains("shevkunenko.ru"))
+                            {
+                                <td scope="col"><a href="@sitemapItem.Loc" class="btn btn-outline-primary py-1 px-1 shadw" title="Просмотр страницы">Run</a></td>
+                            }
+                            else
+                            {
+                                <td scope="col"><a asp-page="@sitemapItem.Loc.ToString().Substring(24)" class="btn btn-outline-primary py-1 px-1 shadw" title="Просмотр страницы">Run</a></td>
+                            }
+                        </tr>
                     }
 
                 </tbody>

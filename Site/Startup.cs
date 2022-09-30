@@ -56,8 +56,7 @@ namespace Site
                 options.AppendTrailingSlash = true;
             });
 
-            services.Configure<WebEncoderOptions>(options =>
-                options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
+            services.Configure<WebEncoderOptions>(options => options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
 
             services.AddWebMarkupMin(
             options =>
@@ -106,7 +105,7 @@ namespace Site
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapHealthChecks("/healthz");
+                //endpoints.MapHealthChecks("/healthz");
                 endpoints.MapGet("/test", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
