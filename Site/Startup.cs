@@ -64,13 +64,13 @@ namespace Site
                 options.AllowMinificationInDevelopmentEnvironment = true;
                 options.AllowCompressionInDevelopmentEnvironment = true;
             })
-            .AddHtmlMinification(
-                options =>
-                {
-                    options.MinificationSettings.RemoveRedundantAttributes = true;
-                    options.MinificationSettings.RemoveHttpProtocolFromAttributes = true;
-                    options.MinificationSettings.RemoveHttpsProtocolFromAttributes = true;
-                })
+            //.AddHtmlMinification(
+            //    options =>
+            //    {
+            //        options.MinificationSettings.RemoveRedundantAttributes = true;
+            //        options.MinificationSettings.RemoveHttpProtocolFromAttributes = true;
+            //        options.MinificationSettings.RemoveHttpsProtocolFromAttributes = true;
+            //    })
             .AddHttpCompression();
 
             services.AddHealthChecks();
@@ -93,7 +93,7 @@ namespace Site
             app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseWebMarkupMin();
+            //app.UseWebMarkupMin();
             app.UseWelcomePage("/Welcome");
 
             app.UseRouting();

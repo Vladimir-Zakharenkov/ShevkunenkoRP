@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetanitViewComponent", "Met
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "shevkunenko.ru", "..\shevkunenko.ru\", "{610E8A56-5298-427E-86CB-F1BE66E2B7AF}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_52614"
 		Debug.AspNetCompiler.PhysicalPath = "..\shevkunenko.ru\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52614\"
@@ -210,7 +210,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_AsyncComponents", "ITVDN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_HybridComponents", "ITVDN\ASP NET CORE\Make UI\Code\Lesson 06. View Components\Samples\HybridComponents\07_HybridComponents.csproj", "{80C5323C-6EC4-4881-8F9B-4B1ECA89A53A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HowToSearchString", "MicrosoftTutorial\C-SHARP\HowToSearchString\HowToSearchString.csproj", "{2A318651-AB9B-4B6A-883F-3B6BD6F36F3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HowToSearchString", "MicrosoftTutorial\C-SHARP\HowToSearchString\HowToSearchString.csproj", "{2A318651-AB9B-4B6A-883F-3B6BD6F36F3A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstProject", "..\AdamFreemanASPCoreNet6\FirstProject\FirstProject.csproj", "{18A0BC4A-E31B-4DEC-9D33-2F08D8168106}"
 EndProject

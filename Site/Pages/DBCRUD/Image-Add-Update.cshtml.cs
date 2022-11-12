@@ -16,14 +16,12 @@ namespace Site.Pages.DBCRUD
         private readonly SiteContext _siteContext;
         public Image_Add_UpdateModel(SiteContext siteContext) => _siteContext = siteContext;
 
-        public uint PageNumber { get; set; }
+        public uint PageNumber { get; set; } = 82;
 
         public ImageModel Image { get; set; }
 
         public async Task<IActionResult> OnGetAsync(Guid? imageId)
         {
-            PageNumber = 82;
-
             if (imageId.HasValue)
             {
                 Image = await _siteContext.ImageModels.FindAsync(imageId);
